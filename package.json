@@ -25,7 +25,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://secretariat-formats-celebrities-streams.trycloudflare.com&& react-scripts start",
     "build": "react-scripts build",
+    "build:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://secretariat-formats-celebrities-streams.trycloudflare.com&& react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
