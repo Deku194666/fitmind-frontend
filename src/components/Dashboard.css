@@ -58,7 +58,7 @@
   }
 
   .parrafo1 {
-    font-size: 1rem;
+    font-size: 2rem;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -67,15 +67,17 @@
   }
 
   .parrafo2 {
-    font-size: 1.5rem;
+    font-size: 2.1rem;
     margin-left: 5%; /* mejor % que fija para que se ajuste */
     text-align: left;
+    width: 90%;
   }
 
   .parrafo31 {
-    font-size: 1rem !important;
-    margin-left: 5% !important; /* mismo cambio */
-    line-height: 1.2rem;
+    font-size: 1.35rem !important;
+    margin-left: 0rem !important; /* mismo cambio */
+    line-height: 0.2rem;
     text-align: left;
+    width: 21rem
   }
 }

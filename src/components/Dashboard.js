@@ -925,13 +925,15 @@ return (
           paragraph
           className="parrafo1"
           sx={{
-            fontSize: '1.5rem',
+            fontSize: { xs: '1.9rem', md: '2.2rem' },
             marginLeft: { xs: 0, md: '5rem' },
             width: { xs: '100%', md: '79rem' },
             marginBottom: '5rem'
           }}>
 
-          Bienvenido a FitMind, tu compañero integral para un estilo de vida saludable. Aquí podrás seguir tu nutrición, hidratación, controlar tus calorías y mejorar tu bienestar mental, todo en un solo lugar. ¡Comienza hoy a cuidar de ti!
+          Bienvenido a FitMind, tu compañero integral para un estilo de vida saludable. Aquí podrás seguir tu nutrición,
+          hidratación, controlar tus calorías, seguimiento de tus ejercicios, mejorar tu bienestar mental, y mas todo en un solo lugar.
+          ¡Comienza hoy a cuidar de ti!
         </Typography>
 
         {/* Recuadros organizados en fila */}
@@ -966,7 +968,7 @@ return (
     {/* Elongación */}
 {elongacion?.tiempo && elongacion?.fecha && (
   <Box sx={{ marginTop: 2 }}>
-    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#2980b9' }}>
       🧘 Última sesión de Elongación
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
@@ -986,7 +988,7 @@ return (
     {/* Musculación */}
     {musculacion && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏋️ Última sesión de Musculación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1004,7 +1006,7 @@ return (
     {/* Correr */}
     {correr && (
       <Box sx={{ marginTop: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#2980b9' }}>
           🏃 Última sesión de Correr
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1022,7 +1024,7 @@ return (
     {/* Trote */}
     {trote && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏃 Última sesión de Trote
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1040,7 +1042,7 @@ return (
     {/* Sprint */}
     {sprint && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏃 Última sesión de Sprint
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1058,7 +1060,7 @@ return (
     {/* Bicicleta */}
     {bicicleta && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🚴 Última sesión de Bicicleta
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1076,7 +1078,7 @@ return (
     {/* Caminata */}
     {caminar && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🚶 Última sesión de Caminata
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1094,7 +1096,7 @@ return (
     {/* Natación */}
     {nadar && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏊‍♂️ Última sesión de Natación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1112,7 +1114,7 @@ return (
     {/* Boxeo de Saco */}
     {boxeosaco && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🥊 Última sesión de Boxeo de Saco
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
@@ -1129,10 +1131,10 @@ return (
   </Paper>
 )}
 
-          {/* Hidratación y Sueño en columna */}
-          <Box display="flex" flexDirection="column" gap={3} alignItems="center">
+{/* Hidratación y Sueño en columna */}
+<Box display="flex" flexDirection="column" gap={3} alignItems="center">
 
-           {/* 🔥 Hidratación + Calorías en la misma fila */}
+{/* 🔥 Hidratación + Calorías en la misma fila */}
 <Box
   display="flex"
   flexDirection={{ xs: "column", md: "row" }} // 📱 columna en móvil, 🖥️ fila en escritorio
@@ -1146,11 +1148,14 @@ return (
     sx={{
       padding: 3,
       borderRadius: 3,
-      height: "20rem",
-      flex: 1,
-      minWidth: { xs: "100%", md: "28rem" },
-    }}
-  >
+      marginBottom: 1.9,
+      textAlign: 'center',
+      height: 'auto',
+      width: { xs: '25rem', sm: '40rem', md: '28rem' },
+      maxWidth: '100%',
+    }}>
+
+    
     <Typography
       component={Link}
       to="/hidratacion"
@@ -1252,22 +1257,22 @@ return (
   marginTop={3}
 >
   {/* Sueño */}
-  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "28rem" }, textAlign: "center" }}>
+  <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, height: 'auto',  width: { xs: '25rem', sm: '30rem', md: '32rem' } }}>
     <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
       🛌 Sueño
     </Typography>
     {sueno ? (
       <>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2, textAlign: 'center' }}>
           <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
         </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", textAlign: 'center' }}>
           <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
         </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", textAlign: 'center' }}>
           <strong>Calidad del Sueño:</strong> {sueno.calidad}
         </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", textAlign: 'center' }}>
           <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
         </Typography>
       </>
@@ -1331,23 +1336,23 @@ return (
 
 
 
-          {yoga && (   // 🔥 Solo si hay un registro de yoga aparece el módulo completo
+  {yoga && (   // 🔥 Solo si hay un registro de yoga aparece el módulo completo
   <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, width: { xs: '100%', sm: '30rem' }, height: 'auto' }}>
-    <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650 }}>
+    <Typography className="parrafo2" sx={{ fontSize: '2.5rem', fontWeight: 650 }}>
       🧠 Bienestar Mental
     </Typography>
     <Box>
-      <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', textAlign: 'center' }}>
+      <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', textAlign: 'center', color: '#2980b9', marginBottom: '0.1rem' }}>
         🧘‍♂️ Última sesión de Yoga
       </Typography>
       <Typography sx={{ fontSize: '1.3rem', textAlign: 'center' }}>
-        ⏱️ Tiempo realizado: {Math.floor(yoga.tiempo / 60)} min {yoga.tiempo % 60} seg
+        ⏱️ <strong>  Tiempo realizado: </strong> {Math.floor(yoga.tiempo / 60)} min {yoga.tiempo % 60} seg
       </Typography>
       <Typography sx={{ fontSize: '1.3rem', textAlign:'center' }}>
-        🔥 Calorías quemadas: {yoga.calorias} kcal
+        <strong>🔥 Calorías quemadas: </strong>  {yoga.calorias} kcal
       </Typography>
       <Typography sx={{ fontSize: '1.3rem', textAlign:'center' }}>
-        📅 Fecha: {new Date(yoga.fecha).toLocaleString()}
+        <strong>📅 Fecha: </strong> {new Date(yoga.fecha).toLocaleString()}
       </Typography>
     </Box>
   </Paper>
