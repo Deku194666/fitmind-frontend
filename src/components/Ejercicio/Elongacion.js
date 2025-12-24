@@ -6,6 +6,30 @@ const Elongacion = () => {
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
 
+  // 🔄 Restaurar cronómetro desde localStorage al montar el componente
+  useEffect(() => {
+    const savedTiempo = localStorage.getItem('elongacion_tiempo');
+    const savedIsRunning = localStorage.getItem('elongacion_isRunning');
+
+    if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+    if (savedIsRunning === 'true') setIsRunning(true);
+  }, []);
+
+  // ⏱️ Cronómetro
+  useEffect(() => {
+    let intervalo;
+    if (isRunning) {
+      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
+    }
+    return () => clearInterval(intervalo);
+  }, [isRunning]);
+
+  // 💾 Guardar estado del cronómetro en localStorage
+  useEffect(() => {
+    localStorage.setItem('elongacion_isRunning', isRunning);
+    localStorage.setItem('elongacion_tiempo', tiempo);
+  }, [isRunning, tiempo]);
+
   const caloriasPorMinuto = 3;
   const calorias = tiempo > 0 ? ((tiempo / 60) * caloriasPorMinuto).toFixed(2) : 0;
 
@@ -16,17 +40,17 @@ const Elongacion = () => {
     window.location.href = '/login';
   };
 
-  // ⏱️ Timeout de inactividad: 1 minuto
+  // ⏱️ Timeout de inactividad: 5 minutos
   useEffect(() => {
     let timeoutId;
 
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(cerrarSesion, 60000);
+      if (isRunning) return; // no cerrar sesión si está corriendo
+      timeoutId = setTimeout(cerrarSesion, 300000);
     };
 
     resetTimeout();
-
     window.addEventListener('mousemove', resetTimeout);
     window.addEventListener('keydown', resetTimeout);
 
@@ -35,17 +59,6 @@ const Elongacion = () => {
       window.removeEventListener('mousemove', resetTimeout);
       window.removeEventListener('keydown', resetTimeout);
     };
-  }, []);
-
-  // Cronómetro
-  useEffect(() => {
-    let intervalo;
-    if (isRunning) {
-      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
-    } else {
-      clearInterval(intervalo);
-    }
-    return () => clearInterval(intervalo);
   }, [isRunning]);
 
   // Cargar última sesión (con header user-id)
@@ -68,13 +81,17 @@ const Elongacion = () => {
     fetchUltimaSesion();
   }, []);
 
-  const handleStartStop = () => setIsRunning(!isRunning);
+  const handleStartStop = () => {
+    setIsRunning(!isRunning);
+  };
+
   const handleReset = () => {
     setIsRunning(false);
     setTiempo(0);
+    localStorage.removeItem('elongacion_isRunning');
+    localStorage.removeItem('elongacion_tiempo');
   };
 
-  // Guardar sesión (con header user-id y calorías como número)
   const handleFinalizar = async () => {
     const usuario_id = localStorage.getItem('usuario_id');
     if (!usuario_id) {
@@ -91,6 +108,9 @@ const Elongacion = () => {
       alert('✅ Sesión registrada con éxito');
       setUltimaSesion({ tiempo, calorias: parseFloat(calorias), fecha: new Date() });
       setTiempo(0);
+      setIsRunning(false);
+      localStorage.removeItem('elongacion_isRunning');
+      localStorage.removeItem('elongacion_tiempo');
     } catch (error) {
       console.error('❌ Error al registrar elongación:', error.response?.data || error.message);
       alert('Error al registrar en la base de datos');
@@ -102,8 +122,7 @@ const Elongacion = () => {
     const h = Math.floor(segundos / 3600);
     const m = Math.floor((segundos % 3600) / 60);
     const s = segundos % 60;
-    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s
-      .toString().padStart(2, '0')}`;
+    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
   const beneficios = [
@@ -175,19 +194,7 @@ const Elongacion = () => {
 
       {!isRunning && tiempo > 0 && (
         <div style={{ marginTop: '2rem' }}>
-          <button
-            onClick={handleFinalizar}
-            style={{
-              backgroundColor: '#2196f3',
-              color: '#fff',
-              padding: '0.8rem 2.5rem',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '1.2rem',
-              cursor: 'pointer',
-              boxShadow: '0 3px 6px rgba(0,0,0,0.1)',
-              transition: 'background-color 0.3s'
-            }}>
+          <button onClick={handleFinalizar} style={{ backgroundColor: '#2196f3', color: '#fff', padding: '0.8rem 2.5rem', border: 'none', borderRadius: '8px', fontSize: '1.2rem', cursor: 'pointer', boxShadow: '0 3px 6px rgba(0,0,0,0.1)', transition: 'background-color 0.3s' }}>
             Finalizar sesión
           </button>
         </div>
@@ -213,15 +220,7 @@ const Elongacion = () => {
         <p style={{ marginTop: '2rem', color: '#888' }}>No hay sesiones registradas aún.</p>
       )}
 
-      <div style={{
-        maxWidth: '60rem',
-        margin: '4rem auto',
-        textAlign: 'left',
-        padding: '2rem',
-        backgroundColor: '#f9f9f9',
-        borderRadius: '12px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
-      }}>
+      <div style={{maxWidth: '60rem', margin: '4rem auto', textAlign: 'left', padding: '2rem', backgroundColor: '#f9f9f9', borderRadius: '12px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)'}}>
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.6rem' }}>
           🌿 Beneficios de la Elongación
         </h2>

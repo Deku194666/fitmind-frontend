@@ -1,0 +1,73 @@
+/* Contenedor principal */
+.registro-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid #2980b9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* Inputs */
+.registro-container input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Botón */
+.registro-container button {
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registro-container button:hover {
+  background-color: #2980b9;
+}
+
+/* Mensaje */
+.registro-container p {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Media query para móviles */
+@media (max-width: 480px) {
+  .registro-container {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 5rem;
+  }
+
+  .registro-container input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .registro-container button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+
+  .contenedor   {  
+
+    width: 24rem;
+
+  }
+}

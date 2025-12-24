@@ -972,13 +972,13 @@ return (
       🧘 Última sesión de Elongación
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      ⏱️ Tiempo realizado: {Math.floor(elongacion.tiempo / 60)} min {elongacion.tiempo % 60} seg
+      <strong>⏱️ Tiempo realizado: </strong>  {Math.floor(elongacion.tiempo / 60)} min {elongacion.tiempo % 60} seg
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      🔥 Calorías quemadas: {elongacion.calorias} kcal
+      <strong>🔥 Calorías quemadas:</strong> {elongacion.calorias} kcal
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      📅 Fecha: {new Date(elongacion.fecha).toLocaleString()}
+      <strong>📅 Fecha: </strong>{new Date(elongacion.fecha).toLocaleString()}
     </Typography>
   </Box>
 )}
@@ -992,13 +992,13 @@ return (
           🏋️ Última sesión de Musculación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(musculacion.tiempo / 60)} min {musculacion.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(musculacion.tiempo / 60)} min {musculacion.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {musculacion.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {musculacion.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(musculacion.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(musculacion.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1010,13 +1010,13 @@ return (
           🏃 Última sesión de Correr
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(correr.tiempo / 60)} min {correr.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(correr.tiempo / 60)} min {correr.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {correr.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong>  {correr.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(correr.fecha).toLocaleString()}
+         <strong>  📅 Fecha: </strong> {new Date(correr.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1028,13 +1028,13 @@ return (
           🏃 Última sesión de Trote
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(trote.tiempo / 60)} min {trote.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(trote.tiempo / 60)} min {trote.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {trote.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {trote.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(trote.fecha).toLocaleString()}
+          <strong>  Fecha: </strong>  {new Date(trote.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1046,13 +1046,13 @@ return (
           🏃 Última sesión de Sprint
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(sprint.tiempo / 60)} min {sprint.tiempo % 60} seg
+          <strong>  ⏱️ Tiempo realizado: </strong> {Math.floor(sprint.tiempo / 60)} min {sprint.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {sprint.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong>  {sprint.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(sprint.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong>   {new Date(sprint.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1064,13 +1064,13 @@ return (
           🚴 Última sesión de Bicicleta
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(bicicleta.tiempo / 60)} min {bicicleta.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong>  {Math.floor(bicicleta.tiempo / 60)} min {bicicleta.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {bicicleta.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong>  {bicicleta.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(bicicleta.fecha).toLocaleString()}
+         <strong>  📅 Fecha: </strong>  {new Date(bicicleta.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1082,13 +1082,13 @@ return (
           🚶 Última sesión de Caminata
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(caminar.tiempo / 60)} min {caminar.tiempo % 60} seg
+         <strong> ⏱️ Tiempo realizado: </strong>  {Math.floor(caminar.tiempo / 60)} min {caminar.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {caminar.calorias} kcal
+         <strong> 🔥 Calorías quemadas: </strong> {caminar.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(caminar.fecha).toLocaleString()}
+         <strong>  📅 Fecha: </strong> {new Date(caminar.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1100,13 +1100,13 @@ return (
           🏊‍♂️ Última sesión de Natación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(nadar.tiempo / 60)} min {nadar.tiempo % 60} seg
+          <strong>  ⏱️ Tiempo realizado: </strong> {Math.floor(nadar.tiempo / 60)} min {nadar.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {nadar.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong>  {nadar.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(nadar.fecha).toLocaleString()}
+         <strong> 📅 Fecha: </strong>  {new Date(nadar.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1118,13 +1118,13 @@ return (
           🥊 Última sesión de Boxeo de Saco
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(boxeosaco.tiempo / 60)} min {boxeosaco.tiempo % 60} seg
+          <strong>  ⏱️ Tiempo realizado: </strong>  {Math.floor(boxeosaco.tiempo / 60)} min {boxeosaco.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {boxeosaco.calorias} kcal
+         <strong>  🔥 Calorías quemadas: </strong> {boxeosaco.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(boxeosaco.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(boxeosaco.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
