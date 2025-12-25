@@ -47,7 +47,7 @@ const Elongacion = () => {
     const resetTimeout = () => {
       clearTimeout(timeoutId);
       if (isRunning) return; // no cerrar sesión si está corriendo
-      timeoutId = setTimeout(cerrarSesion, 300000);
+      timeoutId = setTimeout(cerrarSesion, 600000);
     };
 
     resetTimeout();

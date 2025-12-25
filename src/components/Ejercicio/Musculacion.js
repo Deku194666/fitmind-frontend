@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../config';
 
-console.log('[FRONT] API_URL:', API_URL);
-
 const Musculacion = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0);
@@ -46,6 +44,33 @@ const Musculacion = () => {
     localStorage.setItem('musculacion_isRunning', isRunning);
   }, [tiempo, isRunning]);
 
+  // 🔑 Función para cerrar sesión por inactividad
+  const cerrarSesion = () => {
+    alert('⏱️ Sesión expirada por inactividad');
+    localStorage.clear();
+    window.location.href = '/login';
+  };
+
+  // ⏱️ Timeout de inactividad: 5 minutos
+  useEffect(() => {
+    let timeoutId;
+    const resetTimeout = () => {
+      clearTimeout(timeoutId);
+      if (isRunning) return; // no cerrar sesión si el cronómetro está corriendo
+      timeoutId = setTimeout(cerrarSesion, 300000);
+    };
+
+    resetTimeout();
+    window.addEventListener('mousemove', resetTimeout);
+    window.addEventListener('keydown', resetTimeout);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('mousemove', resetTimeout);
+      window.removeEventListener('keydown', resetTimeout);
+    };
+  }, [isRunning]);
+
   const fetchUltimaSesion = useCallback(async () => {
     const usuario_id = localStorage.getItem('usuario_id');
     if (!usuario_id) {
@@ -79,9 +104,8 @@ const Musculacion = () => {
   // Cronómetro
   useEffect(() => {
     let intervalo;
-    if (isRunning) {
-      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
-    } else clearInterval(intervalo);
+    if (isRunning) intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
+    else clearInterval(intervalo);
     return () => clearInterval(intervalo);
   }, [isRunning]);
 
@@ -106,11 +130,8 @@ const Musculacion = () => {
       );
 
       await fetchUltimaSesion();
-      setTiempo(0);
-      setIsRunning(false);
+      handleReset();
       setEjercicios([]);
-      localStorage.removeItem('musculacion_tiempo');
-      localStorage.removeItem('musculacion_isRunning');
       alert('✅ Sesión registrada con éxito');
     } catch (error) {
       console.error('Error al registrar sesión:', error);
@@ -164,9 +185,7 @@ const Musculacion = () => {
           color:'#fff',
           fontSize:'1.2rem',
           cursor:'pointer'
-        }}>
-          {isRunning ? 'Detener' : 'Iniciar'}
-        </button>
+        }}>{isRunning ? 'Detener' : 'Iniciar'}</button>
 
         <button onClick={handleReset} style={{
           padding:'0.8rem 2rem',
@@ -176,9 +195,7 @@ const Musculacion = () => {
           color:'#333',
           fontSize:'1.2rem',
           cursor:'pointer'
-        }}>
-          Reiniciar
-        </button>
+        }}>Reiniciar</button>
       </div>
 
       {!isRunning && tiempo > 0 && (
@@ -216,9 +233,7 @@ const Musculacion = () => {
                   <h4>📝 Ejercicios realizados:</h4>
                   <ul>
                     {ultimaSesion.ejercicios.map((ej, index) => (
-                      <li key={index}>
-                        {ej.nombre} — {ej.series} x {ej.repeticiones}
-                      </li>
+                      <li key={index}>{ej.nombre} — {ej.series} x {ej.repeticiones}</li>
                     ))}
                   </ul>
                 </div>
@@ -236,9 +251,7 @@ const Musculacion = () => {
         border:'1px solid #ccc',
         backgroundColor:'#fff',
         cursor:'pointer'
-      }}>
-        📝 Anotar ejercicios
-      </button>
+      }}>📝 Anotar ejercicios</button>
 
       {mostrarEjercicios && (
         <div style={{

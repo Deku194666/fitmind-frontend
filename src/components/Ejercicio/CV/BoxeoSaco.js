@@ -35,7 +35,7 @@ const BoxeoSaco = () => {
     let timeoutId;
     const resetTimeout = () => {
       if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(cerrarSesion, 60000);
+      timeoutId = setTimeout(cerrarSesion, 600000);
     };
     window.addEventListener('mousemove', resetTimeout);
     window.addEventListener('keydown', resetTimeout);
