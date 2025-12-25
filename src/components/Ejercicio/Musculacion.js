@@ -10,7 +10,6 @@ const Musculacion = () => {
   const [ultimaSesion, setUltimaSesion] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 📝 Lista de ejercicios en sesión activa
   const [mostrarEjercicios, setMostrarEjercicios] = useState(false);
   const [ejercicios, setEjercicios] = useState([]);
   const [nuevoEjercicio, setNuevoEjercicio] = useState({
@@ -32,6 +31,21 @@ const Musculacion = () => {
     "Contribuye a la salud mental y autoestima",
   ];
 
+  // 🔄 Restaurar cronómetro desde localStorage al montar
+  useEffect(() => {
+    const savedTiempo = localStorage.getItem('musculacion_tiempo');
+    const savedIsRunning = localStorage.getItem('musculacion_isRunning');
+
+    if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+    if (savedIsRunning === 'true') setIsRunning(true);
+  }, []);
+
+  // 🔄 Guardar estado del cronómetro en localStorage
+  useEffect(() => {
+    localStorage.setItem('musculacion_tiempo', tiempo);
+    localStorage.setItem('musculacion_isRunning', isRunning);
+  }, [tiempo, isRunning]);
+
   const fetchUltimaSesion = useCallback(async () => {
     const usuario_id = localStorage.getItem('usuario_id');
     if (!usuario_id) {
@@ -48,7 +62,7 @@ const Musculacion = () => {
         tiempo: Number(sesion.tiempo) || 0,
         calorias: Number(sesion.calorias) || 0,
         fecha: sesion.fecha ? new Date(sesion.fecha) : null,
-        ejercicios: sesion.ejercicios || [] // 🆕 ejercicios de la última sesión
+        ejercicios: sesion.ejercicios || []
       });
     } catch (err) {
       console.error('Error al obtener última sesión:', err);
@@ -62,6 +76,7 @@ const Musculacion = () => {
     fetchUltimaSesion();
   }, [fetchUltimaSesion]);
 
+  // Cronómetro
   useEffect(() => {
     let intervalo;
     if (isRunning) {
@@ -71,9 +86,12 @@ const Musculacion = () => {
   }, [isRunning]);
 
   const handleStartStop = () => setIsRunning(!isRunning);
+
   const handleReset = () => {
     setIsRunning(false);
     setTiempo(0);
+    localStorage.removeItem('musculacion_tiempo');
+    localStorage.removeItem('musculacion_isRunning');
   };
 
   const handleFinalizar = async () => {
@@ -90,7 +108,9 @@ const Musculacion = () => {
       await fetchUltimaSesion();
       setTiempo(0);
       setIsRunning(false);
-      setEjercicios([]); // limpiamos lista al finalizar
+      setEjercicios([]);
+      localStorage.removeItem('musculacion_tiempo');
+      localStorage.removeItem('musculacion_isRunning');
       alert('✅ Sesión registrada con éxito');
     } catch (error) {
       console.error('Error al registrar sesión:', error);
@@ -136,48 +156,42 @@ const Musculacion = () => {
       </h1>
 
       <div style={{ display:'flex', gap:'1rem', marginTop:'1rem' }}>
-        <button
-          onClick={handleStartStop}
-          style={{
-            padding:'0.8rem 2rem',
-            borderRadius:'8px',
-            border:'none',
-            backgroundColor:isRunning ? '#f44336':'#4caf50',
-            color:'#fff',
-            fontSize:'1.2rem',
-            cursor:'pointer'
-          }}>
+        <button onClick={handleStartStop} style={{
+          padding:'0.8rem 2rem',
+          borderRadius:'8px',
+          border:'none',
+          backgroundColor:isRunning ? '#f44336':'#4caf50',
+          color:'#fff',
+          fontSize:'1.2rem',
+          cursor:'pointer'
+        }}>
           {isRunning ? 'Detener' : 'Iniciar'}
         </button>
 
-        <button
-          onClick={handleReset}
-          style={{
-            padding:'0.8rem 2rem',
-            borderRadius:'8px',
-            border:'1px solid #ccc',
-            backgroundColor:'#fff',
-            color:'#333',
-            fontSize:'1.2rem',
-            cursor:'pointer'
-          }}>
+        <button onClick={handleReset} style={{
+          padding:'0.8rem 2rem',
+          borderRadius:'8px',
+          border:'1px solid #ccc',
+          backgroundColor:'#fff',
+          color:'#333',
+          fontSize:'1.2rem',
+          cursor:'pointer'
+        }}>
           Reiniciar
         </button>
       </div>
 
       {!isRunning && tiempo > 0 && (
         <div style={{ marginTop:'2rem' }}>
-          <button
-            onClick={handleFinalizar}
-            style={{
-              backgroundColor:'#2196f3',
-              color:'#fff',
-              padding:'0.8rem 2.5rem',
-              border:'none',
-              borderRadius:'8px',
-              fontSize:'1.2rem',
-              cursor:'pointer'
-            }}>
+          <button onClick={handleFinalizar} style={{
+            backgroundColor:'#2196f3',
+            color:'#fff',
+            padding:'0.8rem 2.5rem',
+            border:'none',
+            borderRadius:'8px',
+            fontSize:'1.2rem',
+            cursor:'pointer'
+          }}>
             Finalizar sesión
           </button>
         </div>
@@ -187,7 +201,7 @@ const Musculacion = () => {
         🔥 Calorías quemadas estimadas: <strong>{calorias} kcal</strong>
       </p>
 
-      {/* ÚLTIMA SESIÓN */}
+      {/* Última sesión */}
       <div style={{ marginTop:'2rem', padding:'1rem', backgroundColor:'#e0f7fa', borderRadius:'10px', width:'100%' }}>
         {loading ? <p>Cargando última sesión...</p> :
           ultimaSesion ? (
@@ -197,7 +211,6 @@ const Musculacion = () => {
               <p>🔥 Calorías: <strong>{ultimaSesion.calorias.toFixed(2)} kcal</strong></p>
               <p>🗓️ Fecha: <strong>{ultimaSesion.fecha ? ultimaSesion.fecha.toLocaleString() : "Sin datos"}</strong></p>
 
-              {/* 🏋️ Ejercicios de la última sesión */}
               {ultimaSesion.ejercicios && ultimaSesion.ejercicios.length > 0 && (
                 <div style={{ marginTop:'1rem' }}>
                   <h4>📝 Ejercicios realizados:</h4>
@@ -215,17 +228,15 @@ const Musculacion = () => {
         }
       </div>
 
-      {/* 📝 Lista de ejercicios activa */}
-      <button
-        onClick={() => setMostrarEjercicios(!mostrarEjercicios)}
-        style={{
-          marginTop:'1.5rem',
-          padding:'0.6rem 1.5rem',
-          borderRadius:'8px',
-          border:'1px solid #ccc',
-          backgroundColor:'#fff',
-          cursor:'pointer'
-        }}>
+      {/* Lista de ejercicios activa */}
+      <button onClick={() => setMostrarEjercicios(!mostrarEjercicios)} style={{
+        marginTop:'1.5rem',
+        padding:'0.6rem 1.5rem',
+        borderRadius:'8px',
+        border:'1px solid #ccc',
+        backgroundColor:'#fff',
+        cursor:'pointer'
+      }}>
         📝 Anotar ejercicios
       </button>
 
@@ -239,21 +250,12 @@ const Musculacion = () => {
           boxShadow:'0 2px 10px rgba(0,0,0,0.1)'
         }}>
           <div style={{ display:'flex', gap:'0.5rem' }}>
-            <input
-              placeholder="Ejercicio"
-              value={nuevoEjercicio.nombre}
+            <input placeholder="Ejercicio" value={nuevoEjercicio.nombre}
               onChange={e => setNuevoEjercicio({ ...nuevoEjercicio, nombre: e.target.value })}/>
-
-            <input
-              placeholder="Series"
-              value={nuevoEjercicio.series}
+            <input placeholder="Series" value={nuevoEjercicio.series}
               onChange={e => setNuevoEjercicio({ ...nuevoEjercicio, series: e.target.value })}/>
-
-            <input
-              placeholder="Reps"
-              value={nuevoEjercicio.repeticiones}
+            <input placeholder="Reps" value={nuevoEjercicio.repeticiones}
               onChange={e => setNuevoEjercicio({ ...nuevoEjercicio, repeticiones: e.target.value })}/>
-              
             <button onClick={agregarEjercicio}>➕</button>
           </div>
 
@@ -268,7 +270,7 @@ const Musculacion = () => {
         </div>
       )}
 
-      {/* BENEFICIOS */}
+      {/* Beneficios */}
       <div style={{
         maxWidth:'60rem',
         margin:'4rem auto',
