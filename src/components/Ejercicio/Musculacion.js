@@ -7,6 +7,8 @@ const Musculacion = () => {
   const [tiempo, setTiempo] = useState(0);
   const [ultimaSesion, setUltimaSesion] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
+
 
   const [mostrarEjercicios, setMostrarEjercicios] = useState(false);
   const [ejercicios, setEjercicios] = useState([]);
@@ -31,18 +33,22 @@ const Musculacion = () => {
 
   // 🔄 Restaurar cronómetro desde localStorage al montar
   useEffect(() => {
-    const savedTiempo = localStorage.getItem('musculacion_tiempo');
-    const savedIsRunning = localStorage.getItem('musculacion_isRunning');
+  const savedTiempo = localStorage.getItem('musculacion_tiempo');
+  const savedIsRunning = localStorage.getItem('musculacion_isRunning');
 
-    if (savedTiempo !== null) setTiempo(Number(savedTiempo));
-    if (savedIsRunning === 'true') setIsRunning(true);
-  }, []);
+  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+  if (savedIsRunning === 'true') setIsRunning(true);
+
+  setHydrated(true); // 👈 CLAVE
+}, []);
 
   // 🔄 Guardar estado del cronómetro en localStorage
   useEffect(() => {
+    if (!hydrated) return; 
+
     localStorage.setItem('musculacion_tiempo', tiempo);
     localStorage.setItem('musculacion_isRunning', isRunning);
-  }, [tiempo, isRunning]);
+  }, [tiempo, isRunning,hydrated]);
 
   // 🔑 Función para cerrar sesión por inactividad
   const cerrarSesion = () => {

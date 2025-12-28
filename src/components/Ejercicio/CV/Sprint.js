@@ -5,6 +5,8 @@ const Sprint = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [hydrated, setHydrated] = useState(false);
+
 
   const caloriasPorMinuto = 15; // promedio entre sprint intenso y pausas breves
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); // string para mostrar
@@ -21,6 +23,7 @@ const Sprint = () => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
+      if (isRunning) return; // 👈 NO cerrar si está sprintando
       timeoutId = setTimeout(cerrarSesion, 60000);
     };
     resetTimeout();
@@ -32,6 +35,28 @@ const Sprint = () => {
       window.removeEventListener('keydown', resetTimeout);
     };
   }, []);
+
+
+  // 🔄 Restaurar estado del cronómetro (sprint)
+useEffect(() => {
+  const savedTiempo = localStorage.getItem('sprint_tiempo');
+  const savedIsRunning = localStorage.getItem('sprint_isRunning');
+
+  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+  if (savedIsRunning === 'true') setIsRunning(true);
+
+  setHydrated(true); // 👈 CLAVE para staging
+}, []);
+
+// 💾 Guardar estado del cronómetro (sprint)
+useEffect(() => {
+  if (!hydrated) return;
+
+  localStorage.setItem('sprint_tiempo', tiempo);
+  localStorage.setItem('sprint_isRunning', isRunning);
+}, [tiempo, isRunning, hydrated]);
+
+
 
   // Cronómetro
   useEffect(() => {

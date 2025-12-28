@@ -5,6 +5,8 @@ const Bicicleta = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [hydrated, setHydrated] = useState(false);
+
 
   const caloriasPorMinuto = 9.0; // estimación para ciclismo moderado (~20 km/h)
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2);
@@ -57,6 +59,7 @@ const Bicicleta = () => {
 
     const reiniciarTimer = () => {
       if (timeout) clearTimeout(timeout);
+      if (isRunning) return;
       timeout = setTimeout(cerrarSesion, 60 * 1000); // 1 minuto = 60.000 ms
     };
 
@@ -73,6 +76,29 @@ const Bicicleta = () => {
       window.removeEventListener('click', reiniciarTimer);
     };
   }, []);
+
+
+  // 🔄 Restaurar estado del cronómetro
+useEffect(() => {
+  const savedTiempo = localStorage.getItem('bicicleta_tiempo');
+  const savedIsRunning = localStorage.getItem('bicicleta_isRunning');
+
+  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+  if (savedIsRunning === 'true') setIsRunning(true);
+
+  setHydrated(true); // 👈 CLAVE
+}, []);
+
+
+// 💾 Guardar estado del cronómetro
+useEffect(() => {
+  if (!hydrated) return; // 👈 evita bug staging
+
+  localStorage.setItem('bicicleta_tiempo', tiempo);
+  localStorage.setItem('bicicleta_isRunning', isRunning);
+}, [tiempo, isRunning, hydrated]);
+
+
 
   // --- HANDLERS DEL CRONOMETRO ---
   const handleStartStop = () => setIsRunning(!isRunning);

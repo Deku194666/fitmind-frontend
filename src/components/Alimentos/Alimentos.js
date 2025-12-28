@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Alimentos.css';
 
 function BuscadorAlimentos() {
   const [alimentos, setAlimentos] = useState([]);
@@ -33,8 +34,7 @@ function BuscadorAlimentos() {
   }, [busqueda]); // cada vez que cambie la búsqueda, hacemos la consulta
 
   return (
-    <div
-      style={{
+    <div  className="buscador-container" style={{
         maxWidth: '900px',
         margin: '40px auto',
         padding: '30px',
@@ -43,16 +43,11 @@ function BuscadorAlimentos() {
         backgroundColor: '#f9f9f9'
       }}
     >
-      <h2
-        style={{
-          color: '#2980b9',
-          fontSize: '2rem',
-          marginBottom: '20px'
-        }}
-      >
+      <h2 style={{ color: '#2980b9', fontSize: '2rem', marginBottom: '20px'}}>
         Buscador de Alimentos
       </h2>
-      <input
+      <input  
+      className='buscador-input' 
         type="text"
         placeholder="Buscar alimento..."
         value={busqueda}
@@ -60,14 +55,7 @@ function BuscadorAlimentos() {
           console.log('Buscando:', e.target.value); // esto imprime lo que escribes
           setBusqueda(e.target.value);
         }}
-        style={{
-          padding: '12px',
-          borderRadius: '8px',
-          border: '1px solid #ccc',
-          fontSize: '16px',
-          width: '100%',
-          marginBottom: '25px'
-        }}
+        
       />
 
       <div

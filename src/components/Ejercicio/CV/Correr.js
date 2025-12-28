@@ -5,6 +5,8 @@ const Correr = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [hydrated, setHydrated] = useState(false);
+
 
   const caloriasPorMinuto = 12; // estimado para correr a velocidad media (~8-10 km/h)
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2);
@@ -21,6 +23,7 @@ const Correr = () => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
+      if (isRunning) return; // 👈 no cerrar si está corriendo
       timeoutId = setTimeout(cerrarSesion, 60000);
     };
     resetTimeout();
@@ -32,6 +35,30 @@ const Correr = () => {
       window.removeEventListener('keydown', resetTimeout);
     };
   }, []);
+
+
+  // 🔄 Restaurar estado del cronómetro (correr)
+useEffect(() => {
+  const savedTiempo = localStorage.getItem('correr_tiempo');
+  const savedIsRunning = localStorage.getItem('correr_isRunning');
+
+  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+  if (savedIsRunning === 'true') setIsRunning(true);
+
+  setHydrated(true); // 👈 CLAVE
+}, []);
+
+
+
+// 💾 Guardar estado del cronómetro (correr)
+useEffect(() => {
+  if (!hydrated) return;
+
+  localStorage.setItem('correr_tiempo', tiempo);
+  localStorage.setItem('correr_isRunning', isRunning);
+}, [tiempo, isRunning, hydrated]);
+
+
 
   // Cronómetro
   useEffect(() => {
@@ -68,6 +95,8 @@ const Correr = () => {
     setIsRunning(false);
     setTiempo(0);
   };
+
+  
 
   // Guardar sesión (header user-id + calorías como número) y refrescar tarjeta local
   const handleFinalizar = async () => {

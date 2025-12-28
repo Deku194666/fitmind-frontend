@@ -1,22 +1,73 @@
-
-
-.Parra1 {
-
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
-
+/* ===============================
+   CONTENEDOR GENERAL
+================================ */
+.ecnt-detail {
+  max-width: 3900px !important ;
+  margin: 0 auto;
 }
 
-.pha2 {
+/* ===============================
+   TÍTULO PRINCIPAL
+================================ */
+.p13 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  text-align: left;
+  margin-top: 1rem !important ;
+  margin-bottom: 1rem;
+}
 
+/* ===============================
+   SUBTÍTULOS
+================================ */
+.p14 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 145rem !important;
+}
+
+/* ===============================
+   PÁRRAFOS LARGOS
+================================ */
+.p150 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left;
+  max-width: 199rem !important ;
+  margin-bottom: 3rem;
+  color: #333;
+  margin-left: 6rem !important ;
+}
+
+
+
+@media (max-width: 768px) {
+
+  
+
+  .p13 {
     font-size: 2rem;
     text-align: left;
-    margin-left: 6rem;
-    max-width:  99rem;
-    margin-bottom:  5rem;
+    margin-left: 3rem !important; 
+  }
 
+  .p14 {
+    font-size: 1.6rem;
+    margin-left: 3rem !important;
+  }
+
+  .p150 {
+    font-size: 1.8rem  !important ; 
+    line-height: 1.7;
+    width: 24rem  !important;
+    margin-left: 3rem !important ;
+    margin-right: 4rem !important;
+
+
+
+  }
 }

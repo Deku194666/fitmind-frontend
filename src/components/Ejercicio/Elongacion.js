@@ -5,15 +5,19 @@ const Elongacion = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [hydrated, setHydrated] = useState(false);
+
 
   // 🔄 Restaurar cronómetro desde localStorage al montar el componente
   useEffect(() => {
-    const savedTiempo = localStorage.getItem('elongacion_tiempo');
-    const savedIsRunning = localStorage.getItem('elongacion_isRunning');
+  const savedTiempo = localStorage.getItem('elongacion_tiempo');
+  const savedIsRunning = localStorage.getItem('elongacion_isRunning');
 
-    if (savedTiempo !== null) setTiempo(Number(savedTiempo));
-    if (savedIsRunning === 'true') setIsRunning(true);
-  }, []);
+  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
+  if (savedIsRunning === 'true') setIsRunning(true);
+
+  setHydrated(true); 
+}, []);
 
   // ⏱️ Cronómetro
   useEffect(() => {
@@ -26,12 +30,15 @@ const Elongacion = () => {
 
   // 💾 Guardar estado del cronómetro en localStorage
   useEffect(() => {
-    localStorage.setItem('elongacion_isRunning', isRunning);
-    localStorage.setItem('elongacion_tiempo', tiempo);
-  }, [isRunning, tiempo]);
+  if (!hydrated) return; // 👈 PROTECCIÓN CLAVE
+
+  localStorage.setItem('elongacion_isRunning', isRunning);
+  localStorage.setItem('elongacion_tiempo', tiempo);
+}, [isRunning, tiempo, hydrated]);
 
   const caloriasPorMinuto = 3;
   const calorias = tiempo > 0 ? ((tiempo / 60) * caloriasPorMinuto).toFixed(2) : 0;
+
 
   // 🔑 Función para cerrar sesión por inactividad
   const cerrarSesion = () => {

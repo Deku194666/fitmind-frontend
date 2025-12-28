@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.10.0",
     "lucide-react": "^0.542.0",
+    "luxon": "^3.7.2",
     "react": "^19.1.0",
     "react-calendar": "^6.0.0",
     "react-dom": "^19.1.0",
@@ -25,9 +26,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://intervals-occupation-longitude-twiki.trycloudflare.com&& react-scripts start",
+    "start:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://tide-navy-politics-fonts.trycloudflare.com&& react-scripts start",
     "build": "react-scripts build",
-    "build:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://intervals-occupation-longitude-twiki.trycloudflare.com&& react-scripts build",
+    "build:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://tide-navy-politics-fonts.trycloudflare.com&& react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -18,7 +18,7 @@
 
  
 .input-estilo {
-  width: 550px;
+  width: 11rem;
   height: 60px;
   padding: 10px 14px;
   margin-right: 10px;
@@ -30,3 +30,61 @@
   display: block;
   box-sizing: border-box;
 }
+
+
+/* ====== VERSION WEB (DESKTOP) ====== */
+/* DESKTOP */
+.caja {
+  width: 6rem;
+
+}
+
+
+/* ===========================
+   AJUSTES RESPONSIVE MOBILE
+   NO CAMBIA DESKTOP
+=========================== */
+@media (max-width: 750px) {
+
+  /* Caja de cada comida */
+  div[style*="width: 29.2rem"] {
+    width: 95% !important;
+    margin-left: 0 !important;
+    padding: 0 1rem;
+  }
+
+  /* Input buscar alimento */
+  input[placeholder*="Buscar alimento"] {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  /* Input cantidad */
+  input[type="number"] {
+    width: 100% !important;
+    margin-top: 0.5rem;
+  }
+
+  /* Contenedor principal */
+  div[style*="maxWidth: '600px'"] {
+    width: 100% !important;
+    margin: 20px auto !important;
+    padding: 20px !important;
+  }
+
+  /* Resultados de búsqueda */
+  div[style*="overflowY: 'auto'"] {
+    max-height: 220px !important;
+  }
+}
+
+
+  /* CAJA PRINCIPAL DEL FORMULARIO */
+  @media (max-width: 480px) {
+  .caja {
+    width: 27rem !important;
+  }
+}
+
+
+

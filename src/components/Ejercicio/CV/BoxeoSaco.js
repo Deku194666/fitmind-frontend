@@ -5,6 +5,8 @@ const BoxeoSaco = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); 
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [hydrated, setHydrated] = useState(false);
+
 
   const caloriasPorMinuto = 11; 
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); 
@@ -16,10 +18,14 @@ const BoxeoSaco = () => {
 
     if (savedTiempo !== null) setTiempo(Number(savedTiempo));
     if (savedIsRunning === 'true') setIsRunning(true);
+
+    setHydrated(true);
   }, []);
 
   // 🔄 Guardar estado del cronómetro en localStorage
   useEffect(() => {
+    if (!hydrated) return;
+
     localStorage.setItem('boxeosaco_tiempo', tiempo);
     localStorage.setItem('boxeosaco_isRunning', isRunning);
   }, [tiempo, isRunning]);
@@ -35,6 +41,7 @@ const BoxeoSaco = () => {
     let timeoutId;
     const resetTimeout = () => {
       if (timeoutId) clearTimeout(timeoutId);
+      if (isRunning) return; // 👈 NO cerrar sesión si está corriendo
       timeoutId = setTimeout(cerrarSesion, 600000);
     };
     window.addEventListener('mousemove', resetTimeout);
@@ -45,7 +52,8 @@ const BoxeoSaco = () => {
       window.removeEventListener('mousemove', resetTimeout);
       window.removeEventListener('keydown', resetTimeout);
     };
-  }, []);
+  }, [isRunning]);
+
 
   // ⏱️ Cronómetro
   useEffect(() => {

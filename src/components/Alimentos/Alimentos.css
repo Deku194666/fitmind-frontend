@@ -1,0 +1,81 @@
+/* ===============================
+   BUSCADOR ALIMENTOS - BASE (MOBILE)
+================================ */
+
+.buscador-container {
+  max-width: 100%;
+  width: 26rem;
+  margin: 20px auto;
+  padding: 16px;
+  border: 2px solid #2980b9;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+
+.buscador-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #2980b9;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.buscador-input:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+
+
+.buscador-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.buscador-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   DESKTOP
+================================ */
+@media (min-width: 769px) {
+
+  .buscador-container {
+    max-width: 700px;
+    width: 47rem;
+    margin: 40px auto;
+    padding: 30px;
+  }
+
+  .buscador-input {
+    font-size: 16px;
+  }
+
+  .buscador-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .buscador-card {
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .buscador-input {
+    height: 48px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+}

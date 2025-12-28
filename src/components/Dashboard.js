@@ -1287,7 +1287,7 @@ return (
 {/* Macronutrientes */}
 {totalesMacros.proteinas > 0 && (
   <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, width: { xs: '100%', sm: '25rem' }, height: 'auto' }}>
-    <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
+    <Typography className="parrafo2" sx={{ fontSize: '2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
       🥗 Macronutrientes
     </Typography>
     <Typography className="parrafo3" sx={{ fontSize: '1.6rem', textAlign: 'center' }}>  

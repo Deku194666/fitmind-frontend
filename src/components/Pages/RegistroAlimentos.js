@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBarAl from './NavBarAl';
+import './RegistroAlimentos.css';
 
 // ---- Utils ----
 const num = (v, d = 0) => {
@@ -220,9 +221,10 @@ function RegistroAlimentos() {
     <>
       <NavBarAl />
 
-      <div
+      <div className='caja'
         style={{
-          maxWidth: '600px',
+          width: '44rem',
+          maxWidth: '1300px',
           margin: '40px auto',
           padding: '30px',
           border: '2px solid #2980b9',
