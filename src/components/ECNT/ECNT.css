@@ -1,49 +1,43 @@
 
-/* src/components/ECNT.css */
 
-
-.p1 { 
-    font-size: 3rem;
-    max-width: 1200px;
-    font-weight: 900;
-    color: #2980b9;
-    margin-left: 5rem;
-    line-height: 4.1rem;
-    margin-top: 3rem;
+.p1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #2980b9;
+  line-height: 4.1rem;
+  margin: 3rem 0 1.5rem 0;
+  margin-left: 5rem;
 }
 
 .p2 {
-
-    font-size: 1.8rem;
-    font-weight: 400;
-    margin-bottom: 5rem;
-    text-align: justify;
-    margin-left: 2.8rem;
-    margin-right: 6rem;
-    width: 23.9rem;
-    margin-top: 2rem;
-}
-
-
-.ecnt-list {
-  list-style: none;
-  padding: 0;
-  font-weight: 700;
-}
-
-.ecnt-list li {
-  margin: 1rem 0;
-  font-size: 1.7rem;
-  margin-bottom: 3rem;
-}
-
-.ecnt-list a {
-  color: #2980b9;
-}
-
-.ecnt-list a:hover {
-  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 5rem;
+  text-align: justify;
+  width: 100%;           /* ✅ clave */
+  max-width: 81rem;     /* lectura cómoda */
+  margin-left: 5rem;
+  margin-right: 3rem;
 }
 
 
 
+
+@media (max-width: 768px) {
+
+  .p1 {
+    font-size: 2.2rem;
+    margin: 2rem 1rem 1rem 1rem;
+    line-height: 3rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .p2 {
+    font-size: 1.7rem;
+    width: 100%;
+    max-width: 25rem;
+    margin-left: 2rem;
+    margin-right: 13rem;
+  }
+}

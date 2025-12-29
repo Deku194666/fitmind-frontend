@@ -1,32 +1,31 @@
-
-
-.NavBarEx1 {
+.secondary-bar {
   display: flex;
   flex-wrap: wrap;          /* 🔑 evita solapamiento */
-  gap: 6rem;
+  gap: 1rem;
   font-size: 1.2rem;
   text-align: center;
   text-decoration: none;
   font-weight: 700;
   color: #2980b9;
   white-space: nowrap;
-  background-color: lightcyan;
-  padding-left: 3rem;
-  height: 6rem;
-  padding-top: 2rem;
   
+}
+
+.bar-button {
+font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    color: #2980b9;
+    white-space: nowrap;      /* evita cortes */
 }
 
 
 
 /* 📱 MOBILE */
-@media (max-width: 480px) {
-  .NavBarEx1 {
+@media (max-width: 768px) {
+  .secondary-bar {
     justify-content: center;
-    gap: 2rem;
-    height: 18rem;
-    padding-top: 1rem;
-    
   }
 
   .bar-button1 {
@@ -36,8 +35,6 @@
     font-weight: 700;
     color: #2980b9;
     white-space: nowrap;
-    margin-top: 1.5rem;
-    margin-left: 0.1rem;
   }
 
   .bar-button2 {
@@ -47,7 +44,6 @@
     font-size: 1.35rem;
     white-space: nowrap;
     text-align: center;
-    margin-left: 1.5rem;
   }
 
 
@@ -58,7 +54,6 @@
     font-weight: 700;
     color: #2980b9;
     white-space: nowrap;
-    margin-left: 0.4rem;
   }
 
   .bar-button4 {
@@ -68,21 +63,8 @@
     font-weight: 700;
     color: #2980b9;
     white-space: nowrap;
-    margin-left: 1.5rem;
-  }
-  
-  .bar-button5 {
-    font-size: 1.4rem !important;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    color: #2980b9;
-    white-space: nowrap;
-    margin-left: 0.5rem;
   }
 
 
 
 }
-
-

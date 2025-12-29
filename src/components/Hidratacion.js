@@ -210,9 +210,9 @@ const Hidratacion = () => {
   return (
     <div className="hidratacion-container">
       <div className="text-content">
-        <h2>💧 Importancia de la Hidratación</h2>
+        <p className='title' >💧 Importancia de la Hidratación</p>
         <p className="p11">
-          Beber suficiente agua es esencial para mantener energía, concentración y bienestar general.
+          Beber suficiente agua es esencial para mantener la nergía, la concentración y el bienestar general.
         </p>
       </div>
 
@@ -223,7 +223,18 @@ const Hidratacion = () => {
         <h3 className="p3">Total ingerido: {ml} ml ({vasos} vasos)</h3>
 
         <div className="buttons-container">
-          <button className="vaso" onClick={agregarVaso} disabled={isPosting || loading}>
+          <button  type="submit"
+          style={{
+            padding: '12px',
+            borderRadius: '5px',
+            border: 'none',
+            backgroundColor: '#2980b9',
+            color: 'white',
+            fontWeight: 'bold',
+            fontSize: '16px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease'
+          }}  className="vaso" onClick={agregarVaso} disabled={isPosting || loading}>
             {isPosting ? 'Guardando...' : '➕ Agregar vaso (200ml)'}
           </button>
 
@@ -239,6 +250,18 @@ const Hidratacion = () => {
             />
             <button
               className="ml"
+              type="submit"
+          style={{
+            padding: '12px',
+            borderRadius: '5px',
+            border: 'none',
+            backgroundColor: '#2980b9',
+            color: 'white',
+            fontWeight: 'bold',
+            fontSize: '16px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease'
+          }}
               onClick={agregarMlPersonalizado}
               disabled={isPosting || loading || !inputMl}
             >
@@ -246,8 +269,20 @@ const Hidratacion = () => {
             </button>
           </div>
 
-          <button
+          <button 
             className="reiniciar"
+            type="submit"
+          style={{
+            padding: '12px',
+            borderRadius: '5px',
+            border: 'none',
+            backgroundColor: '#2980b9',
+            color: 'white',
+            fontWeight: 'bold',
+            fontSize: '16px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease'
+          }}
             onClick={() => {
               setMl(0);
               setVasos(0);
@@ -255,7 +290,7 @@ const Hidratacion = () => {
             }}
             disabled={isPosting || loading}
           >
-            Reiniciar contador local
+            Reiniciar 
           </button>
         </div>
 
@@ -275,9 +310,7 @@ const Hidratacion = () => {
             <p className="sin-registros">No hay registros aún.</p>
           )}
 
-          <p className="total-registros">
-            Total: {Array.isArray(registros) ? registros.length : 0} registros
-          </p>
+       
         </div>
       </div>
     </div>

@@ -1,0 +1,64 @@
+/* =========================
+   NAVBAR EXÁMENES – DESKTOP
+   ========================= */
+
+.NavBarExamen {
+  display: flex;
+  justify-content: center;   /* centrado en web */
+  align-items: center;
+  gap: 8rem;                 /* separación amplia en PC */
+  padding: 12px 20px;
+  background-color: #f0f8ff;
+  border-bottom: 1px solid #d6eaf8;
+}
+
+.bar-button17 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2980b9;
+  text-decoration: none;
+  white-space: nowrap;       /* evita cortes */
+  transition: color 0.3s ease;
+}
+
+.bar-button18 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2980b9;
+  text-decoration: none;
+  white-space: nowrap;       /* evita cortes */
+  transition: color 0.3s ease;
+}
+
+.bar-button:hover {
+  color: #1f618d;
+  text-decoration: underline;
+}
+
+/* =========================
+   NAVBAR EXÁMENES – MOBILE
+   ========================= */
+
+@media (max-width: 480px) {
+  .NavBarExamen {
+    flex-wrap: wrap;         /* 🔑 evita solapamiento */
+    gap: 3rem;
+    justify-content: center;
+    padding: 2px;
+  }
+
+  .bar-button17 {
+
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    
+  }
+
+  .bar-button18 {
+
+    font-size: 1.5rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+
+}
