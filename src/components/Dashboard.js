@@ -1290,11 +1290,26 @@ return (
     <Typography className="parrafo2" sx={{ fontSize: '2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
       🥗 Macronutrientes
     </Typography>
-    <Typography className="parrafo3" sx={{ fontSize: '1.6rem', textAlign: 'center' }}>  
+    <Typography className="parrafo3" sx={{ fontSize: '1.8rem', textAlign: 'center' }}>  
       <Typography component="span" sx={{ fontWeight: 700, fontSize: '1.6rem' }}>
         Macronutrientes Totales Hoy:
       </Typography>{' '}
-      {totalesMacros.proteinas.toFixed(1)} g Proteínas, {totalesMacros.grasas.toFixed(1)} g Grasas, {totalesMacros.carbohidratos.toFixed(1)} g Carbohidratos, {totalesMacros.fibra.toFixed(1)} g Fibra
+
+      <Typography  sx={{ fontSize: '1.5rem',   }} >
+        <strong> Proteínas: </strong> {totalesMacros.proteinas.toFixed(1)} g
+      </Typography>
+
+      <Typography  sx={{ fontSize: '1.5rem',   }}  >
+        <strong> Grasas: </strong>  {totalesMacros.grasas.toFixed(1)} g
+      </Typography>
+
+      <Typography   sx={{ fontSize: '1.5rem',   }}   >
+        <strong> Carbohidratos: </strong> {totalesMacros.carbohidratos.toFixed(1)} g
+      </Typography>
+      
+      <Typography  sx={{ fontSize: '1.5rem',   }} >
+       <strong> Fibra: </strong>  {totalesMacros.fibra.toFixed(1)} g
+      </Typography> 
     </Typography>
   </Paper>
 )}

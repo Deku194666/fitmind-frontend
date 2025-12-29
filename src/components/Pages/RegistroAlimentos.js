@@ -127,7 +127,7 @@ function RegistroAlimentos() {
         }
 
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/registroalimentos/${usuario_id}`,
+          `${process.env.REACT_APP_API_URL}/api/registroalimentos/dia/${usuario_id}`,
           { headers: { 'user-id': usuario_id } } // 👈 NECESARIO por el middleware
         );
 
