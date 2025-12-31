@@ -1,11 +1,13 @@
 
 
-.p39 {
+
+
+.p139 {
 
     margin-top: 4rem;
     font-size: 3.5rem;
-    margin-left: 5rem;
-    font-weight: 600;
+    margin-left: 6rem;
+    font-weight: 700;
     color: #2980b9;
 
 }
@@ -46,8 +48,9 @@
 /* 📱 Mobile */
 @media (max-width: 768px) {
 
-    .p39 {
+    .p139 {
         margin-left: 3rem;
+
     } 
 
     .p40 { 

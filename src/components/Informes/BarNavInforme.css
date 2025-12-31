@@ -1,0 +1,39 @@
+
+
+/* ===============================
+   TertiaryBar – Informes
+   =============================== */
+
+.BarNavInforme {
+  display: flex;
+  flex-wrap: wrap;              /* 🔑 evita solapamiento */
+  justify-content: center;
+  gap: 10rem;
+  padding: 1rem 2rem;
+  background-color: #e0f2f1;
+  border-bottom: 1px solid #dbe9f5;
+}
+
+.tertiary-bar .bar-button {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2980b9;
+  white-space: nowrap;
+}
+
+.tertiary-bar .bar-button:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .BarNavInforme {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .tertiary-bar .bar-button {
+    font-size: 1rem;
+  }
+}

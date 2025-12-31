@@ -1,0 +1,24 @@
+
+
+.bar-button40 {
+    width: 100%;
+    overflow-x: auto;
+    margin: 2rem 0;
+    
+}
+
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .table-responsive {
+        margin: 1.5rem 0;
+    }
+
+    .table-responsive table {
+        font-size: 1.3rem;
+    }
+}

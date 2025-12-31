@@ -35,9 +35,13 @@ const Musculacion = () => {
   useEffect(() => {
   const savedTiempo = localStorage.getItem('musculacion_tiempo');
   const savedIsRunning = localStorage.getItem('musculacion_isRunning');
+  const savedEjercicios = localStorage.getItem('musculacion_ejercicios');
+
 
   if (savedTiempo !== null) setTiempo(Number(savedTiempo));
   if (savedIsRunning === 'true') setIsRunning(true);
+  if (savedEjercicios) setEjercicios(JSON.parse(savedEjercicios));
+  
 
   setHydrated(true); // 👈 CLAVE
 }, []);
@@ -48,7 +52,10 @@ const Musculacion = () => {
 
     localStorage.setItem('musculacion_tiempo', tiempo);
     localStorage.setItem('musculacion_isRunning', isRunning);
-  }, [tiempo, isRunning,hydrated]);
+    localStorage.setItem('musculacion_ejercicios', JSON.stringify(ejercicios)); // 👈 aquí
+}, [tiempo, isRunning, ejercicios, hydrated]);
+  
+  
 
   // 🔑 Función para cerrar sesión por inactividad
   const cerrarSesion = () => {

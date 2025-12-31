@@ -13,7 +13,7 @@ function CardiovascularesECNT() {
     <div className="ecnt-detail">
 
 
-      <p className='p13'> Enfermedades Cardiovasculares </p>
+      <p className='p130'> Enfermedades Cardiovasculares </p>
 
       <p className='p14'> 📌 Introducción</p>
       <p className='p150'>
@@ -54,8 +54,8 @@ function CardiovascularesECNT() {
         Condición crónica donde el corazón no puede bombear adecuadamente. Síntomas: disnea, fatiga, edemas en extremidades, ortopnea. Se clasifica según la fracción de eyección (conservada o reducida).
       </p>
 
-      <p className='p14'> 📌 Herramientas Diagnósticas</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
+      <p className='p140'> 📌 Herramientas Diagnósticas</p>
+      <table className='table-responsive' >
         <thead>
           <tr style={{ backgroundColor: '#f2f2f2' }}>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}> Estudio </th>
@@ -83,7 +83,7 @@ function CardiovascularesECNT() {
       </table>
 
       <p className='p14'> 📌 Tratamiento</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
+      <table className='table-responsive1'>
         <thead>
           <tr style={{ backgroundColor: '#f2f2f2' }}>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}> Patología </th>
