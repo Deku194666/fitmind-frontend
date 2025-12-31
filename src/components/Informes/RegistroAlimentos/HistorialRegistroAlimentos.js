@@ -11,6 +11,12 @@ const HistorialRegistroAlimentos = () => {
   const [registros, setRegistros] = useState([]);
   const [cargando, setCargando] = useState(false);
   const API_URL = process.env.REACT_APP_API_URL;
+  
+  console.log(
+  "DEBUG → REACT_APP_API_URL:",
+  process.env.REACT_APP_API_URL
+);
+
 
   const obtenerRegistros = async () => {
     try {
