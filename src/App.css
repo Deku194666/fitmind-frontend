@@ -1,23 +1,6 @@
-/* ===============================
-   Estilos base
-================================ */
-
+/* Estilos base (los tuyos) */
 .brand-logo {
   font-weight: 700;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.seccion-bienvenida {
-  position: relative;
-}
-
-.bienvenida-texto {
-  max-width: 600px;
 }
 
 .titulo-bienvenida {
@@ -27,7 +10,7 @@
   color: #2980b9;
 }
 
-.home-subtitle {
+.texto1-bienvenida {
   margin-top: 3rem;
   font-size: 2.2rem;
   width: 45%;
@@ -35,37 +18,12 @@
   font-weight: 600;
 }
 
-.home-description {
+.texto2-bienvenida {
   margin-top: 3.6rem;
   font-size: 1.5rem;
   width: 43%;
   line-height: 2.1rem;
-  margin-bottom: 3rem;
-}
-
-.home-actions {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.btn-primary,
-.btn-secondary {
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn-primary {
-  background-color: #2980b9;
-  color: #fff;
-}
-
-.btn-secondary {
-  border: 2px solid #2980b9;
-  color: #2980b9;
-  background-color: transparent;
+  margin-bottom: 12rem;
 }
 
 .logo-fitmind {
@@ -77,23 +35,16 @@
   margin-right: -2rem;
 }
 
-/* ===============================
-   Navbar
-================================ */
-
 .nav-link-custom {
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff !important;
-  margin-left: 13px;
-  text-transform: uppercase;
-  transition: color 0.3s;
+  font-size: 18px;          
+  font-weight: bold;        
+  color: #fff !important;   
+  margin-left: 13px;       
+  text-transform: uppercase; 
+  transition: color 0.3s;  
 }
 
-/* ===============================
-   Responsive (Mobile)
-================================ */
-
+/* --- Responsive para pantallas pequeñas --- */
 @media screen and (max-width: 768px) {
   .container {
     display: flex;
@@ -105,6 +56,7 @@
   .seccion-bienvenida {
     width: 100%;
     margin-top: 3rem;
+    float: none;
     text-align: center;
   }
 
@@ -114,8 +66,8 @@
     margin-bottom: 2rem;
   }
 
-  .home-subtitle,
-  .home-description {
+  .texto1-bienvenida,
+  .texto2-bienvenida {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -125,19 +77,16 @@
     margin-bottom: 1.5rem;
   }
 
-  .home-actions {
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
   .logo-fitmind {
     float: none;
     margin: 2rem auto 4rem auto;
-    width: 25rem;
-    max-width: 500px;
+    width: 80vw;
+    max-width: 300px;
     height: auto;
     border-radius: 50px;
+    margin-top: 0;
+    margin-right: 1;
     display: block;
+    margin-bottom: 6rem;
   }
 }

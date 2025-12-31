@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './RegistroCSV.css'; 
 
 function Registro({ setSignosVitales }) {   // ✅ Recibo la función como prop desde Dashboard
   const [formData, setFormData] = useState({
@@ -90,11 +89,21 @@ if (setSignosVitales) {
   };
 
   return (
-    <div  className='contenedor' style={{ maxWidth: '400px', margin: '40px auto', padding: '30px', border: '2px solid #2980b9', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', backgroundColor: '#f9f9f9', fontFamily: 'Arial, sans-serif', textAlign: 'center'}}>
-      <p  style={{ marginBottom: '20px', color: '#2980b9', fontSize: '3rem', fontWeight: '700' }}>
+    <div style={{
+      maxWidth: '400px',
+      margin: '40px auto',
+      padding: '30px',
+      border: '2px solid #2980b9',
+      borderRadius: '10px',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      backgroundColor: '#f9f9f9',
+      fontFamily: 'Arial, sans-serif',
+      textAlign: 'center'
+    }}>
+      <p style={{ marginBottom: '20px', color: '#2980b9', fontSize: '3rem', fontWeight: '700' }}>
         Registro de Signos Vitales
       </p>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px', width: '19rem' }}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         <input
           type="number"
           name="frecuencia_cardiaca"

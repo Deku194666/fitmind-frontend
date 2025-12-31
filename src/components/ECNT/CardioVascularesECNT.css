@@ -1,120 +1,14 @@
 
 
-.p130 {
-    font-size: 3rem;
-    margin-left: 6rem;
-    font-weight: 700;
-    color: #2980b9;
-
-}
-
-
-
 .p150 {
+
     font-size: 1.7rem;
-    text-align: justify;
+    text-align: left;
     margin-left: 6rem;
+    max-width:  99rem;
     margin-right: 6rem;
-    max-width: 99rem;
+    text-align: justify;
     font-weight: 400;
-}
 
-
-.p140 {
-    
-    font-size: 3rem;
-    margin-left: 4rem;
-    font-weight: 700;
-    color: #2980b9;
-}
-
-
-.table-responsive {
-    width: 60rem;
-    overflow-x: auto;
-    margin: 2rem 0;
-    margin-left: 10rem;
-    margin-bottom: 5rem;
-
-}
-
-.table-responsive table {
-    width: 50rem;
-    border-collapse: collapse;
-    margin-bottom: 3rem;
-}
-
-
-
-.table-responsive1 {
-    width: 60rem;
-    overflow-x: auto;
-    margin: 2rem 0;
-    margin-left: 10rem;
-    margin-bottom: 5rem;
-
-}
-
-.table-responsive1 table {
-    width: 50rem;
-    border-collapse: collapse;
-    margin-bottom: 3rem;
-}
-
-
-/* ========================= */
-/* 📱 MOBILE RESPONSIVE */
-/* ========================= */
-@media (max-width: 768px) {
-
-    .p150 {
-        font-size: 1.5rem;
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
-        max-width: 100%;
-    }
-
-    .ecnt-detail {
-        padding: 0;
-    }
-
-
-    .p130 { 
-
-        width: 14rem;
-        font-size: 3rem;
-        margin-left: 3rem;
-        font-weight: 700;
-        color: #2980b9;
-
-    }
-
-    .table-responsive {
-    width: 20rem;
-    overflow-x: auto;
-    margin-left: 4rem;
-    margin-bottom: 5rem;
-}
-
-.table-responsive table {
-    width: 20rem;
-    border-collapse: collapse;
-}
-
-
-.table-responsive1 {
-    width: 25rem;
-    overflow-x: auto;
-    margin: 2rem 0;
-    margin-left: 2.5rem;
-    margin-bottom: 5rem;
-
-}
-
-.table-responsive1 table {
-    width: 30rem;
-    border-collapse: collapse;
-    margin-bottom: 3rem;
-}
 
 }

@@ -283,7 +283,6 @@ import RegistroBicicleta from './components/Informes/RegistroEjercicio/RegistroB
 import RegistroBicicleta2 from './components/Informes/RegistroEjercicio/RegistroBicicleta2';
 import RegistroYoga from './components/Informes/RegistroMental/RegistroYoga';
 import RegistroYoga2 from './components/Informes/RegistroMental/RegistroYoga2';
-import HistorialRegistroAlimentos from './components/Informes/RegistroAlimentos/HistorialRegistroAlimentos';
 
 
 
@@ -578,7 +577,6 @@ function MainRouter() {
           <Route path='/registroejercicio/registrobicicleta2'  element= { <  RegistroBicicleta2 /> }  />
           <Route path='/registromental/registroyoga'  element={<  RegistroYoga />  } />
           <Route path='/registromental/registroyoga2'  element= {< RegistroYoga2  /> }  />
-          <Route path='/registroalimentos/historialregistroalimentos'  element={  <  HistorialRegistroAlimentos  />  } />
         </Route>  
       </Routes>
     </Router>

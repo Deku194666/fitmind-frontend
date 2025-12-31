@@ -2,8 +2,6 @@
 
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import BarNavRegistroAlimentosInforme from './BarNavRegistroAlimentosInforme';
-import './RegistroALimentosInforme.css';
  
 function RegistroAlimentosInforme() {
   useEffect(() => {
@@ -12,22 +10,20 @@ function RegistroAlimentosInforme() {
 
   return (
     <div className="ecnt-detail">
-      <BarNavRegistroAlimentosInforme/>
-      
-      <p className='p139'> Registro de Alimentos </p>
+      <p className='p13'> Registro de Alimentos </p>
       <p className='p14'>Introducción📌</p>
       <p className='p150'>
         La alimentación equilibrada es clave para mantener la salud física, mental y prevenir enfermedades crónicas. 
         Registrar los alimentos que consumes te ayuda a conocer tu ingesta calórica, nutricional y hábitos alimenticios.
       </p>
 
-      <p className='p139'> Importancia de la Alimentación 🥗 </p>
+      <p className='p14'> Importancia de la Alimentación 🥗 </p>
       <p className='p150'>
         Una dieta balanceada proporciona los nutrientes necesarios para energía, crecimiento y reparación celular. 
         Permite mantener un peso saludable, optimizar el rendimiento físico y mental, y reducir el riesgo de enfermedades.
       </p>
 
-      <p className='p139'> Buenas Prácticas Alimenticias 🍏 </p>
+      <p className='p14'> Buenas Prácticas Alimenticias 🍏 </p>
       <ul className='p150' style={{ listStyleType: 'disc'}}>
         <li> Incluir variedad de frutas y verduras en cada comida. </li>
         <li> Consumir proteínas de calidad: carne magra, pescado, huevos, legumbres. </li>
@@ -36,7 +32,7 @@ function RegistroAlimentosInforme() {
         <li> Mantener horarios regulares de alimentación y controlar el tamaño de las porciones. </li>
       </ul>
 
-      <p className='p139'> Registro y Seguimiento 📊 </p>
+      <p className='p14'> Registro y Seguimiento 📊 </p>
       <p className='p150'>
         Aquí podrás visualizar tus registros diarios, semanales y mensuales de alimentación, analizar la calidad nutricional de tu dieta
         y hacer ajustes para alcanzar tus objetivos de salud.

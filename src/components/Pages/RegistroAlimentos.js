@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBarAl from './NavBarAl';
-import './RegistroAlimentos.css';
 
 // ---- Utils ----
 const num = (v, d = 0) => {
@@ -127,7 +126,7 @@ function RegistroAlimentos() {
         }
 
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/registroalimentos/dia/${usuario_id}`,
+          `${process.env.REACT_APP_API_URL}/api/registroalimentos/${usuario_id}`,
           { headers: { 'user-id': usuario_id } } // 👈 NECESARIO por el middleware
         );
 
@@ -221,10 +220,9 @@ function RegistroAlimentos() {
     <>
       <NavBarAl />
 
-      <div className='caja'
+      <div
         style={{
-          width: '44rem',
-          maxWidth: '1300px',
+          maxWidth: '600px',
           margin: '40px auto',
           padding: '30px',
           border: '2px solid #2980b9',

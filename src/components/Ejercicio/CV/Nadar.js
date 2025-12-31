@@ -5,8 +5,6 @@ const Nadar = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // tiempo en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
-  const [hydrated, setHydrated] = useState(false);
-
 
   const caloriasPorMinuto = 7; // estimado para natación a ritmo moderado
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); // string para mostrar
@@ -23,7 +21,6 @@ const Nadar = () => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      if (isRunning) return;  // 👈 no cerrar si está nadando
       timeoutId = setTimeout(cerrarSesion, 60000);
     };
     // Inicializa el timeout
@@ -37,27 +34,6 @@ const Nadar = () => {
       window.removeEventListener('keydown', resetTimeout);
     };
   }, []);
-
-  // 🔄 Restaurar estado del cronómetro (nadar)
-useEffect(() => {
-  const savedTiempo = localStorage.getItem('nadar_tiempo');
-  const savedIsRunning = localStorage.getItem('nadar_isRunning');
-
-  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
-  if (savedIsRunning === 'true') setIsRunning(true);
-
-  setHydrated(true); // 👈 CLAVE ANTI-STAGING
-}, []);
-
-// 💾 Guardar estado del cronómetro (nadar)
-useEffect(() => {
-  if (!hydrated) return;
-
-  localStorage.setItem('nadar_tiempo', tiempo);
-  localStorage.setItem('nadar_isRunning', isRunning);
-}, [tiempo, isRunning, hydrated]);
-
-
 
   // ⏱️ Cronómetro
   useEffect(() => {

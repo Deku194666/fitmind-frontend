@@ -1,67 +1,23 @@
 
 
-.p39 {
+.Parra1 {
 
-    margin-top: 4rem;
-    font-size: 3.5rem;
-    margin-left: 5rem;
-    font-weight: 600;
-    color: #2980b9;
-
-}
-
-.p40 { 
-
-    margin-top: 2rem;
-    margin-left: 6rem;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #2980b9;
-
-}
-
-
-.p41 { 
-
-    margin-top: 2rem;
+    text-align: left;
     margin-left: 6rem;
-    font-size: 3rem;
-    font-weight: 600;
-    color: #2980b9;
+    margin-top: 3rem;
 
 }
 
-.p42 { 
+.Parra2 {
 
-    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: left;
     margin-left: 6rem;
-    font-size: 3rem;
-    font-weight: 600;
-    color: #2980b9;
+    max-width:  99rem;
 
 }
 
 
-
-/* 📱 Mobile */
-@media (max-width: 768px) {
-
-    .p39 {
-        margin-left: 3rem;
-    } 
-
-    .p40 { 
-        width:27rem;
-        margin-left: 3rem;
-    }
-
-    .p41 {
-        margin-left: 3rem;
-    }
-
-    .p42 {
-        margin-left: 3rem;
-        width: 22rem;
-    }
-    
-}

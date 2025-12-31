@@ -58,7 +58,7 @@
   }
 
   .parrafo1 {
-    font-size: 2rem;
+    font-size: 1rem;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -67,26 +67,15 @@
   }
 
   .parrafo2 {
-    font-size: 2.1rem;
+    font-size: 1.5rem;
     margin-left: 5%; /* mejor % que fija para que se ajuste */
-    text-align: center;
-    width: 90%;
-
+    text-align: left;
   }
 
   .parrafo31 {
-    font-size: 1.35rem !important;
-    margin-left: 0rem !important; /* mismo cambio */
-    line-height: 0.2rem;
+    font-size: 1rem !important;
+    margin-left: 5% !important; /* mismo cambio */
+    line-height: 1.2rem;
     text-align: left;
-    width: 21rem
   }
-
-  .calendariofarmacos {
-  margin-left: -1rem;
-  width: 22rem;
-  height: 20rem;
-
-
-}
 }

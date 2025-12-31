@@ -925,15 +925,13 @@ return (
           paragraph
           className="parrafo1"
           sx={{
-            fontSize: { xs: '1.9rem', md: '2.2rem' },
+            fontSize: '1.5rem',
             marginLeft: { xs: 0, md: '5rem' },
             width: { xs: '100%', md: '79rem' },
             marginBottom: '5rem'
           }}>
 
-          Bienvenido a FitMind, tu compañero integral para un estilo de vida saludable. Aquí podrás seguir tu nutrición,
-          hidratación, controlar tus calorías, seguimiento de tus ejercicios, mejorar tu bienestar mental, y mas todo en un solo lugar.
-          ¡Comienza hoy a cuidar de ti!
+          Bienvenido a FitMind, tu compañero integral para un estilo de vida saludable. Aquí podrás seguir tu nutrición, hidratación, controlar tus calorías y mejorar tu bienestar mental, todo en un solo lugar. ¡Comienza hoy a cuidar de ti!
         </Typography>
 
         {/* Recuadros organizados en fila */}
@@ -968,17 +966,17 @@ return (
     {/* Elongación */}
 {elongacion?.tiempo && elongacion?.fecha && (
   <Box sx={{ marginTop: 2 }}>
-    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#2980b9' }}>
+    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
       🧘 Última sesión de Elongación
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      <strong>⏱️ Tiempo realizado: </strong>  {Math.floor(elongacion.tiempo / 60)} min {elongacion.tiempo % 60} seg
+      ⏱️ Tiempo realizado: {Math.floor(elongacion.tiempo / 60)} min {elongacion.tiempo % 60} seg
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      <strong>🔥 Calorías quemadas:</strong> {elongacion.calorias} kcal
+      🔥 Calorías quemadas: {elongacion.calorias} kcal
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      <strong>📅 Fecha: </strong>{new Date(elongacion.fecha).toLocaleString()}
+      📅 Fecha: {new Date(elongacion.fecha).toLocaleString()}
     </Typography>
   </Box>
 )}
@@ -988,17 +986,17 @@ return (
     {/* Musculación */}
     {musculacion && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🏋️ Última sesión de Musculación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(musculacion.tiempo / 60)} min {musculacion.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(musculacion.tiempo / 60)} min {musculacion.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 🔥 Calorías quemadas: </strong> {musculacion.calorias} kcal
+          🔥 Calorías quemadas: {musculacion.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 📅 Fecha: </strong> {new Date(musculacion.fecha).toLocaleString()}
+          📅 Fecha: {new Date(musculacion.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1006,17 +1004,17 @@ return (
     {/* Correr */}
     {correr && (
       <Box sx={{ marginTop: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
           🏃 Última sesión de Correr
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(correr.tiempo / 60)} min {correr.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(correr.tiempo / 60)} min {correr.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 🔥 Calorías quemadas: </strong>  {correr.calorias} kcal
+          🔥 Calorías quemadas: {correr.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong>  📅 Fecha: </strong> {new Date(correr.fecha).toLocaleString()}
+          📅 Fecha: {new Date(correr.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1024,17 +1022,17 @@ return (
     {/* Trote */}
     {trote && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🏃 Última sesión de Trote
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(trote.tiempo / 60)} min {trote.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(trote.tiempo / 60)} min {trote.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 🔥 Calorías quemadas: </strong> {trote.calorias} kcal
+          🔥 Calorías quemadas: {trote.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong>  Fecha: </strong>  {new Date(trote.fecha).toLocaleString()}
+          📅 Fecha: {new Date(trote.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1042,17 +1040,17 @@ return (
     {/* Sprint */}
     {sprint && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🏃 Última sesión de Sprint
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong>  ⏱️ Tiempo realizado: </strong> {Math.floor(sprint.tiempo / 60)} min {sprint.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(sprint.tiempo / 60)} min {sprint.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 🔥 Calorías quemadas: </strong>  {sprint.calorias} kcal
+          🔥 Calorías quemadas: {sprint.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 📅 Fecha: </strong>   {new Date(sprint.fecha).toLocaleString()}
+          📅 Fecha: {new Date(sprint.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1060,17 +1058,17 @@ return (
     {/* Bicicleta */}
     {bicicleta && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🚴 Última sesión de Bicicleta
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> ⏱️ Tiempo realizado: </strong>  {Math.floor(bicicleta.tiempo / 60)} min {bicicleta.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(bicicleta.tiempo / 60)} min {bicicleta.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 🔥 Calorías quemadas: </strong>  {bicicleta.calorias} kcal
+          🔥 Calorías quemadas: {bicicleta.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong>  📅 Fecha: </strong>  {new Date(bicicleta.fecha).toLocaleString()}
+          📅 Fecha: {new Date(bicicleta.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1078,17 +1076,17 @@ return (
     {/* Caminata */}
     {caminar && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🚶 Última sesión de Caminata
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong> ⏱️ Tiempo realizado: </strong>  {Math.floor(caminar.tiempo / 60)} min {caminar.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(caminar.tiempo / 60)} min {caminar.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong> 🔥 Calorías quemadas: </strong> {caminar.calorias} kcal
+          🔥 Calorías quemadas: {caminar.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong>  📅 Fecha: </strong> {new Date(caminar.fecha).toLocaleString()}
+          📅 Fecha: {new Date(caminar.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1096,17 +1094,17 @@ return (
     {/* Natación */}
     {nadar && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🏊‍♂️ Última sesión de Natación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong>  ⏱️ Tiempo realizado: </strong> {Math.floor(nadar.tiempo / 60)} min {nadar.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(nadar.tiempo / 60)} min {nadar.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 🔥 Calorías quemadas: </strong>  {nadar.calorias} kcal
+          🔥 Calorías quemadas: {nadar.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong> 📅 Fecha: </strong>  {new Date(nadar.fecha).toLocaleString()}
+          📅 Fecha: {new Date(nadar.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1114,27 +1112,27 @@ return (
     {/* Boxeo de Saco */}
     {boxeosaco && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
           🥊 Última sesión de Boxeo de Saco
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong>  ⏱️ Tiempo realizado: </strong>  {Math.floor(boxeosaco.tiempo / 60)} min {boxeosaco.tiempo % 60} seg
+          ⏱️ Tiempo realizado: {Math.floor(boxeosaco.tiempo / 60)} min {boxeosaco.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-         <strong>  🔥 Calorías quemadas: </strong> {boxeosaco.calorias} kcal
+          🔥 Calorías quemadas: {boxeosaco.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          <strong> 📅 Fecha: </strong> {new Date(boxeosaco.fecha).toLocaleString()}
+          📅 Fecha: {new Date(boxeosaco.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
   </Paper>
 )}
 
-{/* Hidratación y Sueño en columna */}
-<Box display="flex" flexDirection="column" gap={3} alignItems="center">
+          {/* Hidratación y Sueño en columna */}
+          <Box display="flex" flexDirection="column" gap={3} alignItems="center">
 
-{/* 🔥 Hidratación + Calorías en la misma fila */}
+           {/* 🔥 Hidratación + Calorías en la misma fila */}
 <Box
   display="flex"
   flexDirection={{ xs: "column", md: "row" }} // 📱 columna en móvil, 🖥️ fila en escritorio
@@ -1148,14 +1146,11 @@ return (
     sx={{
       padding: 3,
       borderRadius: 3,
-      marginBottom: 1.9,
-      textAlign: 'center',
-      height: 'auto',
-      width: { xs: '25rem', sm: '40rem', md: '28rem' },
-      maxWidth: '100%',
-    }}>
-
-    
+      height: "20rem",
+      flex: 1,
+      minWidth: { xs: "100%", md: "28rem" },
+    }}
+  >
     <Typography
       component={Link}
       to="/hidratacion"
@@ -1257,22 +1252,22 @@ return (
   marginTop={3}
 >
   {/* Sueño */}
-  <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, height: 'auto',  width: { xs: '25rem', sm: '30rem', md: '32rem' } }}>
+  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "28rem" }, textAlign: "center" }}>
     <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
       🛌 Sueño
     </Typography>
     {sueno ? (
       <>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2, textAlign: 'center' }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
           <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
         </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", textAlign: 'center' }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
           <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
         </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", textAlign: 'center' }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
           <strong>Calidad del Sueño:</strong> {sueno.calidad}
         </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", textAlign: 'center' }}>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
           <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
         </Typography>
       </>
@@ -1287,29 +1282,14 @@ return (
 {/* Macronutrientes */}
 {totalesMacros.proteinas > 0 && (
   <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, width: { xs: '100%', sm: '25rem' }, height: 'auto' }}>
-    <Typography className="parrafo2" sx={{ fontSize: '2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
+    <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
       🥗 Macronutrientes
     </Typography>
-    <Typography className="parrafo3" sx={{ fontSize: '1.8rem', textAlign: 'center' }}>  
+    <Typography className="parrafo3" sx={{ fontSize: '1.6rem', textAlign: 'center' }}>  
       <Typography component="span" sx={{ fontWeight: 700, fontSize: '1.6rem' }}>
         Macronutrientes Totales Hoy:
       </Typography>{' '}
-
-      <Typography  sx={{ fontSize: '1.5rem',   }} >
-        <strong> Proteínas: </strong> {totalesMacros.proteinas.toFixed(1)} g
-      </Typography>
-
-      <Typography  sx={{ fontSize: '1.5rem',   }}  >
-        <strong> Grasas: </strong>  {totalesMacros.grasas.toFixed(1)} g
-      </Typography>
-
-      <Typography   sx={{ fontSize: '1.5rem',   }}   >
-        <strong> Carbohidratos: </strong> {totalesMacros.carbohidratos.toFixed(1)} g
-      </Typography>
-      
-      <Typography  sx={{ fontSize: '1.5rem',   }} >
-       <strong> Fibra: </strong>  {totalesMacros.fibra.toFixed(1)} g
-      </Typography> 
+      {totalesMacros.proteinas.toFixed(1)} g Proteínas, {totalesMacros.grasas.toFixed(1)} g Grasas, {totalesMacros.carbohidratos.toFixed(1)} g Carbohidratos, {totalesMacros.fibra.toFixed(1)} g Fibra
     </Typography>
   </Paper>
 )}
@@ -1351,23 +1331,23 @@ return (
 
 
 
-  {yoga && (   // 🔥 Solo si hay un registro de yoga aparece el módulo completo
+          {yoga && (   // 🔥 Solo si hay un registro de yoga aparece el módulo completo
   <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, width: { xs: '100%', sm: '30rem' }, height: 'auto' }}>
-    <Typography className="parrafo2" sx={{ fontSize: '2.5rem', fontWeight: 650 }}>
+    <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650 }}>
       🧠 Bienestar Mental
     </Typography>
     <Box>
-      <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', textAlign: 'center', color: '#2980b9', marginBottom: '0.1rem' }}>
+      <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', textAlign: 'center' }}>
         🧘‍♂️ Última sesión de Yoga
       </Typography>
       <Typography sx={{ fontSize: '1.3rem', textAlign: 'center' }}>
-        ⏱️ <strong>  Tiempo realizado: </strong> {Math.floor(yoga.tiempo / 60)} min {yoga.tiempo % 60} seg
+        ⏱️ Tiempo realizado: {Math.floor(yoga.tiempo / 60)} min {yoga.tiempo % 60} seg
       </Typography>
       <Typography sx={{ fontSize: '1.3rem', textAlign:'center' }}>
-        <strong>🔥 Calorías quemadas: </strong>  {yoga.calorias} kcal
+        🔥 Calorías quemadas: {yoga.calorias} kcal
       </Typography>
       <Typography sx={{ fontSize: '1.3rem', textAlign:'center' }}>
-        <strong>📅 Fecha: </strong> {new Date(yoga.fecha).toLocaleString()}
+        📅 Fecha: {new Date(yoga.fecha).toLocaleString()}
       </Typography>
     </Box>
   </Paper>

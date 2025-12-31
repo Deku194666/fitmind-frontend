@@ -3,33 +3,13 @@ import axios from 'axios';
 
 const BoxeoSaco = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [tiempo, setTiempo] = useState(0); 
-  const [ultimaSesion, setUltimaSesion] = useState(null);
-  const [hydrated, setHydrated] = useState(false);
+  const [tiempo, setTiempo] = useState(0); // tiempo en segundos
+  const [ultimaSesion, setUltimaSesion] = useState(null);  // datos de la última sesión
 
+  const caloriasPorMinuto = 11; // estimado para boxeo en saco a ritmo moderado-alto
+  const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); // string para mostrar
 
-  const caloriasPorMinuto = 11; 
-  const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); 
-
-  // 🔄 Restaurar cronómetro desde localStorage al montar
-  useEffect(() => {
-    const savedTiempo = localStorage.getItem('boxeosaco_tiempo');
-    const savedIsRunning = localStorage.getItem('boxeosaco_isRunning');
-
-    if (savedTiempo !== null) setTiempo(Number(savedTiempo));
-    if (savedIsRunning === 'true') setIsRunning(true);
-
-    setHydrated(true);
-  }, []);
-
-  // 🔄 Guardar estado del cronómetro en localStorage
-  useEffect(() => {
-    if (!hydrated) return;
-
-    localStorage.setItem('boxeosaco_tiempo', tiempo);
-    localStorage.setItem('boxeosaco_isRunning', isRunning);
-  }, [tiempo, isRunning]);
-
+  // 🔑 Función para cerrar sesión por inactividad
   const cerrarSesion = () => {
     alert('⏱️ Sesión expirada por inactividad');
     localStorage.clear();
@@ -41,29 +21,30 @@ const BoxeoSaco = () => {
     let timeoutId;
     const resetTimeout = () => {
       if (timeoutId) clearTimeout(timeoutId);
-      if (isRunning) return; // 👈 NO cerrar sesión si está corriendo
-      timeoutId = setTimeout(cerrarSesion, 600000);
+      timeoutId = setTimeout(cerrarSesion, 60000);
     };
     window.addEventListener('mousemove', resetTimeout);
     window.addEventListener('keydown', resetTimeout);
-    resetTimeout(); 
+    resetTimeout(); // inicia el primer timeout
     return () => {
       clearTimeout(timeoutId);
       window.removeEventListener('mousemove', resetTimeout);
       window.removeEventListener('keydown', resetTimeout);
     };
-  }, [isRunning]);
-
+  }, []);
 
   // ⏱️ Cronómetro
   useEffect(() => {
     let intervalo;
-    if (isRunning) intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
-    else clearInterval(intervalo);
+    if (isRunning) {
+      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
+    } else {
+      clearInterval(intervalo);
+    }
     return () => clearInterval(intervalo);
   }, [isRunning]);
 
-  // 📥 Obtener última sesión
+  // 📥 Obtener última sesión (con header user-id)
   useEffect(() => {
     const fetchUltimaSesion = async () => {
       const usuario_id = localStorage.getItem('usuario_id');
@@ -75,24 +56,25 @@ const BoxeoSaco = () => {
         );
         setUltimaSesion(res.data);
       } catch (err) {
-        console.error('❌ Error al obtener la última sesión:', err.response?.data || err.message);
+        console.error('❌ Error al obtener la última sesión de boxeo en saco:', err.response?.data || err.message);
       }
     };
     fetchUltimaSesion();
   }, []);
 
   const handleStartStop = () => setIsRunning(!isRunning);
-
   const handleReset = () => {
     setIsRunning(false);
     setTiempo(0);
-    localStorage.removeItem('boxeosaco_tiempo');
-    localStorage.removeItem('boxeosaco_isRunning');
   };
 
+  // 💾 Guardar sesión (header + calorías número), actualizar tarjeta y reset
   const handleFinalizar = async () => {
     const usuario_id = localStorage.getItem('usuario_id');
-    if (!usuario_id) return alert("Usuario no autenticado");
+    if (!usuario_id) {
+      alert("Usuario no autenticado");
+      return;
+    }
 
     try {
       await axios.post(
@@ -100,11 +82,11 @@ const BoxeoSaco = () => {
         { usuario_id, tiempo, calorias: parseFloat(calorias) },
         { headers: { 'user-id': usuario_id } }
       );
+      alert('✅ Sesión de boxeo en saco registrada con éxito');
       setUltimaSesion({ tiempo, calorias: parseFloat(calorias), fecha: new Date() });
       handleReset();
-      alert('✅ Sesión de boxeo en saco registrada con éxito');
     } catch (error) {
-      console.error('❌ Error al registrar sesión:', error.response?.data || error.message);
+      console.error('❌ Error al registrar sesión de boxeo en saco:', error.response?.data || error.message);
       alert('Error al registrar en la base de datos');
     }
   };
@@ -113,7 +95,7 @@ const BoxeoSaco = () => {
     const h = Math.floor(segundos / 3600);
     const m = Math.floor((segundos % 3600) / 60);
     const s = segundos % 60;
-    return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
   const beneficios = [
@@ -141,46 +123,68 @@ const BoxeoSaco = () => {
       textAlign: 'center'
     }}>
       <h2>🥊 Cronómetro de Boxeo en Saco</h2>
-      <h1 style={{ fontSize: '4rem', fontWeight: '700', margin: '1rem 0', fontFamily: 'monospace', color: '#333' }}>
+      <h1 style={{
+        fontSize: '4rem',
+        fontWeight: '700',
+        margin: '1rem 0',
+        fontFamily: 'monospace',
+        color: '#333'
+      }}>
         {formatTime(tiempo)}
       </h1>
 
       <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-        <button onClick={handleStartStop} style={{
-          padding: '0.8rem 2rem',
-          borderRadius: '8px',
-          border: 'none',
-          backgroundColor: isRunning ? '#f44336' : '#4caf50',
-          color: '#fff',
-          fontSize: '1.2rem',
-          cursor: 'pointer',
-          transition: 'background-color 0.3s'
-        }}>{isRunning ? 'Detener' : 'Iniciar'}</button>
+        <button
+          onClick={handleStartStop}
+          style={{
+            padding: '0.8rem 2rem',
+            borderRadius: '8px',
+            border: 'none',
+            backgroundColor: isRunning ? '#f44336' : '#4caf50',
+            color: '#fff',
+            fontSize: '1.2rem',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s'
+          }}
+        >
+          {isRunning ? 'Detener' : 'Iniciar'}
+        </button>
 
-        <button onClick={handleReset} style={{
-          padding: '0.8rem 2rem',
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          backgroundColor: '#fff',
-          color: '#333',
-          fontSize: '1.2rem',
-          cursor: 'pointer'
-        }}>Reiniciar</button>
+        <button
+          onClick={handleReset}
+          style={{
+            padding: '0.8rem 2rem',
+            border: '1px solid #ccc',   // ✅ corregido
+            borderRadius: '8px',        // ✅ corregido
+            backgroundColor: '#fff',
+            color: '#333',
+            fontSize: '1.2rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s'
+          }}
+        >
+          Reiniciar
+        </button>
       </div>
 
       {!isRunning && tiempo > 0 && (
         <div style={{ marginTop: '2rem' }}>
-          <button onClick={handleFinalizar} style={{
-            backgroundColor: '#d32f2f',
-            color: '#fff',
-            padding: '0.8rem 2.5rem',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '1.2rem',
-            cursor: 'pointer',
-            boxShadow: '0 3px 6px rgba(0,0,0,0.1)',
-            transition: 'background-color 0.3s'
-          }}>Finalizar sesión</button>
+          <button
+            onClick={handleFinalizar}
+            style={{
+              backgroundColor: '#d32f2f',
+              color: '#fff',
+              padding: '0.8rem 2.5rem',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '1.2rem',
+              cursor: 'pointer',
+              boxShadow: '0 3px 6px rgba(0,0,0,0.1)',
+              transition: 'background-color 0.3s'
+            }}
+          >
+            Finalizar sesión
+          </button>
         </div>
       )}
 
@@ -206,9 +210,16 @@ const BoxeoSaco = () => {
         borderRadius: '12px',
         boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
       }}>
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.6rem' }}>🥊 Beneficios del boxeo en saco</h2>
+        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.6rem' }}>
+          🥊 Beneficios del boxeo en saco
+        </h2>
+        <p style={{ marginTop: '1rem', fontSize: '1.5rem' }}>
+          Practicar boxeo en saco regularmente trae muchos beneficios para la salud física y mental. Algunos son:
+        </p>
         <ul style={{ paddingLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.6' }}>
-          {beneficios.map((item, index) => <li key={index}>✅ {item}</li>)}
+          {beneficios.map((item, index) => (
+            <li key={index}>✅ {item}</li>
+          ))}
         </ul>
       </div>
     </div>

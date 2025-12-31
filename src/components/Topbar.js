@@ -7,8 +7,6 @@ import './Topbar.css';
 const Topbar = () => {
   const navigate = useNavigate();
   const [nombreUsuario, setNombreUsuario] = useState('');
-  const esMobile = window.innerWidth <= 768;
-
 
   useEffect(() => {
     const nombreGuardado = localStorage.getItem('usuario_nombre');
@@ -19,23 +17,6 @@ const Topbar = () => {
     localStorage.clear();
     navigate('/');
   };
-
-  const formatearNombre = (nombreCompleto, esMobile) => {
-  if (!nombreCompleto) return 'Usuario';
-  if (!esMobile) return nombreCompleto;
-
-  const partes = nombreCompleto.trim().split(/\s+/);
-
-  // Si tiene menos de 3 partes, no acortamos
-  if (partes.length < 3) return nombreCompleto;
-
-  const primerNombre = partes[0];
-  const primerApellido = partes[partes.length - 2];
-  const segundoApellido = partes[partes.length - 1];
-
-  return `${primerNombre} ${primerApellido} ${segundoApellido}`;
-};
-
 
   return (
     <AppBar position="static" sx={{ backgroundColor: '#2980b9', width: '100%' }}>
@@ -85,7 +66,7 @@ const Topbar = () => {
             whiteSpace: 'nowrap',
           }}
         >
-          Hola, {formatearNombre(nombreUsuario, esMobile)} |{' '}
+          Hola, {nombreUsuario} |{' '}
           <span
             onClick={handleLogout}
             style={{ cursor: 'pointer', textDecoration: 'none', fontSize: 'inherit' }}

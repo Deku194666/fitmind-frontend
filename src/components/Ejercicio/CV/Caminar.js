@@ -5,8 +5,6 @@ const Caminar = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
-  const [hydrated, setHydrated] = useState(false);
-
 
   const caloriasPorMinuto = 4.5; // estimado caminar moderado
   const calorias = Number(((tiempo / 60) * caloriasPorMinuto).toFixed(2));
@@ -23,7 +21,6 @@ const Caminar = () => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      if (isRunning) return; // 👈 no cerrar si camina
       timeoutId = setTimeout(cerrarSesion, 60000);
     };
     window.addEventListener('mousemove', resetTimeout);
@@ -46,33 +43,6 @@ const Caminar = () => {
     }
     return () => clearInterval(intervalo);
   }, [isRunning]);
-
-
-
-  // 🔄 Restaurar estado del cronómetro (caminar)
-useEffect(() => {
-  const savedTiempo = localStorage.getItem('caminar_tiempo');
-  const savedIsRunning = localStorage.getItem('caminar_isRunning');
-
-  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
-  if (savedIsRunning === 'true') setIsRunning(true);
-
-  setHydrated(true); // 👈 CLAVE ANTI-STAGING
-}, []);
-
-
-// 💾 Guardar estado del cronómetro (caminar)
-useEffect(() => {
-  if (!hydrated) return;
-
-  localStorage.setItem('caminar_tiempo', tiempo);
-  localStorage.setItem('caminar_isRunning', isRunning);
-}, [tiempo, isRunning, hydrated]);
-
-
-
-
-
 
   // 📥 última sesión (con header user-id)
   const fetchUltimaSesion = async () => {

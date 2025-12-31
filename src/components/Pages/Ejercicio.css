@@ -1,66 +1,26 @@
-/* Estilos base */
+
 .parraf1 {
+
     font-size: 3rem;
     font-weight: 700;
     color: #2980b9;
     text-align: left;
     margin-left: 6rem;
     margin-top: 3rem;
+
 }
 
 .parraf2 {
+
     font-size: 2rem;
     text-align: left;
     margin-left: 6rem;
-    max-width: 99rem;
+    max-width:  99rem;
+
 }
 
 .contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* permite que los hijos se acomoden en varias líneas en pantallas pequeñas */
-}
-
-/* Media queries para dispositivos móviles */
-@media (max-width: 768px) {
-    .parraf1 {
-        font-size: 2rem;
-        margin-left: 2rem;
-        margin-top: 2rem;
-    }
-
-    .parraf2 {
-        font-size: 1.4rem;
-        margin-left: 2rem;
-        max-width: 90%;
-    }
-
-    .contenedor {
-        flex-direction: column; /* acomoda los elementos en columna */
-        align-items: flex-start; /* alinea a la izquierda */
-        margin: 0 1rem;
-    }
-}
-
-/* Media queries para pantallas muy pequeñas (celulares pequeños) */
-@media (max-width: 480px) {
-    .parraf1 {
-        font-size: 2.2rem;
-        margin-left: 1rem;
-        margin-top: 3rem;
-        text-align: center;
-    }
-
-    .parraf2 {
-        font-size: 1.9rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        max-width: 95%;
-        text-align: justify;
-    }
-
-    .contenedor {
-        margin: 0 0.5rem;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

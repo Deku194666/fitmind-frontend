@@ -2,13 +2,12 @@
 
 // src/components/TertiaryBar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './BarNavInforme.css';
+ import { Link } from 'react-router-dom';
 
 
 const BarNavInforme = () => {
   return (
-    <div className="BarNavInforme">
+    <div className="tertiary-bar">
       
       <Link className='bar-button'   to="/hidratacioninforme">Hidratación</Link>
       <Link to="/registroalimentosinforme" className="bar-button">Registro de Alimentos</Link>

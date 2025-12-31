@@ -5,9 +5,6 @@ const Trote = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tiempo, setTiempo] = useState(0); // en segundos
   const [ultimaSesion, setUltimaSesion] = useState(null);
-  const [hydrated, setHydrated] = useState(false);
-
-
 
   const caloriasPorMinuto = 7.5; // estimado para trotar suave (~6 km/h)
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); // string para mostrar
@@ -24,7 +21,6 @@ const Trote = () => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      if (isRunning) return;
       timeoutId = setTimeout(cerrarSesion, 60000);
     };
     resetTimeout();
@@ -95,30 +91,6 @@ const Trote = () => {
       alert('Error al registrar en la base de datos');
     }
   };
-
-  // 🔄 Restaurar cronómetro desde localStorage
-useEffect(() => {
-  const savedTiempo = localStorage.getItem('trote_tiempo');
-  const savedIsRunning = localStorage.getItem('trote_isRunning');
-
-  if (savedTiempo !== null) setTiempo(Number(savedTiempo));
-  if (savedIsRunning === 'true') setIsRunning(true);
-
-  setHydrated(true); // 👈 CLAVE
-}, []);
-
-// 💾 Guardar cronómetro en localStorage
-useEffect(() => {
-  if (!hydrated) return; // 👈 PROTECCIÓN CLAVE
-
-  localStorage.setItem('trote_tiempo', tiempo);
-  localStorage.setItem('trote_isRunning', isRunning);
-}, [tiempo, isRunning, hydrated]);
-
-
-
-
-
 
   const formatTime = (segundos) => {
     const h = Math.floor(segundos / 3600);

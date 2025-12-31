@@ -30,11 +30,10 @@
     justify-content: center;
     gap: 8px;
     padding: 10px;
-    font-size: 2rem;
   }
 
   .bar-button {
-    font-size: 18px !important;
+    font-size: 12px;
     padding: 6px 12px;
     border-radius: 6px;
     background-color: #e0f7fa;
