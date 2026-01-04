@@ -171,7 +171,7 @@ const Register = () => {
           marginTop: 2,
           backgroundColor: '#2980b9',
           fontWeight: '700',
-          marginRight: '3rem',
+          marginRight: '2rem',
         }}
       >
         Volver al Inicio
