@@ -25,7 +25,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+<<<<<<< HEAD
     "start:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://harvest-sales-vat-translations.trycloudflare.com&& react-scripts start",
+=======
+    "start:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://maria-respectively-ram-customs.trycloudflare.com&& react-scripts start",
+>>>>>>> a2dd22b (feat(frontend): major UI and health module updates, remove env files from repo)
     "test": "react-scripts test",
     "build": "react-scripts build",
     "eject": "react-scripts eject"

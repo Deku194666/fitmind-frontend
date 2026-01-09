@@ -90,7 +90,7 @@ if (setSignosVitales) {
 
   return (
     <div style={{
-      maxWidth: '400px',
+      maxWidth: '350px',
       margin: '40px auto',
       padding: '30px',
       border: '2px solid #2980b9',

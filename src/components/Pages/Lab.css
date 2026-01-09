@@ -1,47 +1,46 @@
-
-
 /* ==========================
    Estilos generales (PC)
 ========================== */
-.examenes-container {
-    max-width: 1400px;
+.lab-container {
+    max-width: 1200px;
     margin: 0 auto;
-    
+    padding: 2rem;
 }
 
-.p130 { 
-    font-size: 3.5rem;
+.p132 { 
+    font-size: 3rem;
     font-weight: 700;
     color: #2980b9;
     margin-top: 3rem;
-    margin-left: 5rem;
+    text-align: left;
 }
 
-.p140 {
-    font-size: 3rem;
+.p142 {
+    font-size: 2rem;
     font-weight: 600;
     margin-top: 2rem;
-    margin-left: 5rem;
-    color:#2980b9
+    text-align: left;
 }
 
-.p151 {
-    font-size: 1.8rem;
+.p152 {
+    font-size: 1.7rem;
     font-weight: 400;
     margin-top: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     text-align: justify;
     line-height: 1.8;
-    margin-left: 3rem;
-    margin-right: 3rem;
 }
 
-.examenes-container a {
+ul.p150 {
+    padding-left: 2rem; /* espacio para bullets */
+}
+
+.lab-container a {
     color: #2980b9;
     text-decoration: none;
 }
 
-.examenes-container a:hover {
+.lab-container a:hover {
     text-decoration: underline;
 }
 
@@ -49,36 +48,37 @@
    Media Queries: Tablets y Móviles
 ========================== */
 @media screen and (max-width: 1024px) {
-    .p130 {
-        font-size: 3.7rem;
-        margin-left: 3rem;
-
+    .p132 {
+        font-size: 4rem;
+        color: #2980b9;
+        font-weight: 600;
+        margin-left: 2rem;
 
         
     }
 
-    .p140 {
+    .p142 {
         font-size: 3rem;
-        margin-left: 4rem;
         color: #2980b9;
-
+        font-weight: 600;
+        margin-left: 3rem;
     }
 
-    .p151 {
-        font-size: 1.9rem;
-        margin-left: 2.4rem;
-        margin-right: 2.4rem;
+    .p152 {
+        font-size: 1.8rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
         text-align: justify;
     }
 
-    .examenes-container {
-        padding: 0rem;
+    .lab-container {
+        padding: 1.5rem;
     }
 }
 
 @media screen and (max-width: 768px) {
     .p13 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .p14 {
@@ -86,17 +86,17 @@
     }
 
     .p150 {
-        font-size: 3rem;
+        font-size: 1.2rem;
     }
 
-    .examenes-container {
-        padding: 0rem;
+    .lab-container {
+        padding: 1rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     .p13 {
-        font-size: 3rem;
+        font-size: 1.7rem;
     }
 
     .p14 {
@@ -104,6 +104,6 @@
     }
 
     .p150 {
-        font-size: 3rem;
+        font-size: 1rem;
     }
 }

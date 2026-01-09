@@ -1,76 +1,72 @@
+
+
 /* ==========================
    Estilos generales (PC)
 ========================== */
-.cardio-container {
+.respi-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-.p134 { 
+.p135 { 
     font-size: 3rem;
     font-weight: 700;
-    color:#2980b9;
+    color: #2980b9;
     margin-top: 3rem;
-    margin-left: 4rem;
-
-    
+    text-align: left;
 }
 
-.p144 {
+.p145 {
     font-size: 2rem;
     font-weight: 600;
     margin-top: 2rem;
+    text-align: left;
     color: #2980b9;
-    margin-left: 2rem;
-
 }
 
-.p164 {
+.p165 {
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 2rem;
-    margin-left: 2rem;
-    
+    text-align: left;
 }
 
-.p154 {
+.p155 {
     font-size: 1.7rem;
     font-weight: 400;
     margin-top: 1rem;
     margin-bottom: 3rem;
     text-align: justify;
     line-height: 1.8;
-    margin-left: 3rem;
-    margin-right: 3rem;
 }
 
 ul.p150 {
-    padding-left: 2rem; /* espacio para bullets */
+    padding-left: 2rem;
 }
 
-.cardio-container a {
-    color: #c0392b;
+.respi-container a {
+    color: #2980b9;
     text-decoration: none;
 }
 
-.cardio-container a:hover {
+.respi-container a:hover {
     text-decoration: underline;
 }
 
 /* Tablas */
-.cardio-container table {
+.respi-container table {
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
 }
 
-.cardio-container th, .cardio-container td {
+.respi-container th, .respi-container td {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.cardio-container th {
+.respi-container th {
     background-color: #f2f2f2;
     font-weight: 600;
     text-align: left;
@@ -80,36 +76,38 @@ ul.p150 {
    Media Queries: Tablets y Móviles
 ========================== */
 @media screen and (max-width: 1024px) {
-    .p134 {
-        font-size: 3.3rem;
-        color: #2980b9;
-        margin-left: 2rem;
-        
-    }
-
-    .p144, .p164 {
-        font-size: 2.3rem;
+    .p135 {
+        font-size: 3.2rem;
         font-weight: 700;
         margin-left: 2rem;
         color: #2980b9;
-        margin-right: 1rem;
 
+
+        
     }
 
-    .p154 {
-        font-size: 1.73rem;
+    .p145, .p165 {
+        font-size: 2.5rem;
         margin-left: 2rem;
-        margin-right: 2rem;
+        font-weight: 700;
+        color: #2980b9;
+
+    
+    }
+
+    .p155 {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
         text-align: justify;
-        margin-bottom: 5rem;
 
     }
 
-    .cardio-container {
+    .respi-container {
         padding: 1.5rem;
     }
 
-    .cardio-container table {
+    .respi-container table {
         font-size: 0.9rem;
     }
 }
@@ -127,11 +125,11 @@ ul.p150 {
         font-size: 1.2rem;
     }
 
-    .cardio-container {
+    .respi-container {
         padding: 1rem;
     }
 
-    .cardio-container table {
+    .respi-container table {
         font-size: 0.8rem;
     }
 }
@@ -149,7 +147,7 @@ ul.p150 {
         font-size: 1rem;
     }
 
-    .cardio-container table {
+    .respi-container table {
         font-size: 0.7rem;
     }
 }

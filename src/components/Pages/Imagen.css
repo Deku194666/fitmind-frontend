@@ -1,116 +1,82 @@
 /* ==========================
    Estilos generales (PC)
 ========================== */
-.cardio-container {
+.imagen-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-.p134 { 
-    font-size: 3rem;
+.p133 { 
+    font-size: 3.5em;
     font-weight: 700;
-    color:#2980b9;
+    color: #2980b9;
     margin-top: 3rem;
-    margin-left: 4rem;
-
+    margin-left: 2.5rem;
     
 }
 
-.p144 {
-    font-size: 2rem;
-    font-weight: 600;
+.p143 {
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-top: 2rem;
     color: #2980b9;
-    margin-left: 2rem;
-
+    margin-left: 4rem;
 }
 
-.p164 {
+.p153 {
     font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-left: 2rem;
-    
-}
-
-.p154 {
-    font-size: 1.7rem;
     font-weight: 400;
     margin-top: 1rem;
     margin-bottom: 3rem;
     text-align: justify;
     line-height: 1.8;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
 
 ul.p150 {
     padding-left: 2rem; /* espacio para bullets */
 }
 
-.cardio-container a {
-    color: #c0392b;
+.imagen-container a {
+    color: #2980b9;
     text-decoration: none;
 }
 
-.cardio-container a:hover {
+.imagen-container a:hover {
     text-decoration: underline;
-}
-
-/* Tablas */
-.cardio-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-}
-
-.cardio-container th, .cardio-container td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.cardio-container th {
-    background-color: #f2f2f2;
-    font-weight: 600;
-    text-align: left;
 }
 
 /* ==========================
    Media Queries: Tablets y Móviles
 ========================== */
 @media screen and (max-width: 1024px) {
-    .p134 {
-        font-size: 3.3rem;
+    .p133 {
+        font-size: 3.8rem;
         color: #2980b9;
+        font-weight: 600;
         margin-left: 2rem;
-        
-    }
-
-    .p144, .p164 {
-        font-size: 2.3rem;
-        font-weight: 700;
-        margin-left: 2rem;
-        color: #2980b9;
-        margin-right: 1rem;
 
     }
 
-    .p154 {
-        font-size: 1.73rem;
+    .p143 {
+        font-size: 2.8rem;
+        color: #2980b9;
+        font-weight: 600;
+        margin-left: 3rem;
+    }
+
+    .p153 {
+        font-size: 1.8rem;
         margin-left: 2rem;
         margin-right: 2rem;
         text-align: justify;
-        margin-bottom: 5rem;
 
     }
 
-    .cardio-container {
+    .imagen-container {
         padding: 1.5rem;
-    }
-
-    .cardio-container table {
-        font-size: 0.9rem;
     }
 }
 
@@ -119,7 +85,7 @@ ul.p150 {
         font-size: 2rem;
     }
 
-    .p14, .p16 {
+    .p14 {
         font-size: 1.5rem;
     }
 
@@ -127,12 +93,8 @@ ul.p150 {
         font-size: 1.2rem;
     }
 
-    .cardio-container {
+    .imagen-container {
         padding: 1rem;
-    }
-
-    .cardio-container table {
-        font-size: 0.8rem;
     }
 }
 
@@ -141,15 +103,11 @@ ul.p150 {
         font-size: 1.7rem;
     }
 
-    .p14, .p16 {
+    .p14 {
         font-size: 1.3rem;
     }
 
     .p150 {
         font-size: 1rem;
-    }
-
-    .cardio-container table {
-        font-size: 0.7rem;
     }
 }

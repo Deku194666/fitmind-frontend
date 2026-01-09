@@ -42,7 +42,7 @@
 @media (max-width: 480px) {
   .NavBarExamen {
     flex-wrap: wrap;         /* 🔑 evita solapamiento */
-    gap: 3rem;
+    gap: 4rem;
     justify-content: center;
     padding: 2px;
   }

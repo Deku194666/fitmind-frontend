@@ -1,115 +1,115 @@
+
+
 /* ==========================
    Estilos generales (PC)
 ========================== */
-.cardio-container {
+.metabolicas-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-.p134 { 
-    font-size: 3rem;
+.p137 { 
+    font-size: 3.5rem;
     font-weight: 700;
-    color:#2980b9;
+    color: #2980b9;
     margin-top: 3rem;
-    margin-left: 4rem;
-
-    
+    text-align: left;
 }
 
-.p144 {
-    font-size: 2rem;
-    font-weight: 600;
+.p147 {
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-top: 2rem;
     color: #2980b9;
-    margin-left: 2rem;
 
 }
 
-.p164 {
+.p167 {
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 2rem;
-    margin-left: 2rem;
-    
+    text-align: left;
 }
 
-.p154 {
+.p157 {
     font-size: 1.7rem;
     font-weight: 400;
     margin-top: 1rem;
     margin-bottom: 3rem;
     text-align: justify;
     line-height: 1.8;
-    margin-left: 3rem;
-    margin-right: 3rem;
 }
 
 ul.p150 {
-    padding-left: 2rem; /* espacio para bullets */
+    padding-left: 2rem;
 }
 
-.cardio-container a {
-    color: #c0392b;
+/* Enlaces */
+.metabolicas-container a {
+    color: #2980b9;
     text-decoration: none;
 }
 
-.cardio-container a:hover {
+.metabolicas-container a:hover {
     text-decoration: underline;
 }
 
-/* Tablas */
-.cardio-container table {
+/* ==========================
+   Tablas
+========================== */
+.metabolicas-container table {
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
 }
 
-.cardio-container th, .cardio-container td {
+.metabolicas-container th,
+.metabolicas-container td {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.cardio-container th {
+.metabolicas-container th {
     background-color: #f2f2f2;
     font-weight: 600;
     text-align: left;
 }
 
 /* ==========================
-   Media Queries: Tablets y Móviles
+   Media Queries
 ========================== */
 @media screen and (max-width: 1024px) {
-    .p134 {
-        font-size: 3.3rem;
+    .p137 {
+        font-size: 3.5rem;
+        margin-left: 2rem;
         color: #2980b9;
+        font-weight: 700;
+
+        
+    }
+
+    .p147, .p167 {
+        font-size: 2.5rem;
+        color: #2980b9;
+        font-weight: 700;
         margin-left: 2rem;
         
     }
 
-    .p144, .p164 {
-        font-size: 2.3rem;
-        font-weight: 700;
-        margin-left: 2rem;
-        color: #2980b9;
+    .p157 {
+        font-size: 1.8rem;
+        margin-left: 1rem;
         margin-right: 1rem;
-
-    }
-
-    .p154 {
-        font-size: 1.73rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
         text-align: justify;
-        margin-bottom: 5rem;
 
     }
 
-    .cardio-container {
+    .metabolicas-container {
         padding: 1.5rem;
     }
 
-    .cardio-container table {
+    .metabolicas-container table {
         font-size: 0.9rem;
     }
 }
@@ -127,11 +127,11 @@ ul.p150 {
         font-size: 1.2rem;
     }
 
-    .cardio-container {
+    .metabolicas-container {
         padding: 1rem;
     }
 
-    .cardio-container table {
+    .metabolicas-container table {
         font-size: 0.8rem;
     }
 }
@@ -149,7 +149,7 @@ ul.p150 {
         font-size: 1rem;
     }
 
-    .cardio-container table {
+    .metabolicas-container table {
         font-size: 0.7rem;
     }
 }
