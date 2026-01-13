@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, Box, useMediaQuery } from '@mui/material';
+import { AppBar, Toolbar, Typography, useMediaQuery } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import imagen3 from '../images/imagen3.png';
 import './Topbar.css';
