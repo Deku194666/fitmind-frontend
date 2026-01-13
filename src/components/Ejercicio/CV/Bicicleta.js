@@ -1,26 +1,98 @@
-import React, { useState, useEffect } from 'react';
+
+
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+
+const STORAGE_KEY = 'fitmind_bicicleta';
 
 const Bicicleta = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [tiempo, setTiempo] = useState(0); // en segundos
+  const [tiempo, setTiempo] = useState(0);
+  const [tiempoBase, setTiempoBase] = useState(0);
+  const [startTime, setStartTime] = useState(null);
   const [ultimaSesion, setUltimaSesion] = useState(null);
 
-  const caloriasPorMinuto = 9.0; // estimación para ciclismo moderado (~20 km/h)
+  const intervalRef = useRef(null);
+  const isHydrated = useRef(false);
+
+  const caloriasPorMinuto = 9.0;
   const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2);
 
-  // --- TIMER DEL CRONOMETRO ---
+  /* ===============================
+     🔁 RESTAURAR ESTADO
+     =============================== */
   useEffect(() => {
-    let intervalo;
-    if (isRunning) {
-      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
-    } else {
-      clearInterval(intervalo);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      isHydrated.current = true;
+      return;
     }
-    return () => clearInterval(intervalo);
-  }, [isRunning]);
 
-  // --- OBTENER ÚLTIMA SESIÓN ---
+    try {
+      const data = JSON.parse(saved);
+
+      if (typeof data.tiempo === 'number') {
+        setTiempo(data.tiempo);
+        setTiempoBase(data.tiempo);
+      }
+
+      if (data.isRunning && typeof data.startTime === 'number') {
+        setIsRunning(true);
+        setStartTime(data.startTime);
+      }
+    } catch (err) {
+      console.error('Error restaurando bicicleta:', err);
+    } finally {
+      isHydrated.current = true;
+    }
+  }, []);
+
+  /* ===============================
+     💾 GUARDAR ESTADO
+     =============================== */
+  useEffect(() => {
+    if (!isHydrated.current) return;
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        isRunning,
+        startTime,
+        tiempo
+      })
+    );
+  }, [isRunning, startTime, tiempo]);
+
+  /* ===============================
+     ⏱️ CRONÓMETRO REAL
+     =============================== */
+  useEffect(() => {
+    if (!isRunning || !startTime) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      return;
+    }
+
+    if (intervalRef.current) return;
+
+    intervalRef.current = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      setTiempo(tiempoBase + elapsed);
+    }, 1000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isRunning, startTime, tiempoBase]);
+
+  /* ===============================
+     📡 ÚLTIMA SESIÓN
+     =============================== */
   useEffect(() => {
     const fetchUltimaSesion = async () => {
       const usuario_id = localStorage.getItem('usuario_id');
@@ -29,11 +101,7 @@ const Bicicleta = () => {
       try {
         const res = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/bicicleta/${usuario_id}`,
-          {
-            headers: {
-              'user-id': usuario_id // 🔑 enviamos user-id en el header
-            }
-          }
+          { headers: { 'user-id': usuario_id } }
         );
         setUltimaSesion(res.data);
       } catch (err) {
@@ -44,41 +112,30 @@ const Bicicleta = () => {
     fetchUltimaSesion();
   }, []);
 
-  // --- FUNCIÓN PARA CERRAR SESIÓN AUTOMÁTICAMENTE ---
-  const cerrarSesion = () => {
-    alert('⏱️ Sesión expirada por inactividad');
-    localStorage.clear(); // borra todos los datos de usuario
-    window.location.href = '/login'; // redirige al login
+  /* ===============================
+     🎮 CONTROLES
+     =============================== */
+  const handleStartStop = () => {
+    if (!isRunning) {
+      setStartTime(Date.now());
+      setIsRunning(true);
+    } else {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const total = tiempoBase + elapsed;
+
+      setTiempo(total);
+      setTiempoBase(total);
+      setIsRunning(false);
+      setStartTime(null);
+    }
   };
 
-  // --- TIMER DE INACTIVIDAD ---
-  useEffect(() => {
-    let timeout;
-
-    const reiniciarTimer = () => {
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(cerrarSesion, 60 * 1000); // 1 minuto = 60.000 ms
-    };
-
-    window.addEventListener('mousemove', reiniciarTimer);
-    window.addEventListener('keydown', reiniciarTimer);
-    window.addEventListener('click', reiniciarTimer);
-
-    reiniciarTimer(); // inicializa el timer
-
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener('mousemove', reiniciarTimer);
-      window.removeEventListener('keydown', reiniciarTimer);
-      window.removeEventListener('click', reiniciarTimer);
-    };
-  }, []);
-
-  // --- HANDLERS DEL CRONOMETRO ---
-  const handleStartStop = () => setIsRunning(!isRunning);
   const handleReset = () => {
     setIsRunning(false);
     setTiempo(0);
+    setTiempoBase(0);
+    setStartTime(null);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
   const handleFinalizar = async () => {
@@ -91,32 +148,33 @@ const Bicicleta = () => {
     try {
       await axios.post(
         `${process.env.REACT_APP_API_URL}/api/bicicleta`,
-        {
-          usuario_id,
-          tiempo,
-          calorias
-        },
-        {
-          headers: {
-            'user-id': usuario_id // 🔑 enviamos user-id en el header
-          }
-        }
+        { usuario_id, tiempo, calorias },
+        { headers: { 'user-id': usuario_id } }
       );
       alert('✅ Sesión de bicicleta registrada con éxito');
-      setUltimaSesion({ tiempo, calorias, fecha: new Date() }); // actualizar la vista localmente
+      setUltimaSesion({ tiempo, calorias, fecha: new Date() });
+      handleReset();
     } catch (error) {
       console.error('❌ Error al registrar sesión de bicicleta:', error);
       alert('Error al registrar en la base de datos');
     }
   };
 
-  // --- FORMATEO DEL TIEMPO ---
+  /* ===============================
+     ⏲️ FORMATO TIEMPO
+     =============================== */
   const formatTime = (segundos) => {
     const h = Math.floor(segundos / 3600);
     const m = Math.floor((segundos % 3600) / 60);
     const s = segundos % 60;
-    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    return `${h.toString().padStart(2,'0')}:${m
+      .toString()
+      .padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
   };
+
+  /* ===============================
+     🎨 UI (SIN CAMBIOS)
+     =============================== */
 
   const beneficios = [
     "Fortalece las piernas y mejora la salud cardiovascular",
@@ -142,7 +200,7 @@ const Bicicleta = () => {
       boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
     }}>
 
-      <h2>🚴‍♂️ Cronómetro de Bicicleta</h2>
+      <h2 style={{ textAlign: 'center'}}   >🚴‍♂️ Cronómetro de Bicicleta</h2>
       <h1 style={{
         fontSize: '4rem',
         fontWeight: '700',
@@ -213,16 +271,16 @@ const Bicicleta = () => {
       </p>
 
       {ultimaSesion && (
-        <div style={{ marginTop: '3rem', padding: '1rem', backgroundColor: '#c8e6c9', borderRadius: '10px' }}>
-          <h3>📊 Última sesión registrada</h3>
-          <p>⏱️ Tiempo: <strong>{formatTime(ultimaSesion.tiempo)}</strong></p>
-          <p>🔥 Calorías: <strong>{ultimaSesion.calorias} kcal</strong></p>
-          <p>🗓️ Fecha: <strong>{new Date(ultimaSesion.fecha).toLocaleString()}</strong></p>
+        <div style={{ marginTop: '3rem', padding: '1rem', backgroundColor: '#c8e6c9', borderRadius: '10px', textAlign: 'center' }}>
+          <p style={{ fontSize: '2.5rem', fontWeight: '700',   }}   >📊 Última sesión registrada</p>
+          <p style={{ fontSize: '1.3rem'  }}  > ⏱️ <strong> Tiempo: </strong>  {formatTime(ultimaSesion.tiempo)} </p>
+          <p style={{ fontSize: '1.3rem'  }}  > 🔥 <strong> Calorias: </strong>   {ultimaSesion.calorias} kcal </p>
+          <p style={{ fontSize: '1.3rem'  }}  >🗓️ <strong> Fecha: </strong>   {new Date(ultimaSesion.fecha).toLocaleString()} </p>
         </div>
       )}
 
       <div style={{ maxWidth: '60rem', margin: '4rem auto', textAlign: 'left', padding: '2rem', backgroundColor: '#f3f9ff', borderRadius: '12px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.6rem' }}>
+        <h2 style={{ display: 'flex',  gap: '0.5rem', fontSize: '2.24rem', textAlign: 'center' }}>
           🚴 Beneficios de andar en bicicleta
         </h2>
         <p style={{ marginTop: '1rem', fontSize: '1.5rem' }}>

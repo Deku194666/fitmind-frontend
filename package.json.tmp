@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:staging": "set NODE_ENV=staging&& set REACT_APP_API_URL=https://sword-procedure-conditional-cruz.trycloudflare.com&& react-scripts start",
+    "start:staging": "cross-env NODE_ENV=staging REACT_APP_API_URL=https://maria-respectively-ram-customs.trycloudflare.com react-scripts start",
     "test": "react-scripts test",
     "build": "react-scripts build",
     "eject": "react-scripts eject"

@@ -1,36 +1,80 @@
+/* =================================================
+   NAVBAR ALIMENTOS – FITMIND
+================================================= */
 
+/* ===============================
+   BASE – CELULAR (DEFAULT)
+================================ */
 
-
-/* src/components/NavBarAl.css */
-
-.navbar-ex {
+.navbar-al {
+  display: flex;
+  flex-wrap: wrap;              /* 🔥 CLAVE: evita solapamiento */
+  gap: 2px;
+  padding: 5px;
   background-color: lightcyan;
-  padding: 5px 20px;
   border-bottom: 1px solid #ccc;
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 17rem;
 }
 
-.navbar-ex-ul {
-  list-style: none;
-  display: flex;           /* 🔥 NECESARIO para que funcione gap */
-  justify-content: center; /* Centra horizontalmente */
-  gap: 190px;               /* 🔥 Espaciado entre las opciones */
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-ex-link {
-  font-size: 16px;
+.navbar-al-link {
+  flex: 1 1 auto;               /* 🔥 cada link se adapta */
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 1.3rem;
   color: #2980b9;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s ease;
+  border-radius: 8px;
+  white-space: normal;          /* permite saltos de línea */
 }
 
-.navbar-ex-link:hover {
-  color: #1c5e80; /* Letras más oscuras al pasar el mouse */
-  background-color: transparent; /* ⚠️ Esto asegura que NO aparezca rectángulo */
+/* ===============================
+   CELULAR CHICO
+================================ */
+@media (max-width: 360px) {
+  .navbar-al-link {
+    font-size: 13px;
+    padding: 8px 6px;
+  }
+}
 
+/* ===============================
+   TABLET (>= 600px)
+================================ */
+@media (min-width: 600px) {
+  .navbar-al {
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 16px;
+  }
+
+  .navbar-al-link {
+    flex: 0 0 auto;
+    font-size: 15px;
+    padding: 10px 14px;
+    white-space: nowrap;       /* una sola línea */
+  }
+}
+
+/* ===============================
+   DESKTOP (>= 900px)
+================================ */
+@media (min-width: 900px) {
+  .navbar-al {
+    justify-content: center;
+    gap: 80px;                 /* 🔥 como tu versión PC */
+    padding: 12px 24px;
+    height: 6rem;
+  }
+
+  .navbar-al-link {
+    font-size: 16px;
+  }
+
+  .navbar-al-link:hover {
+    color: #1c5e80;
+  }
 }
