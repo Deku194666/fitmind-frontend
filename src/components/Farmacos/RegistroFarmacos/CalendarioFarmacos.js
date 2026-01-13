@@ -3,6 +3,8 @@
 // src/components/CalendarioFarmacos.js
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; // CSS oficial de react-calendar
+
 import axios from 'axios';
 import Modal from 'react-modal';
 import './CalendarioFarmacos.css'; // Luego te doy estilos básicos
