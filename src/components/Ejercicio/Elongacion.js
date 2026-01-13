@@ -300,9 +300,9 @@ const Elongacion = () => {
           borderRadius: '10px'
         }}>
           <h3>📊 Última sesión registrada</h3>
-          <p>⏱️ Tiempo: <strong>{formatTime(ultimaSesion.tiempo)}</strong></p>
-          <p>🔥 Calorías: <strong>{ultimaSesion.calorias} kcal</strong></p>
-          <p>🗓️ Fecha: <strong>{new Date(ultimaSesion.fecha).toLocaleString()}</strong></p>
+          <p>⏱️ <strong> Tiempo: </strong>  {formatTime(ultimaSesion.tiempo)}</p>
+          <p>🔥 <strong> Calorías: </strong> {ultimaSesion.calorias} kcal</p>
+          <p>🗓️ <strong> Fecha: </strong>  {new Date(ultimaSesion.fecha).toLocaleString()}</p>
         </div>
       ) : (
         <p style={{ marginTop: '2rem', color: '#888' }}>No hay sesiones registradas aún.</p>

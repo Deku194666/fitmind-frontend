@@ -24,6 +24,7 @@ import Ejercicio from './components/Pages/Ejercicio';
 import BienestarMental from './components/Pages/Bienestarmental';
 import Farmacos from './components/Pages/Farmacos';
 import RegistroAlimentos from './components/Pages/RegistroAlimentos';
+import HistorialAlimentos from './components/Alimentos/HistorialAlimentos';
 import Comidas from './components/Pages/Comidas';
 import Comidas2 from './components/Pages/Comidas2';
 import Premium from './components/Pages/Premium';
@@ -331,6 +332,7 @@ function MainRouter() {
           <Route path='ecnt/metabolicasecnt'  element={ < MetabolicasECNT  /> } />
           <Route path='ecnt/neurodegenerativasecnt'  element={<  NeuroDegenerativasECNT  /> } />
           <Route path='alimentos/alimentos'  element={  <  Alimentos /> }  />
+          <Route path='alimentos/historialalimentos'  element={ < HistorialAlimentos  /> }  />
           <Route path='ejercicio/elongacion'  element={ < Elongacion  /> }  />
           <Route path='ejercicio/musculacion'  element= { < Musculacion  /> }   />
           <Route path='ejercicio/cv'   element={ < CV /> }   />

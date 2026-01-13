@@ -200,7 +200,7 @@ const Bicicleta = () => {
       boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
     }}>
 
-      <h2>🚴‍♂️ Cronómetro de Bicicleta</h2>
+      <h2 style={{ textAlign: 'center'}}   >🚴‍♂️ Cronómetro de Bicicleta</h2>
       <h1 style={{
         fontSize: '4rem',
         fontWeight: '700',
@@ -271,16 +271,16 @@ const Bicicleta = () => {
       </p>
 
       {ultimaSesion && (
-        <div style={{ marginTop: '3rem', padding: '1rem', backgroundColor: '#c8e6c9', borderRadius: '10px' }}>
-          <h3>📊 Última sesión registrada</h3>
-          <p>⏱️ Tiempo: <strong>{formatTime(ultimaSesion.tiempo)}</strong></p>
-          <p>🔥 Calorías: <strong>{ultimaSesion.calorias} kcal</strong></p>
-          <p>🗓️ Fecha: <strong>{new Date(ultimaSesion.fecha).toLocaleString()}</strong></p>
+        <div style={{ marginTop: '3rem', padding: '1rem', backgroundColor: '#c8e6c9', borderRadius: '10px', textAlign: 'center' }}>
+          <p style={{ fontSize: '2.5rem', fontWeight: '700',   }}   >📊 Última sesión registrada</p>
+          <p style={{ fontSize: '1.3rem'  }}  > ⏱️ <strong> Tiempo: </strong>  {formatTime(ultimaSesion.tiempo)} </p>
+          <p style={{ fontSize: '1.3rem'  }}  > 🔥 <strong> Calorias: </strong>   {ultimaSesion.calorias} kcal </p>
+          <p style={{ fontSize: '1.3rem'  }}  >🗓️ <strong> Fecha: </strong>   {new Date(ultimaSesion.fecha).toLocaleString()} </p>
         </div>
       )}
 
       <div style={{ maxWidth: '60rem', margin: '4rem auto', textAlign: 'left', padding: '2rem', backgroundColor: '#f3f9ff', borderRadius: '12px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.6rem' }}>
+        <h2 style={{ display: 'flex',  gap: '0.5rem', fontSize: '2.24rem', textAlign: 'center' }}>
           🚴 Beneficios de andar en bicicleta
         </h2>
         <p style={{ marginTop: '1rem', fontSize: '1.5rem' }}>
