@@ -118,7 +118,7 @@ const Caminar = () => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(cerrarSesion, 300000);
+      timeoutId = setTimeout(cerrarSesion, 3000000);
     };
     window.addEventListener('mousemove', resetTimeout);
     window.addEventListener('keydown', resetTimeout);

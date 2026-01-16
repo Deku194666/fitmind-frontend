@@ -29,7 +29,7 @@ const Elongacion = () => {
 
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(cerrarSesion, 300000);
+      timeoutId = setTimeout(cerrarSesion, 3000000);
     };
 
     resetTimeout();
