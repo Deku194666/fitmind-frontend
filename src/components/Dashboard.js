@@ -1178,7 +1178,7 @@ return (
 
 
   {/* Calorías */}
-{totalCalorias > 0 && (
+{Number.isFinite(totalCalorias) && (
   <Paper
     elevation={3}
     sx={{
