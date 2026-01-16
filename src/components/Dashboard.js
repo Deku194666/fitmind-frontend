@@ -601,12 +601,11 @@ useEffect(() => {
       if (!usuario_id) return;
 
       const fecha = new Date().toLocaleDateString("en-CA");
-      
+
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/registroalimentos/dia/${usuario_id}`,
         {
           params: { fecha },
-          headers: { "user-id": usuario_id },
         }
       );
 
@@ -614,41 +613,37 @@ useEffect(() => {
 
       const registros = Array.isArray(res.data) ? res.data : [];
 
-      // 🔎 Filtrar a solo HOY (si tus docs guardan 'fecha')
-      const hoy = new Date();
-      hoy.setHours(0, 0, 0, 0);
-
-      const registrosHoy = registros.filter((r) => {
-        if (!r.fecha) return true; // si no guardas fecha, los incluimos (ajusta si quieres)
-        const f = new Date(r.fecha);
-        f.setHours(0, 0, 0, 0);
-        return f.getTime() === hoy.getTime();
-      });
-
-      // ➕ Sumar calorías con conversión a número y defensivos
-      const total = registrosHoy.reduce((sumComidas, comida) => {
+      // ➕ SUMA REAL DE CALORÍAS (SIN FILTROS EXTRA)
+      const total = registros.reduce((sumComidas, comida) => {
         const alimentos = Array.isArray(comida.alimentos) ? comida.alimentos : [];
+
         const sumaComida = alimentos.reduce((sum, al) => {
           const cals = Number(al.calorias) || 0;
           const qty = Number(al.cantidad) || 1;
           return sum + cals * qty;
         }, 0);
+
         return sumComidas + sumaComida;
       }, 0);
+      
+      
+      console.log("🔥 TOTAL CALCULADO:", total);
+
 
       if (!cancel) setTotalCalorias(total);
     } catch (err) {
-      console.error("Error al obtener calorías:", err?.response?.data || err.message);
+      console.error(
+        "Error al obtener calorías:",
+        err?.response?.data || err.message
+      );
     }
   };
 
   fetchCalorias();
 
-  // 🔁 Auto-refresco cuando registras alimentos
   const onUpdate = () => fetchCalorias();
   window.addEventListener("alimentos:actualizado", onUpdate);
 
-  // refrescar al volver a la pestaña
   const onVisible = () => {
     if (document.visibilityState === "visible") fetchCalorias();
   };
@@ -665,6 +660,7 @@ const porcentajeCalorias = Math.min(
   100,
   ((Number(totalCalorias) || 0) / objetivoCalorias) * 100
 ).toFixed(1);
+
 
 
 
@@ -1178,7 +1174,7 @@ return (
 
 
   {/* Calorías */}
-{Number.isFinite(totalCalorias) && (
+{(
   <Paper
     elevation={3}
     sx={{
