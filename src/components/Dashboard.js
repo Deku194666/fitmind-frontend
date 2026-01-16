@@ -1275,22 +1275,48 @@ return (
     )}
   </Paper>
 
-
 {/* Macronutrientes */}
 {totalesMacros.proteinas > 0 && (
-  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, width: { xs: '100%', sm: '25rem' }, height: 'auto' }}>
-    <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
+  <Paper
+    elevation={3}
+    sx={{
+      padding: 3,
+      borderRadius: 3,
+      width: { xs: '100%', sm: '25rem' },
+      height: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start', // que queden alineados a la izquierda
+    }}
+  >
+    <Typography
+      className="parrafo2"
+      sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem', textAlign: 'center', width: '100%' }}
+    >
       🥗 Macronutrientes
     </Typography>
-    <Typography className="parrafo3" sx={{ fontSize: '1.6rem', textAlign: 'center' }}>  
-      <Typography component="span" sx={{ fontWeight: 700, fontSize: '1.6rem' }}>
+
+    <Typography className="parrafo3" sx={{ fontSize: '2rem', width: '100%' }}>
+      <Typography component="span" sx={{ fontWeight: 700, textAlign: 'center',  fontSize: '1.6rem', display: 'block', marginBottom: 1 }}>
         Macronutrientes Totales Hoy:
-      </Typography>{' '}
-      {totalesMacros.proteinas.toFixed(1)} g Proteínas, {totalesMacros.grasas.toFixed(1)} g Grasas, {totalesMacros.carbohidratos.toFixed(1)} g Carbohidratos, {totalesMacros.fibra.toFixed(1)} g Fibra
+      </Typography>
+
+      {/* Cada macro en su propia línea */}
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem',  }}>
+        <strong> 🥩Proteinas: </strong> {totalesMacros.proteinas.toFixed(1)}g 
+      </Typography>
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem', }}>
+        <strong> 🥑Grasas: </strong> {totalesMacros.grasas.toFixed(1)}g 
+      </Typography>
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem', }}>
+         <strong> 🍚Carbohidratos: </strong> {totalesMacros.carbohidratos.toFixed(1)}g
+      </Typography>
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem', }}>
+        <strong> 🥦Fibra: </strong> {totalesMacros.fibra.toFixed(1)}g
+      </Typography>
     </Typography>
   </Paper>
 )}
-
 
 </Box>
 
