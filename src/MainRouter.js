@@ -270,6 +270,7 @@ import RegistroSV from './components/Informes/RegistroSV';
 import RegistroHidratacion from './components/Informes/RegistroHidratacion';
 import RegistroMusculacion from './components/Informes/RegistroEjercicio/RegistroMusculacion';
 import RegistroMusculacion2 from './components/Informes/RegistroEjercicio/RegistroMusculacion2';
+import HistorialMusculacion from './components/Informes/RegistroEjercicio/HistorialMusculacion';
 import RegistroTrote from './components/Informes/RegistroEjercicio/RegistroTrote';
 import RegistroTrote2 from './components/Informes/RegistroEjercicio/RegistroTrote2';
 import RegistroCorrer from './components/Informes/RegistroEjercicio/RegistroCorrer';
@@ -284,8 +285,11 @@ import RegistroBoxeodeSaco from './components/Informes/RegistroEjercicio/Registr
 import RegistroBoxeoSaco2 from './components/Informes/RegistroEjercicio/RegistroBoxeodeSaco2';
 import RegistroBicicleta from './components/Informes/RegistroEjercicio/RegistroBicicleta';
 import RegistroBicicleta2 from './components/Informes/RegistroEjercicio/RegistroBicicleta2';
+import RegistroElongacion from './components/Informes/RegistroEjercicio/RegistroElongacion';
+import RegistroElongacion2 from './components/Informes/RegistroEjercicio/RegistroElongacion2';
 import RegistroYoga from './components/Informes/RegistroMental/RegistroYoga';
 import RegistroYoga2 from './components/Informes/RegistroMental/RegistroYoga2';
+
 
 
 
@@ -565,6 +569,7 @@ function MainRouter() {
           <Route path='/registrohidratacion'  element={  <  RegistroHidratacion /> }  />
           <Route path='/registroejercicio/registromusculacion'  element= { <  RegistroMusculacion  /> } />
           <Route path='/registroejercicio/registromusculacion2' element= { <  RegistroMusculacion2 /> }  />
+          <Route path='/registroejercicio/historialmusculacion'  element={  <  HistorialMusculacion  />  } />
           <Route path='/registroejercicio/registrotrote' element={ <  RegistroTrote /> }  />
           <Route path='/registroejercicio/registrotrote2'  element={ <  RegistroTrote2 /> }  />
           <Route path='/registroejercicio/registrocorrer' element= {  < RegistroCorrer /> } />
@@ -579,6 +584,8 @@ function MainRouter() {
           <Route path='/registroejercicio/registroboxeodesaco2'  element= {  <  RegistroBoxeoSaco2 /> }  />
           <Route path='/registroejercicio/registrobicicleta'  element= { <  RegistroBicicleta   />  }  />
           <Route path='/registroejercicio/registrobicicleta2'  element= { <  RegistroBicicleta2 /> }  />
+          <Route path='/registroejercicio/registroelongacion'  element={ <  RegistroElongacion />   } />
+          <Route path='/registroejercicio/registroelongacion2'  element={ < RegistroElongacion2  /> }   />
           <Route path='/registromental/registroyoga'  element={<  RegistroYoga />  } />
           <Route path='/registromental/registroyoga2'  element= {< RegistroYoga2  /> }  />
         </Route>  
