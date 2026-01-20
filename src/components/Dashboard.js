@@ -1146,13 +1146,16 @@ return (
       height: "20rem",
       flex: 1,
       minWidth: { xs: "100%", md: "28rem" },
+      textAlign: "center",
+      marginBottom: "2rem",
+
     }}
   >
     <Typography
       component={Link}
       to="/hidratacion"
-      className="parrafo2"
-      sx={{ fontSize: "2.4rem", fontWeight: 650 }}
+      className="parrafo222"
+      sx={{ fontSize: "2.6rem",  marginTop: '3rem',   fontWeight: 650,  }}
     >
       💧 Hidratación
     </Typography>
@@ -1166,7 +1169,7 @@ return (
     />
     <Typography
       variant="body2"
-      sx={{ marginTop: 1, fontSize: "1.7rem" }} >
+      sx={{ marginTop: 1, fontSize: "1.7rem", marginBottom: "-3rem" }} >
       {porcentaje}% del objetivo diario
     </Typography>
   </Paper>
@@ -1186,6 +1189,7 @@ return (
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      marginBottom: "-2rem",
     }}
   >
     <Typography
@@ -1248,32 +1252,7 @@ return (
   alignItems="stretch"
   marginTop={3}
 >
-  {/* Sueño */}
-  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "28rem" }, textAlign: "center" }}>
-    <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
-      🛌 Sueño
-    </Typography>
-    {sueno ? (
-      <>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
-          <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
-        </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
-          <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
-        </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
-          <strong>Calidad del Sueño:</strong> {sueno.calidad}
-        </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
-          <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
-        </Typography>
-      </>
-    ) : (
-      <Typography className="parrafo3" sx={{ fontSize: "1.6rem", marginTop: 2 }}>
-        Aún no hay registros de sueño.
-      </Typography>
-    )}
-  </Paper>
+  
 
 {/* Macronutrientes */}
 {totalesMacros.proteinas > 0 && (
@@ -1376,7 +1355,32 @@ return (
   </Paper>
 )}
 
-
+{/* Sueño */}
+  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "20rem" }, textAlign: "center", width: { md: "10rem"  } }}>
+    <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
+      🛌 Sueño
+    </Typography>
+    {sueno ? (
+      <>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
+          <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Calidad del Sueño:</strong> {sueno.calidad}
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
+        </Typography>
+      </>
+    ) : (
+      <Typography className="parrafo3" sx={{ fontSize: "1.6rem", marginTop: 2 }}>
+        Aún no hay registros de sueño.
+      </Typography>
+    )}
+  </Paper>
 
 {tieneFarmacos && (
   <Paper elevation={3} sx={{ padding: 5, borderRadius: 3, width: { xs: '100%', sm: '40rem' }, height: 'auto' }}>
