@@ -1155,7 +1155,7 @@ return (
       component={Link}
       to="/hidratacion"
       className="parrafo222"
-      sx={{ fontSize: "2.6rem",  marginTop: '-2rem',   fontWeight: 650,  }}
+      sx={{ fontSize: "2.6rem",  marginTop: '-4rem',   fontWeight: 650,  }}
     >
       💧 Hidratación
     </Typography>
@@ -1169,7 +1169,7 @@ return (
     />
     <Typography
       variant="body2"
-      sx={{ marginTop: 1, fontSize: "1.7rem", marginBottom: "4rem" }} >
+      sx={{ marginTop: 1, fontSize: "1.7rem", marginBottom: "-1rem" }} >
       {porcentaje}% del objetivo diario
     </Typography>
   </Paper>
