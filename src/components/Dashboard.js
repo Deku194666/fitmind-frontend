@@ -1179,19 +1179,23 @@ return (
   {/* Calorías */}
 {(
   <Paper
-    elevation={3}
-    sx={{
-      padding: 3,
-      borderRadius: 3,
-      height: "20rem",
-      flex: 1,
-      minWidth: { xs: "100%", md: "34rem" },
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      marginBottom: "-2rem",
-    }}
-  >
+  elevation={3}
+  sx={{
+    padding: 3,
+    borderRadius: 3,
+
+    minHeight: { xs: "auto", md: "20rem" }, // 👈 CLAVE
+    height: "auto",
+
+    flex: 1,
+    minWidth: { xs: "100%", md: "34rem" },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: "-2rem",
+  }}
+>
+
     <Typography
       sx={{
         fontSize: "2.4rem",
@@ -1214,12 +1218,19 @@ return (
       <span style={{ fontWeight: "700" }}>Calorías Totales Hoy:</span>{" "}
       <span style={{ fontWeight: "normal" }}>{totalCalorias} kcal</span>
     </Typography>
+    
+  
+    <Typography sx={{ fontSize: "1.2rem", color: "red" }}>
+      DEBUG → porcentaje: {String(porcentajeCalorias)} | 
+      total: {String(totalCalorias)} | 
+      objetivo: {String(objetivoCalorias)}
+    </Typography>
 
     <LinearProgress
       variant="determinate"
       value={porcentajeCalorias}
       sx={{
-        height: 70,
+        height: "70px",
         marginBottom: "1.7rem",
         borderRadius: 6,
         marginTop: 2,
