@@ -1155,7 +1155,7 @@ return (
       component={Link}
       to="/hidratacion"
       className="parrafo222"
-      sx={{ fontSize: "2.6rem",  marginTop: '3rem',   fontWeight: 650,  }}
+      sx={{ fontSize: "2.6rem",  marginTop: '-2rem',   fontWeight: 650,  }}
     >
       💧 Hidratación
     </Typography>
@@ -1169,7 +1169,7 @@ return (
     />
     <Typography
       variant="body2"
-      sx={{ marginTop: 1, fontSize: "1.7rem", marginBottom: "-3rem" }} >
+      sx={{ marginTop: 1, fontSize: "1.7rem", marginBottom: "4rem" }} >
       {porcentaje}% del objetivo diario
     </Typography>
   </Paper>
@@ -1219,18 +1219,12 @@ return (
       <span style={{ fontWeight: "normal" }}>{totalCalorias} kcal</span>
     </Typography>
     
-  
-    <Typography sx={{ fontSize: "1.2rem", color: "red" }}>
-      DEBUG → porcentaje: {String(porcentajeCalorias)} | 
-      total: {String(totalCalorias)} | 
-      objetivo: {String(objetivoCalorias)}
-    </Typography>
 
     <LinearProgress
       variant="determinate"
       value={porcentajeCalorias}
       sx={{
-        height: "70px",
+        height: "30px",
         marginBottom: "1.7rem",
         borderRadius: 6,
         marginTop: 2,
