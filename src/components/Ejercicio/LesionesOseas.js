@@ -1,156 +1,138 @@
-
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavBarLesOseas from './NavBarLesOseas';
 import NavBarLesOseas2 from './NavBarLesOseas2';
- 
+import './LesionesOseas.css';
+
 function LesionesOseas() {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="ecnt-detail">
-        <NavBarLesOseas/>
-        <NavBarLesOseas2/>
+    <div className="lesiones-container">
+      <NavBarLesOseas />
+      <NavBarLesOseas2 />
 
-  
-      <p className='p13'>Lesiones Óseas: Fracturas</p>
-      <p className='p14'>📌 Introducción</p>
-      <p className='p150'> 
-        Las fracturas óseas afectan a <strong>1 de cada 2 personas</strong> a lo largo de su vida, con mayor incidencia en extremidades superiores. 
-        Representan una causa importante de morbilidad y discapacidad temporal. El manejo adecuado es esencial para prevenir complicaciones 
-        como pseudoartrosis o deformidades residuales.
-      </p>
-        
-      <p className='p16'>📌 Fracturas Comunes</p>
-      <p className='p150'>
-        Las fracturas más frecuentes varían según la edad y mecanismo de lesión:
+      <p className="title-main">Lesiones Óseas: Fracturas</p>
+
+      <p className="title-section4">📌 Introducción</p>
+      <p className="text-body">
+        Las fracturas óseas afectan a <strong>1 de cada 2 personas</strong> a lo largo de su vida y representan
+        una causa importante de discapacidad temporal. Un manejo adecuado previene pseudoartrosis y deformidades.
       </p>
 
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Radio distal (fractura de Colles):</strong> 18% de todas las fracturas</li>
-        <li><strong>Clavícula:</strong> 5% de todas las fracturas (común en niños y deportistas)</li>
-        <li><strong>Cadera:</strong> 15% en mayores de 65 años (fractura por fragilidad)</li>
-        <li><strong>Tibia:</strong> Frecuente en accidentes de tráfico y deportes</li>
-        <li><strong>Húmero proximal:</strong> 5% de todas las fracturas (común en osteoporosis)</li>
+      <p className="title-subsection4">📌 Fracturas Comunes</p>
+      <ul className="text-body">
+        <li><strong>Radio distal:</strong> 18% de todas las fracturas</li>
+        <li><strong>Clavícula:</strong> Común en niños y deportistas</li>
+        <li><strong>Cadera:</strong> Alta incidencia en mayores de 65 años</li>
+        <li><strong>Tibia:</strong> Frecuente en traumatismos de alta energía</li>
+        <li><strong>Húmero proximal:</strong> Asociada a osteoporosis</li>
       </ul>
 
-      <p className='p16'>📌 Clasificación de Fracturas</p>
-      <p className='p150'> <strong>Por integridad de la piel:</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Cerradas:</strong> Piel intacta (80% de casos)</li>
-        <li><strong>Abiertas (Gustilo-Anderson):</strong> Comunicación con exterior (I-IIIB)</li>
+      <p className="title-subsection4">📌 Clasificación de Fracturas</p>
+
+      <p className="text-body"><strong>Por integridad de la piel:</strong></p>
+      <ul className="text-body">
+        <li>Cerradas</li>
+        <li>Abiertas (Gustilo-Anderson)</li>
       </ul>
 
-      <p className='p150'> <strong>Por patrón de fractura:</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Transversas:</strong> Línea perpendicular al eje óseo</li>
-        <li><strong>Oblicuas:</strong> Línea diagonal al eje óseo</li>
-        <li><strong>Espiroideas:</strong> Línea en espiral (torsión)</li>
-        <li><strong>Conminutas:</strong> Múltiples fragmentos</li>
-        <li><strong>En tallo verde:</strong> Incompletas (típicas pediátricas)</li>
+      <p className="text-body"><strong>Por patrón:</strong></p>
+      <ul className="text-body">
+        <li>Transversas</li>
+        <li>Oblicuas</li>
+        <li>Espiroideas</li>
+        <li>Conminutas</li>
+        <li>En tallo verde</li>
       </ul>
 
-      <p className='p150'> <strong>Por desplazamiento:</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>No desplazadas:</strong> Fragmentos mantienen posición anatómica</li>
-        <li><strong>Desplazadas:</strong> Fragmentos pierden alineación</li>
-        <li><strong>Impactadas:</strong> Fragmentos comprimidos entre sí</li>
-        <li><strong>Conminutas:</strong> Múltiples fragmentos pequeños</li>
+      <p className="text-body"><strong>Por desplazamiento:</strong></p>
+      <ul className="text-body">
+        <li>No desplazadas</li>
+        <li>Desplazadas</li>
+        <li>Impactadas</li>
       </ul>
 
-      <p className='p14'>📌 Técnicas de Diagnóstico por Imagen</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
+      <p className="title-section4">📌 Diagnóstico por Imagen</p>
+      <table className="styled-table4">
         <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Modalidad</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Aplicación</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Hallazgos Clave</th>
+          <tr>
+            <th>Modalidad</th>
+            <th>Aplicación</th>
+            <th>Hallazgos</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> <Link to="/examenes/radiografia"> Radiografia</Link>   </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Diagnóstico inicial</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Línea de fractura, desplazamiento</td>
+            <td><Link to="/examenes/radiografia">Radiografía</Link></td>
+            <td>Diagnóstico inicial</td>
+            <td>Línea de fractura</td>
           </tr>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><Link to="/examenes/tc"> Tomografia Computarizada </Link>    </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fracturas complejas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Evaluación 3D, fragmentos ocultos</td>
+            <td><Link to="/examenes/tc">Tomografía</Link></td>
+            <td>Fracturas complejas</td>
+            <td>Evaluación 3D</td>
           </tr>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><Link to="/examenes/rnm"> Resonancia Nuclear Magnetica </Link></td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fracturas ocultas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Edema óseo, lesiones asociadas</td>
+            <td><Link to="/examenes/rnm">Resonancia</Link></td>
+            <td>Fracturas ocultas</td>
+            <td>Edema óseo</td>
           </tr>
         </tbody>
       </table>
 
-      <p className='p14'>📌 Manejo por Tipo de Fractura</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
+      <p className="title-section4">📌 Manejo por Tipo de Fractura</p>
+      <table className="styled-table4">
         <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Tipo</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Tratamiento</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Tiempo Consolidación</th>
+          <tr>
+            <th>Tipo</th>
+            <th>Tratamiento</th>
+            <th>Consolidación</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>No desplazadas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inmovilización</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>4-8 semanas</td>
+            <td>No desplazadas</td>
+            <td>Inmovilización</td>
+            <td>4–8 semanas</td>
           </tr>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Desplazadas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Reducción + fijación</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>8-12 semanas</td>
+            <td>Desplazadas</td>
+            <td>Reducción + fijación</td>
+            <td>8–12 semanas</td>
           </tr>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Abiertas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Desbridamiento + fijación</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>12-16 semanas</td>
+            <td>Abiertas</td>
+            <td>Cirugía + antibióticos</td>
+            <td>12–16 semanas</td>
           </tr>
         </tbody>
       </table>
 
-      <p className='p14'>⚠️ Complicaciones</p>
-      <p className='p16'>🟠 Inmediatas:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Síndrome compartimental:</strong> Urgencia quirúrgica</li>
-        <li><strong>Lesiones vasculares:</strong> Isquemia distal</li>
-        <li><strong>Lesiones nerviosas:</strong> Parálisis/perdida sensibilidad</li>
+      <p className="title-section4">⚠️ Complicaciones</p>
+
+      <ul className="text-body">
+        <li>Síndrome compartimental</li>
+        <li>Lesiones vasculares</li>
+        <li>Pseudoartrosis</li>
+        <li>Malunión</li>
+        <li>Artrosis postraumática</li>
       </ul>
 
-      <p className='p16'>🟠 Tardías:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Pseudoartrosis:</strong> Falta de consolidación (6-12 meses)</li>
-        <li><strong>Malunión:</strong> Consolidación en mala posición</li>
-        <li><strong>Artrosis postraumática:</strong> Daño articular asociado</li>
+      <p className="title-section4">🛡️ Prevención</p>
+      <ul className="text-body">
+        <li>Aporte adecuado de calcio y vitamina D</li>
+        <li>Prevención de caídas</li>
+        <li>Ejercicio con carga</li>
+        <li>Protección deportiva</li>
       </ul>
 
-      <p className='p14'>🛡️ Prevención</p>
-      <p className='p16'>🟢 General:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Protección ósea:</strong> Calcio 1000-1200mg/día + Vit D</li>
-        <li><strong>Prevención caídas:</strong> Ejercicio de equilibrio en mayores</li>
-        <li><strong>Equipo protector:</strong> Deportes de contacto/riesgo</li>
-      </ul>
-
-      <p className='p16'>🟢 Para osteoporosis:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Densitometría ósea:</strong> Screening mayor a 65 años</li>
-        <li><strong>Bifosfonatos:</strong> Reducen fracturas en 40-70%</li>
-        <li><strong>Ejercicio con peso:</strong> Estimula formación ósea</li>
-      </ul>
-
-      <p className='p14'>📌 Conclusión</p>
-      <p className='p150'>
-        El manejo de fracturas requiere <strong>evaluación integral</strong> considerando tipo de fractura, mecanismo de lesión y características del paciente. 
-        Mientras las fracturas simples pueden manejarse conservadoramente, las complejas requieren tratamiento quirúrgico especializado. 
-        La prevención, especialmente en pacientes con osteoporosis, es clave para reducir la incidencia de fracturas por fragilidad.
+      <p className="title-section4">📌 Conclusión</p>
+      <p className="text-body">
+        El manejo de fracturas debe ser individualizado. La prevención, especialmente en osteoporosis,
+        es clave para reducir fracturas por fragilidad.
       </p>
     </div>
   );

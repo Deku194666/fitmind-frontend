@@ -1,134 +1,81 @@
-
-
-import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import NavBarLesMusc from './NavBarLesMusc';
+import './LesionesMusculares.css';
+import { Link } from 'react-router-dom';
+
+
 function LesMusc() {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="ecnt-detail">
-    <NavBarLesMusc />
+    <div className="lesiones-container">
+      <NavBarLesMusc />
 
-      <p className='p13'> Lesiones Musculares Comunes </p>
-      <p className='p14'> 📌Introducción</p>
-      <p className='p150'> 
-        Las lesiones musculares representan el <strong>30-50% de todas las lesiones deportivas</strong> y son frecuentes en actividades 
-        cotidianas. Su correcta identificación y manejo son cruciales para una recuperación óptima. Presentamos las principales lesiones
-         musculares con sus características y protocolos de tratamiento basados en evidencia.
-      </p>
-        
-      <p className='p16'> 📌Desgarros Musculares</p>
-      <p className='p150'>
-        Los desgarros afectan al <strong>90% de los deportistas profesionales</strong> en algún momento de su carrera. Ocurren cuando
-         las fibras musculares se estiran más allá de su capacidad, rompiéndose parcial o totalmente. Los músculos más afectados son 
-         isquiotibiales (33%), gemelos (28%) y cuádriceps (19%).
+      <p className="title-main">Lesiones Musculares Comunes</p>
+
+      <p className="title-section1">📌 Introducción</p>
+      <p className="text-body">
+        Las lesiones musculares representan entre el <strong>30–50%</strong> de todas las lesiones deportivas y también son frecuentes
+        en actividades cotidianas. Su correcta identificación y manejo son cruciales para una recuperación óptima.
       </p>
 
-       
-
-      <p className='p16'> 📌Contusiones Musculares</p>
-      <p className='p150'>
-        Las contusiones representan el <strong>25% de lesiones en deportes de contacto</strong>. Ocurren por impacto directo, 
-        causando daño vascular y acumulación de sangre dentro del músculo (hematoma). Las más graves pueden evolucionar a miositis
-         osificante (5% de casos).
+      <p className="title-subsection1">📌 <Link to="/ejercicio/lesiones/desgarros" > Desgarros  Musculares </Link> </p>
+      <p className="text-body">
+        Ocurren cuando las fibras musculares se estiran más allá de su capacidad, rompiéndose parcial o totalmente. Los músculos más
+        afectados son isquiotibiales, gemelos y cuádriceps.
       </p>
 
-       
-
-      <p className='p16'> 📌Distensiones y Sobrecargas</p>
-      <p className='p150'>
-        Afectan al <strong>40% de atletas amateur</strong> por mala preparación o sobreuso. Son microlesiones por elongación excesiva 
-        sin rotura fibrilar completa. El 70% ocurren en fase excéntrica del movimiento.
+      <p className="title-subsection1">📌 <Link to="/ejercicio/lesiones/contusion" > Contusiones Musculares </Link></p>
+      <p className="text-body">
+        Se producen por impacto directo, causando daño vascular y hematomas. En casos graves pueden evolucionar a miositis osificante.
       </p>
 
-       
+      <p className="title-subsection1">📌 Distensiones y Sobrecargas</p>
+      <p className="text-body">
+        Microlesiones por elongación excesiva sin rotura completa. Son frecuentes por sobreuso o mala preparación física.
+      </p>
 
-      <p className='p16'> <strong>Técnicas de Recuperación:</strong> </p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
+      <p className="title-section1">📌 Técnicas de Recuperación</p>
+      <table className="styled-table1">
         <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Técnica </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Aplicación </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Beneficio </th>
+          <tr>
+            <th>Técnica</th>
+            <th>Aplicación</th>
+            <th>Beneficio</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Vendaje neuromuscular </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Aplicación específica según músculo </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Soporte y drenaje </td>
+            <td>Vendaje neuromuscular</td>
+            <td>Soporte específico</td>
+            <td>Drenaje y estabilidad</td>
           </tr>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Punción seca </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> En puntos gatillo asociados </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Liberación tensión </td>
+            <td>Punción seca</td>
+            <td>Puntos gatillo</td>
+            <td>Liberación de tensión</td>
           </tr>
           <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> EPI (Electrólisis) </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Lesiones crónicas ( mayor a 6 semanas) </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Regeneración tejido </td>
+            <td>EPI</td>
+            <td>Lesiones crónicas</td>
+            <td>Regeneración tisular</td>
           </tr>
         </tbody>
       </table>
 
-      <p className='p14'> 📌 Intervenciones Clave</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Lesión </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Tratamiento </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Tiempo Recuperación </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Desgarro Grado I </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> RICE + Rehabilitación precoz </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 1-2 semanas </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Contusión moderada </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Compresión + Movilización temprana </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 2-3 semanas </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Distensión crónica </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Ejercicios excéntricos + EPI </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 4-8 semanas </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p className='p14'> 🌱 Prevención y Autocuidado</p>
-      <p className='p16'> 🟢 Para Deportistas:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Calentamiento dinámico:</strong> 15-20 min pre-actividad</li>
-        <li><strong>Rutina de estiramientos:</strong> Especial atención a isquiotibiales</li>
-        <li><strong>Hidratación adecuada:</strong> 500ml 2h antes del ejercicio</li>
+      <p className="title-section1">🌱 Prevención</p>
+      <ul className="text-body">
+        <li><strong>Calentamiento adecuado</strong> antes del ejercicio</li>
+        <li><strong>Hidratación y nutrición</strong> correctas</li>
+        <li><strong>Ejercicio progresivo</strong> y descanso</li>
       </ul>
 
-      <p className='p16'> 🟢 Para Lesiones Agudas:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Protocolo RICE:</strong> Aplicar inmediatamente tras lesión</li>
-        <li><strong>Analgesia:</strong> AINES solo primeros 3 días (consultar médico)</li>
-        <li><strong>Movilización temprana:</strong> Iniciar suavemente a las 48h</li>
-      </ul>
-
-      <p className='p16'> 🟢 Para Recuperación:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Nutrición regenerativa:</strong> Proteínas + Vitamina C + Zinc</li>
-        <li><strong>Sueño reparador:</strong> 7-9 horas con correcta higiene del sueño</li>
-        <li><strong>Terapia de contrastes:</strong> Alternar frío/calor en fases subagudas</li>
-      </ul>
-
-      <p className='p14'> 📌Conclusión</p>
-      <p className='p150'>
-        Las lesiones musculares requieren <strong>manejo específico según su tipo y gravedad</strong>. El tratamiento temprano y 
-        adecuado reduce significativamente el riesgo de recidivas. La combinación de reposo inicial controlado con rehabilitación
-         progresiva es clave para una recuperación óptima. En casos persistentes o graves, siempre se recomienda evaluación médica 
-         especializada.
+      <p className="title-section1">📌 Conclusión</p>
+      <p className="text-body">
+        El manejo adecuado de las lesiones musculares reduce complicaciones y recidivas. La rehabilitación progresiva y personalizada
+        es clave para una recuperación segura.
       </p>
     </div>
   );
