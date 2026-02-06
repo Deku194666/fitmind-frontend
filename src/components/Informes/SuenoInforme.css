@@ -1,4 +1,6 @@
-.hipertension-container {
+
+
+.ea-container {
   max-width: 1400px;
 }
 
@@ -24,25 +26,6 @@
   line-height: 1.8;
   text-align: justify;
   margin: 0 3rem 5rem 3rem;
-}
-
-/* Tablas */
-.styled-table {
-  width: 60%;
-  border-collapse: collapse;
-  margin-left: 3rem;
-  margin-bottom: 6rem;
-}
-
-.styled-table th,
-.styled-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-.styled-table th {
-  background-color: #f2f2f2;
-  font-weight: 600;
 }
 
 /* Tablets */
@@ -72,17 +55,10 @@
   .title-section {
     font-size: 2.3rem;
     text-align: center;
-    margin-left: 2rem;
+    margin-left: 0;
   }
 
   .text-body {
     font-size: 1.6rem;
-  }
-
-  .styled-table {
-    width: 90%;
-    margin: auto;
-    font-size: 1.2rem;
-    margin-bottom: 5rem;
   }
 }

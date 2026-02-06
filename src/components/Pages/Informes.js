@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './Informes.css';
-import TertiaryBar from '../TertiaryBar';
-import SecondaryBar from '../SecondaryBar';
 import BarNavInforme from '../Informes/BarNavInforme';
 import BarNavInforme2 from '../Informes/BarNavInforme2';
 
@@ -12,50 +9,76 @@ function Informes() {
   }, []);
 
   return (
-    <div className="ecnt-detail">
+    <div className="ea-container">
       <BarNavInforme2 />
       <BarNavInforme />
 
-      <p className='p13'>📊 Informes de Salud</p>
-      <p className='p14'>Introducción📌</p>
-      <p className='p150'>
-        En esta sección encontrarás un resumen completo de tu estado de salud basado en los registros diarios, semanales y mensuales de tus hábitos y actividades. 
-        Aquí podrás revisar información consolidada de tus módulos de ejercicio, hidratación, signos vitales, sueño, alimentación y más, para monitorear tu progreso.
+      <p className="title-main">📊 Informes de Salud</p>
+
+      <p className="text-body">
+        La sección de <strong>Informes</strong> de <strong>FitMind</strong> te permite visualizar y analizar
+        toda tu información de salud de forma clara, ordenada y útil 🧠.
+        Aquí se integran tus registros diarios, semanales y mensuales para ofrecerte
+        una visión completa de tu bienestar físico y mental.
       </p>
 
-      <p className='p14'>Módulos disponibles🧩</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li>🏃‍♂️ <strong>Ejercicio:</strong> Resumen de minutos semanales, tipo de actividad y rendimiento.</li>
-        <li>💧 <strong>Hidratación:</strong> Consumo diario de agua, promedio semanal y mensual.</li>
-        <li>🩺 <strong>Signos Vitales:</strong> Valores más recientes y tendencias históricas.</li>
-        <li>💤 <strong>Sueño:</strong> Horas dormidas, calidad del sueño y comparativos por semana/mes.</li>
-        <li>🥗 <strong>Alimentación:</strong> Calidad nutricional y registro histórico de ingesta.</li>
+      <p className="title-section">🧩 Módulos disponibles</p>
+
+      <p className="text-body">
+        Cada módulo recopila datos específicos y los transforma en resúmenes fáciles de entender,
+        ayudándote a identificar patrones, avances y oportunidades de mejora 📈.
+      </p>
+
+      <ul className="text-body">
+        <li>🏃‍♂️ <strong>Ejercicio:</strong> minutos semanales, tipo de actividad, frecuencia y rendimiento.</li>
+        <li>💧 <strong>Hidratación:</strong> consumo diario de agua, promedios y adherencia a objetivos.</li>
+        <li>🩺 <strong>Signos vitales:</strong> presión arterial, frecuencia cardíaca y tendencias.</li>
+        <li>💤 <strong>Sueño:</strong> horas dormidas, calidad del descanso y regularidad.</li>
+        <li>🥗 <strong>Alimentación:</strong> calidad nutricional, hábitos y registro histórico.</li>
       </ul>
 
-      <p className='p14'>Resúmenes Semanales y Mensuales📊</p>
-      <p className='p150'>
-        Cada módulo ofrece resúmenes semanales y mensuales que te permiten visualizar tus progresos y detectar patrones en tus hábitos. 
-        Además, podrás comparar tus métricas actuales con periodos anteriores para mejorar tu salud de manera constante.
+      <p className="title-section">📅 Resúmenes semanales y mensuales</p>
+
+      <p className="text-body">
+        Los resúmenes te permiten comparar distintos periodos de tiempo para evaluar tu progreso 📊.
+        Esto facilita la detección temprana de retrocesos, mejoras sostenidas y cambios en tus hábitos.
       </p>
 
-      <p className='p14'>Historial completo📂</p>
-      <p className='p150'>
-        Todos los registros quedan almacenados de forma segura, lo que te permite acceder a tu historial completo en cualquier momento. 
-        Esto facilita el seguimiento de tus avances, la detección de áreas de mejora y la planificación de metas personalizadas.
-      </p>
-
-      <p className='p14'>Próximamente✨</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li>Gráficos interactivos para cada módulo.</li>
-        <li>Alertas y notificaciones personalizadas.</li>
-        <li>Exportación de informes a PDF.</li>
-        <li>Análisis inteligentes de tus hábitos para recomendaciones personalizadas.</li>
+      <ul className="text-body">
+        <li>📌 Comparación entre semanas y meses.</li>
+        <li>📌 Identificación de patrones positivos o negativos.</li>
+        <li>📌 Seguimiento de objetivos de salud personalizados.</li>
       </ul>
 
-      <p className='p14'>✅Conclusión✅</p>
-      <p className='p150'>
-        La sección de informes te permitirá tener una visión integral de tu salud, motivarte a mantener hábitos saludables y tomar decisiones informadas para mejorar tu bienestar. 
-        El seguimiento regular y el análisis de tus datos son clave para alcanzar tus objetivos de salud de forma efectiva.
+      <p className="title-section">📂 Historial completo y seguro</p>
+
+      <p className="text-body">
+        Todos tus datos quedan almacenados de forma segura 🔐, permitiéndote acceder a tu historial
+        completo cuando lo necesites. Esto es clave para:
+      </p>
+
+      <ul className="text-body">
+        <li>🧠 Evaluar tu evolución a largo plazo.</li>
+        <li>🩺 Compartir información relevante con profesionales de la salud.</li>
+        <li>🎯 Ajustar metas según tu progreso real.</li>
+      </ul>
+
+      <p className="title-section">✨ Próximamente en Informes</p>
+
+      <ul className="text-body">
+        <li>📈 Gráficos interactivos por módulo.</li>
+        <li>🚨 Alertas automáticas ante valores fuera de rango.</li>
+        <li>📄 Exportación de informes en PDF.</li>
+        <li>🤖 Análisis inteligente con recomendaciones personalizadas.</li>
+      </ul>
+
+      <p className="title-section">✅ Conclusión</p>
+
+      <p className="text-body">
+        La sección de <strong>Informes</strong> es el corazón analítico de FitMind ❤️.
+        Te ayuda a comprender tu estado de salud, mantener la motivación y tomar decisiones
+        informadas basadas en datos reales.
+        El seguimiento constante es la clave para lograr cambios sostenibles y mejorar tu calidad de vida.
       </p>
     </div>
   );

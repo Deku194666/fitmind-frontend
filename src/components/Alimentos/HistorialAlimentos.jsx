@@ -197,11 +197,9 @@ function HistorialAlimentos() {
       ========================= */}
       {registro && (
         <div className="registro-resumen-dia">
-          <h3>📊 Totales del día</h3>
-          <p>
-            <strong>Calorías:</strong> {totalesDia.calorias.toFixed(0)} kcal
-          </p>
-          <p>
+          <h3 style={{ textAlign: 'center' }}>📊 Totales del día</h3>
+          <p style={{ textAlign: 'center', fontSize:'1.2rem' }}>
+            <strong>Calorías:</strong> {totalesDia.calorias.toFixed(0)} kcal <br />
             <strong>Proteínas:</strong> {totalesDia.proteinas.toFixed(1)} g<br />
             <strong>Grasas:</strong> {totalesDia.grasas.toFixed(1)} g<br />
             <strong>Carbohidratos:</strong> {totalesDia.carbohidratos.toFixed(1)} g<br />

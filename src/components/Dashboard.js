@@ -6,9 +6,10 @@ import Topbar from './Topbar';     // Importa la pagina donde esta la barra de n
 import SecondaryBar from './SecondaryBar';   // Importa la pagina donde esta la batrra de navegacion secunadaria hecha dashboard
 import TertiaryBar from './TertiaryBar'; // Importa la pagina donde codifico la tercera barra de navegacion 
 import Footer from './Footer';     // Importa la pagina donde codifico el pie de pagina
-import { Box, LinearProgress, Typography, Paper, Grid  } from '@mui/material';
+import { Box, LinearProgress, Typography, Paper, Grid, Menu, MenuItem, ButtonBase  } from '@mui/material';
 import './Dashboard.css';    // Importo el css para el diseño del dashboard
-import axios from 'axios';  
+import axios from 'axios'; 
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Link } from 'react-router-dom';
 import CalendarioFarmacos from './Farmacos/RegistroFarmacos/CalendarioFarmacos';
 import Calendar from "react-calendar";
@@ -75,6 +76,12 @@ const porcentaje = Math.min((totalHidratacion / objetivoDiario) * 100, 100).toFi
   
   
 const [signosVitales, setSignosVitales] = useState(null);
+const [anchorElSignosVitales, setAnchorElSignosVitales] = useState(null);
+
+const abrirMenuSignosVitales = (event) => {
+  setAnchorElSignosVitales(event.currentTarget);
+};
+
 
 useEffect(() => {
   let cancel = false;
@@ -137,6 +144,12 @@ useEffect(() => {
 
 
 const [elongacion, setElongacion] = useState(null);
+
+const [anchorElEjercicio, setAnchorElEjercicio] = useState(null);
+
+const abrirMenuEjercicio = (event) => {
+  setAnchorElEjercicio(event.currentTarget);
+};
 
 useEffect(() => {
   let cancel = false;
@@ -268,6 +281,10 @@ useEffect(() => {
 
 
 const [sueno, setUltimoSueno] = useState(null);
+const [anchorElSueno, setAnchorElSueno] = useState(null);
+const abrirMenuSueno = (event) => {
+  setAnchorElSueno(event.currentTarget);
+};
 
 useEffect(() => {
   const fetchSueno = async () => {
@@ -590,6 +607,11 @@ useEffect(() => {
 
 
 const [totalCalorias, setTotalCalorias] = useState(0);
+const [anchorElCalorias, setAnchorElCalorias] = useState(null);
+
+const abrirMenuCalorias = (event) => {
+  setAnchorElCalorias(event.currentTarget);
+};
 const objetivoCalorias = 2200; // meta diaria
 
 useEffect(() => {
@@ -662,6 +684,25 @@ const porcentajeCalorias = Math.min(
 ).toFixed(1);
 
 
+const porcentajeBase = Math.min(
+  ((Number(totalCalorias) || 0) / objetivoCalorias) * 100,
+  100
+);
+
+const excesoCalorias = Math.max(
+  (Number(totalCalorias) || 0) - objetivoCalorias,
+  0
+);
+
+// Progreso visual del exceso (máx 100% para no romper la UI)
+const porcentajeExceso = Math.min(
+  (excesoCalorias / objetivoCalorias) * 100,
+  100
+);
+
+
+
+
 
 
 
@@ -671,6 +712,13 @@ const [totalesMacros, setTotalesMacros] = useState({
   carbohidratos: 0,
   fibra: 0,
 });
+
+const [anchorElMacros, setAnchorElMacros] = useState(null);
+
+const abrirMenuMacros = (event) => {
+  setAnchorElMacros(event.currentTarget);
+};
+
 
 useEffect(() => {
   let cancel = false;
@@ -788,6 +836,19 @@ useEffect(() => {
     window.removeEventListener("farmaco:registrado", onNuevo);
   };
 }, []);
+
+
+const [menuAnchorHidratacion, setMenuAnchorHidratacion] = useState(null);
+
+const abrirMenuHidratacion = (event) => {
+  setMenuAnchorHidratacion(event.currentTarget);
+};
+
+const cerrarMenuHidratacion = () => {
+  setMenuAnchorHidratacion(null);
+};
+
+
 
 // ✅ Derivados seguros para mostrar/ocultar
 const tieneFarmacos = useMemo(() => {
@@ -953,10 +1014,52 @@ return (
       height: 'auto',
       width: { xs: '100%', sm: '40rem', md: '35rem' },
       maxWidth: '100%',
+      position: "relative"
+
     }}
   >
+
+    {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuEjercicio(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 7,
+    right: -150,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+
+
     <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650, textAlign: 'center' }}>
-      🏃 Ejercicio
+      🏃 <Link   to="/ejercicio"  >  Ejercicio </Link>
     </Typography>
 
 
@@ -1148,9 +1251,51 @@ return (
       minWidth: { xs: "100%", md: "28rem" },
       textAlign: "center",
       marginBottom: "2rem",
+      position: "relative"
 
     }}
   >
+
+  {/* Botón 3 puntos */}
+  <IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()} // 👈 CLAVE FINAL
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuHidratacion(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 12,
+    right: -145,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "30px",
+      height: "49px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.6rem" }} />
+</IconButton>
+
+
+
+
     <Typography
       component={Link}
       to="/hidratacion"
@@ -1196,6 +1341,46 @@ return (
   }}
 >
 
+
+
+  {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuCalorias(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 8,
+    right: -150,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+
     <Typography
       sx={{
         fontSize: "2.4rem",
@@ -1220,9 +1405,31 @@ return (
     </Typography>
     
 
-    <LinearProgress
-      variant="determinate"
-      value={porcentajeCalorias}
+    <Box
+  sx={{
+    position: "relative",
+    width: "90%",
+    marginTop: 2,
+    marginBottom: "1.7rem",
+    height: "30px",
+    backgroundColor: "#eee",
+    borderRadius: 6,
+    overflow: "hidden",
+  }}
+>
+  {/* Barra azul (objetivo) */}
+  <Box
+    sx={{
+      height: "100%",
+      width: `${porcentajeBase}%`,
+      backgroundColor: "#2980b9",
+      transition: "width 0.4s ease",
+    }}
+  />
+
+  {/* Barra roja (exceso, encima) */}
+  {excesoCalorias > 0 && (
+    <Box
       sx={{
         height: "30px",
         marginBottom: "1.7rem",
@@ -1233,8 +1440,21 @@ return (
         "& .MuiLinearProgress-bar": {
           backgroundColor: "#2980b9",
         },
+
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: "100%",
+        width: `${porcentajeExceso}%`,
+        backgroundColor: "#e74c3c",
+        opacity: 0.85,
+        transition: "width 0.4s ease",
       }}
     />
+  )}
+</Box>
+
+
 
     <Typography
       variant="body2"
@@ -1245,6 +1465,7 @@ return (
   </Paper>
 )}
 </Box>
+
 
 
 
@@ -1273,6 +1494,46 @@ return (
       alignItems: 'flex-start', // que queden alineados a la izquierda
     }}
   >
+
+
+    {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuMacros(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 4,
+    right: -154,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+
     <Typography
       className="parrafo2"
       sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem', textAlign: 'center', width: '100%' }}
@@ -1310,9 +1571,48 @@ return (
 
 
 {signosVitales && ( // 🔥 Solo se muestra si hay datos
-  <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, height: 'auto',  width: { xs: '100%', sm: '28rem', md: '32rem' } }}>
+  <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, height: 'auto',  width: { xs: '100%', sm: '28rem', md: '32rem' }, position: "relative", }}>
+    
+    {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuSignosVitales(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 8,
+    right: -148,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+
     <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 550, marginBottom: 2 }}>
-      🩺 Signos Vitales
+      🩺 <Link to="/signosvitales" > Signos Vitales  </Link>            
     </Typography>
     <>
       <Typography className="parrafo31">
@@ -1386,6 +1686,75 @@ return (
       </Typography>
     )}
   </Paper>
+
+
+{/* Sueño */}
+  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "20rem" }, textAlign: "center", width: { md: "10rem"  },  position: "relative"  }}>
+
+    {/* Botón 3 puntos */}
+  <IconButton
+    disableRipple
+    disableFocusRipple
+    onMouseDown={(e) => e.preventDefault()}
+    onClick={(e) => {
+      e.stopPropagation();
+      abrirMenuSueno(e); // 👈 función nueva (igual a hidratación)
+    }}
+    sx={{
+      position: "absolute",
+      top: 8,
+      right: -147,
+
+      WebkitTapHighlightColor: "transparent",
+      backgroundColor: "transparent",
+
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        width: "20px",
+        height: "42px",
+        borderRadius: "6px",
+      },
+
+      "&:hover::before": {
+        backgroundColor: "rgba(0,0,0,0.06)",
+      },
+
+      "&:active::before": {
+        backgroundColor: "rgba(0,0,0,0.12)",
+      },
+    }}
+  >
+    <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+  </IconButton>
+
+    <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
+      🛌 <Link to="/sueno" > Sueño  </Link>
+    </Typography>
+    {sueno ? (
+      <>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
+          <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Calidad del Sueño:</strong> {sueno.calidad}
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
+        </Typography>
+      </>
+    ) : (
+      <Typography className="parrafo3" sx={{ fontSize: "1.6rem", marginTop: 2 }}>
+        Aún no hay registros de sueño.
+      </Typography>
+    )}
+  </Paper>
+
+
+
 
 {tieneFarmacos && (
   <Paper elevation={3} sx={{ padding: 5, borderRadius: 3, width: { xs: '100%', sm: '40rem' }, height: 'auto' }}>

@@ -132,6 +132,11 @@
   text-align: center;
 }
 
+.registro-vacio {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
 /* =====================
    TABLET
 ===================== */

@@ -1,4 +1,6 @@
-.hipertension-container {
+
+
+.osteoporosis-container {
   max-width: 1400px;
 }
 
@@ -72,7 +74,7 @@
   .title-section {
     font-size: 2.3rem;
     text-align: center;
-    margin-left: 2rem;
+    margin-left: 0;
   }
 
   .text-body {
