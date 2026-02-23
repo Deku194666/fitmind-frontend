@@ -82,7 +82,6 @@ import LesionLigTobillo from './components/Ejercicio/Lesiones/LesionLigTobillo';
 import LPAA from './components/Ejercicio/Lesiones/LPAA';
 import LigDeltoideo from './components/Ejercicio/Lesiones/LigDeltoideo';
 import LPCyLPAP from './components/Ejercicio/Lesiones/LPCyLPAP';
-import LesionLigRodilla from './components/Ejercicio/Lesiones/LesionLigRodilla';
 import LCA from './components/Ejercicio/Lesiones/LCA';
 import LCP from './components/Ejercicio/Lesiones/LCP';
 import LCM from './components/Ejercicio/Lesiones/LCM';
@@ -366,7 +365,6 @@ function MainRouter() {
           <Route path='ejercicio/lesiones/lpaa'  element={ <  LPAA /> }  />
           <Route path='ejercicio/lesiones/ligdeltoideo'  element={ <LigDeltoideo/> }  />
           <Route path='ejercicio/lesiones/lpcylpap'  element={ < LPCyLPAP  />  } />
-          <Route path='ejercicio/lesiones/lesionligrodilla'  element={ < LesionLigRodilla /> } />
           <Route path='ejercicio/lesiones/lca' element={ < LCA /> }   />
           <Route path='ejercicio/lesiones/lcp'  element={ < LCP  /> } />
           <Route path='ejercicio/lesiones/lcm'  element={ < LCM /> }  />
