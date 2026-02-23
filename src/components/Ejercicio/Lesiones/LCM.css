@@ -1,0 +1,109 @@
+/* LCM.css */
+
+.fxlcm-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxlcm-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxlcm-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxlcm-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 3rem 3rem;
+}
+
+.fxlcm-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxlcm-table-wrapper {
+  overflow-x: auto;
+  margin: 0 3rem 6rem 3rem;
+}
+
+.fxlcm-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxlcm-table th,
+.fxlcm-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxlcm-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.fxlcm-link {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.fxlcm-link:hover {
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .fxlcm-title {
+    font-size: 2.6rem;
+    text-align: center;
+  }
+
+  .fxlcm-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlcm-text,
+  .fxlcm-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .fxlcm-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxlcm-subtitle {
+    font-size: 2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlcm-text,
+  .fxlcm-list {
+    font-size: 1.5rem;
+  }
+
+  .fxlcm-table-wrapper {
+    margin: 0 1rem 4rem 1rem;
+  }
+}

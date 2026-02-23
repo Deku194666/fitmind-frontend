@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+
+const STORAGE_KEY = 'fitmind_elongacion';
 
 const Elongacion = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [tiempo, setTiempo] = useState(0); // en segundos
+  const [tiempo, setTiempo] = useState(0);
+  const [tiempoBase, setTiempoBase] = useState(0);
+  const [startTime, setStartTime] = useState(null);
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [mostrarInfo, setMostrarInfo] = useState(false);
+
+
+  const intervalRef = useRef(null);
+  const isHydrated = useRef(false);
 
   const caloriasPorMinuto = 3;
   const calorias = tiempo > 0 ? ((tiempo / 60) * caloriasPorMinuto).toFixed(2) : 0;
@@ -16,17 +25,16 @@ const Elongacion = () => {
     window.location.href = '/login';
   };
 
-  // ⏱️ Timeout de inactividad: 1 minuto
+  // ⏱️ Timeout de inactividad
   useEffect(() => {
     let timeoutId;
 
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(cerrarSesion, 60000);
+      timeoutId = setTimeout(cerrarSesion, 3000000);
     };
 
     resetTimeout();
-
     window.addEventListener('mousemove', resetTimeout);
     window.addEventListener('keydown', resetTimeout);
 
@@ -37,22 +45,86 @@ const Elongacion = () => {
     };
   }, []);
 
-  // Cronómetro
+  /* ===============================
+     🔁 RESTAURAR ESTADO
+     =============================== */
   useEffect(() => {
-    let intervalo;
-    if (isRunning) {
-      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
-    } else {
-      clearInterval(intervalo);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      isHydrated.current = true;
+      return;
     }
-    return () => clearInterval(intervalo);
-  }, [isRunning]);
 
-  // Cargar última sesión (con header user-id)
+    try {
+      const data = JSON.parse(saved);
+
+      if (typeof data.tiempo === 'number') {
+        setTiempo(data.tiempo);
+        setTiempoBase(data.tiempo);
+      }
+
+      if (data.isRunning && typeof data.startTime === 'number') {
+        setIsRunning(true);
+        setStartTime(data.startTime);
+      }
+    } catch (err) {
+      console.error('Error restaurando elongación:', err);
+    } finally {
+      isHydrated.current = true;
+    }
+  }, []);
+
+  /* ===============================
+     💾 GUARDAR ESTADO
+     =============================== */
+  useEffect(() => {
+    if (!isHydrated.current) return;
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        isRunning,
+        startTime,
+        tiempo
+      })
+    );
+  }, [isRunning, startTime, tiempo]);
+
+  /* ===============================
+     ⏱️ CRONÓMETRO REAL
+     =============================== */
+  useEffect(() => {
+    if (!isRunning || !startTime) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      return;
+    }
+
+    if (intervalRef.current) return;
+
+    intervalRef.current = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      setTiempo(tiempoBase + elapsed);
+    }, 1000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isRunning, startTime, tiempoBase]);
+
+  /* ===============================
+     📡 ÚLTIMA SESIÓN
+     =============================== */
   useEffect(() => {
     const fetchUltimaSesion = async () => {
       const usuario_id = localStorage.getItem('usuario_id');
       if (!usuario_id) return;
+
       try {
         const res = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/elongacion/${usuario_id}`,
@@ -68,13 +140,33 @@ const Elongacion = () => {
     fetchUltimaSesion();
   }, []);
 
-  const handleStartStop = () => setIsRunning(!isRunning);
+  /* ===============================
+     🎮 CONTROLES
+     =============================== */
+  const handleStartStop = () => {
+    if (!isRunning) {
+      setStartTime(Date.now());
+      setIsRunning(true);
+    } else {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const total = tiempoBase + elapsed;
+
+      setTiempo(total);
+      setTiempoBase(total);
+      setIsRunning(false);
+      setStartTime(null);
+    }
+  };
+
   const handleReset = () => {
     setIsRunning(false);
     setTiempo(0);
+    setTiempoBase(0);
+    setStartTime(null);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
-  // Guardar sesión (con header user-id y calorías como número)
+  // Guardar sesión
   const handleFinalizar = async () => {
     const usuario_id = localStorage.getItem('usuario_id');
     if (!usuario_id) {
@@ -90,7 +182,7 @@ const Elongacion = () => {
       );
       alert('✅ Sesión registrada con éxito');
       setUltimaSesion({ tiempo, calorias: parseFloat(calorias), fecha: new Date() });
-      setTiempo(0);
+      handleReset();
     } catch (error) {
       console.error('❌ Error al registrar elongación:', error.response?.data || error.message);
       alert('Error al registrar en la base de datos');
@@ -115,6 +207,11 @@ const Elongacion = () => {
     "Favorece la recuperación post-ejercicio",
   ];
 
+  /* ===============================
+     🎨 UI (SIN TOCAR)
+     =============================== */
+  
+
   return (
     <div style={{
       display: 'flex',
@@ -130,6 +227,79 @@ const Elongacion = () => {
       boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
       textAlign: 'center'
     }}>
+
+
+      {/* ===============================
+   📘 INTRODUCCIÓN DEL MÓDULO
+   =============================== */}
+
+<div style={{
+  width: '100%',
+  marginBottom: '2rem'
+}}>
+  <button
+    onClick={() => setMostrarInfo(!mostrarInfo)}
+    style={{
+      backgroundColor: '#2980b9',
+      color: '#fff',
+      padding: '0.6rem 1.5rem',
+      border: 'none',
+      borderRadius: '8px',
+      cursor: 'pointer',
+      fontSize: '1.4rem',
+      transition: 'all 0.3s'
+    }}
+  >
+    {mostrarInfo ? 'Ocultar información' : 'ℹ️ ¿Qué es este módulo?'}
+  </button>
+
+  {mostrarInfo && (
+    <div style={{
+      marginTop: '1.5rem',
+      padding: '1.5rem',
+      backgroundColor: '#ffffff',
+      borderRadius: '12px',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+      textAlign: 'justify',
+      lineHeight: '1.6'
+    }}>
+      <h3 style={{ color: '#2980b9', fontWeight: '600', textAlign:'center'  }}  >  🧘 ¿Qué es la elongación?</h3>
+      <p  style={{ fontSize:'1.6rem', fontWeight:'400', marginBottom: '2rem'  }} >
+        La elongación es una práctica fundamental para mejorar la flexibilidad,
+        reducir tensiones musculares y prevenir lesiones. Es ideal antes o después
+        de realizar actividad física.
+      </p>
+
+      <h3 style={{ color: '#2980b9', fontWeight: '600', textAlign:'center'  }}   >⚙️ ¿Cómo funciona este módulo?</h3>
+      <p style={{ fontSize:'1.6rem', fontWeight:'400', marginBottom: '2rem'  }}  >
+        Este cronómetro registra el tiempo que dedicas a elongar.
+        Mientras el contador está activo:
+      </p>
+      <ul>
+        <li>⏱️ Se mide el tiempo exacto en segundos</li>
+        <li>🔥 Se estiman calorías quemadas</li>
+        <li>🗓️ Se guarda la fecha y hora al finalizar</li>
+      </ul>
+
+      <h3 style={{ color: '#2980b9', fontWeight: '600', textAlign:'center'  }}    >📋 ¿Cómo usarlo?</h3>
+      <ol style={{ fontSize:'1.6rem', fontWeight:'400', marginBottom: '2rem'  }} >
+        <li>Presiona <strong>Iniciar</strong> cuando comiences a elongar.</li>
+        <li>Presiona <strong>Detener</strong> cuando termines. igualmente puedes presionar detener para pausarlo.  </li>
+        <li>Presiona <strong>Reiniciar</strong> si quieres volver a iniciar.  </li>
+        <li>Haz clic en <strong>Finalizar sesión</strong> para guardar.</li>
+      </ol>
+
+      <p style={{ marginTop: '1rem', fontSize:'1.6rem', fontWeight:'400', marginBottom: '2rem' }}>
+        💡 Recomendación: Mantén cada estiramiento entre 20 y 40 segundos
+        y respira profundamente.
+      </p>
+    </div>
+  )}
+</div>
+
+
+
+
       <h2>⏱️ Cronómetro de Elongación</h2>
       <h1 style={{
         fontSize: '4rem',
@@ -205,9 +375,9 @@ const Elongacion = () => {
           borderRadius: '10px'
         }}>
           <h3>📊 Última sesión registrada</h3>
-          <p>⏱️ Tiempo: <strong>{formatTime(ultimaSesion.tiempo)}</strong></p>
-          <p>🔥 Calorías: <strong>{ultimaSesion.calorias} kcal</strong></p>
-          <p>🗓️ Fecha: <strong>{new Date(ultimaSesion.fecha).toLocaleString()}</strong></p>
+          <p>⏱️ <strong> Tiempo: </strong>  {formatTime(ultimaSesion.tiempo)}</p>
+          <p>🔥 <strong> Calorías: </strong> {ultimaSesion.calorias} kcal</p>
+          <p>🗓️ <strong> Fecha: </strong>  {new Date(ultimaSesion.fecha).toLocaleString()}</p>
         </div>
       ) : (
         <p style={{ marginTop: '2rem', color: '#888' }}>No hay sesiones registradas aún.</p>

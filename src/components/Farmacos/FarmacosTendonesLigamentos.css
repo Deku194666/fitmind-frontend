@@ -1,0 +1,112 @@
+
+
+/* FarmacosTendonesLigamentos.css - Sistema FxH Oficial */
+
+.fxh-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* TITULOS */
+
+.fxh-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxh-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+/* TEXTO */
+
+.fxh-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.fxh-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+/* LINKS */
+
+.fxh-link {
+  color: #2980b9;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.fxh-link:hover {
+  text-decoration: underline;
+}
+
+/* TABLAS */
+
+.fxh-table-wrapper {
+  overflow-x: auto;
+  margin: 3rem;
+}
+
+.fxh-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxh-table th,
+.fxh-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxh-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1024px) {
+  .fxh-title { font-size: 2.6rem; }
+
+  .fxh-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxh-text,
+  .fxh-list {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fxh-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxh-subtitle {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 0 2rem;
+  }
+
+  .fxh-table-wrapper {
+    margin: 1rem;
+  }
+}

@@ -1,0 +1,103 @@
+/* Mucoliticos.css */
+
+.mu-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mu-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.mu-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.mu-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.mu-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+/* Tabla con scroll horizontal */
+.mu-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.mu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mu-table th,
+.mu-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.mu-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .mu-title {
+    font-size: 2.6rem;
+  }
+
+  .mu-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .mu-text,
+  .mu-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .mu-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .mu-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .mu-text,
+  .mu-list {
+    font-size: 1.6rem;
+  }
+
+  .mu-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

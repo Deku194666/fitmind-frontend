@@ -1,40 +1,84 @@
+/* BienestarMental.css */
 
-.Parra1 {
-
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
-
+.fxh-detail {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.Parra1´1 {
-
-    font-size: 2.5rem;
-    text-align: left;
-    margin-left: 32rem;
-    margin-top: -7.1rem;
-    margin-right: 6rem ;
-
+.fxh-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
 }
 
-.Parra1´2 {
-
-    font-size: 2.5rem;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: -2.4rem;
-    margin-right: 6rem ;
-
+.fxh-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
 }
 
-.Parra2 {
+.fxh-subsubtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
 
-    font-size: 2rem;
-    text-align: left;
-    margin-left: 6rem;
-    max-width:  89rem;
+.fxh-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
 
+.fxh-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .fxh-title {
+    font-size: 2.6rem;
+  }
+
+  .fxh-subtitle,
+  .fxh-subsubtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxh-text,
+  .fxh-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .fxh-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxh-subtitle,
+  .fxh-subsubtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .fxh-text,
+  .fxh-list {
+    font-size: 1.6rem;
+  }
 }

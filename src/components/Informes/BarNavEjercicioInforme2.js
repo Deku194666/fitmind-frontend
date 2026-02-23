@@ -12,6 +12,8 @@ const BarNavEjercicioInforme2 = () => {
       <Link   className='bar-button'  to="/registroejercicio/registronadar"  >  Nadar </Link>
       <Link className='bar-button'   to="/registroejercicio/registroboxeodesaco"> Boxeo de Saco  </Link>
       <Link to="/registroejercicio/registrobicicleta" className="bar-button">   Bicicleta  </Link>
+      <Link to="/registroejercicio/registroelongacion" className="bar-button">   Elongación  </Link>
+
       
 
     </div>

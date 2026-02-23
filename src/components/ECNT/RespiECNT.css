@@ -1,0 +1,153 @@
+
+
+/* ==========================
+   Estilos generales (PC)
+========================== */
+.respi-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.p135 { 
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2980b9;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.p145 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: left;
+    color: #2980b9;
+}
+
+.p165 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.p155 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+ul.p150 {
+    padding-left: 2rem;
+}
+
+.respi-container a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.respi-container a:hover {
+    text-decoration: underline;
+}
+
+/* Tablas */
+.respi-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+.respi-container th, .respi-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.respi-container th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* ==========================
+   Media Queries: Tablets y Móviles
+========================== */
+@media screen and (max-width: 1024px) {
+    .p135 {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        color: #2980b9;
+
+
+        
+    }
+
+    .p145, .p165 {
+        font-size: 2.5rem;
+        margin-left: 2rem;
+        font-weight: 700;
+        color: #2980b9;
+
+    
+    }
+
+    .p155 {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-align: justify;
+
+    }
+
+    .respi-container {
+        padding: 1.5rem;
+    }
+
+    .respi-container table {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .p13 {
+        font-size: 2rem;
+    }
+
+    .p14, .p16 {
+        font-size: 1.5rem;
+    }
+
+    .p150 {
+        font-size: 1.2rem;
+    }
+
+    .respi-container {
+        padding: 1rem;
+    }
+
+    .respi-container table {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .p13 {
+        font-size: 1.7rem;
+    }
+
+    .p14, .p16 {
+        font-size: 1.3rem;
+    }
+
+    .p150 {
+        font-size: 1rem;
+    }
+
+    .respi-container table {
+        font-size: 0.7rem;
+    }
+}

@@ -1,7 +1,5 @@
-
-
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import './LesNervioUlnar.css';
 
 function LesNervioUlnar() {
   useEffect(() => {
@@ -9,182 +7,196 @@ function LesNervioUlnar() {
   }, []);
 
   return (
-    <div className="neuro-detail">
-      <p className='p13'>Lesión del Nervio Ulnar</p>
-      <p className='p14'>📌 Introducción</p>
-      <p className='p150'>
-        El nervio ulnar es clave para la función intrínseca de la mano, controlando la mayoría de los músculos intrínsecos y la sensibilidad del 5º dedo y mitad medial del 4º. 
-        Su compresión en el codo (canal cubital) es la **segunda neuropatía por atrapamiento más común** en extremidades superiores. Las lesiones crónicas pueden llevar a la **"mano en garra ulnar"** característica.
+    <div className="fxh-detail">
+      <p className="fxh-title">Lesión del Nervio Ulnar</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+      <p className="fxh-text">
+        El nervio ulnar es clave para la función intrínseca de la mano, controlando la mayoría de los músculos intrínsecos y la sensibilidad del 5º dedo y mitad medial del 4º.
+        Su compresión en el codo (canal cubital) es la segunda neuropatía por atrapamiento más común en extremidades superiores.
+        Las lesiones crónicas pueden llevar a la característica "mano en garra ulnar".
       </p>
 
-      <p className='p14'>Anatomía Clave 🦴</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">Anatomía Clave 🦴</p>
+      <ul className="fxh-list">
         <li><strong>Origen</strong>: Cordón medial del plexo braquial (C8-T1)</li>
-        <li><strong>Recorrido crítico</strong>: 
-          <ul style={{ listStyleType: 'circle', marginLeft: '2rem' }}>
+        <li>
+          <strong>Recorrido crítico</strong>:
+          <ul className="fxh-sublist">
             <li>Surco epitrócleo-olecraniano (codo)</li>
             <li>Canal de Guyon (muñeca)</li>
           </ul>
         </li>
-        <li><strong>Ramas motoras clave</strong>: 
-          <ul style={{ listStyleType: 'circle', marginLeft: '2rem' }}>
-            <li>Músculos intrínsecos de la mano (interóseos, hipotenar, lumbricales 3-4)</li>
+        <li>
+          <strong>Ramas motoras clave</strong>:
+          <ul className="fxh-sublist">
+            <li>Músculos intrínsecos (interóseos, hipotenar, lumbricales 3-4)</li>
             <li>Flexor cubital del carpo</li>
           </ul>
         </li>
       </ul>
 
-      <p className='p14'>Localizaciones Comunes de Lesión 📊</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Localización</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Síndrome</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Causa Principal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Canal cubital (codo)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Síndrome del canal cubital</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Compresión por arcada de Osborne</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Canal de Guyon (muñeca)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Síndrome del canal de Guyon</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Trauma repetitivo (ciclistas)</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Arco de Struthers</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Compresión supracondílea</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Bandas fibrosas</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">Localizaciones Comunes de Lesión 📊</p>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Localización</th>
+              <th>Síndrome</th>
+              <th>Causa Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Canal cubital (codo)</td>
+              <td>Síndrome del canal cubital</td>
+              <td>Compresión por arcada de Osborne</td>
+            </tr>
+            <tr>
+              <td>Canal de Guyon (muñeca)</td>
+              <td>Síndrome del canal de Guyon</td>
+              <td>Trauma repetitivo (ciclistas)</td>
+            </tr>
+            <tr>
+              <td>Arco de Struthers</td>
+              <td>Compresión supracondílea</td>
+              <td>Bandas fibrosas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'>Manifestaciones Clínicas 🩺</p>
-      <p className='p16'>1. Síntomas Motores</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Pérdida de aducción/abducción dedos</strong>: Por afectación interóseos</li>
-        <li><strong>Debilidad pinza clave (pulgar-índice)</strong>: Por afectación del aductor del pulgar</li>
-        <li><strong>"Mano en garra"</strong>: Hiperextensión MCF + flexión IF (lumbricales 3-4)</li>
+      <p className="fxh-subtitle">Manifestaciones Clínicas 🩺</p>
+
+      <p className="fxh-subsubtitle">1. Síntomas Motores</p>
+      <ul className="fxh-list">
+        <li><strong>Pérdida aducción/abducción dedos</strong>: Afectación interóseos</li>
+        <li><strong>Debilidad pinza clave</strong>: Aductor del pulgar</li>
+        <li><strong>Mano en garra</strong>: Hiperextensión MCF + flexión IF</li>
       </ul>
 
-      <p className='p16'>2. Síntomas Sensitivos</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subsubtitle">2. Síntomas Sensitivos</p>
+      <ul className="fxh-list">
         <li><strong>Parestesias</strong>: 5º dedo y mitad ulnar del 4º</li>
-        <li><strong>Signo de Tinel positivo</strong>: Percusión en canal cubital</li>
-        <li><strong>Dolor</strong>: Cara medial codo (peor en flexión prolongada)</li>
+        <li><strong>Signo de Tinel positivo</strong>: En canal cubital</li>
+        <li><strong>Dolor</strong>: Cara medial del codo</li>
       </ul>
 
-      <p className='p14'>Pruebas Diagnósticas 🔍</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Prueba</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Técnica</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Positividad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Froment</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Sujetar papel entre pulgar e índice</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Compensación con FPL (flexión IF pulgar)</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Wartenberg</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Observar posición 5º dedo</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Abducción pasiva (por pérdida del 3er interóseo palmar)</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Tinel</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Percusión sobre canal cubital</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Parestesias en territorio ulnar</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">Pruebas Diagnósticas 🔍</p>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Prueba</th>
+              <th>Técnica</th>
+              <th>Positividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Froment</td>
+              <td>Sujetar papel entre pulgar e índice</td>
+              <td>Flexión IF del pulgar (compensación)</td>
+            </tr>
+            <tr>
+              <td>Wartenberg</td>
+              <td>Observar posición 5º dedo</td>
+              <td>Abducción pasiva</td>
+            </tr>
+            <tr>
+              <td>Tinel</td>
+              <td>Percusión canal cubital</td>
+              <td>Parestesias territorio ulnar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'>Tratamiento Conservador 🏥</p>
-      <p className='p16'>Para Síndrome del Canal Cubital:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Órtesis nocturna</strong>: Codo en 45° de flexión</li>
-        <li><strong>Modificación actividades</strong>: Evitar apoyos prolongados en codo</li>
-        <li><strong>Ejercicios deslizamiento nervio</strong>: Movilizaciones neuromusculares</li>
+      <p className="fxh-subtitle">Tratamiento Conservador 🏥</p>
+
+      <p className="fxh-subsubtitle">Canal Cubital:</p>
+      <ul className="fxh-list">
+        <li><strong>Órtesis nocturna</strong>: Codo en 45°</li>
+        <li><strong>Evitar apoyos prolongados</strong></li>
+        <li><strong>Deslizamientos nerviosos</strong></li>
       </ul>
 
-      <p className='p16'>Para Síndrome del Canal de Guyon:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Evitar presión</strong>: Cambios en manejo de bicicleta/herramientas</li>
-        <li><strong>Férula muñeca</strong>: Posición neutra</li>
+      <p className="fxh-subsubtitle">Canal de Guyon:</p>
+      <ul className="fxh-list">
+        <li><strong>Evitar presión directa</strong></li>
+        <li><strong>Férula muñeca neutra</strong></li>
       </ul>
 
-      <p className='p14'>Tratamiento Quirúrgico 🔪</p>
-      <p className='p16'>Indicaciones:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">Tratamiento Quirúrgico 🔪</p>
+
+      <p className="fxh-subsubtitle">Indicaciones:</p>
+      <ul className="fxh-list">
         <li>Déficit motor progresivo</li>
-        <li>Atrofia muscular intrínseca</li>
-        <li>Falla tratamiento conservador mayor a 3 meses</li>
+        <li>Atrofia intrínseca</li>
+        <li>Falla tratamiento &gt; 3 meses</li>
       </ul>
 
-      <p className='p16'>Técnicas Quirúrgicas:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Descompresión canal cubital</strong>:
-          <ul style={{ listStyleType: 'circle', marginLeft: '2rem' }}>
-            <li>Transposición anterior subcutánea</li>
+      <p className="fxh-subsubtitle">Técnicas:</p>
+      <ul className="fxh-list">
+        <li>
+          <strong>Descompresión canal cubital</strong>
+          <ul className="fxh-sublist">
+            <li>Transposición anterior</li>
             <li>Epineurolysis</li>
           </ul>
         </li>
-        <li><strong>Liberación canal de Guyon</strong>: Sección del ligamento palmar</li>
+        <li><strong>Liberación canal de Guyon</strong></li>
       </ul>
 
-      <p className='p14'>Rehabilitación 🏋️‍♂️</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Fase</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Objetivos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Duración</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Aguda (0-3 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Protección, control edema</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Hasta retiro suturas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Subaguda (3-8 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Movilidad, prevención fibrosis</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>5 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Recuperación (mayor a 8 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fuerza intrínseca, función fina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>3-6 meses</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">Rehabilitación 🏋️‍♂️</p>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Objetivos</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aguda (0-3 sem)</td>
+              <td>Protección, control edema</td>
+              <td>Hasta retiro suturas</td>
+            </tr>
+            <tr>
+              <td>Subaguda (3-8 sem)</td>
+              <td>Movilidad, prevenir fibrosis</td>
+              <td>5 semanas</td>
+            </tr>
+            <tr>
+              <td>Recuperación (&gt;8 sem)</td>
+              <td>Fuerza intrínseca</td>
+              <td>3-6 meses</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'>Complicaciones ⚠️</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Rigidez articular</strong>: Por inmovilización prolongada</li>
-        <li><strong>Recidiva</strong>: Hasta 25% en técnicas simples</li>
-        <li><strong>Déficit residual</strong>: En casos de atrofia muscular establecida</li>
+      <p className="fxh-subtitle">Complicaciones ⚠️</p>
+      <ul className="fxh-list">
+        <li>Rigidez articular</li>
+        <li>Recidiva (hasta 25%)</li>
+        <li>Déficit residual</li>
       </ul>
 
-      <p className='p14'>Prevención 🛡️</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Protección codo</strong>: Evitar apoyos prolongados</li>
-        <li><strong>Ergonomía laboral</strong>: Ajuste altura teclados</li>
-        <li><strong>Ejercicios fortalecimiento</strong>: Músculos intrínsecos</li>
+      <p className="fxh-subtitle">Prevención 🛡️</p>
+      <ul className="fxh-list">
+        <li>Evitar apoyos prolongados</li>
+        <li>Ergonomía laboral</li>
+        <li>Fortalecimiento intrínseco</li>
       </ul>
 
-      <p className='p14'>Conclusión</p>
-      <p className='p150'>
-        Las lesiones del nervio ulnar generan discapacidad significativa en la función fina de la mano. El diagnóstico temprano es crucial para prevenir la atrofia muscular irreversible. 
-        La compresión en el codo requiere abordaje quirúrgico más frecuentemente que el síndrome del túnel carpiano. Los resultados postquirúrgicos dependen del tiempo de evolución 
-        y grado de afectación preoperatorio, con recuperación completa en el 60-80% de los casos tratados oportunamente.
+      <p className="fxh-subtitle">Conclusión</p>
+      <p className="fxh-text">
+        Las lesiones del nervio ulnar generan discapacidad significativa en la función fina de la mano.
+        El diagnóstico temprano es fundamental para prevenir atrofia irreversible.
+        La recuperación depende del tiempo de evolución y grado de afectación previa.
       </p>
     </div>
   );

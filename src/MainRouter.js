@@ -1,4 +1,6 @@
 
+
+
 // src/MainRouter.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -22,6 +24,7 @@ import Ejercicio from './components/Pages/Ejercicio';
 import BienestarMental from './components/Pages/Bienestarmental';
 import Farmacos from './components/Pages/Farmacos';
 import RegistroAlimentos from './components/Pages/RegistroAlimentos';
+import HistorialAlimentos from './components/Alimentos/HistorialAlimentos';
 import Comidas from './components/Pages/Comidas';
 import Comidas2 from './components/Pages/Comidas2';
 import Premium from './components/Pages/Premium';
@@ -38,7 +41,6 @@ import Ecocardiograma from './components/Examenes/ECG';
 import PerfilLipidico from './components/Examenes2/PerfilLipidico';
 import Glicemia from './components/Examenes2/Glicemia';
 import Hemograma from './components/Examenes2/Hemograma';
-import Perfil from './components/PagesLateral/Perfil';
 import Dislipidemia from './components/ECNT/Dislipidemia';
 import Asma from './components/ECNT/Asma';
 import ACV from './components/ECNT/ACV';
@@ -267,6 +269,7 @@ import RegistroSV from './components/Informes/RegistroSV';
 import RegistroHidratacion from './components/Informes/RegistroHidratacion';
 import RegistroMusculacion from './components/Informes/RegistroEjercicio/RegistroMusculacion';
 import RegistroMusculacion2 from './components/Informes/RegistroEjercicio/RegistroMusculacion2';
+import HistorialMusculacion from './components/Informes/RegistroEjercicio/HistorialMusculacion';
 import RegistroTrote from './components/Informes/RegistroEjercicio/RegistroTrote';
 import RegistroTrote2 from './components/Informes/RegistroEjercicio/RegistroTrote2';
 import RegistroCorrer from './components/Informes/RegistroEjercicio/RegistroCorrer';
@@ -274,15 +277,25 @@ import RegistroCorrer2 from './components/Informes/RegistroEjercicio/RegistroCor
 import RegistroCaminar from './components/Informes/RegistroEjercicio/RegistroCaminar';
 import RegistroCaminar2 from './components/Informes/RegistroEjercicio/RegistroCaminar2';
 import RegistroSprint from './components/Informes/RegistroEjercicio/RegistroSprint';
-import RegistroSprint2 from './components/Informes/RegistroEjercicio/RegistroSprint2';
+import RegistroSprints2 from './components/Informes/RegistroEjercicio/RegistroSprints2';
 import RegistroNadar from './components/Informes/RegistroEjercicio/RegistroNadar';
 import RegistroNadar2 from './components/Informes/RegistroEjercicio/RegistroNadar2';
 import RegistroBoxeodeSaco from './components/Informes/RegistroEjercicio/RegistroBoxeodeSaco';
-import RegistroBoxeoSaco2 from './components/Informes/RegistroEjercicio/RegistroBoxeodeSaco2';
+import RegistroBoxeoSaco2 from './components/Informes/RegistroEjercicio/RegistroBoxeoSaco2';
 import RegistroBicicleta from './components/Informes/RegistroEjercicio/RegistroBicicleta';
 import RegistroBicicleta2 from './components/Informes/RegistroEjercicio/RegistroBicicleta2';
+import RegistroElongacion from './components/Informes/RegistroEjercicio/RegistroElongacion';
+import RegistroElongacion2 from './components/Informes/RegistroEjercicio/RegistroElongacion2';
 import RegistroYoga from './components/Informes/RegistroMental/RegistroYoga';
-import RegistroYoga2 from './components/Informes/RegistroMental/RegistroYoga2';
+import Perfil from './components/PagesLateral/Perfil';
+import Agendas from './components/PagesLateral/Agendas';
+import AgendaComun from './components/PagesLateral/Agendas/AgendaComun';
+import AgendaEconomica from './components/PagesLateral/Agendas/AgendaEconomica';
+import GestionPendientes from './components/PagesLateral/Agendas/GestionPendientes';
+import AgendaCalendario from './components/PagesLateral/Agendas/AgendaCalendario';
+import AgendaEconomica2 from './components/PagesLateral/Agendas/AgendaEconomica2';
+import GestionPendientes2 from './components/PagesLateral/Agendas/GestionPendientes2';
+
 
 
 
@@ -329,6 +342,7 @@ function MainRouter() {
           <Route path='ecnt/metabolicasecnt'  element={ < MetabolicasECNT  /> } />
           <Route path='ecnt/neurodegenerativasecnt'  element={<  NeuroDegenerativasECNT  /> } />
           <Route path='alimentos/alimentos'  element={  <  Alimentos /> }  />
+          <Route path='alimentos/historialalimentos'  element={ < HistorialAlimentos  /> }  />
           <Route path='ejercicio/elongacion'  element={ < Elongacion  /> }  />
           <Route path='ejercicio/musculacion'  element= { < Musculacion  /> }   />
           <Route path='ejercicio/cv'   element={ < CV /> }   />
@@ -543,6 +557,13 @@ function MainRouter() {
           <Route path='/premium' element={  < Premium />} />
           <Route path='/informes'  element= {<  Informes /> } />
           <Route path='/perfil' element={ < Perfil /> } />
+          <Route path='/agendas' element=  {  <  Agendas  />  } />
+          <Route path='/agendacomun'  element={ <  AgendaComun /> }  />
+          <Route path='/agendacomun/agendacalendario'  element= { < AgendaCalendario /> } />
+          <Route path='/agendaeconomica'  element= { <   AgendaEconomica  /> }  />
+          <Route path='/agendaeconomica/agendaeconomica2'  element= { <  AgendaEconomica2 /> }  />
+          <Route path='/gestionpendientes'   element= {  <  GestionPendientes /> }  />
+          <Route path='/gestionpendientes/gestionpendientes2'   element= {  <  GestionPendientes2  />   }     />
           <Route path='/imagen' element={ <  Imagen   /> }  />
           <Route path='/lab' element={ <  Lab />  }   />
           <Route path='/calidadsueno'  element={ < CalidadSueno /> } />
@@ -560,23 +581,25 @@ function MainRouter() {
           <Route path='/registrosv'  element= { <  RegistroSV  /> }  />
           <Route path='/registrohidratacion'  element={  <  RegistroHidratacion /> }  />
           <Route path='/registroejercicio/registromusculacion'  element= { <  RegistroMusculacion  /> } />
-          <Route path='/registroejercicio/registromusculacion2' element= { <  RegistroMusculacion2 /> }  />
+          <Route path='/registroejercicio/registromusculacion2'  element= { <  RegistroMusculacion2     /> }  />
+          <Route path='/registroejercicio/historialmusculacion'  element={  <  HistorialMusculacion  />  } />
           <Route path='/registroejercicio/registrotrote' element={ <  RegistroTrote /> }  />
-          <Route path='/registroejercicio/registrotrote2'  element={ <  RegistroTrote2 /> }  />
+          <Route path='/registroejercicio/registrotrote2' element = { <  RegistroTrote2    /> }  />
           <Route path='/registroejercicio/registrocorrer' element= {  < RegistroCorrer /> } />
-          <Route path='/registroejercicio/registrocorrer2' element= { <  RegistroCorrer2 />  } />
+          <Route path='/registroejercicio/registrocorrer2'   element= { <  RegistroCorrer2 />  }  />
           <Route path='/registroejercicio/registrocaminar'  element= {  <  RegistroCaminar   /> }  />
-          <Route path='/registroejercicio/registrocaminar2' element= { <  RegistroCaminar2 />} />
+          <Route path='/registroejercicio/registrocaminar2'  element={<  RegistroCaminar2  />}  />
           <Route path='/registroejercicio/registrosprint'  element= { < RegistroSprint />  } />
-          <Route path='/registroejercicio/registrosprint2'  element={  < RegistroSprint2  /> }  />
+          <Route path='/registroejercicio/registrosprints2' element= { <  RegistroSprints2 /> } />
           <Route path='/registroejercicio/registronadar'  element= {<  RegistroNadar /> }  />
-          <Route path='/registroejercicio/registronadar2'  element= { <  RegistroNadar2 /> } />
+          <Route path='/registroejercicio/registronadar2' element= { <  RegistroNadar2 />  } />
           <Route path='/registroejercicio/registroboxeodesaco' element={ < RegistroBoxeodeSaco />  }  />
-          <Route path='/registroejercicio/registroboxeodesaco2'  element= {  <  RegistroBoxeoSaco2 /> }  />
+          <Route path='/registroejercicio/registroboxeodesaco2' element= { <  RegistroBoxeoSaco2 /> }   />
           <Route path='/registroejercicio/registrobicicleta'  element= { <  RegistroBicicleta   />  }  />
-          <Route path='/registroejercicio/registrobicicleta2'  element= { <  RegistroBicicleta2 /> }  />
+          <Route path='/registroejercicio/registrobicicleta2'  element=  { <  RegistroBicicleta2  />  }   />
+          <Route path='/registroejercicio/registroelongacion'  element={ <  RegistroElongacion />   } />
+          <Route path='/registroejercicio/registroelongacion2'  element={ < RegistroElongacion2  />  }   />
           <Route path='/registromental/registroyoga'  element={<  RegistroYoga />  } />
-          <Route path='/registromental/registroyoga2'  element= {< RegistroYoga2  /> }  />
         </Route>  
       </Routes>
     </Router>

@@ -1,0 +1,214 @@
+/* ============================= */
+/* CONTENEDOR PRINCIPAL */
+/* ============================= */
+
+.fxh-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  animation: fxhFadeIn 0.4s ease-in-out;
+}
+
+.fxh-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #2980b9;
+  letter-spacing: -0.5px;
+}
+
+/* ============================= */
+/* INPUT + BOTÓN */
+/* ============================= */
+
+.fxh-input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+}
+
+.fxh-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.fxh-input:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.fxh-button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #2980b9;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fxh-button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/* SECCIONES */
+/* ============================= */
+
+.fxh-section {
+  margin-bottom: 2.5rem;
+}
+
+.fxh-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* ITEMS */
+/* ============================= */
+
+.fxh-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.fxh-item:hover {
+  background: #eef2ff;
+  transform: translateY(-1px);
+}
+
+.fxh-check {
+  background: #22c55e;
+  border: none;
+  color: white;
+  font-weight: bold;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fxh-check:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* ITEM COMPLETADO */
+/* ============================= */
+
+.fxh-item.done {
+  background: #ecfdf5;
+  color: #64748b;
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+/* ============================= */
+/* ESTADO VACÍO */
+/* ============================= */
+
+.fxh-empty {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding: 8px 0;
+}
+
+
+
+
+/* ============================= */
+/* CALENDARIO */
+/* ============================= */
+
+.fxh-calendar {
+  margin-top: 3rem;
+}
+
+.fxh-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.fxh-calendar-header button {
+  background: #2980b9;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fxh-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.fxh-calendar-day {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 8px;
+  min-height: 70px;
+  position: relative;
+  font-size: 0.85rem;
+}
+
+.fxh-day-number {
+  font-weight: 600;
+}
+
+.fxh-day-tasks {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 600px) {
+  .fxh-input-group {
+    flex-direction: column;
+  }
+
+  .fxh-button {
+    width: 100%;
+  }
+}
+
+/* ============================= */
+/* ANIMACIÓN SUAVE */
+/* ============================= */
+
+@keyframes fxhFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

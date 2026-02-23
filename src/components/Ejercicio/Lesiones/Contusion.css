@@ -1,0 +1,27 @@
+/* Copiar contenido de DesgarrosFxfct.css exactamente */
+.fxfct-detail { max-width: 1400px; margin: 0 auto; }
+.fxfct-title { font-size: 3.5rem; font-weight: 700; color: #2980b9; margin-left: 2rem; margin-top: 3rem; }
+.fxfct-subtitle { font-size: 3rem; font-weight: 700; color: #2980b9; margin-left: 4rem; margin-top: 3rem; }
+.fxfct-text { font-size: 2.1rem; line-height: 1.8; text-align: justify; margin: 0 3rem 3rem 3rem; }
+.fxfct-list { font-size: 2rem; line-height: 1.8; margin: 0 3rem 3rem 3rem; list-style-type: disc; }
+.fxfct-table-wrapper { overflow-x: auto; margin: 0 3rem 6rem 3rem; }
+.fxfct-table { width: 100%; border-collapse: collapse; }
+.fxfct-table th, .fxfct-table td { border: 1px solid #ddd; padding: 10px; }
+.fxfct-table th { background-color: #f2f2f2; font-weight: 600; }
+.fxfct-link { color: #2980b9; text-decoration: none; font-weight: 600; }
+.fxfct-link:hover { text-decoration: underline; }
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .fxfct-title { font-size: 2.6rem; text-align: center; }
+  .fxfct-subtitle { font-size: 2.2rem; margin-left: 0; text-align: center; }
+  .fxfct-text, .fxfct-list { font-size: 1.6rem; }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .fxfct-title { font-size: 2.4rem; text-align: center; }
+  .fxfct-subtitle { font-size: 2rem; margin-left: 0; text-align: center; }
+  .fxfct-text, .fxfct-list { font-size: 1.5rem; }
+  .fxfct-table-wrapper { margin: 0 1rem 4rem 1rem; }
+}

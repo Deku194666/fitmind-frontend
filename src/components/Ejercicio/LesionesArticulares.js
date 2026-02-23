@@ -1,148 +1,134 @@
-
-
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import NavBarLesArt from './NavBarLesArt';
+import './LesionesArticulares.css';
 
 function LesionesArticulares() {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
-    <div className="ecnt-detail">
-        <NavBarLesArt/>
-  
-      <p className='p13'> Lesiones Articulares Comunes </p>
-      <p className='p14'> 📌 Introducción</p>
-      <p className='p150'> 
-        Las lesiones articulares afectan al <strong>20-30% de la población adulta</strong> y representan una causa mayor de discapacidad.
-        Involucran daño a las estructuras articulares (cartílago, membrana sinovial, cápsula) y pueden ser traumáticas o degenerativas. 
-        El diagnóstico preciso es esencial para prevenir daño articular irreversible.
-      </p>
-        
-      <p className='p16'> 📌 Artrosis (Osteoartritis)</p>
-      <p className='p150'>
-        Afecta al <strong>40% de mayores de 70 años</strong>, siendo la rodilla la articulación más común. Caracterizada por pérdida 
-        progresiva de cartílago articular con formación de osteofitos. Factores de riesgo: edad, obesidad, trauma previo.
+    <div className="fxa-detail">
+
+      <NavBarLesArt />
+
+      <h1 className="fxa-title">Lesiones Articulares Comunes</h1>
+
+      <h2 className="fxa-subtitle">📌 Introducción</h2>
+      <p className="fxa-text">
+        Las lesiones articulares afectan al <strong>20–30%</strong> de la población adulta y son una causa mayor de discapacidad.
+        Involucran cartílago, membrana sinovial y cápsula articular. El diagnóstico precoz previene daño irreversible.
       </p>
 
-      <p className='p150'> <strong>Clasificación Kellgren-Lawrence:</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Grado 1:</strong> Dudoso estrechamiento articular, osteofitos incipientes</li>
-        <li><strong>Grado 2:</strong> Osteofitos definidos, posible estrechamiento</li>
-        <li><strong>Grado 3:</strong> Estrechamiento moderado, esclerosis ósea</li>
-        <li><strong>Grado 4:</strong> Estrechamiento marcado con deformidad ósea</li>
+      <h3 className="fxa-subsubtitle">📌 Artrosis (Osteoartrosis)</h3>
+      <p className="fxa-text">
+        Afecta al <strong>40%</strong> de mayores de 70 años. Se caracteriza por pérdida progresiva de cartílago con formación
+        de osteofitos. Rodilla y cadera son las más comprometidas.
+      </p>
+      <ul className="fxa-list">
+        <li><strong>Grado I:</strong> Cambios dudosos</li>
+        <li><strong>Grado II:</strong> Osteofitos definidos</li>
+        <li><strong>Grado III:</strong> Estrechamiento moderado</li>
+        <li><strong>Grado IV:</strong> Deformidad articular</li>
       </ul>
 
-      <p className='p16'> 📌 Artritis Reumatoide</p>
-      <p className='p150'>
-        Enfermedad autoinmune que afecta al <strong>1% de la población</strong>, con predominio en mujeres (3:1). Caracterizada por sinovitis proliferativa que lleva a destrucción articular. Articulaciones más afectadas: MCF, IFP, muñecas.
+      <h3 className="fxa-subsubtitle">📌 Artritis Reumatoidea</h3>
+      <p className="fxa-text">
+        Enfermedad autoinmune que afecta al <strong>1%</strong> de la población, con predominio femenino.
+        Produce sinovitis crónica y destrucción articular.
+      </p>
+      <ul className="fxa-list">
+        <li>Artritis clínica en ≥1 articulación</li>
+        <li>FR y anti-CCP positivos</li>
+        <li>Reactantes de fase aguda elevados</li>
+        <li>Síntomas &gt; 6 semanas</li>
+      </ul>
+
+      <h3 className="fxa-subsubtitle">📌 Gota</h3>
+      <p className="fxa-text">
+        Provocada por depósito de cristales de urato. Afecta principalmente a la primera metatarsofalángica.
+      </p>
+      <ul className="fxa-list">
+        <li>Artrocentesis diagnóstica</li>
+        <li>Dolor máximo en 24 h</li>
+        <li>Eritema y calor local</li>
+      </ul>
+
+      <h2 className="fxa-subtitle">📊 Diagnóstico por Imagen</h2>
+      <div className="fxa-table-wrapper">
+        <table className="fxa-table">
+          <thead>
+            <tr>
+              <th>Modalidad</th>
+              <th>Aplicación</th>
+              <th>Hallazgos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Radiografía</td>
+              <td>Evaluación inicial</td>
+              <td>Osteofitos, estrechamiento</td>
+            </tr>
+            <tr>
+              <td>RMN</td>
+              <td>Tejidos blandos</td>
+              <td>Edema óseo, cartílago</td>
+            </tr>
+            <tr>
+              <td>Ecografía</td>
+              <td>Evaluación dinámica</td>
+              <td>Sinovitis, derrame</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="fxa-subtitle">📊 Manejo por Tipo de Lesión</h2>
+      <div className="fxa-table-wrapper">
+        <table className="fxa-table">
+          <thead>
+            <tr>
+              <th>Condición</th>
+              <th>Tratamiento</th>
+              <th>Eficacia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artrosis temprana</td>
+              <td>Ejercicio + control de peso</td>
+              <td>60% mejoría</td>
+            </tr>
+            <tr>
+              <td>Artritis reumatoide</td>
+              <td>FAME + biológicos</td>
+              <td>70–80% respuesta</td>
+            </tr>
+            <tr>
+              <td>Gota aguda</td>
+              <td>AINEs / colchicina</td>
+              <td>90% resolución</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="fxa-subtitle">🌱 Prevención</h2>
+      <ul className="fxa-list">
+        <li>Control de peso</li>
+        <li>Ejercicio de bajo impacto</li>
+        <li>Diagnóstico precoz</li>
+        <li>Hidratación adecuada</li>
+      </ul>
+
+      <h2 className="fxa-subtitle">📌 Conclusión</h2>
+      <p className="fxa-text">
+        El abordaje integral de las lesiones articulares combina tratamiento farmacológico,
+        ejercicio terapéutico y cambios de estilo de vida. La intervención temprana mejora
+        significativamente el pronóstico funcional.
       </p>
 
-      <p className='p150'> <strong>Criterios diagnósticos (ACR/EULAR 2010):</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Artritis clínica en ≥1 articulación</strong></li>
-        <li><strong>Serología (FR, anti-CCP)</strong></li>
-        <li><strong>Reactantes de fase aguda elevados</strong></li>
-        <li><strong>Síntomas mayor a 6 semanas</strong></li>
-      </ul>
-
-      <p className='p16'> 📌 Gota Aguda</p>
-      <p className='p150'>
-        Afecta al <strong>1-2% de adultos</strong>, con predominio masculino (9:1). Cristales de urato monosódico en articulaciones causan inflamación aguda. Articulación más común: primera metatarsofalángica (75% de casos iniciales).
-      </p>
-
-      <p className='p150'> <strong>Diagnóstico:</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Artrocentesis:</strong> Cristales negativos birrefringentes</li>
-        <li><strong>Hiperuricemia:</strong> Aunque 30% tienen uricemia normal en crisis</li>
-        <li><strong>Hallazgos clínicos:</strong> Dolor máximo en 24h, eritema, calor local</li>
-      </ul>
-
- 
-
-      <p className='p14'> 📌 Técnicas de Diagnóstico por Imagen</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Modalidad </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Aplicación </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Hallazgos Clave </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Radiografía </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Evaluación inicial </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Osteofitos, estrechamiento articular </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> RMN </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Evaluación de tejidos blandos </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Edema óseo, lesiones cartílago </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Ecografía </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Evaluación dinámica </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Sinovitis, derrame articular </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p className='p14'> 📌 Manejo por Tipo de Lesión</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Condición </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Tratamiento </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Eficacia </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Artrosis temprana </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Ejercicio + pérdida peso </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 60% mejoría síntomas </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Artritis reumatoide </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> FAME + biológicos </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 70-80% respuesta </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Gota aguda </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> AINEs/colchicina </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 90% resolución en 7 días </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p className='p14'> 🌱 Prevención y Autocuidado</p>
-      <p className='p16'> 🟢 Para Artrosis:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Control de peso:</strong> Cada 5kg reduce riesgo en 50%</li>
-        <li><strong>Ejercicio de bajo impacto:</strong> Natación, ciclismo</li>
-        <li><strong>Fortalecimiento muscular:</strong> Reduce carga articular</li>
-      </ul>
-
-      <p className='p16'> 🟢 Para Artritis Inflamatoria:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Diagnóstico precoz:</strong> Ventana de oportunidad menor a 6 meses</li>
-        <li><strong>Terapia ocupacional:</strong> Protección articular</li>
-        <li><strong>Ejercicio adaptado:</strong> Mantener movilidad</li>
-      </ul>
-
-      <p className='p16'> 🟢 Para Enfermedad por Cristales:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Hidratación adecuada:</strong> mayor a 2L agua/día</li>
-        <li><strong>Dieta baja en purinas:</strong> Limitar carnes rojas, mariscos</li>
-        <li><strong>Control metabólico:</strong> Uricemia mennor a 6 mg/dL</li>
-      </ul>
-
-      <p className='p14'> 📌 Conclusión</p>
-      <p className='p150'>
-        Las lesiones articulares requieren <strong>un enfoque multidisciplinario</strong> que combine manejo farmacológico, terapia física y modificaciones de estilo de vida. Mientras condiciones como la artrosis requieren principalmente manejo sintomático, las artritis inflamatorias necesitan tratamiento precoz con fármacos modificadores de enfermedad. El entendimiento de los mecanismos fisiopatológicos subyacentes es clave para seleccionar la estrategia terapéutica óptima en cada caso.
-      </p>
     </div>
   );
 }

@@ -16,7 +16,7 @@ function ECNT() {
         causas de muerte en el mundo y están estrechamente relacionadas con factores de riesgo como el tabaquismo, la mala alimentación, 
         el sedentarismo y el consumo nocivo de alcohol. La prevención, el diagnóstico temprano y el control adecuado son fundamentales para reducir
         su impacto en la salud pública. A veces, las <strong> ECNT   </strong>  culminan con muertes rápidas como en el caso de los <Link to="/ecnt/iam">IAM</Link>, 
-        <Link to="/ecnt/acv"> ACV</Link>, <Link to="/ecnt/cancer">Cancer</Link>,  y otras que progresan mas lento como <Link to="/ecnt/diabetes">Diabetes Mellitus</Link>, 
+        <Link to="/ecnt/acv"> ACV</Link>, <Link to="/ecnt/cancer">Cáncer</Link>,  y otras que progresan mas lento como <Link to="/ecnt/diabetes">Diabetes Mellitus</Link>, 
         <Link to="/ecnt/erc"> ERC</Link>,  <Link to="/ecnt/hipertension">Hipertensión Arterial</Link>, <Link to="/ecnt/dislipidemia"> Dislipidemia</Link>,
         <Link to="/ecnt/osteoporosis"> Osteoporosis</Link>, <Link to="/ecnt/ea"> Enfermedad de Alzheimer</Link>, <Link to="/ecnt/cataratas"> Cataratas</Link>, 
         entre otras. Aunque a veces se usan (incorrectamente) como sinónimo de enfermedad crónica, las <strong> ECNT  </strong>  se distinguen solo por su causa no infecciosa,

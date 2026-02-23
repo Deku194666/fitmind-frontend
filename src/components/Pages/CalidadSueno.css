@@ -1,39 +1,147 @@
+/* ==========================
+   Estilos generales (PC)
+========================== */
 
+.calidad-container {
+  max-width: 1500px;
+  
+}
 
-.titulo1 {
+.p1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #2980b9;
+  margin-top: 3rem;
+  text-align: left;
+  margin-left: 4rem;
+}
 
-    font-size: 3.6rem;
-    font-weight: 700;
-    color: #2980b9;
+.p2 {
+  font-size: 1.9rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: justify;
+  line-height: 1.8;
+  margin-left:3rem !important ;
+  margin-right: 3rem !important ;
+}
+
+.titulo-sec {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================
+   Listas
+========================== */
+
+.calidad-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 3rem !important ;
+  margin-right: 3rem !important ; 
+}
+
+.calidad-list li {
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ==========================
+   Iconos
+========================== */
+
+.icon {
+  font-size: 1.8rem;
+}
+
+.icon.blue {
+  color: #2980b9;
+}
+
+.icon.green {
+  color: #27ae60;
+}
+
+.icon.purple {
+  color: #8e44ad;
+}
+
+.icon.orange {
+  color: #e67e22;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media screen and (max-width: 1024px) {
+  .p1 {
+    font-size: 2.5rem;
     text-align: center;
-    margin-left: 6rem;
-    margin-top: 3rem;
+    margin-left: 0;
+  }
 
+  .p2,
+  .titulo-sec,
+  .calidad-list {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .p2 {
+    font-size: 1.5rem;
+  }
+
+  .calidad-list li {
+    font-size: 1.4rem;
+  }
 }
 
-.parra2 {
+@media screen and (max-width: 768px) {
+  .p1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
 
-    font-size: 1.8rem;
-    text-align: left;
-    margin-left: 6rem;
-    max-width:  99rem;
-    margin-right: 2.5rem;
-    margin-bottom: 7rem;
+  .p2 {
+    font-size: 1.2rem;
+  }
 
+  .titulo-sec {
+    font-size: 1.6rem;
+  }
+
+  .calidad-list li {
+    font-size: 1.2rem;
+  }
 }
 
-.titulo2 { 
+@media screen and (max-width: 480px) {
+  .p1 {
+    font-size: 2.4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 
-    font-size: 3rem;
-    color: #2980b9;
-    font-weight: 700;
-    margin-left: 3.5rem;
+  .p2,
+  .titulo-sec,
+  .calidad-list {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
 
-
-}
-
-
-.Lista{
-
-    margin-left: 5rem;
+  .p2 {
+    font-size: 1.6rem;
+  }
 }

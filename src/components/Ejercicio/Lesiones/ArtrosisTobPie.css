@@ -1,0 +1,94 @@
+/* ArtrosisTobPie.css - diseño basado en ArtrosisLumbar */
+
+.atp-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.atp-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.atp-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.atp-subsubtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.atp-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.atp-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.atp-sublist {
+  font-size: 1.9rem;
+  line-height: 1.6;
+  margin-left: 2rem;
+  list-style-type: circle;
+}
+
+.atp-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.atp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.atp-table th,
+.atp-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.atp-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .atp-title { font-size: 2.6rem; }
+  .atp-subtitle,
+  .atp-subsubtitle { font-size: 2.2rem; margin-left: 0; text-align: center; }
+  .atp-text,
+  .atp-list,
+  .atp-sublist { font-size: 1.6rem; }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .atp-title { font-size: 2.4rem; text-align: center; }
+  .atp-subtitle,
+  .atp-subsubtitle { font-size: 2.3rem; margin-left: 2rem; margin-right: 2rem; text-align: center; }
+  .atp-text,
+  .atp-list,
+  .atp-sublist { font-size: 1.6rem; }
+  .atp-table-wrapper { margin-left: 1rem; margin-right: 1rem; margin-bottom: 4rem; }
+}

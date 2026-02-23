@@ -1,7 +1,7 @@
 
 // src/components/Sidebar.js
 import React from 'react';
-import { List, ListItem, ListItemText } from '@mui/material';
+import { List, ListItem, } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import './Sidebar.css'
@@ -14,13 +14,13 @@ const Sidebar = () => {
           <Link  className='sidebar-option' to="/perfil">Perfil</Link>
         </ListItem>
         <ListItem button className="sidebar-list-item">
-          <span className='sidebar-option1'  >  Hábitos  </span>
+          <Link className='sidebar-option1' to="/agendas">Agendas</Link>
         </ListItem>
         <ListItem button className="sidebar-list-item">
-          <span className='sidebar-option2'  >  Comunidad  </span>
+          <span className='sidebar-option2'  >  Hábitos  </span>
         </ListItem>
         <ListItem button className="sidebar-list-item">
-          <span className='sidebar-option3'  >  Amigos  </span>
+          <span className='sidebar-option3'  >  Comunidad  </span>
         </ListItem>
         <ListItem button className="sidebar-list-item">
           <span className='sidebar-option3'  >  Configuración  </span>

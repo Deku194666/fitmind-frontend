@@ -1,0 +1,129 @@
+/* Bankart.css */
+
+.fxbankart-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxbankart-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxbankart-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxbankart-subsection {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #2980b9;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.fxbankart-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 3rem 3rem;
+}
+
+.fxbankart-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxbankart-table-wrapper {
+  overflow-x: auto;
+  margin: 0 3rem 6rem 3rem;
+}
+
+.fxbankart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxbankart-table th,
+.fxbankart-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxbankart-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.fxbankart-link {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.fxbankart-link:hover {
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .fxbankart-title {
+    font-size: 2.6rem;
+    text-align: center;
+  }
+
+  .fxbankart-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxbankart-subsection {
+    font-size: 1.9rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxbankart-text,
+  .fxbankart-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .fxbankart-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxbankart-subtitle {
+    font-size: 2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxbankart-subsection {
+    font-size: 1.7rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxbankart-text,
+  .fxbankart-list {
+    font-size: 1.5rem;
+  }
+
+  .fxbankart-table-wrapper {
+    margin: 0 1rem 4rem 1rem;
+  }
+}

@@ -1,47 +1,102 @@
-
-/* src/components/ECNT.css */
-
+/* ==========================
+   Estilos generales (PC)
+========================== */
+.ecnt-container {
+    max-width: 1500px;       /* ancho máximo del contenido */
+    margin: 0 auto;          /* centra el contenedor */
+              
+}
 
 .p1 { 
     font-size: 3rem;
-    max-width: 1200px;
     font-weight: 900;
     color: #2980b9;
-    margin-left: 6rem;
     margin-top: 3rem;
-
+    text-align: left;
+    margin-left: 4rem;
 }
 
 .p2 {
-
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     font-weight: 400;
-    margin-bottom: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
     text-align: justify;
-    margin-left: 6rem;
-    margin-right: 6rem;
+    line-height: 1.8;
+    margin-left: 4rem;
+    margin-right: 5rem;
+  
 }
 
-
 .ecnt-list {
-  list-style: none;
-  padding: 0;
-  font-weight: 700;
+    list-style: none;
+    padding: 0;
+    font-weight: 700;
 }
 
 .ecnt-list li {
-  margin: 1rem 0;
-  font-size: 1.7rem;
-  margin-bottom: 3rem;
+    margin: 1rem 0;
+    font-size: 1.7rem;
 }
 
 .ecnt-list a {
-  color: #2980b9;
+    color: #2980b9;
+    text-decoration: none;
 }
 
 .ecnt-list a:hover {
-  text-decoration: none;
+    text-decoration: underline;
 }
 
+/* ==========================
+   Media Queries: Tablets y Móviles
+========================== */
+@media screen and (max-width: 1024px) {
+    .p1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
 
+    .p2 {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 
+    .ecnt-container {
+        padding: 0rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .p1 {
+        font-size: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .p2 {
+        font-size: 1.2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .ecnt-container {
+        padding: 0rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .p1 {
+        font-size: 2.6rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .p2 {
+        font-size: 1.8rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+
+    }
+}

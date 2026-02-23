@@ -1,70 +1,54 @@
+/* =========================
+   NAVBAR ECNT – DESKTOP
+   ========================= */
 .secondary-bar {
+  background-color: lightcyan;
+  padding: 15px 2rem;
   display: flex;
-  flex-wrap: wrap;          /* 🔑 evita solapamiento */
-  gap: 1rem;
-  font-size: 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 700;
-  color: #2980b9;
-  white-space: nowrap;
-  
+  justify-content: space-around;  /* Links en fila y distribuidos */
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 .bar-button {
-font-size: 1.2rem;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    color: #2980b9;
-    white-space: nowrap;      /* evita cortes */
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2980b9;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #e0f7fa;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.bar-button:hover {
+  color: #1f618d;
+  background-color: #b2ebf2;
+}
 
-
-/* 📱 MOBILE */
+/* =========================
+   NAVBAR ECNT – MOBILE
+   ========================= */
 @media (max-width: 768px) {
   .secondary-bar {
-    justify-content: center;
+    flex-direction: column;    /* Links apilados uno debajo del otro */
+    align-items: center;       /* Centra los links horizontalmente */
+    gap: 10px;                 /* Espacio vertical entre links */
+    padding: 10px 1rem;
   }
 
-  .bar-button1 {
-    font-size: 1.35rem;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    color: #2980b9;
-    white-space: nowrap;
-  }
-
-  .bar-button2 {
-    text-decoration: none;
-    font-weight: 700;
-    color: #2980b9;
-    font-size: 1.35rem;
-    white-space: nowrap;
+  .bar-button {
+    width: 100%;               /* Cada link ocupa toda la fila */
+    max-width: 400px;          /* Limita el ancho máximo */
+    font-size: 1.1rem;
+    white-space: normal;       /* Permite que el texto se rompa */
     text-align: center;
   }
-
-
-  .bar-button3 {
-    font-size: 1.4rem;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    color: #2980b9;
-    white-space: nowrap;
-  }
-
-  .bar-button4 {
-    font-size: 1.4rem;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    color: #2980b9;
-    white-space: nowrap;
-  }
-
-
-
 }

@@ -1,0 +1,104 @@
+
+
+/* Metilxantinas.css */
+
+.metil-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.metil-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.metil-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.metil-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.metil-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.metil-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.metil-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.metil-table th,
+.metil-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.metil-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .metil-title {
+    font-size: 2.6rem;
+  }
+
+  .metil-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .metil-text,
+  .metil-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .metil-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .metil-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .metil-text,
+  .metil-list {
+    font-size: 1.6rem;
+  }
+
+  .metil-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

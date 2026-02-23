@@ -1,28 +1,49 @@
+/* =====================================================
+   BUSCADOR DE ALIMENTOS – FITMIND
+   Mobile First · Tablet · Desktop
+===================================================== */
+
+/* -------------------------------
+   RESET BÁSICO
+-------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
 /* ===============================
-   BUSCADOR ALIMENTOS - BASE (MOBILE)
+   BASE – CELULAR (DEFAULT)
 ================================ */
 
 .buscador-container {
+  width: 88%;
   max-width: 100%;
-  width: 26rem;
-  margin: 20px auto;
-  padding: 16px;
+  margin: 8px auto;
+  padding: 12px;
   border: 2px solid #2980b9;
-  border-radius: 12px;
+  border-radius: 14px;
   background-color: #f9f9f9;
+  margin-top: 4rem;
+  height: 13rem;
+
+}
+
+.buscador-title {
+  text-align: center;
+  color: #2980b9;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .buscador-input {
   width: 100%;
-  height: 52px;
-  padding: 0 16px;
-  font-size: 16px;
-  border-radius: 12px;
+  height: 46px;
+  padding: 0 14px;
+  font-size: 15px;
+  border-radius: 30px;
   border: 2px solid #2980b9;
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   outline: none;
-  box-sizing: border-box;
 }
 
 .buscador-input:focus {
@@ -30,52 +51,123 @@
   box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
 }
 
-
-
 .buscador-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 14px;
 }
 
 .buscador-card {
   background-color: #fff;
-  border-radius: 10px;
-  padding: 14px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.buscador-card h3 {
+  font-size: 1rem;
+  color: #2980b9;
+  margin-bottom: 6px;
+}
+
+.buscador-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 2px 0;
 }
 
 /* ===============================
-   DESKTOP
+   CELULARES MUY PEQUEÑOS
 ================================ */
-@media (min-width: 769px) {
-
-  .buscador-container {
-    max-width: 700px;
-    width: 47rem;
-    margin: 40px auto;
-    padding: 30px;
+@media (max-width: 360px) {
+  .buscador-title {
+    font-size: 1.2rem;
   }
 
   .buscador-input {
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .buscador-card {
+    padding: 10px;
+  }
+}
+
+/* ===============================
+   TABLET (>= 600px)
+================================ */
+@media (min-width: 600px) {
+  .buscador-container {
+    max-width: 560px;
+    margin: 20px auto;
+    padding: 18px;
+  }
+
+  .buscador-title {
+    font-size: 1.6rem;
+  }
+
+  .buscador-input {
+    height: 50px;
     font-size: 16px;
   }
 
   .buscador-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .buscador-card {
+    padding: 16px;
+  }
+
+  .buscador-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .buscador-card p {
+    font-size: 15px;
+  }
+}
+
+/* ===============================
+   DESKTOP (>= 900px)
+================================ */
+@media (min-width: 900px) {
+  .buscador-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    height: 20rem;
+  }
+
+  .buscador-title {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .buscador-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
   }
 
   .buscador-card {
     padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-}
 
+  .buscador-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
 
-@media (max-width: 480px) {
-  .buscador-input {
-    height: 48px;
-    font-size: 15px;
-    border-radius: 10px;
+  .buscador-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .buscador-card p {
+    font-size: 16px;
   }
 }

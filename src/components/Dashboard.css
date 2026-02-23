@@ -19,11 +19,12 @@
 }
 
 .parrafo2 {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   color: #2980b9;
   margin-left: 1rem;
   text-align: center;
+  
 }
 
 .parrafo31 {
@@ -41,6 +42,16 @@
   margin-left: -1rem !important;
   text-align: center !important;
 }
+
+.parrafo2 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 1rem;
+  text-align: center;
+  
+}
+
 
 
 
@@ -73,8 +84,8 @@
   }
 
   .parrafo31 {
-    font-size: 1rem !important;
-    margin-left: 5% !important; /* mismo cambio */
+    font-size: 1.37rem !important;
+    margin-left: -2% !important; /* mismo cambio */
     line-height: 1.2rem;
     text-align: left;
   }

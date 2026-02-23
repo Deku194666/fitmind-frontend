@@ -1,7 +1,8 @@
 html, body, #root {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden; /* Evita scroll horizontal que puede cortar cosas */
@@ -15,4 +16,12 @@ html, body, #root {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+main {
+  width: 100% !important;       /* fuerza a ocupar todo el ancho disponible */
+  max-width: 100% !important;   /* elimina cualquier limitación de ancho */
+  margin: 0 !important;         /* elimina centrado que puede comprimir */
+  padding: 0 !important;        /* elimina padding lateral */
+  box-sizing: border-box;       /* asegura que padding no sume ancho extra */
 }

@@ -1,55 +1,89 @@
-/* src/components/Login.css */
-
+/* ====== CONTENEDOR ====== */
 .login-container {
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 420px;
   margin: 6rem auto;
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 2rem;
   border: 2px solid #ccc;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  min-height: 55vh;
+  box-sizing: border-box;
+}
+
+/* ====== TITULO ====== */
+.login-title1 {
+  color: #2980b9;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+}
+
+/* ====== FORM ====== */
+.login-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box; /* importante para que padding no afecte tamaño */
+  align-items: center;
 }
 
-
-
-/* Título adaptable según pantalla */
-.login-title {
-  color: #2980b9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- 
-  margin-bottom: 2rem;
+/* ====== INPUTS ====== */
+.login-input2 {
+  width: 100%;
+  max-width: 360px;
+  height: 42px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 16.5rem;
 }
 
-/* Inputs y botón */
-form {
-  width: 23rem;
- }
-
-.Email,
-.Contraseña {
-  margin-bottom: 1.5rem;
-  width: 20rem;
-  height: 30rem;
- 
-}
-
-.Boton19 {
-  background-color: #2980b9 !important; 
+/* ====== BOTÓN ====== */
+.login-button {
+  width: 100%;
+  max-width: 360px;
+  background-color: #2980b9 !important;
   font-weight: 700;
-  text-transform: none;
   padding: 0.75rem 0;
-  transition: background-color 0.3s ease;
 }
 
-.Boton1:hover {
-  background-color: #1c6396;
+/* ============================= */
+/* 📱 MOBILE (hasta 480px) */
+/* ============================= */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 2rem 1rem;
+    padding: 2rem 1.5rem;
+    width: 26rem;
+    margin-bottom: 35rem;
+
+  }
+
+  .login-title {
+    font-size: 13.8rem !important;
+  }
+
+  .login-input {
+    font-size: 0.95rem;
+    height: 40px;
+  }
 }
 
- 
+/* ============================= */
+/* 📱📲 TABLET (481px - 768px) */
+/* ============================= */
+@media (max-width: 768px) {
+  .login-container {
+    margin: 4rem auto;
+  }
+}
+
+/* ============================= */
+/* 💻 DESKTOP GRANDE */
+/* ============================= */
+@media (min-width: 1200px) {
+  .login-container {
+    max-width: 460px;
+  }
+}

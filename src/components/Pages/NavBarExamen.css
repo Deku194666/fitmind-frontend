@@ -42,21 +42,21 @@
 @media (max-width: 480px) {
   .NavBarExamen {
     flex-wrap: wrap;         /* 🔑 evita solapamiento */
-    gap: 3rem;
+    gap: 4rem;
     justify-content: center;
     padding: 2px;
   }
 
   .bar-button17 {
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: 2rem;
     
   }
 
   .bar-button18 {
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: -1rem;
     margin-bottom: 2rem;
   }

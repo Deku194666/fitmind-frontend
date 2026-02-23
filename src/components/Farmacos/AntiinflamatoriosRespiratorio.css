@@ -1,0 +1,104 @@
+
+
+/* AntiinflamResp.css */
+
+.antiinflam-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.antiinflam-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.antiinflam-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.antiinflam-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.antiinflam-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.antiinflam-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.antiinflam-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.antiinflam-table th,
+.antiinflam-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.antiinflam-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .antiinflam-title {
+    font-size: 2.6rem;
+  }
+
+  .antiinflam-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .antiinflam-text,
+  .antiinflam-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .antiinflam-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .antiinflam-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .antiinflam-text,
+  .antiinflam-list {
+    font-size: 1.6rem;
+  }
+
+  .antiinflam-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

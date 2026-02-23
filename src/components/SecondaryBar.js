@@ -10,10 +10,11 @@ const SecondaryBar = () => {
   
   <div className="secondary-bar">
     <Link to="/ecnt" className='bar-button'>ECNT</Link>
-    <Link to="/informes" className='bar-button'>Informes</Link>
-    <Link to="/signosvitales" className='bar-button' > Monitoreo CSV  </Link>            
+    <Link to="/informes" className='bar-button'>Tus Estadisticas</Link>
+    <Link to="/signosvitales" className='bar-button' > Tus Signos Vitales  </Link>            
     <Link  to="/premium"  className='bar-button'  > Premium  </Link>
     <Link to="/calidadsueno" className="bar-button">Calidad del Sueño</Link>
+    <Link  to="/premium"  className='bar-button'  > Cuidados de la Piel  </Link>
 
   </div>
 

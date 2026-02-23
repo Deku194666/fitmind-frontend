@@ -1,0 +1,129 @@
+/* LesionLigCodo.css */
+
+.fxligcodo-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxligcodo-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxligcodo-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxligcodo-subsection {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #2980b9;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.fxligcodo-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 3rem 3rem;
+}
+
+.fxligcodo-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxligcodo-table-wrapper {
+  overflow-x: auto;
+  margin: 0 3rem 6rem 3rem;
+}
+
+.fxligcodo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxligcodo-table th,
+.fxligcodo-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxligcodo-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.fxligcodo-link {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.fxligcodo-link:hover {
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .fxligcodo-title {
+    font-size: 2.6rem;
+    text-align: center;
+  }
+
+  .fxligcodo-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxligcodo-subsection {
+    font-size: 1.9rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxligcodo-text,
+  .fxligcodo-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .fxligcodo-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxligcodo-subtitle {
+    font-size: 2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxligcodo-subsection {
+    font-size: 1.7rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxligcodo-text,
+  .fxligcodo-list {
+    font-size: 1.5rem;
+  }
+
+  .fxligcodo-table-wrapper {
+    margin: 0 1rem 4rem 1rem;
+  }
+}

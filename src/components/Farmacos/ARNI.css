@@ -1,0 +1,141 @@
+/* ARNI.css */
+
+.arni-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.arni-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.arni-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.arni-subsubtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.arni-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.arni-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.arni-sublist {
+  font-size: 1.9rem;
+  line-height: 1.6;
+  margin-left: 2rem;
+  list-style-type: circle;
+}
+
+.arni-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.arni-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.arni-table th,
+.arni-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.arni-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Flex layouts (por si los necesitas después) */
+.arni-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.arni-half {
+  width: 48%;
+}
+
+.arni-third {
+  width: 32%;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .arni-title {
+    font-size: 2.6rem;
+  }
+
+  .arni-subtitle,
+  .arni-subsubtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .arni-text,
+  .arni-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .arni-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .arni-subtitle,
+  .arni-subsubtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .arni-text,
+  .arni-list {
+    font-size: 1.6rem;
+  }
+
+  .arni-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .arni-half,
+  .arni-third {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}

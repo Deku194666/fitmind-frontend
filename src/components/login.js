@@ -1,10 +1,9 @@
-// src/components/Login.js
 import React, { useState } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, IconButton, InputAdornment, TextField } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import API from "../api";
-
-
+import './Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,6 +11,7 @@ const Login = () => {
     loginEmail: '',
     loginPassword: ''
   });
+  const [showPassword, setShowPassword] = useState(false); // <-- Estado para mostrar/ocultar
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -20,94 +20,77 @@ const Login = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
     try {
       const res = await API.post("/api/usuarios/login", {
         email: formData.loginEmail,
         password: formData.loginPassword
       });
 
-      console.log('✅ Login exitoso:', res.data);
-
-      // Guardar datos del usuario
       localStorage.setItem('usuario_id', res.data.usuarioId);
-      localStorage.setItem('usuario_email', res.data.email);
-      localStorage.setItem('usuario_nombre', res.data.nombre);
       localStorage.setItem('token', res.data.token);
+      localStorage.setItem('usuario_nombre', res.data.nombre);
 
       navigate('/Dashboard');
-
     } catch (err) {
-      console.error('❌ Error completo:', err);
-
-      if (err.response) {
-        alert(`Error ${err.response.status}: ${JSON.stringify(err.response.data)}`);
-      } else if (err.request) {
-        alert('El servidor no responde. Verifica que el backend esté corriendo.');
-      } else {
-        alert(`Error: ${err.message}`);
-      }
+      alert('Error al iniciar sesión');
     }
   };
 
   return (
-    <Box sx={{
-      width: '400px',
-      padding: '3rem 2rem',
-      margin: '6rem auto',
-      border: '2px solid #ccc',
-      borderRadius: '10px',
-      backgroundColor: '#fff',
-      boxShadow: '0 0 15px rgba(0, 0, 0, 0.1)',
-      textAlign: 'center',
-    }}>
-      <Typography gutterBottom sx={{ 
-        fontWeight: 700, 
-        color: '#2980b9', 
-        fontSize: '3.3rem',
-        textAlign: 'center',
-      }}>Login</Typography>
+    <Box className="login-container" sx={{ marginBottom: { xs: '15rem' } }}>
+      <Typography sx={{
+        fontSize: { xs: '4.5rem', sm: '6rem', md: '3.5rem' },
+        fontWeight: 700,
+        color: '#2980b9',
+        marginBottom: '2rem',
+      }}>
+        Login
+      </Typography>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="loginEmail"
-          value={formData.loginEmail}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-          style={{
-            width: '90%',
-            maxWidth: '360px',
-            height: '40px',
-            padding: '8px 12px',
-            fontSize: '1rem',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            marginBottom: '1.5rem',
-          }}
-        />
+      <form className="login-form" onSubmit={handleSubmit}>
+        {/* Email */}
+        <Box sx={{ mb: '2rem', width: { xs: '22rem', md: '24rem' } }}>
+          <TextField
+            fullWidth
+            type="email"
+            name="loginEmail"
+            value={formData.loginEmail}
+            onChange={handleChange}
+            placeholder="Email"
+            required
+          />
+        </Box>
 
-        <input
-          type="password"
-          name="loginPassword"
-          value={formData.loginPassword}
-          onChange={handleChange}
-          placeholder="Contraseña"
-          required
-          style={{
-            width: '90%',
-            maxWidth: '360px',
-            height: '40px',
-            padding: '8px 12px',
-            fontSize: '1rem',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            marginBottom: '1.5rem',
-          }}
-        />
+        {/* Contraseña con ojo */}
+        <Box sx={{ mb: '2rem', width: { xs: '22rem', md: '24rem' } }}>
+          <TextField
+            fullWidth
+            type={showPassword ? "text" : "password"} // <-- alterna entre texto y contraseña
+            name="loginPassword"
+            value={formData.loginPassword}
+            onChange={handleChange}
+            placeholder="Contraseña"
+            required
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              )
+            }}
+          />
+        </Box>
 
-        <Button type="submit" variant="contained" sx={{ backgroundColor: '#2980b9' }}>
+        <Button
+          type="submit"
+          variant="contained"
+          className="login-button"
+        >
           Iniciar Sesión
         </Button>
       </form>

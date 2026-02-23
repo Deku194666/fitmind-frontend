@@ -1,8 +1,6 @@
-
-
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './TendinopatiaCadera.css';
 
 function TendinopatiaCadera() {
   useEffect(() => {
@@ -10,154 +8,163 @@ function TendinopatiaCadera() {
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className='p13'>Tendinopatías de Cadera y Roturas Tendinosas</p>
+    <div className="fxh-detail">
+      <p className="fxh-title">Tendinopatías de Cadera y Roturas Tendinosas</p>
 
-      <p className='p14'>📌 Introducción</p>
-      <p className='p150'>
-        Las <strong>tendinopatías de cadera</strong> afectan con mayor frecuencia a los tendones glúteos, particularmente el <strong>glúteo medio</strong> y el <strong>glúteo menor</strong>. 
-        Son una causa común de dolor lateral de cadera, especialmente en mujeres de mediana edad. Las <strong>roturas tendinosas</strong> pueden ocurrir por traumatismos, sobrecarga crónica o degeneración relacionada con la edad.
+      <p className="fxh-subtitle">📌 Introducción</p>
+      <p className="fxh-text">
+        Las <strong>tendinopatías de cadera</strong> afectan con mayor frecuencia a los tendones glúteos,
+        particularmente el <strong>glúteo medio</strong> y el <strong>glúteo menor</strong>.
+        Son una causa común de dolor lateral de cadera, especialmente en mujeres de mediana edad.
+        Las <strong>roturas tendinosas</strong> pueden ocurrir por traumatismos, sobrecarga crónica o degeneración relacionada con la edad.
       </p>
 
-      <p className='p14'>Anatomía Clave 🦴</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Glúteo medio y menor</strong>: Se insertan en el trocánter mayor del fémur y estabilizan la pelvis en la marcha.</li>
+      <p className="fxh-subtitle">Anatomía Clave 🦴</p>
+      <ul className="fxh-list">
+        <li><strong>Glúteo medio y menor</strong>: Inserción en trocánter mayor, estabilizan pelvis en la marcha.</li>
         <li><strong>Psoas ilíaco</strong>: Tendón anterior potente, implicado en tendinopatías anteriores.</li>
-        <li><strong>Relacionados</strong>: Tensor de la fascia lata, piriforme, rotadores externos.</li>
+        <li><strong>Relacionados</strong>: Tensor fascia lata, piriforme y rotadores externos.</li>
       </ul>
 
-      <p className='p14'>Clasificación Clínica 📊</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Grado</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Lesión</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Síntomas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><strong>I (Leve)</strong></td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Tendinitis reactiva</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Dolor local leve al apoyo, sin pérdida de fuerza</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><strong>II (Moderado)</strong></td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Degeneración (tendinosis)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Dolor persistente, debilidad, marcha con claudicación</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><strong>III (Severa)</strong></td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Rotura parcial o completa</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Dolor agudo, incapacidad funcional, caída de pelvis (Trendelenburg)</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">Clasificación Clínica 📊</p>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Grado</th>
+              <th>Lesión</th>
+              <th>Síntomas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>I (Leve)</strong></td>
+              <td>Tendinitis reactiva</td>
+              <td>Dolor leve al apoyo, sin pérdida de fuerza</td>
+            </tr>
+            <tr>
+              <td><strong>II (Moderado)</strong></td>
+              <td>Degeneración (tendinosis)</td>
+              <td>Dolor persistente, debilidad, claudicación</td>
+            </tr>
+            <tr>
+              <td><strong>III (Severa)</strong></td>
+              <td>Rotura parcial o completa</td>
+              <td>Dolor agudo, incapacidad, signo de Trendelenburg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'>Diagnóstico 🩺</p>
-      <p className='p16'>1. Evaluación Clínica</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Dolor lateral de cadera</strong>: Palpación dolorosa sobre el trocánter mayor</li>
-        <li><strong>Prueba de Trendelenburg</strong>: Positiva en rotura glútea</li>
+      <p className="fxh-subtitle">Diagnóstico 🩺</p>
+
+      <p className="fxh-subsubtitle">1. Evaluación Clínica</p>
+      <ul className="fxh-list">
+        <li><strong>Dolor lateral</strong>: Palpación sobre trocánter mayor</li>
+        <li><strong>Prueba Trendelenburg</strong>: Positiva en rotura glútea</li>
         <li><strong>Resistencia a abducción</strong>: Dolor y debilidad</li>
       </ul>
 
-      <p className='p16'>2. Estudios de Imagen</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Prueba</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Hallazgos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Utilidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Ecografía</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Tendón engrosado, hipoecoico o con rotura</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Diagnóstico inicial, guía para infiltraciones</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><Link to="/examenes/rmn">RMN</Link></td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Rotura, atrofia muscular, edema</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Gold standard diagnóstico</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subsubtitle">2. Estudios de Imagen</p>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Prueba</th>
+              <th>Hallazgos</th>
+              <th>Utilidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ecografía</td>
+              <td>Tendón engrosado o roto</td>
+              <td>Diagnóstico inicial y guía infiltraciones</td>
+            </tr>
+            <tr>
+              <td><Link to="/examenes/rmn">RMN</Link></td>
+              <td>Rotura, edema, atrofia muscular</td>
+              <td>Gold standard diagnóstico</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'>Tratamiento Conservador 🏥</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">Tratamiento Conservador 🏥</p>
+      <ul className="fxh-list">
         <li>Reposo relativo y corrección biomecánica</li>
-        <li>Fisioterapia: ejercicios excéntricos y estabilización pélvica</li>
-        <li>Infiltraciones con corticoides o PRP</li>
-        <li>Ondas de choque extracorpóreas (en tendinosis crónica)</li>
+        <li>Ejercicios excéntricos y estabilización pélvica</li>
+        <li>Infiltraciones (corticoides o PRP)</li>
+        <li>Ondas de choque en tendinosis crónica</li>
       </ul>
 
-      <p className='p14'>Tratamiento Quirúrgico 🔪</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Reparación abierta o artroscópica</strong>: Sutura del tendón al trocánter mayor</li>
-        <li><strong>Tenodesis o transferencias musculares</strong>: En casos severos o crónicos</li>
+      <p className="fxh-subtitle">Tratamiento Quirúrgico 🔪</p>
+      <ul className="fxh-list">
+        <li><strong>Reparación abierta/artroscópica</strong>: Sutura al trocánter mayor</li>
+        <li><strong>Transferencias musculares</strong>: Casos severos</li>
         <li><strong>Descompresión trocantérica</strong>: En bursitis asociada</li>
       </ul>
 
-      <p className='p16'>Postoperatorio:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li>Descarga parcial 4-6 semanas con bastones</li>
+      <p className="fxh-subsubtitle">Postoperatorio</p>
+      <ul className="fxh-list">
+        <li>Descarga parcial 4-6 semanas</li>
         <li>Fisioterapia progresiva desde semana 2</li>
-        <li>Retorno deportivo entre 4-6 meses</li>
+        <li>Retorno deportivo 4-6 meses</li>
       </ul>
 
-      <p className='p14'>Rehabilitación 🏋️‍♂️</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Fase</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Objetivos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Duración</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>1 (0-2 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Control de dolor, evitar carga excesiva</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>2 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>2 (2-6 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Activación neuromuscular, marcha asistida</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>4 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>3 (6-12 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fortalecimiento progresivo glúteo medio/menor</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>6 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>4 (3-6 mes)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Ejercicios funcionales</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>3 meses</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>5 (6+ mes)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Retorno a actividad deportiva</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Según evolución</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">Rehabilitación 🏋️‍♂️</p>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Objetivos</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0-2 sem</td>
+              <td>Control dolor, evitar sobrecarga</td>
+              <td>2 semanas</td>
+            </tr>
+            <tr>
+              <td>2-6 sem</td>
+              <td>Activación neuromuscular</td>
+              <td>4 semanas</td>
+            </tr>
+            <tr>
+              <td>6-12 sem</td>
+              <td>Fortalecimiento glúteo medio/menor</td>
+              <td>6 semanas</td>
+            </tr>
+            <tr>
+              <td>3-6 meses</td>
+              <td>Ejercicios funcionales</td>
+              <td>3 meses</td>
+            </tr>
+            <tr>
+              <td>6+ meses</td>
+              <td>Retorno deportivo</td>
+              <td>Según evolución</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'>Prevención 🛡️</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li>Fortalecimiento de glúteo medio y core</li>
-        <li>Corrección de patrones de marcha y apoyo</li>
-        <li>Evitar sobreuso, especialmente en corredores</li>
-        <li>Estiramientos controlados post-ejercicio</li>
+      <p className="fxh-subtitle">Prevención 🛡️</p>
+      <ul className="fxh-list">
+        <li>Fortalecimiento glúteo medio y core</li>
+        <li>Corrección patrón de marcha</li>
+        <li>Evitar sobreuso en corredores</li>
+        <li>Estiramientos controlados</li>
       </ul>
 
-      <p className='p14'>Conclusión</p>
-      <p className='p150'>
-        Las tendinopatías y roturas tendinosas de cadera son una causa común de dolor y disfunción, especialmente en población activa. 
-        El abordaje debe ser integral, incluyendo tratamiento conservador, fisioterapia específica y, en casos severos, reparación quirúrgica. 
-        La rehabilitación adecuada es clave para el éxito terapéutico y la prevención de recaídas.
+      <p className="fxh-subtitle">Conclusión</p>
+      <p className="fxh-text">
+        Las tendinopatías y roturas tendinosas de cadera son causa frecuente de dolor y disfunción.
+        El tratamiento debe ser integral, combinando terapia conservadora y, en casos severos,
+        reparación quirúrgica. La rehabilitación adecuada es clave para prevenir recaídas.
       </p>
     </div>
   );
