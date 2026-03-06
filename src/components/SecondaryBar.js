@@ -15,6 +15,7 @@ const SecondaryBar = () => {
     <Link  to="/premium"  className='bar-button'  > Premium  </Link>
     <Link to="/calidadsueno" className="bar-button">Calidad del Sueño</Link>
     <Link  to="/premium"  className='bar-button'  > Cuidados de la Piel  </Link>
+    <Link  to="/skincarepresentacion"  className='bar-button'  > Cuidados de la Piel  </Link>
 
   </div>
 

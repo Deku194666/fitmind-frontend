@@ -21,9 +21,13 @@ const Sidebar = () => {
         </ListItem>
         <ListItem button className="sidebar-list-item">
           <span className='sidebar-option3'  >  Comunidad  </span>
+          <Link className='sidebar-option2'   to="/habitospresentacion"  >  Hábitos  </Link>
         </ListItem>
         <ListItem button className="sidebar-list-item">
-          <span className='sidebar-option3'  >  Configuración  </span>
+          <Link className='sidebar-option3' to="/comunidad"  >  Comunidad  </Link>
+        </ListItem>
+        <ListItem button className="sidebar-list-item">
+          <Link className='sidebar-option3'  to="/configuracion"  >  Configuración  </Link>
         </ListItem>
       </List>
     </div>

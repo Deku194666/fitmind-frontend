@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Perfil.css';
+import NavBarPerfil from './Perfil/NavBarPerfil';
+
+
 
 import {
   Box, Paper, Typography, Divider, List, ListItemButton, ListItemText,
@@ -98,30 +101,6 @@ const Perfil = () => {
     fetchPerfil();
   }, [API, usuario_id, token]);
 
-  // Hidratar info médica desde localStorage (si existe)
-  useEffect(() => {
-    if (!usuario_id) return;
-    try {
-      const raw = localStorage.getItem(`fitmind_medica_${usuario_id}`);
-      if (raw) setMedica(prev => ({ ...prev, ...JSON.parse(raw) }));
-    } catch {}
-  }, [usuario_id]);
-
-  // (Opcional) Cargar info médica desde servidor si existe endpoint
-  useEffect(() => {
-    if (!usuario_id) return;
-    (async () => {
-      try {
-        const resp = await axios.get(`${API}/api/infomedica/${usuario_id}`, {
-          headers: {
-            'user-id': usuario_id,
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          },
-        });
-        if (resp?.data) setMedica(prev => ({ ...prev, ...resp.data }));
-      } catch {}
-    })();
-  }, [API, usuario_id, token]);
 
   // Calcular IMC automáticamente
   useEffect(() => {
@@ -198,25 +177,63 @@ const Perfil = () => {
     if (e.key === 'Enter') { e.preventDefault(); addMedicamento(); }
   };
 
-  const handleSaveMedica = async () => {
-    setSaveOk(false);
-    setSaveError('');
-    setSaveLoading(true);
-    try {
-      await axios.put(`${API}/api/infomedica/${usuario_id}`, medica, {
-        headers: {
-          'Content-Type': 'application/json',
-          'user-id': usuario_id,
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
-      });
-      setSaveOk(true);
-    } catch (e) {
-      setSaveError(e?.response?.data?.message || 'No se pudo guardar la información médica en el servidor.');
-    } finally {
-      setSaveLoading(false);
-    }
-  };
+
+ const handleSaveMedica = async () => {
+  setSaveOk(false);
+  setSaveError('');
+  setSaveLoading(true);
+
+  try {
+    await axios.put(`${API}/api/infomedica/${usuario_id}`, medica, {
+      headers: {
+        'Content-Type': 'application/json',
+        'user-id': usuario_id,
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+    });
+
+    // 🔥 Guardar en localStorage si quieres mantener sincronización
+    localStorage.setItem(
+      `fitmind_medica_${usuario_id}`,
+      JSON.stringify(medica)
+    );
+
+    // 🔥 LIMPIAR FORMULARIO DESPUÉS DE GUARDAR
+    setMedica({
+      peso: '',
+      talla: '',
+      imc: '',
+      diabetes: false,
+      hipertension: false,
+      medicamentos: [],
+      medRegular: '',
+      estadoSalud: '',
+      enfermedadDiagnosticada: '',
+      enfermedadCronica: '',
+      fuma: '',
+      alcohol: '',
+      alimentacion: '',
+      ejercicio: '',
+      sueno: '',
+      emocional: '',
+      sintomas: '',
+      examenes: '',
+      otros: '',
+    });
+
+    setSaveOk(true);
+
+  } catch (e) {
+    setSaveError(
+      e?.response?.data?.message ||
+      'No se pudo guardar la información médica en el servidor.'
+    );
+
+  } finally {
+    setSaveLoading(false);
+  }
+};
+
 
   // Contenido del panel derecho (reutilizado en desktop/móvil)
   const SidebarContent = (
@@ -256,8 +273,7 @@ const Perfil = () => {
       </Typography>
       <Stack spacing={1.25} sx={{ mt: 1 }}>
         <Box sx={{ p: 1.25, borderRadius: 2, bgcolor: 'action.hover' }}>
-          <Typography sx={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: 1 }}>
-            <EventNoteIcon fontSize="small" />
+        <Typography component="div" sx={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: 1 }}>            <EventNoteIcon fontSize="small" />
             Resumen rápido
             <Chip size="small" label="Perfil" sx={{ ml: 'auto' }} />
           </Typography>
@@ -280,210 +296,290 @@ const Perfil = () => {
     </Box>
   );
 
+  
+
   return (
-    <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+    <>
+    <NavBarPerfil />
+    
+    <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', mt: 8 }}>
+      
       {/* MAIN */}
       <Box component="main" sx={{ flex: 1, minWidth: 0 }}>
-        <p className="Parraf1">Perfil de Usuario</p>
+        <Typography
+        variant="h4"
+        sx={{
+          fontWeight: 800,
+          color: '#2980b9',
+          mt: 4,
+          mb: 2,
+          textAlign: { xs: 'center', md: 'left' }
+        }}>   Perfil de Usuario    </Typography>
 
         {loading && <p>Cargando perfil...</p>}
         {error && <p className="Parraf3" style={{ color: 'crimson' }}>{error}</p>}
         {!loading && !error && (
           <>
             {/* Información básica */}
-            <Paper elevation={2} sx={{ p: 3, borderRadius: 3, width: '90%', marginLeft: '3rem' }}>
-              <Typography sx={{ fontWeight: 700, mb: 2, marginLeft: '3rem', fontSize: '2rem' }}>
-                Información básica
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
-              <Typography className="Parraf2"><strong>Nombre:</strong> {nombre}</Typography>
-              <Typography className="Parraf3"><strong>Email:</strong> {email}</Typography>
-              <Typography className="Parraf3"><strong>Edad:</strong> {edad}</Typography>
-              <Typography className="Parraf3"><strong>Género:</strong> {genero}</Typography>
-              <Typography className="Parraf3"><strong>País:</strong> {pais}</Typography>
-              <Typography className="Parraf3"><strong>Ciudad:</strong> {ciudad}</Typography>
-            </Paper>
+            <Paper
+  elevation={3}
+  sx={{
+    p: 4,
+    borderRadius: 4,
+    width: '90%',
+    maxWidth: 900,
+    mx: 'auto',
+    mt: 3
+  }}
+>
+  <Typography
+    variant="h5"
+    sx={{ fontWeight: 700, mb: 3, color: '#2980b9' }}
+  >
+    Información básica
+  </Typography>
+
+  <Divider sx={{ mb: 3 }} />
+
+  <Box
+    sx={{
+      display: 'grid',
+      gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+      gap: 3
+    }}
+  >
+    <Box>
+      <Typography variant="subtitle2" color="text.secondary">Nombre</Typography>
+      <Typography variant="h6">{nombre}</Typography>
+    </Box>
+
+    <Box>
+      <Typography variant="subtitle2" color="text.secondary">Email</Typography>
+      <Typography variant="h6">{email}</Typography>
+    </Box>
+
+    <Box>
+      <Typography variant="subtitle2" color="text.secondary">Edad</Typography>
+      <Typography variant="h6">{edad}</Typography>
+    </Box>
+
+    <Box>
+      <Typography variant="subtitle2" color="text.secondary">Género</Typography>
+      <Typography variant="h6">{genero}</Typography>
+    </Box>
+
+    <Box>
+      <Typography variant="subtitle2" color="text.secondary">País</Typography>
+      <Typography variant="h6">{pais}</Typography>
+    </Box>
+
+    <Box>
+      <Typography variant="subtitle2" color="text.secondary">Ciudad</Typography>
+      <Typography variant="h6">{ciudad}</Typography>
+    </Box>
+  </Box>
+</Paper>
 
             {/* Información médica (100% vertical, preguntas completas) */}
-            <Paper elevation={2} sx={{ p: 3, borderRadius: 3, width: '90%', ml: '3rem', mt: 3 }}>
-              <Typography sx={{ fontWeight: 700, mb: 2, ml: '3rem', fontSize: '2rem' }}>
-                Información médica
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
+            <Paper
+  elevation={3}
+  sx={{
+    p: 4,
+    borderRadius: 4,
+    width: '90%',
+    maxWidth: 900,
+    mx: 'auto',
+    mt: 4
+  }}
+>
+  <Typography
+    variant="h5"
+    sx={{ fontWeight: 700, mb: 3, color: '#2980b9' }}
+  >
+    Información médica
+  </Typography>
 
-              {/* Mensajes de guardado */}
-              {saveOk && <Alert severity="success" sx={{ mb: 2 }}>Información guardada correctamente.</Alert>}
-              {saveError && <Alert severity="error" sx={{ mb: 2 }}>{saveError}</Alert>}
+  <Divider sx={{ mb: 4 }} />
 
-              <Stack spacing={2}>
-                {/* Antropometría */}
-                <QField
-                  question="Peso (kg)"
-                  value={medica.peso}
-                  onChange={handleMedicaChange('peso')}
-                  type="number"
-                  placeholder="Ej: 72.5"
-                />
-                <QField
-                  question="Talla (cm)"
-                  value={medica.talla}
-                  onChange={handleMedicaChange('talla')}
-                  type="number"
-                  placeholder="Ej: 170"
-                />
-                <QField
-                  question="IMC (se calcula automáticamente a partir de peso y talla)"
-                  value={medica.imc}
-                  onChange={() => {}}
-                  readOnly
-                />
+  {/* --------- ANTROPOMETRÍA --------- */}
+  <Box sx={{ mb: 5 }}>
+    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+      Antropometría
+    </Typography>
 
-                {/* Condiciones */}
-                <QSwitch
-                  question="¿Tienes diabetes?"
-                  checked={medica.diabetes}
-                  onChange={handleMedicaChange('diabetes')}
-                />
-                <QSwitch
-                  question="¿Tienes hipertensión?"
-                  checked={medica.hipertension}
-                  onChange={handleMedicaChange('hipertension')}
-                />
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr' },
+        gap: 3
+      }}
+    >
+      <TextField
+        label="Peso (kg)"
+        type="number"
+        value={medica.peso}
+        onChange={handleMedicaChange('peso')}
+        fullWidth
+      />
 
-                {/* Medicación */}
-                <QField
-                  question="¿Tomas algún medicamento de forma regular? ¿Cuál(es) y para qué?"
-                  value={medica.medRegular}
-                  onChange={handleMedicaChange('medRegular')}
-                  multiline
-                  minRows={2}
-                />
-                <Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 0.5 }}>
-                    Añade un medicamento (presiona Enter o usa el botón)
-                  </Typography>
-                  <Stack spacing={1}>
-                    <TextField
-                      value={medicamentoInput}
-                      onChange={(e) => setMedicamentoInput(e.target.value)}
-                      onKeyDown={handleMedicamentoKey}
-                      fullWidth
-                      placeholder="Ej: Metformina 850 mg / 2 veces al día"
-                    />
-                    <Button variant="contained" onClick={addMedicamento} fullWidth>
-                      Agregar medicamento
-                    </Button>
-                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                      {medica.medicamentos.length === 0 ? (
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                          Aún no registras medicamentos.
-                        </Typography>
-                      ) : (
-                        medica.medicamentos.map((m) => (
-                          <Chip key={m} label={m} onDelete={() => removeMedicamento(m)} sx={{ mb: 1 }} />
-                        ))
-                      )}
-                    </Stack>
-                  </Stack>
-                </Box>
+      <TextField
+        label="Talla (cm)"
+        type="number"
+        value={medica.talla}
+        onChange={handleMedicaChange('talla')}
+        fullWidth
+      />
 
-                {/* Salud general (todas las preguntas) */}
-                <QField
-                  question="¿Cómo describirías tu estado de salud en general? (Bueno, regular, malo)"
-                  value={medica.estadoSalud}
-                  onChange={handleMedicaChange('estadoSalud')}
-                />
-                <QField
-                  question="¿Tienes alguna enfermedad diagnosticada?"
-                  value={medica.enfermedadDiagnosticada}
-                  onChange={handleMedicaChange('enfermedadDiagnosticada')}
-                />
-                <QField
-                  question="¿Tienes alguna enfermedad crónica?"
-                  value={medica.enfermedadCronica}
-                  onChange={handleMedicaChange('enfermedadCronica')}
-                />
-                <QField
-                  question="¿Fumas o has fumado antes? Si sí, ¿cuántos cigarrillos al día y por cuánto tiempo?"
-                  value={medica.fuma}
-                  onChange={handleMedicaChange('fuma')}
-                />
-                <QField
-                  question="¿Consumes alcohol? ¿Con qué frecuencia y en qué cantidad?"
-                  value={medica.alcohol}
-                  onChange={handleMedicaChange('alcohol')}
-                />
-                <QField
-                  question="¿Cómo describirías tu alimentación? (frutas, verduras, comida procesada, etc.)"
-                  value={medica.alimentacion}
-                  onChange={handleMedicaChange('alimentacion')}
-                />
-                <QField
-                  question="¿Haces ejercicio regularmente? ¿Qué tipo y con qué frecuencia?"
-                  value={medica.ejercicio}
-                  onChange={handleMedicaChange('ejercicio')}
-                />
-                <QField
-                  question="¿Cómo describirías la calidad de tu sueño? (insomnio, apnea, duermes bien...)"
-                  value={medica.sueno}
-                  onChange={handleMedicaChange('sueno')}
-                />
-                <QField
-                  question="¿Cómo te has sentido emocionalmente en los últimos meses? (estrés, ansiedad, depresión, etc.)"
-                  value={medica.emocional}
-                  onChange={handleMedicaChange('emocional')}
-                />
-                <QField
-                  question="¿Has tenido síntomas como tos, dolor de cabeza, digestivos u otros? (¿cuáles?)"
-                  value={medica.sintomas}
-                  onChange={handleMedicaChange('sintomas')}
-                />
-                <QField
-                  question="¿Te has realizado exámenes de rutina en el último año? (sangre, presión, colesterol, etc.) Anota todo lo que tengas."
-                  value={medica.examenes}
-                  onChange={handleMedicaChange('examenes')}
-                  multiline
-                  minRows={2}
-                />
+      <TextField
+        label="IMC"
+        value={medica.imc}
+        InputProps={{ readOnly: true }}
+        fullWidth
+      />
+    </Box>
+  </Box>
 
-                {/* Otros */}
-                <QField
-                  question="Otros datos médicos (alergias, cirugías, hábitos, etc.)"
-                  value={medica.otros}
-                  onChange={handleMedicaChange('otros')}
-                  multiline
-                  minRows={3}
-                />
+  <Divider sx={{ mb: 4 }} />
 
-                {/* Acciones */}
-                <Stack direction="column" spacing={1} alignItems="stretch">
-                  <Button
-                    variant="outlined"
-                    onClick={() => {
-                      try {
-                        localStorage.setItem(`fitmind_medica_${usuario_id}`, JSON.stringify(medica));
-                        setSaveOk(true);
-                        setSaveError('');
-                      } catch {
-                        setSaveError('No se pudo guardar localmente.');
-                      }
-                    }}
-                    fullWidth
-                  >
-                    Guardar local
-                  </Button>
-                  <Button
-                    variant="contained"
-                    onClick={handleSaveMedica}
-                    disabled={saveLoading}
-                    startIcon={saveLoading ? <CircularProgress size={18} /> : null}
-                    fullWidth
-                  >
-                    {saveLoading ? 'Guardando...' : 'Guardar en servidor'}
-                  </Button>
-                </Stack>
-              </Stack>
-            </Paper>
+  {/* --------- CONDICIONES --------- */}
+  <Box sx={{ mb: 5 }}>
+    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+      Enfermedades y condiciones
+    </Typography>
+
+    <Stack spacing={2}>
+      <FormControlLabel
+        control={<Switch checked={medica.diabetes} onChange={handleMedicaChange('diabetes')} />}
+        label="Diabetes"
+      />
+      <FormControlLabel
+        control={<Switch checked={medica.hipertension} onChange={handleMedicaChange('hipertension')} />}
+        label="Hipertensión"
+      />
+
+      <TextField
+        label="Enfermedad diagnosticada"
+        value={medica.enfermedadDiagnosticada}
+        onChange={handleMedicaChange('enfermedadDiagnosticada')}
+        fullWidth
+      />
+
+      <TextField
+        label="Enfermedad crónica"
+        value={medica.enfermedadCronica}
+        onChange={handleMedicaChange('enfermedadCronica')}
+        fullWidth
+      />
+    </Stack>
+  </Box>
+
+  <Divider sx={{ mb: 4 }} />
+
+  {/* --------- MEDICACIÓN --------- */}
+  <Box sx={{ mb: 5 }}>
+    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+      Medicación
+    </Typography>
+
+    <TextField
+      label="Medicamentos regulares"
+      value={medica.medRegular}
+      onChange={handleMedicaChange('medRegular')}
+      multiline
+      minRows={2}
+      fullWidth
+      sx={{ mb: 2 }}
+    />
+
+    <TextField
+      label="Agregar medicamento"
+      value={medicamentoInput}
+      onChange={(e) => setMedicamentoInput(e.target.value)}
+      onKeyDown={handleMedicamentoKey}
+      fullWidth
+    />
+
+    <Button
+      variant="contained"
+      onClick={addMedicamento}
+      sx={{ mt: 2 }}
+    >
+      Agregar
+    </Button>
+
+    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 2 }}>
+      {medica.medicamentos.map((m) => (
+        <Chip key={m} label={m} onDelete={() => removeMedicamento(m)} />
+      ))}
+    </Stack>
+  </Box>
+
+  <Divider sx={{ mb: 4 }} />
+
+  {/* --------- ESTILO DE VIDA --------- */}
+  <Box sx={{ mb: 5 }}>
+    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+      Estilo de vida
+    </Typography>
+
+    <Stack spacing={2}>
+      <TextField label="Alimentación" value={medica.alimentacion} onChange={handleMedicaChange('alimentacion')} fullWidth />
+      <TextField label="Ejercicio" value={medica.ejercicio} onChange={handleMedicaChange('ejercicio')} fullWidth />
+      <TextField label="Sueño" value={medica.sueno} onChange={handleMedicaChange('sueno')} fullWidth />
+      <TextField label="Consumo de alcohol" value={medica.alcohol} onChange={handleMedicaChange('alcohol')} fullWidth />
+      <TextField label="Tabaquismo" value={medica.fuma} onChange={handleMedicaChange('fuma')} fullWidth />
+    </Stack>
+  </Box>
+
+  <Divider sx={{ mb: 4 }} />
+
+  {/* --------- ANTECEDENTES Y OTROS --------- */}
+  <Box sx={{ mb: 3 }}>
+    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+      Antecedentes y otros
+    </Typography>
+
+    <TextField
+      label="Síntomas recientes"
+      value={medica.sintomas}
+      onChange={handleMedicaChange('sintomas')}
+      multiline
+      minRows={2}
+      fullWidth
+      sx={{ mb: 2 }}
+    />
+
+    <TextField
+      label="Exámenes realizados"
+      value={medica.examenes}
+      onChange={handleMedicaChange('examenes')}
+      multiline
+      minRows={2}
+      fullWidth
+      sx={{ mb: 2 }}
+    />
+
+    <TextField
+      label="Otros datos médicos"
+      value={medica.otros}
+      onChange={handleMedicaChange('otros')}
+      multiline
+      minRows={3}
+      fullWidth
+    />
+  </Box>
+
+  <Divider sx={{ my: 3 }} />
+
+  <Button
+    variant="contained"
+    fullWidth
+    onClick={handleSaveMedica}
+    disabled={saveLoading}
+  >
+    {saveLoading ? 'Guardando...' : 'Guardar información médica'}
+  </Button>
+</Paper>
           </>
         )}
       </Box>
@@ -524,6 +620,7 @@ const Perfil = () => {
         </>
       )}
     </Box>
+    </>
   );
 };
 

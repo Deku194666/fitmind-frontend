@@ -48,6 +48,45 @@
   padding: 0.75rem 0;
 }
 
+
+/* ============================= */
+/* 📱 MOBILE (hasta 480px) */
+/* ============================= */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 2rem 1rem;
+    padding: 2rem 1.5rem;
+    width: 26rem;
+    margin-bottom: 35rem;
+
+  }
+
+  .login-title {
+    font-size: 13.8rem !important;
+  }
+
+  .login-input {
+    font-size: 0.95rem;
+    height: 40px;
+  }
+}
+
+
+/* ====== LINK OLVIDÉ CONTRASEÑA ====== */
+.forgot-password-link {
+  margin-top: 1rem  !important ;
+  font-weight: 600  !important ;
+  font-size: 1.3rem;
+  color: #2980b9;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
 /* ============================= */
 /* 📱 MOBILE (hasta 480px) */
 /* ============================= */

@@ -19,6 +19,9 @@ const NavBarAl = () => {
       <Link to="/alimentos/historialalimentos" className="navbar-al-link">
         Historial Registro de Alimentos  
       </Link>
+      <Link to="/fasting" className="navbar-al-link">
+        Ayuno intermitente 
+      </Link>
     </nav>
   );
 };

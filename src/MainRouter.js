@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App'; // Página de inicio
 import Register from './components/register'; 
 import Login from './components/login';
+import ForgotPassword from './components/ForgotPassword';
 import MainLayout from './components/MainLayout';
 import PrivateLayout from './components/PrivateLayout'
 import Dashboard from './components/Dashboard';
@@ -25,6 +26,7 @@ import BienestarMental from './components/Pages/Bienestarmental';
 import Farmacos from './components/Pages/Farmacos';
 import RegistroAlimentos from './components/Pages/RegistroAlimentos';
 import HistorialAlimentos from './components/Alimentos/HistorialAlimentos';
+import Fasting from './components/Alimentos/Fasting';
 import Comidas from './components/Pages/Comidas';
 import Comidas2 from './components/Pages/Comidas2';
 import Premium from './components/Pages/Premium';
@@ -147,6 +149,7 @@ import FarmacosRespi from './components/Farmacos/FarmacosRespi';
 import FarmacosDig from './components/Farmacos/FarmacosDig';
 import FarmacosOST from './components/Farmacos/FarmacosOST';
 import FarmacosNeuro from './components/Farmacos/FarmacosNeuro';
+import FarmacosMetabolicos from './components/Farmacos/FarmacosMetablicos';
 import Antihipertensivos from './components/Farmacos/Antihipertensivos';
 import Antiarritmicos from './components/Farmacos/Antiarritmicos';
 import AntiCoagulantes from './components/Farmacos/AntiCoagulantes';
@@ -287,6 +290,10 @@ import RegistroElongacion from './components/Informes/RegistroEjercicio/Registro
 import RegistroElongacion2 from './components/Informes/RegistroEjercicio/RegistroElongacion2';
 import RegistroYoga from './components/Informes/RegistroMental/RegistroYoga';
 import Perfil from './components/PagesLateral/Perfil';
+import SkincarePresentacion from './components/CuidadoPiel/SkincarePresentacion';
+import SkincareDashboard from './components/CuidadoPiel/SkincareDashboard';
+import Perfil from './components/PagesLateral/Perfil';
+import PerfilMedico from './components/PagesLateral/Perfil/PerfilMedico';
 import Agendas from './components/PagesLateral/Agendas';
 import AgendaComun from './components/PagesLateral/Agendas/AgendaComun';
 import AgendaEconomica from './components/PagesLateral/Agendas/AgendaEconomica';
@@ -294,6 +301,11 @@ import GestionPendientes from './components/PagesLateral/Agendas/GestionPendient
 import AgendaCalendario from './components/PagesLateral/Agendas/AgendaCalendario';
 import AgendaEconomica2 from './components/PagesLateral/Agendas/AgendaEconomica2';
 import GestionPendientes2 from './components/PagesLateral/Agendas/GestionPendientes2';
+import HabitosPresentacion from './components/PagesLateral/Habitos/HabitosPresentacion';
+import MisHabitos from './components/PagesLateral/Habitos/MisHabitos';
+import Comunidad from './components/PagesLateral/Comunidad/Comunidad';
+import Amigos from './components/PagesLateral/Comunidad/Amigos';
+import Configuracion from './components/PagesLateral/Configuracion/Configuracion';
 
 
 
@@ -308,6 +320,7 @@ function MainRouter() {
           <Route path="/" element={<App />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/forgotpassword' element= { < ForgotPassword  />  }  />
         </Route>
         
         
@@ -439,6 +452,7 @@ function MainRouter() {
           <Route path='farmacos/farmacosdig' element={ <  FarmacosDig /> } /> 
           <Route path='farmacos/farmacosost' element={ <  FarmacosOST  /> }  />
           <Route path='farmacos/farmacosneuro' element={ < FarmacosNeuro /> } />
+          <Route path='farmacos/farmacosmetabolicos'  element={ <  FarmacosMetabolicos  /> } />
           <Route path='farmacos/antihipertensivos'  element={ <  Antihipertensivos  /> } />
           <Route path='farmacos/antiarritmicos'  element={  <  Antiarritmicos /> }  />
           <Route path='farmacos/anticoagulantes'  element={ < AntiCoagulantes  /> }  />
@@ -551,10 +565,12 @@ function MainRouter() {
           <Route path='/examenes' element={< Examenes />}  />
           <Route path='/registroalimentos' element={ < RegistroAlimentos />} />
           <Route path='/comidas'  element={ < Comidas /> } />
+          <Route path='/fasting'   element= {  < Fasting   />  }  />
           <Route path='/comidas2' element={ < Comidas2  /> }  />
           <Route path='/premium' element={  < Premium />} />
           <Route path='/informes'  element= {<  Informes /> } />
           <Route path='/perfil' element={ < Perfil /> } />
+          <Route path='/perfil/perfilmedico'   element= { <  PerfilMedico  />  }  />
           <Route path='/agendas' element=  {  <  Agendas  />  } />
           <Route path='/agendacomun'  element={ <  AgendaComun /> }  />
           <Route path='/agendacomun/agendacalendario'  element= { < AgendaCalendario /> } />
@@ -562,6 +578,11 @@ function MainRouter() {
           <Route path='/agendaeconomica/agendaeconomica2'  element= { <  AgendaEconomica2 /> }  />
           <Route path='/gestionpendientes'   element= {  <  GestionPendientes /> }  />
           <Route path='/gestionpendientes/gestionpendientes2'   element= {  <  GestionPendientes2  />   }     />
+          <Route path='/habitospresentacion'  element= { <   HabitosPresentacion   />  }   />
+          <Route path='/mishabitos'   element={ <   MisHabitos   />  }   />
+          <Route path='/comunidad'  element=  {  <   Comunidad   />  } />
+          <Route path='/amigos'  element=  {  <  Amigos  /> } />
+          <Route path='/configuracion'  element= {  <   Configuracion   />  }  />
           <Route path='/imagen' element={ <  Imagen   /> }  />
           <Route path='/lab' element={ <  Lab />  }   />
           <Route path='/calidadsueno'  element={ < CalidadSueno /> } />
@@ -598,6 +619,8 @@ function MainRouter() {
           <Route path='/registroejercicio/registroelongacion'  element={ <  RegistroElongacion />   } />
           <Route path='/registroejercicio/registroelongacion2'  element={ < RegistroElongacion2  />  }   />
           <Route path='/registromental/registroyoga'  element={<  RegistroYoga />  } />
+          <Route path='/skincarepresentacion'  element={ <  SkincarePresentacion   />  }  />
+          <Route path='/skincarepresentacion/skincaredashboard'  element={   <  SkincareDashboard   />   } />
         </Route>  
       </Routes>
     </Router>

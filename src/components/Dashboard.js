@@ -82,6 +82,10 @@ const abrirMenuSignosVitales = (event) => {
   setAnchorElSignosVitales(event.currentTarget);
 };
 
+const cerrarMenuSignosVitales = () => {
+  setAnchorElSignosVitales(null);
+};
+
 
 useEffect(() => {
   let cancel = false;
@@ -149,6 +153,11 @@ const [anchorElEjercicio, setAnchorElEjercicio] = useState(null);
 
 const abrirMenuEjercicio = (event) => {
   setAnchorElEjercicio(event.currentTarget);
+};
+
+
+const cerrarMenuEjercicio = () => {
+  setAnchorElEjercicio(null);
 };
 
 useEffect(() => {
@@ -282,8 +291,14 @@ useEffect(() => {
 
 const [sueno, setUltimoSueno] = useState(null);
 const [anchorElSueno, setAnchorElSueno] = useState(null);
+
+
 const abrirMenuSueno = (event) => {
   setAnchorElSueno(event.currentTarget);
+};
+
+const cerrarMenuSueno = () => {
+  setAnchorElSueno(null);
 };
 
 useEffect(() => {
@@ -612,6 +627,12 @@ const [anchorElCalorias, setAnchorElCalorias] = useState(null);
 const abrirMenuCalorias = (event) => {
   setAnchorElCalorias(event.currentTarget);
 };
+
+
+const cerrarMenuCalorias = () => {
+  setAnchorElCalorias(null);
+};
+
 const objetivoCalorias = 2200; // meta diaria
 
 useEffect(() => {
@@ -701,9 +722,6 @@ const porcentajeExceso = Math.min(
 );
 
 
-
-
-
 const [totalesMacros, setTotalesMacros] = useState({
   proteinas: 0,
   grasas: 0,
@@ -717,6 +735,10 @@ const abrirMenuMacros = (event) => {
   setAnchorElMacros(event.currentTarget);
 };
 
+
+const cerrarMenuMacros = () => {
+  setAnchorElMacros(null);
+};
 
 useEffect(() => {
   let cancel = false;
@@ -789,6 +811,16 @@ useEffect(() => {
 
 
 const [farmacos, setFarmacos] = useState(null);
+
+const [anchorElFarmacos, setAnchorElFarmacos] = useState(null);
+
+const abrirMenuFarmacos = (event) => {
+  setAnchorElFarmacos(event.currentTarget);
+};
+
+const cerrarMenuFarmacos = () => {
+  setAnchorElFarmacos(null);
+};
 
 useEffect(() => {
   let cancel = false;
@@ -1055,6 +1087,54 @@ return (
 </IconButton>
 
 
+<Menu
+  anchorEl={anchorElEjercicio}
+  open={Boolean(anchorElEjercicio)}
+  onClose={cerrarMenuEjercicio}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem
+    onClick={() => {
+      cerrarMenuEjercicio();
+      console.log("Editar Ejercicio");
+    }}
+  >
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuEjercicio();
+      console.log("Configuración Ejercicio");
+    }}
+  >
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuEjercicio();
+      console.log("Eliminar Ejercicio");
+    }}
+    sx={{ color: "red" }}
+  >
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
 
     <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650, textAlign: 'center' }}>
       🏃 <Link   to="/ejercicio"  >  Ejercicio </Link>
@@ -1292,6 +1372,53 @@ return (
 </IconButton>
 
 
+<Menu
+  anchorEl={menuAnchorHidratacion}
+  open={Boolean(menuAnchorHidratacion)}
+  onClose={cerrarMenuHidratacion}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px", 
+    },
+  }}
+>
+  <MenuItem
+    onClick={() => {
+      cerrarMenuHidratacion();
+      console.log("Editar Hidratación");
+    }}
+  >
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuHidratacion();
+      console.log("Configuración Hidratación");
+    }}
+  >
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuHidratacion();
+      console.log("Eliminar Hidratación");
+    }}
+    sx={{ color: "red" }}
+  >
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
 
 
     <Typography
@@ -1377,6 +1504,39 @@ return (
 >
   <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
 </IconButton>
+
+
+<Menu
+  anchorEl={anchorElCalorias}
+  open={Boolean(anchorElCalorias)}
+  onClose={cerrarMenuCalorias}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px", 
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuCalorias}>
+  ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuCalorias}>
+  ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuCalorias}>
+  🗑️ Borrar
+  </MenuItem>
+</Menu>
 
 
     <Typography
@@ -1521,6 +1681,37 @@ return (
   <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
 </IconButton>
 
+<Menu
+  anchorEl={anchorElMacros}
+  open={Boolean(anchorElMacros)}
+  onClose={cerrarMenuMacros}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuMacros}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuMacros}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuMacros}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
 
 
     <Typography
@@ -1598,6 +1789,39 @@ return (
 >
   <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
 </IconButton>
+
+
+<Menu
+  anchorEl={anchorElSignosVitales}
+  open={Boolean(anchorElSignosVitales)}
+  onClose={cerrarMenuSignosVitales}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuSignosVitales}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSignosVitales}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSignosVitales}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
 
 
     <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 550, marginBottom: 2 }}>
@@ -1692,6 +1916,39 @@ return (
     <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
   </IconButton>
 
+
+  <Menu
+  anchorEl={anchorElSueno}
+  open={Boolean(anchorElSueno)}
+  onClose={cerrarMenuSueno}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuSueno}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSueno}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSueno}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
     <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
       🛌 <Link to="/sueno" > Sueño  </Link>
     </Typography>
@@ -1721,7 +1978,72 @@ return (
 
 
 {tieneFarmacos && (
-  <Paper elevation={3} sx={{ padding: 5, borderRadius: 3, width: { xs: '100%', sm: '40rem' }, height: 'auto' }}>
+  <Paper elevation={3} sx={{ padding: 5, borderRadius: 3, width: { xs: '100%', sm: '40rem' }, height: 'auto', position: "relative" }}>
+  {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuFarmacos(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 8,
+    right: -145,
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={anchorElFarmacos}
+  open={Boolean(anchorElFarmacos)}
+  onClose={cerrarMenuFarmacos}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuFarmacos}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuFarmacos}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuFarmacos}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
     <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650, mb: '3rem' }}>
       📅 Registro Medicamentos
     </Typography>

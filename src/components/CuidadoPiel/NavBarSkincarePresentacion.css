@@ -1,12 +1,11 @@
-/* =================================================
-   NAVBAR ALIMENTOS – FITMIND
-================================================= */
+
+
 
 /* ===============================
    BASE – CELULAR (DEFAULT)
 ================================ */
 
-.navbar-al {
+.navbar-al1 {
   display: flex;
   flex-wrap: wrap;              /* 🔥 CLAVE: evita solapamiento */
   gap: 2px;
@@ -16,7 +15,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 27rem;
+  height: 7rem !important;
   
 }
 

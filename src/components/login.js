@@ -93,6 +93,15 @@ const Login = () => {
         >
           Iniciar Sesión
         </Button>
+
+
+        <Typography
+        className="forgot-password-link"
+        onClick={() => navigate('/forgotpassword')}>
+          ¿Olvidaste tu contraseña?
+        </Typography>
+
+
       </form>
     </Box>
   );

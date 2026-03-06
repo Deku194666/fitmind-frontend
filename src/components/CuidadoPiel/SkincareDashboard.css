@@ -1,0 +1,186 @@
+/* ======================================
+   SkincareDashboard - Responsive FxCodo
+   ====================================== */
+
+/* Base Layout */
+.skincare-dashboard {
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc, #eef2f7);
+}
+
+.skincare-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Calendar Card */
+.skincare-calendar-card {
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+/* Panel Card */
+.skincare-panel-card {
+  padding: 30px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.skincare-panel-card h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.skincare-message {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* FORMULARIO */
+
+.skincare-form {
+  margin-top: 20px;
+}
+
+.skincare-routines {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.skincare-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.skincare-column h3 {
+  margin-bottom: 15px;
+}
+
+.skincare-column label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.skincare-sliders {
+  margin-bottom: 30px;
+}
+
+.skincare-sliders label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.skincare-sliders input[type="range"] {
+  width: 100%;
+}
+
+.skincare-notes textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+input[type="checkbox"] {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 1 !important;
+  appearance: auto !important;
+  margin-left: 6rem  !important ; 
+}
+
+.day-with-log {
+  background: #d1fae5 !important;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* ======================================
+   Tablet Styles (≤ 1024px)
+   ====================================== */
+@media (max-width: 1024px) {
+  .skincare-dashboard {
+    padding: 30px 15px;
+  }
+
+  .skincare-calendar-card,
+  .skincare-panel-card {
+    padding: 20px;
+  }
+
+  .skincare-panel-card h2 {
+    font-size: 18px;
+  }
+}
+
+/* ======================================
+   Small Tablets & Large Phones (≤ 768px)
+   ====================================== */
+@media (max-width: 768px) {
+  .skincare-dashboard {
+    padding: 25px 12px;
+  }
+
+  .skincare-calendar-card {
+    padding: 15px;
+  }
+
+  .skincare-panel-card {
+    padding: 20px;
+  }
+
+  .skincare-panel-card h2 {
+    font-size: 17px;
+  }
+
+  .skincare-message {
+    font-size: 15px;
+  }
+}
+
+/* ======================================
+   Small Phones (≤ 480px)
+   ====================================== */
+@media (max-width: 480px) {
+  .skincare-dashboard {
+    padding: 20px 10px;
+  }
+
+  .skincare-calendar-card {
+    padding: 10px;
+  }
+
+  .skincare-panel-card {
+    padding: 15px;
+  }
+
+  .skincare-panel-card h2 {
+    font-size: 16px;
+  }
+
+  .skincare-message {
+    font-size: 14px;
+  }
+
+  /* Ajuste react-calendar en móviles */
+  .react-calendar {
+    width: 100% !important;
+    font-size: 12px;
+  }
+}
