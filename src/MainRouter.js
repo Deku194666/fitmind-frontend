@@ -289,7 +289,6 @@ import RegistroBicicleta2 from './components/Informes/RegistroEjercicio/Registro
 import RegistroElongacion from './components/Informes/RegistroEjercicio/RegistroElongacion';
 import RegistroElongacion2 from './components/Informes/RegistroEjercicio/RegistroElongacion2';
 import RegistroYoga from './components/Informes/RegistroMental/RegistroYoga';
-import Perfil from './components/PagesLateral/Perfil';
 import SkincarePresentacion from './components/CuidadoPiel/SkincarePresentacion';
 import SkincareDashboard from './components/CuidadoPiel/SkincareDashboard';
 import Perfil from './components/PagesLateral/Perfil';
