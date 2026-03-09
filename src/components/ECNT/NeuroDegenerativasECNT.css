@@ -1,0 +1,164 @@
+
+
+/* ==========================
+   Contenedor general
+========================== */
+.neuro-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ==========================
+   Títulos y textos
+========================== */
+.p138 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2980b9;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.p148 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    text-align: left;
+    color: #2980b9;
+}
+
+.p168 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: left;
+    color: #2980b9;
+}
+
+.p158 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+ul.p150 {
+    padding-left: 2rem;
+}
+
+/* ==========================
+   Enlaces
+========================== */
+.neuro-container a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.neuro-container a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   Tablas
+========================== */
+.neuro-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+}
+
+.neuro-container th,
+.neuro-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: top;
+}
+
+.neuro-container th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media screen and (max-width: 1024px) {
+    .p138 {
+        font-size: 3.5rem;
+        color: #2980b9;
+        font-weight: 700;
+        margin-left: 2rem;
+
+
+    }
+
+    .p148, .p168 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #2980b9;
+        margin-left: 2rem;
+
+        
+    }
+
+    .p158 {
+        font-size: 1.9rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-align: justify;
+
+    }
+
+    .neuro-container {
+        padding: 1.5rem;
+    }
+
+    .neuro-container table {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .p13 {
+        font-size: 2rem;
+    }
+
+    .p14, .p16 {
+        font-size: 1.5rem;
+    }
+
+    .p150 {
+        font-size: 1.2rem;
+    }
+
+    .neuro-container {
+        padding: 1rem;
+    }
+
+    .neuro-container table {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .p13 {
+        font-size: 1.7rem;
+    }
+
+    .p14, .p16 {
+        font-size: 1.3rem;
+    }
+
+    .p150 {
+        font-size: 1rem;
+    }
+
+    .neuro-container table {
+        font-size: 0.7rem;
+    }
+}

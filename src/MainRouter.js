@@ -1,10 +1,13 @@
 
+
+
 // src/MainRouter.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App'; // Página de inicio
 import Register from './components/register'; 
 import Login from './components/login';
+import ForgotPassword from './components/ForgotPassword';
 import MainLayout from './components/MainLayout';
 import PrivateLayout from './components/PrivateLayout'
 import Dashboard from './components/Dashboard';
@@ -22,6 +25,8 @@ import Ejercicio from './components/Pages/Ejercicio';
 import BienestarMental from './components/Pages/Bienestarmental';
 import Farmacos from './components/Pages/Farmacos';
 import RegistroAlimentos from './components/Pages/RegistroAlimentos';
+import HistorialAlimentos from './components/Alimentos/HistorialAlimentos';
+import Fasting from './components/Alimentos/Fasting';
 import Comidas from './components/Pages/Comidas';
 import Comidas2 from './components/Pages/Comidas2';
 import Premium from './components/Pages/Premium';
@@ -38,7 +43,6 @@ import Ecocardiograma from './components/Examenes/ECG';
 import PerfilLipidico from './components/Examenes2/PerfilLipidico';
 import Glicemia from './components/Examenes2/Glicemia';
 import Hemograma from './components/Examenes2/Hemograma';
-import Perfil from './components/PagesLateral/Perfil';
 import Dislipidemia from './components/ECNT/Dislipidemia';
 import Asma from './components/ECNT/Asma';
 import ACV from './components/ECNT/ACV';
@@ -80,7 +84,6 @@ import LesionLigTobillo from './components/Ejercicio/Lesiones/LesionLigTobillo';
 import LPAA from './components/Ejercicio/Lesiones/LPAA';
 import LigDeltoideo from './components/Ejercicio/Lesiones/LigDeltoideo';
 import LPCyLPAP from './components/Ejercicio/Lesiones/LPCyLPAP';
-import LesionLigRodilla from './components/Ejercicio/Lesiones/LesionLigRodilla';
 import LCA from './components/Ejercicio/Lesiones/LCA';
 import LCP from './components/Ejercicio/Lesiones/LCP';
 import LCM from './components/Ejercicio/Lesiones/LCM';
@@ -146,6 +149,7 @@ import FarmacosRespi from './components/Farmacos/FarmacosRespi';
 import FarmacosDig from './components/Farmacos/FarmacosDig';
 import FarmacosOST from './components/Farmacos/FarmacosOST';
 import FarmacosNeuro from './components/Farmacos/FarmacosNeuro';
+import FarmacosMetabolicos from './components/Farmacos/FarmacosMetablicos';
 import Antihipertensivos from './components/Farmacos/Antihipertensivos';
 import Antiarritmicos from './components/Farmacos/Antiarritmicos';
 import AntiCoagulantes from './components/Farmacos/AntiCoagulantes';
@@ -267,6 +271,7 @@ import RegistroSV from './components/Informes/RegistroSV';
 import RegistroHidratacion from './components/Informes/RegistroHidratacion';
 import RegistroMusculacion from './components/Informes/RegistroEjercicio/RegistroMusculacion';
 import RegistroMusculacion2 from './components/Informes/RegistroEjercicio/RegistroMusculacion2';
+import HistorialMusculacion from './components/Informes/RegistroEjercicio/HistorialMusculacion';
 import RegistroTrote from './components/Informes/RegistroEjercicio/RegistroTrote';
 import RegistroTrote2 from './components/Informes/RegistroEjercicio/RegistroTrote2';
 import RegistroCorrer from './components/Informes/RegistroEjercicio/RegistroCorrer';
@@ -274,15 +279,34 @@ import RegistroCorrer2 from './components/Informes/RegistroEjercicio/RegistroCor
 import RegistroCaminar from './components/Informes/RegistroEjercicio/RegistroCaminar';
 import RegistroCaminar2 from './components/Informes/RegistroEjercicio/RegistroCaminar2';
 import RegistroSprint from './components/Informes/RegistroEjercicio/RegistroSprint';
-import RegistroSprint2 from './components/Informes/RegistroEjercicio/RegistroSprint2';
+import RegistroSprints2 from './components/Informes/RegistroEjercicio/RegistroSprints2';
 import RegistroNadar from './components/Informes/RegistroEjercicio/RegistroNadar';
 import RegistroNadar2 from './components/Informes/RegistroEjercicio/RegistroNadar2';
 import RegistroBoxeodeSaco from './components/Informes/RegistroEjercicio/RegistroBoxeodeSaco';
-import RegistroBoxeoSaco2 from './components/Informes/RegistroEjercicio/RegistroBoxeodeSaco2';
+import RegistroBoxeoSaco2 from './components/Informes/RegistroEjercicio/RegistroBoxeoSaco2';
 import RegistroBicicleta from './components/Informes/RegistroEjercicio/RegistroBicicleta';
 import RegistroBicicleta2 from './components/Informes/RegistroEjercicio/RegistroBicicleta2';
+import RegistroElongacion from './components/Informes/RegistroEjercicio/RegistroElongacion';
+import RegistroElongacion2 from './components/Informes/RegistroEjercicio/RegistroElongacion2';
 import RegistroYoga from './components/Informes/RegistroMental/RegistroYoga';
-import RegistroYoga2 from './components/Informes/RegistroMental/RegistroYoga2';
+import SkincarePresentacion from './components/CuidadoPiel/SkincarePresentacion';
+import SkincareDashboard from './components/CuidadoPiel/SkincareDashboard';
+import Perfil from './components/PagesLateral/Perfil';
+import PerfilMedico from './components/PagesLateral/Perfil/PerfilMedico';
+import Agendas from './components/PagesLateral/Agendas';
+import AgendaComun from './components/PagesLateral/Agendas/AgendaComun';
+import AgendaEconomica from './components/PagesLateral/Agendas/AgendaEconomica';
+import GestionPendientes from './components/PagesLateral/Agendas/GestionPendientes';
+import AgendaCalendario from './components/PagesLateral/Agendas/AgendaCalendario';
+import AgendaEconomica2 from './components/PagesLateral/Agendas/AgendaEconomica2';
+import GestionPendientes2 from './components/PagesLateral/Agendas/GestionPendientes2';
+import HabitosPresentacion from './components/PagesLateral/Habitos/HabitosPresentacion';
+import MisHabitos from './components/PagesLateral/Habitos/MisHabitos';
+import Comunidad from './components/PagesLateral/Comunidad/Comunidad';
+import Amigos from './components/PagesLateral/Comunidad/Amigos';
+import Configuracion from './components/PagesLateral/Configuracion/Configuracion';
+
+
 
 
 
@@ -296,6 +320,7 @@ function MainRouter() {
           <Route path="/" element={<App />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/forgotpassword' element= { < ForgotPassword  />  }  />
         </Route>
         
         
@@ -329,6 +354,7 @@ function MainRouter() {
           <Route path='ecnt/metabolicasecnt'  element={ < MetabolicasECNT  /> } />
           <Route path='ecnt/neurodegenerativasecnt'  element={<  NeuroDegenerativasECNT  /> } />
           <Route path='alimentos/alimentos'  element={  <  Alimentos /> }  />
+          <Route path='alimentos/historialalimentos'  element={ < HistorialAlimentos  /> }  />
           <Route path='ejercicio/elongacion'  element={ < Elongacion  /> }  />
           <Route path='ejercicio/musculacion'  element= { < Musculacion  /> }   />
           <Route path='ejercicio/cv'   element={ < CV /> }   />
@@ -352,7 +378,6 @@ function MainRouter() {
           <Route path='ejercicio/lesiones/lpaa'  element={ <  LPAA /> }  />
           <Route path='ejercicio/lesiones/ligdeltoideo'  element={ <LigDeltoideo/> }  />
           <Route path='ejercicio/lesiones/lpcylpap'  element={ < LPCyLPAP  />  } />
-          <Route path='ejercicio/lesiones/lesionligrodilla'  element={ < LesionLigRodilla /> } />
           <Route path='ejercicio/lesiones/lca' element={ < LCA /> }   />
           <Route path='ejercicio/lesiones/lcp'  element={ < LCP  /> } />
           <Route path='ejercicio/lesiones/lcm'  element={ < LCM /> }  />
@@ -427,6 +452,7 @@ function MainRouter() {
           <Route path='farmacos/farmacosdig' element={ <  FarmacosDig /> } /> 
           <Route path='farmacos/farmacosost' element={ <  FarmacosOST  /> }  />
           <Route path='farmacos/farmacosneuro' element={ < FarmacosNeuro /> } />
+          <Route path='farmacos/farmacosmetabolicos'  element={ <  FarmacosMetabolicos  /> } />
           <Route path='farmacos/antihipertensivos'  element={ <  Antihipertensivos  /> } />
           <Route path='farmacos/antiarritmicos'  element={  <  Antiarritmicos /> }  />
           <Route path='farmacos/anticoagulantes'  element={ < AntiCoagulantes  /> }  />
@@ -539,10 +565,24 @@ function MainRouter() {
           <Route path='/examenes' element={< Examenes />}  />
           <Route path='/registroalimentos' element={ < RegistroAlimentos />} />
           <Route path='/comidas'  element={ < Comidas /> } />
+          <Route path='/fasting'   element= {  < Fasting   />  }  />
           <Route path='/comidas2' element={ < Comidas2  /> }  />
           <Route path='/premium' element={  < Premium />} />
           <Route path='/informes'  element= {<  Informes /> } />
           <Route path='/perfil' element={ < Perfil /> } />
+          <Route path='/perfil/perfilmedico'   element= { <  PerfilMedico  />  }  />
+          <Route path='/agendas' element=  {  <  Agendas  />  } />
+          <Route path='/agendacomun'  element={ <  AgendaComun /> }  />
+          <Route path='/agendacomun/agendacalendario'  element= { < AgendaCalendario /> } />
+          <Route path='/agendaeconomica'  element= { <   AgendaEconomica  /> }  />
+          <Route path='/agendaeconomica/agendaeconomica2'  element= { <  AgendaEconomica2 /> }  />
+          <Route path='/gestionpendientes'   element= {  <  GestionPendientes /> }  />
+          <Route path='/gestionpendientes/gestionpendientes2'   element= {  <  GestionPendientes2  />   }     />
+          <Route path='/habitospresentacion'  element= { <   HabitosPresentacion   />  }   />
+          <Route path='/mishabitos'   element={ <   MisHabitos   />  }   />
+          <Route path='/comunidad'  element=  {  <   Comunidad   />  } />
+          <Route path='/amigos'  element=  {  <  Amigos  /> } />
+          <Route path='/configuracion'  element= {  <   Configuracion   />  }  />
           <Route path='/imagen' element={ <  Imagen   /> }  />
           <Route path='/lab' element={ <  Lab />  }   />
           <Route path='/calidadsueno'  element={ < CalidadSueno /> } />
@@ -560,23 +600,27 @@ function MainRouter() {
           <Route path='/registrosv'  element= { <  RegistroSV  /> }  />
           <Route path='/registrohidratacion'  element={  <  RegistroHidratacion /> }  />
           <Route path='/registroejercicio/registromusculacion'  element= { <  RegistroMusculacion  /> } />
-          <Route path='/registroejercicio/registromusculacion2' element= { <  RegistroMusculacion2 /> }  />
+          <Route path='/registroejercicio/registromusculacion2'  element= { <  RegistroMusculacion2     /> }  />
+          <Route path='/registroejercicio/historialmusculacion'  element={  <  HistorialMusculacion  />  } />
           <Route path='/registroejercicio/registrotrote' element={ <  RegistroTrote /> }  />
-          <Route path='/registroejercicio/registrotrote2'  element={ <  RegistroTrote2 /> }  />
+          <Route path='/registroejercicio/registrotrote2' element = { <  RegistroTrote2    /> }  />
           <Route path='/registroejercicio/registrocorrer' element= {  < RegistroCorrer /> } />
-          <Route path='/registroejercicio/registrocorrer2' element= { <  RegistroCorrer2 />  } />
+          <Route path='/registroejercicio/registrocorrer2'   element= { <  RegistroCorrer2 />  }  />
           <Route path='/registroejercicio/registrocaminar'  element= {  <  RegistroCaminar   /> }  />
-          <Route path='/registroejercicio/registrocaminar2' element= { <  RegistroCaminar2 />} />
+          <Route path='/registroejercicio/registrocaminar2'  element={<  RegistroCaminar2  />}  />
           <Route path='/registroejercicio/registrosprint'  element= { < RegistroSprint />  } />
-          <Route path='/registroejercicio/registrosprint2'  element={  < RegistroSprint2  /> }  />
+          <Route path='/registroejercicio/registrosprints2' element= { <  RegistroSprints2 /> } />
           <Route path='/registroejercicio/registronadar'  element= {<  RegistroNadar /> }  />
-          <Route path='/registroejercicio/registronadar2'  element= { <  RegistroNadar2 /> } />
+          <Route path='/registroejercicio/registronadar2' element= { <  RegistroNadar2 />  } />
           <Route path='/registroejercicio/registroboxeodesaco' element={ < RegistroBoxeodeSaco />  }  />
-          <Route path='/registroejercicio/registroboxeodesaco2'  element= {  <  RegistroBoxeoSaco2 /> }  />
+          <Route path='/registroejercicio/registroboxeodesaco2' element= { <  RegistroBoxeoSaco2 /> }   />
           <Route path='/registroejercicio/registrobicicleta'  element= { <  RegistroBicicleta   />  }  />
-          <Route path='/registroejercicio/registrobicicleta2'  element= { <  RegistroBicicleta2 /> }  />
+          <Route path='/registroejercicio/registrobicicleta2'  element=  { <  RegistroBicicleta2  />  }   />
+          <Route path='/registroejercicio/registroelongacion'  element={ <  RegistroElongacion />   } />
+          <Route path='/registroejercicio/registroelongacion2'  element={ < RegistroElongacion2  />  }   />
           <Route path='/registromental/registroyoga'  element={<  RegistroYoga />  } />
-          <Route path='/registromental/registroyoga2'  element= {< RegistroYoga2  /> }  />
+          <Route path='/skincarepresentacion'  element={ <  SkincarePresentacion   />  }  />
+          <Route path='/skincarepresentacion/skincaredashboard'  element={   <  SkincareDashboard   />   } />
         </Route>  
       </Routes>
     </Router>

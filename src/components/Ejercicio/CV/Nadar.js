@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+
+const STORAGE_KEY = 'nadar_cronometro';
 
 const Nadar = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [tiempo, setTiempo] = useState(0); // tiempo en segundos
+  const [tiempo, setTiempo] = useState(0);
+  const [tiempoBase, setTiempoBase] = useState(0);
+  const [startTime, setStartTime] = useState(null);
   const [ultimaSesion, setUltimaSesion] = useState(null);
+  const [mostrarInfo, setMostrarInfo] = useState(false); // <- nuevo estado
 
-  const caloriasPorMinuto = 7; // estimado para natación a ritmo moderado
-  const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2); // string para mostrar
+  const intervalRef = useRef(null);
 
-  // 🔑 Función para cerrar sesión por inactividad
+  const caloriasPorMinuto = 7;
+  const calorias = ((tiempo / 60) * caloriasPorMinuto).toFixed(2);
+
+  /* ===============================
+     🔑 CIERRE POR INACTIVIDAD
+  =============================== */
   const cerrarSesion = () => {
     alert('⏱️ Sesión expirada por inactividad');
     localStorage.clear();
     window.location.href = '/login';
   };
 
-  // ⏱️ Timeout de inactividad: 1 minuto
   useEffect(() => {
     let timeoutId;
     const resetTimeout = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(cerrarSesion, 60000);
+      timeoutId = setTimeout(cerrarSesion, 300000);
     };
-    // Inicializa el timeout
     resetTimeout();
-    // Eventos que reinician el timeout
     window.addEventListener('mousemove', resetTimeout);
     window.addEventListener('keydown', resetTimeout);
     return () => {
@@ -35,18 +41,79 @@ const Nadar = () => {
     };
   }, []);
 
-  // ⏱️ Cronómetro
+  /* ===============================
+     💾 CARGAR ESTADO GUARDADO
+  =============================== */
   useEffect(() => {
-    let intervalo;
-    if (isRunning) {
-      intervalo = setInterval(() => setTiempo(prev => prev + 1), 1000);
-    } else {
-      clearInterval(intervalo);
-    }
-    return () => clearInterval(intervalo);
-  }, [isRunning]);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
 
-  // 📥 Obtener última sesión (incluye header user-id)
+    const data = JSON.parse(saved);
+    setIsRunning(data.isRunning);
+    setTiempoBase(data.tiempoBase || 0);
+    setTiempo(data.tiempoBase || 0);
+    setStartTime(data.startTime);
+  }, []);
+
+  /* ===============================
+     ⏱️ CRONÓMETRO REAL
+  =============================== */
+  useEffect(() => {
+    if (!isRunning || !startTime) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      return;
+    }
+
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      setTiempo(tiempoBase + elapsed);
+    }, 1000);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    };
+  }, [isRunning, startTime, tiempoBase]);
+
+  /* ===============================
+     🎮 CONTROLES
+  =============================== */
+  const handleStartStop = () => {
+    if (!isRunning) {
+      const now = Date.now();
+      setStartTime(now);
+      setIsRunning(true);
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ isRunning: true, startTime: now, tiempoBase })
+      );
+    } else {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const nuevoTiempo = tiempoBase + elapsed;
+      setTiempo(nuevoTiempo);
+      setTiempoBase(nuevoTiempo);
+      setIsRunning(false);
+      setStartTime(null);
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ isRunning: false, startTime: null, tiempoBase: nuevoTiempo })
+      );
+    }
+  };
+
+  const handleReset = () => {
+    setIsRunning(false);
+    setTiempo(0);
+    setTiempoBase(0);
+    setStartTime(null);
+    localStorage.removeItem(STORAGE_KEY);
+  };
+
+  /* ===============================
+     📥 ÚLTIMA SESIÓN
+  =============================== */
   useEffect(() => {
     const fetchUltimaSesion = async () => {
       const usuario_id = localStorage.getItem('usuario_id');
@@ -58,45 +125,44 @@ const Nadar = () => {
         );
         setUltimaSesion(res.data);
       } catch (err) {
-        console.error('❌ Error al obtener la última sesión de natación:', err.response?.data || err.message);
+        console.error(err);
       }
     };
     fetchUltimaSesion();
   }, []);
 
-  const handleStartStop = () => setIsRunning(!isRunning);
-  const handleReset = () => {
-    setIsRunning(false);
-    setTiempo(0);
-  };
-
-  // 💾 Guardar sesión (header + calorías número), actualizar tarjeta y reset
+  /* ===============================
+     💾 FINALIZAR SESIÓN
+  =============================== */
   const handleFinalizar = async () => {
     const usuario_id = localStorage.getItem('usuario_id');
-    if (!usuario_id) {
-      alert("Usuario no autenticado");
-      return;
-    }
+    if (!usuario_id) return;
+
     try {
       await axios.post(
         `${process.env.REACT_APP_API_URL}/api/nadar`,
         { usuario_id, tiempo, calorias: parseFloat(calorias) },
         { headers: { 'user-id': usuario_id } }
       );
-      alert('✅ Sesión de natación registrada con éxito');
+
+      alert('✅ Sesión registrada con éxito');
       setUltimaSesion({ tiempo, calorias: parseFloat(calorias), fecha: new Date() });
       handleReset();
     } catch (error) {
-      console.error('❌ Error al registrar sesión de natación:', error.response?.data || error.message);
-      alert('Error al registrar en la base de datos');
+      alert('Error al guardar la sesión');
     }
   };
 
+  /* ===============================
+     ⏲️ FORMATO TIEMPO
+  =============================== */
   const formatTime = (segundos) => {
     const h = Math.floor(segundos / 3600);
     const m = Math.floor((segundos % 3600) / 60);
     const s = segundos % 60;
-    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    return `${h.toString().padStart(2, '0')}:${m
+      .toString()
+      .padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
   const beneficios = [
@@ -122,18 +188,83 @@ const Nadar = () => {
       borderRadius: '12px',
       boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
     }}>
-      <h2>🏊‍♂️ Cronómetro de Natación</h2>
+
+      {/* ===============================
+         📘 INFO DEL MÓDULO
+      =============================== */}
+      <div style={{ width: '100%', marginBottom: '2rem' }}>
+        <button
+          onClick={() => setMostrarInfo(!mostrarInfo)}
+          style={{
+            backgroundColor: '#2980b9',
+            color: '#fff',
+            padding: '0.6rem 1.5rem',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontSize: '1.4rem',
+            transition: 'all 0.3s'
+          }}
+        >
+          {mostrarInfo ? 'Ocultar información' : 'ℹ️ ¿Qué es este módulo?'}
+        </button>
+
+        {mostrarInfo && (
+          <div style={{
+            marginTop: '1.5rem',
+            padding: '1.5rem',
+            backgroundColor: '#ffffff',
+            borderRadius: '12px',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+            textAlign: 'justify',
+            lineHeight: '1.6'
+          }}>
+            <h3 style={{ color: '#2980b9', fontWeight: '600', textAlign:'center' }}>
+              🏊‍♂️ ¿Qué es Natación?
+            </h3>
+            <p style={{ fontSize:'1.6rem', marginBottom:'2rem' }}>
+              La natación es un ejercicio completo de bajo impacto que mejora la capacidad cardiovascular, fortalece músculos y mejora coordinación y flexibilidad.
+            </p>
+
+             <h3 style={{ color: '#2980b9', fontWeight: '600', textAlign:'center' }}>
+              ⚙️ ¿Cómo funciona este módulo?
+            </h3>
+            <p style={{ fontSize:'1.6rem', marginBottom:'2rem' }}>
+              El cronómetro registra el tiempo total de tu entrenamiento nadando. Mientras está activo:
+            </p>
+            <ul style={{ fontSize:'1.6rem', marginBottom:'2rem' }}>
+              <li>⏱️ Se mide el tiempo exacto en segundos</li>
+              <li>🔥 Se estiman las calorías quemadas según la duración</li>
+              <li>🗓️ Se guarda la fecha y hora al finalizar la sesión</li>
+            </ul>
+
+            <h3 style={{ color: '#2980b9', fontWeight: '600', textAlign:'center' }}>
+              ⚙️ Cómo usar este módulo
+            </h3>
+            <p style={{ fontSize:'1.6rem', marginBottom:'2rem' }}>
+              El cronómetro registra el tiempo que nadas. Mientras está activo:
+            </p>
+            <ul style={{ fontSize:'1.6rem', marginBottom:'2rem' }}>
+              <li>⏱️ Se mide el tiempo exacto</li>
+              <li>🔥 Se calculan calorías estimadas según duración</li>
+              <li>🗓️ Se guarda la sesión al finalizar</li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <h2 style={{ textAlign: 'center' }}  >🏊‍♂️ Cronómetro de Natación</h2>
+
       <h1 style={{
         fontSize: '4rem',
         fontWeight: '700',
         margin: '1rem 0',
-        fontFamily: 'monospace',
-        color: '#333'
+        fontFamily: 'monospace'
       }}>
         {formatTime(tiempo)}
       </h1>
 
-      <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+      <div style={{ display: 'flex', gap: '1rem' }}>
         <button
           onClick={handleStartStop}
           style={{
@@ -142,9 +273,7 @@ const Nadar = () => {
             border: 'none',
             backgroundColor: isRunning ? '#f44336' : '#4caf50',
             color: '#fff',
-            fontSize: '1.2rem',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s'
+            fontSize: '1.2rem'
           }}
         >
           {isRunning ? 'Detener' : 'Iniciar'}
@@ -157,10 +286,7 @@ const Nadar = () => {
             borderRadius: '8px',
             border: '1px solid #ccc',
             backgroundColor: '#fff',
-            color: '#333',
-            fontSize: '1.2rem',
-            cursor: 'pointer',
-            transition: 'all 0.3s'
+            fontSize: '1.2rem'
           }}
         >
           Reiniciar
@@ -175,12 +301,9 @@ const Nadar = () => {
               backgroundColor: '#2196f3',
               color: '#fff',
               padding: '0.8rem 2.5rem',
-              border: 'none',
               borderRadius: '8px',
-              fontSize: '1.2rem',
-              cursor: 'pointer',
-              boxShadow: '0 3px 6px rgba(0,0,0,0.1)',
-              transition: 'background-color 0.3s'
+              border: 'none',
+              fontSize: '1.2rem'
             }}
           >
             Finalizar sesión
@@ -188,37 +311,41 @@ const Nadar = () => {
         </div>
       )}
 
-      <p style={{ marginTop: '2rem', fontSize: '1.2rem' }}>
-        🔥 Calorías quemadas estimadas: <strong>{calorias} kcal</strong>
+      <p style={{ marginTop: '2rem', fontSize: '1.3rem' }}>
+        🔥 Calorías estimadas: <strong>{calorias} kcal</strong>
       </p>
 
       {ultimaSesion && (
-        <div style={{ marginTop: '3rem', padding: '1rem', backgroundColor: '#b3e5fc', borderRadius: '10px' }}>
-          <h3>📊 Última sesión registrada</h3>
-          <p>⏱️ Tiempo: <strong>{formatTime(ultimaSesion.tiempo)}</strong></p>
-          <p>🔥 Calorías: <strong>{ultimaSesion.calorias} kcal</strong></p>
-          <p>🗓️ Fecha: <strong>{new Date(ultimaSesion.fecha).toLocaleString()}</strong></p>
+        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <h3 style={{ fontSize: '2.5rem', fontWeight: '700', textAlign: 'center' }} >📊 Última sesión registrada </h3>
+          <p style={{ fontSize: '1.3rem'  }} > ⏱️  <strong> Tiempo: </strong> {formatTime(ultimaSesion.tiempo)}</p>
+          <p style={{ fontSize: '1.3rem'  }} > 🔥 <strong> Calorias: </strong>  {Number(ultimaSesion.calorias).toFixed(2)} kcal</p>
+          <p style={{ fontSize: '1.3rem'  }} > 🗓️  <strong> Fecha: </strong> {new Date(ultimaSesion.fecha).toLocaleString()}</p>
         </div>
       )}
 
       <div style={{
-        maxWidth: '60rem',
-        margin: '4rem auto',
-        textAlign: 'left',
+        marginTop: '3rem',
         padding: '2rem',
-        backgroundColor: '#e1f5fe',
-        borderRadius: '12px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+        backgroundColor: '#e3f2fd',
+        borderRadius: '12px'
       }}>
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.6rem' }}>
-          🏊‍♀️ Beneficios de nadar
-        </h2>
-        <p style={{ marginTop: '1rem', fontSize: '1.5rem' }}>
-          Nadar regularmente aporta múltiples beneficios para la salud física y mental. Algunos de ellos son:
-        </p>
-        <ul style={{ paddingLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.6' }}>
-          {beneficios.map((item, index) => (
-            <li key={index}>✅ {item}</li>
+        <p style={{
+          display: 'flex', gap: '0.5rem', fontSize: '2.5rem',
+          textAlign: 'center', fontWeight:'700', color:'#2980b9'
+        }}>🏊‍♂️ Beneficios de la Natación</p>
+        <ul style={{
+          listStyle: 'none',
+          padding: 0,
+          marginTop: '1.5rem',
+          fontSize: '1.4rem',
+          lineHeight: '1.4'
+        }}>
+          {beneficios.map((b, i) => (
+            <li key={i} style={{ marginBottom: '0.8rem', display:'flex', gap:'0.5rem', alignItems:'flex-start' }}>
+              <span style={{ color:'#2980b9' }}>✔</span>
+              <span>{b}</span>
+            </li>
           ))}
         </ul>
       </div>

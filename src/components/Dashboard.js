@@ -6,9 +6,10 @@ import Topbar from './Topbar';     // Importa la pagina donde esta la barra de n
 import SecondaryBar from './SecondaryBar';   // Importa la pagina donde esta la batrra de navegacion secunadaria hecha dashboard
 import TertiaryBar from './TertiaryBar'; // Importa la pagina donde codifico la tercera barra de navegacion 
 import Footer from './Footer';     // Importa la pagina donde codifico el pie de pagina
-import { Box, LinearProgress, Typography, Paper, Grid  } from '@mui/material';
+import { Box, LinearProgress, Typography, Paper, Grid, Menu, MenuItem, ButtonBase  } from '@mui/material';
 import './Dashboard.css';    // Importo el css para el diseño del dashboard
-import axios from 'axios';  
+import axios from 'axios'; 
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Link } from 'react-router-dom';
 import CalendarioFarmacos from './Farmacos/RegistroFarmacos/CalendarioFarmacos';
 import Calendar from "react-calendar";
@@ -75,6 +76,16 @@ const porcentaje = Math.min((totalHidratacion / objetivoDiario) * 100, 100).toFi
   
   
 const [signosVitales, setSignosVitales] = useState(null);
+const [anchorElSignosVitales, setAnchorElSignosVitales] = useState(null);
+
+const abrirMenuSignosVitales = (event) => {
+  setAnchorElSignosVitales(event.currentTarget);
+};
+
+const cerrarMenuSignosVitales = () => {
+  setAnchorElSignosVitales(null);
+};
+
 
 useEffect(() => {
   let cancel = false;
@@ -137,6 +148,16 @@ useEffect(() => {
 
 
 const [elongacion, setElongacion] = useState(null);
+
+const [anchorElEjercicio, setAnchorElEjercicio] = useState(null);
+
+const abrirMenuEjercicio = (event) => {
+  setAnchorElEjercicio(event.currentTarget);
+};
+
+const cerrarMenuEjercicio = () => {
+  setAnchorElEjercicio(null);
+};
 
 useEffect(() => {
   let cancel = false;
@@ -268,6 +289,15 @@ useEffect(() => {
 
 
 const [sueno, setUltimoSueno] = useState(null);
+const [anchorElSueno, setAnchorElSueno] = useState(null);
+
+const abrirMenuSueno = (event) => {
+  setAnchorElSueno(event.currentTarget);
+};
+
+const cerrarMenuSueno = () => {
+  setAnchorElSueno(null);
+};
 
 useEffect(() => {
   const fetchSueno = async () => {
@@ -590,6 +620,16 @@ useEffect(() => {
 
 
 const [totalCalorias, setTotalCalorias] = useState(0);
+const [anchorElCalorias, setAnchorElCalorias] = useState(null);
+
+const abrirMenuCalorias = (event) => {
+  setAnchorElCalorias(event.currentTarget);
+};
+
+const cerrarMenuCalorias = () => {
+  setAnchorElCalorias(null);
+};
+
 const objetivoCalorias = 2200; // meta diaria
 
 useEffect(() => {
@@ -600,48 +640,50 @@ useEffect(() => {
       const usuario_id = localStorage.getItem("usuario_id");
       if (!usuario_id) return;
 
+      const fecha = new Date().toLocaleDateString("en-CA");
+
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/registroalimentos/${usuario_id}`,
-        { headers: { "user-id": usuario_id } } // 👈 obligatorio por el middleware
+        `${process.env.REACT_APP_API_URL}/api/registroalimentos/dia/${usuario_id}`,
+        {
+          params: { fecha },
+        }
       );
+
+      console.log("📦 RESPUESTA REGISTRO ALIMENTOS:", res.data);
 
       const registros = Array.isArray(res.data) ? res.data : [];
 
-      // 🔎 Filtrar a solo HOY (si tus docs guardan 'fecha')
-      const hoy = new Date();
-      hoy.setHours(0, 0, 0, 0);
-
-      const registrosHoy = registros.filter((r) => {
-        if (!r.fecha) return true; // si no guardas fecha, los incluimos (ajusta si quieres)
-        const f = new Date(r.fecha);
-        f.setHours(0, 0, 0, 0);
-        return f.getTime() === hoy.getTime();
-      });
-
-      // ➕ Sumar calorías con conversión a número y defensivos
-      const total = registrosHoy.reduce((sumComidas, comida) => {
+      // ➕ SUMA REAL DE CALORÍAS (SIN FILTROS EXTRA)
+      const total = registros.reduce((sumComidas, comida) => {
         const alimentos = Array.isArray(comida.alimentos) ? comida.alimentos : [];
+
         const sumaComida = alimentos.reduce((sum, al) => {
           const cals = Number(al.calorias) || 0;
           const qty = Number(al.cantidad) || 1;
           return sum + cals * qty;
         }, 0);
+
         return sumComidas + sumaComida;
       }, 0);
+      
+      
+      console.log("🔥 TOTAL CALCULADO:", total);
+
 
       if (!cancel) setTotalCalorias(total);
     } catch (err) {
-      console.error("Error al obtener calorías:", err?.response?.data || err.message);
+      console.error(
+        "Error al obtener calorías:",
+        err?.response?.data || err.message
+      );
     }
   };
 
   fetchCalorias();
 
-  // 🔁 Auto-refresco cuando registras alimentos
   const onUpdate = () => fetchCalorias();
   window.addEventListener("alimentos:actualizado", onUpdate);
 
-  // refrescar al volver a la pestaña
   const onVisible = () => {
     if (document.visibilityState === "visible") fetchCalorias();
   };
@@ -660,6 +702,23 @@ const porcentajeCalorias = Math.min(
 ).toFixed(1);
 
 
+const porcentajeBase = Math.min(
+  ((Number(totalCalorias) || 0) / objetivoCalorias) * 100,
+  100
+);
+
+const excesoCalorias = Math.max(
+  (Number(totalCalorias) || 0) - objetivoCalorias,
+  0
+);
+
+// Progreso visual del exceso (máx 100% para no romper la UI)
+const porcentajeExceso = Math.min(
+  (excesoCalorias / objetivoCalorias) * 100,
+  100
+);
+
+
 
 const [totalesMacros, setTotalesMacros] = useState({
   proteinas: 0,
@@ -668,69 +727,70 @@ const [totalesMacros, setTotalesMacros] = useState({
   fibra: 0,
 });
 
+const [anchorElMacros, setAnchorElMacros] = useState(null);
+
+const abrirMenuMacros = (event) => {
+  setAnchorElMacros(event.currentTarget);
+};
+
+const cerrarMenuMacros = () => {
+  setAnchorElMacros(null);
+};
+
 useEffect(() => {
   let cancel = false;
-
-  const sameDay = (a, b) => {
-    const da = new Date(a);
-    const db = new Date(b);
-    if (isNaN(da) || isNaN(db)) return true; // si no hay fecha, no filtramos
-    return (
-      da.getFullYear() === db.getFullYear() &&
-      da.getMonth() === db.getMonth() &&
-      da.getDate() === db.getDate()
-    );
-  };
 
   const fetchTotales = async () => {
     try {
       const usuario_id = localStorage.getItem("usuario_id");
       if (!usuario_id) return;
 
+      // 🔑 fecha LOCAL segura
+      const fecha = new Date().toLocaleDateString("en-CA");
+
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/registroalimentos/${usuario_id}`,
-        { headers: { 'user-id': usuario_id } } // ⬅️ necesario por el middleware
+        `${process.env.REACT_APP_API_URL}/api/registroalimentos/dia/${usuario_id}`,
+        {
+          params: { fecha },
+          headers: { "user-id": usuario_id },
+        }
       );
 
-      const hoy = new Date();
+      const registros = Array.isArray(res.data) ? res.data : [];
 
-      // Si quieres histórico completo, elimina el filtro `sameDay(...)`
-      const registrosDeHoy = (Array.isArray(res.data) ? res.data : []).filter(r =>
-        r?.fecha ? sameDay(r.fecha, hoy) : true
-      );
+      const totales = registros.reduce(
+        (acc, comida) => {
+          const alimentos = Array.isArray(comida.alimentos) ? comida.alimentos : [];
 
-      const todosAlimentos = registrosDeHoy.flatMap(r =>
-        Array.isArray(r.alimentos) ? r.alimentos : []
-      );
+          alimentos.forEach((al) => {
+            const qty = Number(al.cantidad) || 1;
+            acc.proteinas     += (Number(al.proteinas)     || 0) * qty;
+            acc.grasas        += (Number(al.grasas)        || 0) * qty;
+            acc.carbohidratos += (Number(al.carbohidratos) || 0) * qty;
+            acc.fibra         += (Number(al.fibra)         || 0) * qty;
+          });
 
-      const totales = todosAlimentos.reduce(
-        (acc, al) => {
-          const qty = Number(al?.cantidad) || 1;
-          acc.proteinas     += (Number(al?.proteinas)     || 0) * qty;
-          acc.grasas        += (Number(al?.grasas)        || 0) * qty;
-          acc.carbohidratos += (Number(al?.carbohidratos) || 0) * qty;
-          acc.fibra         += (Number(al?.fibra)         || 0) * qty;
           return acc;
         },
         { proteinas: 0, grasas: 0, carbohidratos: 0, fibra: 0 }
       );
 
       if (!cancel) setTotalesMacros(totales);
-    } catch (error) {
-      console.error("Error obteniendo totales de macronutrientes:", error);
-      if (!cancel) setTotalesMacros({ proteinas: 0, grasas: 0, carbohidratos: 0, fibra: 0 });
+    } catch (err) {
+      console.error("Error obteniendo macronutrientes:", err?.response?.data || err.message);
+      if (!cancel) {
+        setTotalesMacros({ proteinas: 0, grasas: 0, carbohidratos: 0, fibra: 0 });
+      }
     }
   };
 
   fetchTotales();
 
-  // 🔁 Auto-refresco cuando guardas desde RegistroAlimentos
-  const onAlimentosActualizado = (e) => {
-    if (!e?.detail?.tipo || e.detail.tipo === 'alimentos') fetchTotales();
-  };
-  window.addEventListener('alimentos:actualizado', onAlimentosActualizado);
+  // 🔁 Auto-refresh cuando agregas alimentos
+  const onUpdate = () => fetchTotales();
+  window.addEventListener("alimentos:actualizado", onUpdate);
 
-  // Refrescar al volver a la pestaña
+  // 🔁 Al volver a la pestaña
   const onVisible = () => {
     if (document.visibilityState === "visible") fetchTotales();
   };
@@ -738,7 +798,7 @@ useEffect(() => {
 
   return () => {
     cancel = true;
-    window.removeEventListener('alimentos:actualizado', onAlimentosActualizado);
+    window.removeEventListener("alimentos:actualizado", onUpdate);
     document.removeEventListener("visibilitychange", onVisible);
   };
 }, []);
@@ -748,6 +808,16 @@ useEffect(() => {
 
 
 const [farmacos, setFarmacos] = useState(null);
+
+const [anchorElFarmacos, setAnchorElFarmacos] = useState(null);
+
+const abrirMenuFarmacos = (event) => {
+  setAnchorElFarmacos(event.currentTarget);
+};
+
+const cerrarMenuFarmacos = () => {
+  setAnchorElFarmacos(null);
+};
 
 useEffect(() => {
   let cancel = false;
@@ -793,6 +863,19 @@ useEffect(() => {
     window.removeEventListener("farmaco:registrado", onNuevo);
   };
 }, []);
+
+
+const [menuAnchorHidratacion, setMenuAnchorHidratacion] = useState(null);
+
+const abrirMenuHidratacion = (event) => {
+  setMenuAnchorHidratacion(event.currentTarget);
+};
+
+const cerrarMenuHidratacion = () => {
+  setMenuAnchorHidratacion(null);
+};
+
+
 
 // ✅ Derivados seguros para mostrar/ocultar
 const tieneFarmacos = useMemo(() => {
@@ -925,13 +1008,15 @@ return (
           paragraph
           className="parrafo1"
           sx={{
-            fontSize: '1.5rem',
+            fontSize: '2rem',
             marginLeft: { xs: 0, md: '5rem' },
             width: { xs: '100%', md: '79rem' },
             marginBottom: '5rem'
           }}>
 
-          Bienvenido a FitMind, tu compañero integral para un estilo de vida saludable. Aquí podrás seguir tu nutrición, hidratación, controlar tus calorías y mejorar tu bienestar mental, todo en un solo lugar. ¡Comienza hoy a cuidar de ti!
+          Bienvenido a FitMind, tu compañero integral para un estilo de vida saludable.
+          Aquí podrás seguir tu nutrición, hidratación, controlar tus calorías, tus signos vitales, mejorar tu bienestar mental, y mas,
+          todo en un solo lugar. ¡Comienza hoy a cuidar de ti!
         </Typography>
 
         {/* Recuadros organizados en fila */}
@@ -956,27 +1041,117 @@ return (
       height: 'auto',
       width: { xs: '100%', sm: '40rem', md: '35rem' },
       maxWidth: '100%',
+      position: "relative"
+
     }}
   >
+
+    {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuEjercicio(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 7,
+    right: -150,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={anchorElEjercicio}
+  open={Boolean(anchorElEjercicio)}
+  onClose={cerrarMenuEjercicio}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem
+    onClick={() => {
+      cerrarMenuEjercicio();
+      console.log("Editar Ejercicio");
+    }}
+  >
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuEjercicio();
+      console.log("Configuración Ejercicio");
+    }}
+  >
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuEjercicio();
+      console.log("Eliminar Ejercicio");
+    }}
+    sx={{ color: "red" }}
+  >
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
+
+
     <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650, textAlign: 'center' }}>
-      🏃 Ejercicio
+      🏃 <Link   to="/ejercicio"  >  Ejercicio </Link>
     </Typography>
 
 
     {/* Elongación */}
 {elongacion?.tiempo && elongacion?.fecha && (
   <Box sx={{ marginTop: 2 }}>
-    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#2980b9' }}>
       🧘 Última sesión de Elongación
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      ⏱️ Tiempo realizado: {Math.floor(elongacion.tiempo / 60)} min {elongacion.tiempo % 60} seg
+     <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(elongacion.tiempo / 60)} min {elongacion.tiempo % 60} seg
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      🔥 Calorías quemadas: {elongacion.calorias} kcal
+      <strong> 🔥 Calorías quemadas: </strong> {elongacion.calorias} kcal
     </Typography>
     <Typography sx={{ fontSize: '1.3rem' }}>
-      📅 Fecha: {new Date(elongacion.fecha).toLocaleString()}
+      <strong> 📅 Fecha: </strong>  {new Date(elongacion.fecha).toLocaleString()}
     </Typography>
   </Box>
 )}
@@ -986,17 +1161,17 @@ return (
     {/* Musculación */}
     {musculacion && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9'  }}>
           🏋️ Última sesión de Musculación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(musculacion.tiempo / 60)} min {musculacion.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(musculacion.tiempo / 60)} min {musculacion.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {musculacion.calorias} kcal
+         <strong> 🔥 Calorías quemadas: </strong> {musculacion.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(musculacion.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(musculacion.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1004,17 +1179,17 @@ return (
     {/* Correr */}
     {correr && (
       <Box sx={{ marginTop: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#2980b9' }}>
           🏃 Última sesión de Correr
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(correr.tiempo / 60)} min {correr.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(correr.tiempo / 60)} min {correr.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {correr.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {correr.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(correr.fecha).toLocaleString()}
+        <strong> 📅 Fecha: </strong> {new Date(correr.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1022,17 +1197,17 @@ return (
     {/* Trote */}
     {trote && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏃 Última sesión de Trote
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(trote.tiempo / 60)} min {trote.tiempo % 60} seg
+         <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(trote.tiempo / 60)} min {trote.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {trote.calorias} kcal
+         <strong> 🔥 Calorías quemadas: </strong>  {trote.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(trote.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong>  {new Date(trote.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1040,17 +1215,17 @@ return (
     {/* Sprint */}
     {sprint && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏃 Última sesión de Sprint
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(sprint.tiempo / 60)} min {sprint.tiempo % 60} seg
+          <strong>⏱️ Tiempo realizado: </strong> {Math.floor(sprint.tiempo / 60)} min {sprint.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {sprint.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {sprint.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(sprint.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(sprint.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1058,17 +1233,17 @@ return (
     {/* Bicicleta */}
     {bicicleta && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🚴 Última sesión de Bicicleta
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(bicicleta.tiempo / 60)} min {bicicleta.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(bicicleta.tiempo / 60)} min {bicicleta.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {bicicleta.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {bicicleta.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(bicicleta.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(bicicleta.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1076,17 +1251,17 @@ return (
     {/* Caminata */}
     {caminar && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🚶 Última sesión de Caminata
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(caminar.tiempo / 60)} min {caminar.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(caminar.tiempo / 60)} min {caminar.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {caminar.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {caminar.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(caminar.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(caminar.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1094,17 +1269,17 @@ return (
     {/* Natación */}
     {nadar && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🏊‍♂️ Última sesión de Natación
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(nadar.tiempo / 60)} min {nadar.tiempo % 60} seg
+          <strong> ⏱️ Tiempo realizado: </strong> {Math.floor(nadar.tiempo / 60)} min {nadar.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {nadar.calorias} kcal
+          <strong> 🔥 Calorías quemadas: </strong> {nadar.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(nadar.fecha).toLocaleString()}
+          <strong> 📅 Fecha: </strong> {new Date(nadar.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1112,17 +1287,17 @@ return (
     {/* Boxeo de Saco */}
     {boxeosaco && (
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 3, fontSize: '1.5rem', color: '#2980b9' }}>
           🥊 Última sesión de Boxeo de Saco
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          ⏱️ Tiempo realizado: {Math.floor(boxeosaco.tiempo / 60)} min {boxeosaco.tiempo % 60} seg
+          <strong>⏱️ Tiempo realizado: </strong> {Math.floor(boxeosaco.tiempo / 60)} min {boxeosaco.tiempo % 60} seg
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          🔥 Calorías quemadas: {boxeosaco.calorias} kcal
+          <strong>🔥 Calorías quemadas: </strong> {boxeosaco.calorias} kcal
         </Typography>
         <Typography sx={{ fontSize: '1.3rem' }}>
-          📅 Fecha: {new Date(boxeosaco.fecha).toLocaleString()}
+          <strong>📅 Fecha: </strong> {new Date(boxeosaco.fecha).toLocaleString()}
         </Typography>
       </Box>
     )}
@@ -1144,18 +1319,111 @@ return (
   <Paper
     elevation={3}
     sx={{
-      padding: 3,
+      padding: 6.5,
       borderRadius: 3,
       height: "20rem",
       flex: 1,
       minWidth: { xs: "100%", md: "28rem" },
+      textAlign: "center",
+      marginBottom: "2rem",
+      position: "relative"
+
     }}
   >
+
+  {/* Botón 3 puntos */}
+  <IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()} // 👈 CLAVE FINAL
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuHidratacion(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 12,
+    right: -145,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "30px",
+      height: "49px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.6rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={menuAnchorHidratacion}
+  open={Boolean(menuAnchorHidratacion)}
+  onClose={cerrarMenuHidratacion}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px", 
+    },
+  }}
+>
+  <MenuItem
+    onClick={() => {
+      cerrarMenuHidratacion();
+      console.log("Editar Hidratación");
+    }}
+  >
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuHidratacion();
+      console.log("Configuración Hidratación");
+    }}
+  >
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem
+    onClick={() => {
+      cerrarMenuHidratacion();
+      console.log("Eliminar Hidratación");
+    }}
+    sx={{ color: "red" }}
+  >
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
+
+
+
     <Typography
       component={Link}
       to="/hidratacion"
-      className="parrafo2"
-      sx={{ fontSize: "2.4rem", fontWeight: 650 }}
+      className="parrafo222"
+      sx={{ fontSize: "2.6rem",  marginTop: '-4rem',   fontWeight: 650,  }}
     >
       💧 Hidratación
     </Typography>
@@ -1169,7 +1437,7 @@ return (
     />
     <Typography
       variant="body2"
-      sx={{ marginTop: 1, fontSize: "1.7rem" }} >
+      sx={{ marginTop: 1, fontSize: "1.7rem", marginBottom: "-1rem" }} >
       {porcentaje}% del objetivo diario
     </Typography>
   </Paper>
@@ -1177,20 +1445,97 @@ return (
 
 
   {/* Calorías */}
-{totalCalorias > 0 && (
+{(
   <Paper
-    elevation={3}
-    sx={{
-      padding: 3,
-      borderRadius: 3,
-      height: "20rem",
-      flex: 1,
-      minWidth: { xs: "100%", md: "34rem" },
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    }}
-  >
+  elevation={3}
+  sx={{
+    padding: 3,
+    borderRadius: 3,
+
+    minHeight: { xs: "auto", md: "20rem" }, // 👈 CLAVE
+    height: "auto",
+
+    flex: 1,
+    minWidth: { xs: "100%", md: "34rem" },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: "-2rem",
+    position: "relative",
+  }}
+>
+
+
+  {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuCalorias(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 8,
+    right: -150,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={anchorElCalorias}
+  open={Boolean(anchorElCalorias)}
+  onClose={cerrarMenuCalorias}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px", 
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuCalorias}>
+  ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuCalorias}>
+  ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuCalorias}>
+  🗑️ Borrar
+  </MenuItem>
+</Menu>
+
+
     <Typography
       sx={{
         fontSize: "2.4rem",
@@ -1213,22 +1558,48 @@ return (
       <span style={{ fontWeight: "700" }}>Calorías Totales Hoy:</span>{" "}
       <span style={{ fontWeight: "normal" }}>{totalCalorias} kcal</span>
     </Typography>
+    
 
-    <LinearProgress
-      variant="determinate"
-      value={porcentajeCalorias}
+    <Box
+  sx={{
+    position: "relative",
+    width: "90%",
+    marginTop: 2,
+    marginBottom: "1.7rem",
+    height: "30px",
+    backgroundColor: "#eee",
+    borderRadius: 6,
+    overflow: "hidden",
+  }}
+>
+  {/* Barra azul (objetivo) */}
+  <Box
+    sx={{
+      height: "100%",
+      width: `${porcentajeBase}%`,
+      backgroundColor: "#2980b9",
+      transition: "width 0.4s ease",
+    }}
+  />
+
+  {/* Barra roja (exceso, encima) */}
+  {excesoCalorias > 0 && (
+    <Box
       sx={{
-        height: 30,
-        marginBottom: "1.7rem",
-        borderRadius: 6,
-        marginTop: 2,
-        width: "90%",
-        backgroundColor: "#eee",
-        "& .MuiLinearProgress-bar": {
-          backgroundColor: "#2980b9",
-        },
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: "100%",
+        width: `${porcentajeExceso}%`,
+        backgroundColor: "#e74c3c",
+        opacity: 0.85,
+        transition: "width 0.4s ease",
       }}
     />
+  )}
+</Box>
+
+
 
     <Typography
       variant="body2"
@@ -1242,6 +1613,7 @@ return (
 
 
 
+
 {/* 🔥 Sueño y Macronutrientes en la misma fila */}
 <Box 
   display="flex" 
@@ -1251,49 +1623,123 @@ return (
   alignItems="stretch"
   marginTop={3}
 >
-  {/* Sueño */}
-  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "28rem" }, textAlign: "center" }}>
-    <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
-      🛌 Sueño
-    </Typography>
-    {sueno ? (
-      <>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
-          <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
-        </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
-          <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
-        </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
-          <strong>Calidad del Sueño:</strong> {sueno.calidad}
-        </Typography>
-        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
-          <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
-        </Typography>
-      </>
-    ) : (
-      <Typography className="parrafo3" sx={{ fontSize: "1.6rem", marginTop: 2 }}>
-        Aún no hay registros de sueño.
-      </Typography>
-    )}
-  </Paper>
-
+  
 
 {/* Macronutrientes */}
 {totalesMacros.proteinas > 0 && (
-  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, width: { xs: '100%', sm: '25rem' }, height: 'auto' }}>
-    <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem' }}>
+  <Paper
+    elevation={3}
+    sx={{
+      padding: 3,
+      borderRadius: 3,
+      width: { xs: '100%', sm: '25rem' },
+      height: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start', // que queden alineados a la izquierda
+      position: "relative",
+    }}
+  >
+
+    {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuMacros(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 4,
+    right: -154,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={anchorElMacros}
+  open={Boolean(anchorElMacros)}
+  onClose={cerrarMenuMacros}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuMacros}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuMacros}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuMacros}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
+
+
+    <Typography
+      className="parrafo2"
+      sx={{ fontSize: '2.2rem', fontWeight: 650, marginBottom: '1.4rem', textAlign: 'center', width: '100%' }}
+    >
       🥗 Macronutrientes
     </Typography>
-    <Typography className="parrafo3" sx={{ fontSize: '1.6rem', textAlign: 'center' }}>  
-      <Typography component="span" sx={{ fontWeight: 700, fontSize: '1.6rem' }}>
+
+    <Typography className="parrafo3" sx={{ fontSize: '2rem', width: '100%' }}>
+      <Typography component="span" sx={{ fontWeight: 700, textAlign: 'center',  fontSize: '1.6rem', display: 'block', marginBottom: 1 }}>
         Macronutrientes Totales Hoy:
-      </Typography>{' '}
-      {totalesMacros.proteinas.toFixed(1)} g Proteínas, {totalesMacros.grasas.toFixed(1)} g Grasas, {totalesMacros.carbohidratos.toFixed(1)} g Carbohidratos, {totalesMacros.fibra.toFixed(1)} g Fibra
+      </Typography>
+
+      {/* Cada macro en su propia línea */}
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem',  }}>
+        <strong> 🥩Proteinas: </strong> {totalesMacros.proteinas.toFixed(1)}g 
+      </Typography>
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem', }}>
+        <strong> 🥑Grasas: </strong> {totalesMacros.grasas.toFixed(1)}g 
+      </Typography>
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem', }}>
+         <strong> 🍚Carbohidratos: </strong> {totalesMacros.carbohidratos.toFixed(1)}g
+      </Typography>
+      <Typography component="div" sx={{ marginBottom: 0.5, textAlign: 'center', fontSize: '1.6rem', }}>
+        <strong> 🥦Fibra: </strong> {totalesMacros.fibra.toFixed(1)}g
+      </Typography>
     </Typography>
   </Paper>
 )}
-
 
 </Box>
 
@@ -1303,9 +1749,80 @@ return (
 
 
 {signosVitales && ( // 🔥 Solo se muestra si hay datos
-  <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, height: 'auto',  width: { xs: '100%', sm: '28rem', md: '32rem' } }}>
+  <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, height: 'auto',  width: { xs: '100%', sm: '28rem', md: '32rem' }, position: "relative", }}>
+    
+    {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuSignosVitales(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 8,
+    right: -148,
+
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={anchorElSignosVitales}
+  open={Boolean(anchorElSignosVitales)}
+  onClose={cerrarMenuSignosVitales}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuSignosVitales}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSignosVitales}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSignosVitales}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
+
     <Typography className="parrafo2" sx={{ fontSize: '2.2rem', fontWeight: 550, marginBottom: 2 }}>
-      🩺 Signos Vitales
+      🩺 <Link to="/signosvitales" > Signos Vitales  </Link>            
     </Typography>
     <>
       <Typography className="parrafo31">
@@ -1355,8 +1872,174 @@ return (
 
 
 
+
+{/* Sueño */}
+  <Paper elevation={3} sx={{ padding: 3, borderRadius: 3, flex: 1, minWidth: { xs: "100%", md: "20rem" }, textAlign: "center", width: { md: "10rem"  },  position: "relative"  }}>
+
+    {/* Botón 3 puntos */}
+  <IconButton
+    disableRipple
+    disableFocusRipple
+    onMouseDown={(e) => e.preventDefault()}
+    onClick={(e) => {
+      e.stopPropagation();
+      abrirMenuSueno(e); // 👈 función nueva (igual a hidratación)
+    }}
+    sx={{
+      position: "absolute",
+      top: 8,
+      right: -147,
+
+      WebkitTapHighlightColor: "transparent",
+      backgroundColor: "transparent",
+
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        width: "20px",
+        height: "42px",
+        borderRadius: "6px",
+      },
+
+      "&:hover::before": {
+        backgroundColor: "rgba(0,0,0,0.06)",
+      },
+
+      "&:active::before": {
+        backgroundColor: "rgba(0,0,0,0.12)",
+      },
+    }}
+  >
+    <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+  </IconButton>
+
+  <Menu
+  anchorEl={anchorElSueno}
+  open={Boolean(anchorElSueno)}
+  onClose={cerrarMenuSueno}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuSueno}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSueno}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuSueno}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
+    <Typography className="parrafo21" sx={{ fontSize: "2.4rem", fontWeight: 650 }}>
+      🛌 <Link to="/sueno" > Sueño  </Link>
+    </Typography>
+    {sueno ? (
+      <>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem", marginTop: 2 }}>
+          <strong>Fecha:</strong> {new Date(sueno.fecha).toLocaleDateString()}
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Horas Dormidas:</strong> {sueno.horasDormidas} hrs
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Calidad del Sueño:</strong> {sueno.calidad}
+        </Typography>
+        <Typography className="parrafo3" sx={{ fontSize: "1.7rem" }}>
+          <strong>Comentarios:</strong> {sueno.comentarios || "Ninguno"}
+        </Typography>
+      </>
+    ) : (
+      <Typography className="parrafo3" sx={{ fontSize: "1.6rem", marginTop: 2 }}>
+        Aún no hay registros de sueño.
+      </Typography>
+    )}
+  </Paper>
+
+
+
+
 {tieneFarmacos && (
-  <Paper elevation={3} sx={{ padding: 5, borderRadius: 3, width: { xs: '100%', sm: '40rem' }, height: 'auto' }}>
+  <Paper elevation={3} sx={{ padding: 5, borderRadius: 3, width: { xs: '100%', sm: '40rem' }, height: 'auto', position: "relative" }}>
+  {/* Botón 3 puntos */}
+<IconButton
+  disableRipple
+  disableFocusRipple
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={(e) => {
+    e.stopPropagation();
+    abrirMenuFarmacos(e);
+  }}
+  sx={{
+    position: "absolute",
+    top: 8,
+    right: -145,
+    WebkitTapHighlightColor: "transparent",
+    backgroundColor: "transparent",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      width: "20px",
+      height: "42px",
+      borderRadius: "6px",
+    },
+    "&:hover::before": {
+      backgroundColor: "rgba(0,0,0,0.06)",
+    },
+    "&:active::before": {
+      backgroundColor: "rgba(0,0,0,0.12)",
+    },
+  }}
+>
+  <MoreVertIcon sx={{ fontSize: "2.4rem" }} />
+</IconButton>
+
+<Menu
+  anchorEl={anchorElFarmacos}
+  open={Boolean(anchorElFarmacos)}
+  onClose={cerrarMenuFarmacos}
+  onClick={(e) => e.stopPropagation()}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  sx={{
+    "& .MuiPaper-root": {
+      marginLeft: "10px",
+    },
+  }}
+>
+  <MenuItem onClick={cerrarMenuFarmacos}>
+    ✏️ Editar
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuFarmacos}>
+    ⚙️ Configuración
+  </MenuItem>
+
+  <MenuItem onClick={cerrarMenuFarmacos}>
+    🗑️ Borrar
+  </MenuItem>
+</Menu>
+
     <Typography className="parrafo2" sx={{ fontSize: '2.4rem', fontWeight: 650, mb: '3rem' }}>
       📅 Registro Medicamentos
     </Typography>

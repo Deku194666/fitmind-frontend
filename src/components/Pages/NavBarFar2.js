@@ -11,9 +11,8 @@ const NavBarFar2 = () => {
   return (
     <div className="tertiary-bar">
       <Link   className='bar-button'  to="/farmacos/farmacosneuro"  >  Farmacos Neurologicos </Link>
+      <Link   className='bar-button'  to="/farmacos/farmacosmetabolicos"  >  Farmacos Metabolicos </Link>
       <Link className='bar-button'   to="/farmacos/registrofarmacos/registrofarmacoscalendario">  Registro de tus medicamentos  </Link>
- 
-
 
     </div>
   );

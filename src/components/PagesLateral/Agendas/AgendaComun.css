@@ -1,0 +1,87 @@
+/* Contenedor principal */
+.containerr {
+  max-width: 1900px;
+  gap: 1rem;
+  
+}
+
+/* Hero / Encabezado */
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-bottom: 1rem;
+  margin: 0 2rem;
+  margin-top: 2rem;
+}
+
+.text {
+  font-size: 2.5rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 1rem 2rem;
+}
+
+/* Flex helpers */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.center { justify-content: center; text-align: center; }
+
+.col { flex: 1; min-width: 250px; }
+.col-6 { width: 48%; }
+.col-8 { width: 65%; }
+
+/* Tarjetas */
+.card {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;       
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Subtitulo dentro de tarjeta */
+.subtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-bottom: 1rem;
+}
+
+/* Lista dentro de tarjeta */
+.list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin-left: 2rem;
+  padding-left: 1.5rem;
+}
+
+.list li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .title, .subtitle { font-size: 2.6rem; }
+  .text, .list { font-size: 1.8rem; }
+  .col-6, .col-8 { width: 90%; margin-bottom: 2rem; }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .title, .subtitle { font-size: 2.2rem; }
+  .text, .list { font-size: 1.6rem; }
+  .col-6, .col-8 { width: 100%; margin-bottom: 2rem; }
+  .card { padding: 1rem; }
+}

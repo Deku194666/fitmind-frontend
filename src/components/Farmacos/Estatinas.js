@@ -1,7 +1,6 @@
-
-
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Estatinas.css";
 
 function Estatinas() {
   useEffect(() => {
@@ -9,85 +8,96 @@ function Estatinas() {
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">Estatinas</p>
+    <div className="fxh-detail75">
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p150">
-        Las <strong>Estatinas</strong> son fármacos hipolipemiantes ampliamente utilizados para el tratamiento de la <strong>dislipidemia </strong> 
-         y la prevención de eventos cardiovasculares. Su principal efecto es la reducción del colesterol LDL (colesterol "malo"), lo que
-        contribuye a prevenir <strong>Infarto Agudo al Miocardio</strong>, <strong>Accidente Cerebrovascular</strong> y muerte cardiovascular.
+      <h1 className="fxh-title">
+        Estatinas
+      </h1>
+
+      <h2 className="fxh-subtitle">📌 Introducción</h2>
+      <p className="fxh-text">
+        Las <strong>Estatinas</strong> son fármacos hipolipemiantes ampliamente utilizados para el tratamiento de la <strong>dislipidemia</strong>
+        y la prevención de eventos cardiovasculares. Reducen el colesterol LDL, ayudando a prevenir
+        <strong> Infarto Agudo al Miocardio</strong>, <strong> Accidente Cerebrovascular</strong> y muerte cardiovascular.
       </p>
 
-      <p className="p14">🔬 Mecanismo de Acción</p>
-      <p className="p150">
-        Inhiben de manera competitiva la <strong>HMG-CoA reductasa</strong>, enzima clave en la síntesis hepática de colesterol. Esto genera
-        un aumento de los receptores de LDL en el hígado y una mayor captación de colesterol desde la sangre, disminuyendo así sus niveles plasmáticos.
+      <h2 className="fxh-subtitle">🔬 Mecanismo de Acción</h2>
+      <p className="fxh-text">
+        Inhiben competitivamente la <strong>HMG-CoA reductasa</strong>, enzima clave en la síntesis hepática de colesterol.
+        Esto aumenta los receptores hepáticos de LDL y favorece su captación desde la sangre, reduciendo sus niveles plasmáticos.
       </p>
 
-      <p className="p14">💊 Ejemplos y Potencia</p>
-      <table style={{ width: '85%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Estatina</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Potencia</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Comentarios</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> <Link to="/farmacos/farmacos2/atorvastatina"> Atorvastatina  </Link>  </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Alta</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Larga vida media. Eficaz para prevención secundaria.</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Rosuvastatina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Alta</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Más potente. Buena opción en hipercolesterolemia severa.</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Simvastatina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Moderada</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Más riesgo de interacciones. Administrar en la noche.</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Pravastatina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Baja</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Menor riesgo de interacciones. Buena tolerabilidad hepática.</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 className="fxh-subtitle">💊 Ejemplos y Potencia</h2>
 
-      <p className="p14">💡 Indicaciones Terapéuticas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Dislipidemia (colesterol LDL elevado).</li>
-        <li>Prevención secundaria de eventos cardiovasculares en pacientes con enfermedad aterosclerótica.</li>
-        <li>Prevención primaria en personas con alto riesgo cardiovascular (diabetes, HTA, tabaquismo, etc.).</li>
-        <li>Hiperlipidemia familiar o genética.</li>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Estatina</th>
+              <th>Potencia</th>
+              <th>Comentarios</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Link to="/farmacos/farmacos2/atorvastatina">
+                  Atorvastatina
+                </Link>
+              </td>
+              <td>Alta</td>
+              <td>Larga vida media. Eficaz para prevención secundaria.</td>
+            </tr>
+            <tr>
+              <td>Rosuvastatina</td>
+              <td>Alta</td>
+              <td>Más potente. Útil en hipercolesterolemia severa.</td>
+            </tr>
+            <tr>
+              <td>Simvastatina</td>
+              <td>Moderada</td>
+              <td>Mayor riesgo de interacciones. Administrar en la noche.</td>
+            </tr>
+            <tr>
+              <td>Pravastatina</td>
+              <td>Baja</td>
+              <td>Menor riesgo de interacciones. Buena tolerabilidad.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="fxh-subtitle">💡 Indicaciones Terapéuticas</h2>
+      <ul className="fxh-list">
+        <li>Dislipidemia (LDL elevado).</li>
+        <li>Prevención secundaria en enfermedad aterosclerótica.</li>
+        <li>Prevención primaria en alto riesgo cardiovascular.</li>
+        <li>Hiperlipidemia familiar.</li>
       </ul>
 
-      <p className="p14">⚠️ Efectos Adversos Comunes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Dolor muscular (mialgias), calambres.</li>
+      <h2 className="fxh-subtitle">⚠️ Efectos Adversos</h2>
+      <ul className="fxh-list">
+        <li>Mialgias y calambres.</li>
         <li>Elevación de enzimas hepáticas.</li>
-        <li>Miopatía o rabdomiolisis (raro, pero grave).</li>
-        <li>Alteraciones gastrointestinales leves (náuseas, dispepsia).</li>
+        <li>Miopatía o rabdomiolisis (raro).</li>
+        <li>Molestias gastrointestinales leves.</li>
       </ul>
 
-      <p className="p14">🧠 Consideraciones Clínicas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <h2 className="fxh-subtitle">🧠 Consideraciones Clínicas</h2>
+      <ul className="fxh-list">
         <li>Monitorizar CPK si hay síntomas musculares.</li>
-        <li>Controlar pruebas hepáticas al iniciar tratamiento y si hay síntomas.</li>
-        <li>Evitar consumo excesivo de alcohol y jugo de pomelo (interfiere con metabolismo).</li>
-        <li>La dosis nocturna es preferible para estatinas de vida corta (simvastatina, pravastatina).</li>
-        <li>Evaluar adherencia, dado que los beneficios son a largo plazo.</li>
+        <li>Controlar pruebas hepáticas al inicio.</li>
+        <li>Evitar exceso de alcohol y jugo de pomelo.</li>
+        <li>Dosis nocturna preferible en estatinas de vida corta.</li>
+        <li>Evaluar adherencia a largo plazo.</li>
       </ul>
 
-      <p className="p14">📚 Conclusión</p>
-      <p className="p150">
-        Las <strong>Estatinas</strong> son pilar fundamental en la prevención cardiovascular. Su eficacia ha sido demostrada en múltiples estudios clínicos
-        y su perfil de seguridad es generalmente bueno. Individualizar la terapia y monitorear posibles efectos adversos es clave para optimizar sus beneficios.
+      <h2 className="fxh-subtitle">📚 Conclusión</h2>
+      <p className="fxh-text">
+        Las <strong>Estatinas</strong> son el pilar fundamental de la prevención cardiovascular.
+        Individualizar la terapia y monitorear efectos adversos es clave para optimizar sus beneficios.
       </p>
+
     </div>
   );
 }

@@ -1,0 +1,106 @@
+/* LuxacionCadera.css */
+.lux-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.lux-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.lux-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.lux-subsubtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.lux-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.lux-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.lux-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.lux-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lux-table th,
+.lux-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.lux-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .lux-title {
+    font-size: 2.6rem;
+  }
+  .lux-subtitle,
+  .lux-subsubtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+  .lux-text,
+  .lux-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .lux-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .lux-subtitle,
+  .lux-subsubtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+  .lux-text,
+  .lux-list {
+    font-size: 1.6rem;
+  }
+  .lux-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

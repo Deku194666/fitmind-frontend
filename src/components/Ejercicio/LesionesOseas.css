@@ -1,0 +1,103 @@
+
+
+.lesiones-container {
+  max-width: 1400px;
+}
+
+/* Títulos */
+.title-main {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.title-section4 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+}
+
+.title-subsection4 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+}
+
+/* Texto */
+.text-body {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+/* Tablas */
+.styled-table4 {
+  width: 60%;
+  border-collapse: collapse;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.styled-table4 th,
+.styled-table4 td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.styled-table4 th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+  .title-main {
+    font-size: 2.6rem;
+  }
+
+  .title-section4,
+  .title-subsection4 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .text-body {
+    font-size: 1.6rem;
+  }
+}
+
+/* Móviles */
+@media screen and (max-width: 768px) {
+  .title-main {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .title-section4,
+  .title-subsection4 {
+    font-size: 2.3rem;
+    color: #2980b9;
+    text-align: center;
+    margin-right: 6rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    
+  }
+
+  .text-body {
+    font-size: 1.6rem;
+  }
+
+  .styled-table4 {
+    width: 90%;
+    margin: auto;
+    font-size: 1.2rem;
+    margin-bottom: 5rem;
+  }
+}

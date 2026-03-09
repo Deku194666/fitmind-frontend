@@ -1,0 +1,129 @@
+/* LCMCodo.css */
+
+.fxlcmcodo-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxlcmcodo-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxlcmcodo-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxlcmcodo-subsection {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #2980b9;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.fxlcmcodo-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 3rem 3rem;
+}
+
+.fxlcmcodo-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxlcmcodo-table-wrapper {
+  overflow-x: auto;
+  margin: 0 3rem 6rem 3rem;
+}
+
+.fxlcmcodo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxlcmcodo-table th,
+.fxlcmcodo-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxlcmcodo-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.fxlcmcodo-link {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.fxlcmcodo-link:hover {
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .fxlcmcodo-title {
+    font-size: 2.6rem;
+    text-align: center;
+  }
+
+  .fxlcmcodo-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlcmcodo-subsection {
+    font-size: 1.9rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlcmcodo-text,
+  .fxlcmcodo-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .fxlcmcodo-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxlcmcodo-subtitle {
+    font-size: 2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlcmcodo-subsection {
+    font-size: 1.7rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlcmcodo-text,
+  .fxlcmcodo-list {
+    font-size: 1.5rem;
+  }
+
+  .fxlcmcodo-table-wrapper {
+    margin: 0 1rem 4rem 1rem;
+  }
+}

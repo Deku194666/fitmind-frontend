@@ -9,7 +9,7 @@ const BarNavSprint = () => {
   return ( 
   
   <div className="secondary-bar">
-    <Link to="/registroejercicio/registrosprint2" className='bar-button' > Registro Sprints </Link>            
+    <Link to="/registroejercicio/registrosprints2" className='bar-button' > Registro Sprints </Link>            
    
   </div>
 

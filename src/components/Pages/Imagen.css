@@ -1,0 +1,113 @@
+/* ==========================
+   Estilos generales (PC)
+========================== */
+.imagen-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.p133 { 
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #2980b9;
+    margin-top: 3rem;
+    margin-left: 2.5rem;
+    
+}
+
+.p143 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    color: #2980b9;
+    margin-left: 4rem;
+}
+
+.p153 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: justify;
+    line-height: 1.8;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+ul.p150 {
+    padding-left: 2rem; /* espacio para bullets */
+}
+
+.imagen-container a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.imagen-container a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   Media Queries: Tablets y Móviles
+========================== */
+@media screen and (max-width: 1024px) {
+    .p133 {
+        font-size: 3.8rem;
+        color: #2980b9;
+        font-weight: 600;
+        margin-left: 2rem;
+
+    }
+
+    .p143 {
+        font-size: 2.8rem;
+        color: #2980b9;
+        font-weight: 600;
+        margin-left: 3rem;
+    }
+
+    .p153 {
+        font-size: 1.8rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        text-align: justify;
+
+    }
+
+    .imagen-container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .p13 {
+        font-size: 2rem;
+    }
+
+    .p14 {
+        font-size: 1.5rem;
+    }
+
+    .p150 {
+        font-size: 1.2rem;
+    }
+
+    .imagen-container {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .p133 {
+        font-size: 3.1rem;
+    }
+
+    .p143 {
+        font-size: 2.6rem;
+    }
+
+    .p153 {
+        font-size: 1.5rem;
+    }
+}
