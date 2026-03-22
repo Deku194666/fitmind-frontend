@@ -1,13 +1,80 @@
-
-
-.secondary-bar1 {
-  display: flex;             /* 🔥 Necesario para que funcione gap */
-  font-weight: 700;
-  white-space: nowrap;
-  background-color: #e0f2f1;
-  font-size: 1.2rem;
-  gap: 15rem;
-  padding: 1.2rem;
-  padding-left: 10rem;
+/* =========================
+   CONTENEDOR WRAPPER
+   ========================= */
+.navbar-wrapper {
+  width: 100%;
+  overflow-x: auto;               /* Scroll horizontal si los links no caben */
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+  scroll-behavior: smooth;
 }
 
+/* =========================
+   BARRA DE NAVEGACIÓN
+   ========================= */
+.secondary-bar {
+  display: flex;                  /* Links en fila */
+  flex-wrap: nowrap;              /* Nunca se apilen */
+  align-items: center;
+  padding: 10px 1rem;
+  background-color: lightcyan;
+  border-bottom: 1px solid #ccc;
+}
+
+.bar-button {
+  flex: 0 0 auto;                 /* Cada link mantiene su ancho */
+  white-space: nowrap;             /* Texto en una sola línea */
+  margin-right: 15px;             /* Espacio entre links */
+  text-decoration: none;
+  color: #2980b9;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #e0f7fa;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+
+  /* Sin sombras */
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.bar-button:last-child {
+  margin-right: 0;                /* Último link sin margen extra */
+}
+
+.bar-button:hover {
+  color: #1f618d;
+  background-color: #b2ebf2;
+}
+
+/* =========================
+   SCROLLBAR OPCIONAL (estética)
+   ========================= */
+.navbar-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.navbar-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.navbar-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 768px) {
+  .secondary-bar {
+    padding: 8px 0.5rem;          /* Menor padding en móviles */
+    justify-content: flex-start;   /* Links desde el inicio */
+  }
+
+  .bar-button {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+}

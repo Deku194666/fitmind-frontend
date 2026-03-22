@@ -1,0 +1,114 @@
+
+
+/* ===============================
+   DiarioEmocionesPresentacion
+   =============================== */
+
+.emociones-presentacion {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fb, #eef2f7);
+  padding: 40px 20px;
+}
+
+.emociones-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HERO */
+
+.emociones-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.emociones-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.emociones-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* FEATURES */
+
+.emociones-features {
+  margin-bottom: 60px;
+}
+
+.emociones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 25px;
+}
+
+.emociones-card {
+  padding: 25px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.emociones-card h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.emociones-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.emociones-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* VISION */
+
+.emociones-vision-card {
+  padding: 40px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.emociones-vision-card h2 {
+  margin-bottom: 15px;
+}
+
+.emociones-vision-card p {
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px){
+
+  .emociones-hero h1{
+    font-size:28px;
+  }
+
+  .emociones-actions{
+    flex-direction:column;
+  }
+
+}

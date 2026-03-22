@@ -1,0 +1,115 @@
+
+
+
+.em-container11 {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =========================
+   TITULO PRINCIPAL
+========================= */
+.title-main {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin: 3rem 2rem 1.5rem 2rem;
+}
+
+/* =========================
+   TITULOS DE SECCION
+========================= */
+.title-section {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin: 2rem 4rem 1rem 4rem;
+}
+
+/* =========================
+   TEXTO GENERAL
+========================= */
+.text-body {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 3rem 3rem;
+  color: #444;
+}
+
+/* =========================
+   LISTAS (si agregas luego)
+========================= */
+.text-body ul {
+  padding-left: 2rem;
+}
+
+.text-body li {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   📱 TABLET
+========================= */
+@media screen and (max-width: 1024px) {
+
+  .em-container {
+    padding: 0 1rem;
+  }
+
+  .title-main {
+    font-size: 2.6rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .title-section {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .text-body {
+    font-size: 1.6rem;
+    text-align: justify;
+    margin: 0 1rem 2rem 1rem;
+  }
+}
+
+/* =========================
+   📱 MOVIL
+========================= */
+@media screen and (max-width: 768px) {
+
+  .title-main {
+    font-size: 2.3rem;
+  }
+
+  .title-section {
+    font-size: 2rem;
+  }
+
+  .text-body {
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+}
+
+/* =========================
+   📱 MOVIL PEQUEÑO
+========================= */
+@media screen and (max-width: 480px) {
+
+  .title-main {
+    font-size: 2rem;
+  }
+
+  .title-section {
+    font-size: 1.8rem;
+  }
+
+  .text-body {
+    font-size: 1.4rem;
+    margin: 0 0.8rem 2rem 0.8rem;
+  }
+}

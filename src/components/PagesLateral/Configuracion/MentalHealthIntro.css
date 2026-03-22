@@ -1,0 +1,46 @@
+
+
+.mental-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mental-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.mental-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.mental-card h2,
+.mental-card h3 {
+  margin-bottom: 1rem;
+}
+
+.mental-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.mental-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mental-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.mental-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

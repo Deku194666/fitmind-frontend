@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, useMediaQuery } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import imagen3 from '../images/imagen3.png';
 import './Topbar.css';
@@ -7,11 +7,30 @@ import './Topbar.css';
 const Topbar = () => {
   const navigate = useNavigate();
   const [nombreUsuario, setNombreUsuario] = useState('');
+  const esMobile = useMediaQuery('(max-width:600px)');
+
 
   useEffect(() => {
     const nombreGuardado = localStorage.getItem('usuario_nombre');
     setNombreUsuario(nombreGuardado || 'Usuario');
   }, []);
+
+  const nombreAMostrar = React.useMemo(() => {
+  if (!nombreUsuario) return 'Usuario';
+
+  // Separar nombre completo por espacios
+  const partes = nombreUsuario.split(' ');
+
+  // Si es móvil y hay más de un nombre
+  if (esMobile && partes.length > 3) {
+    // Primer nombre + apellidos (sin segundo nombre)
+    return [partes[0], ...partes.slice(2)].join(' ');
+  }
+
+  // En web mostrar todo
+  return nombreUsuario;
+}, [nombreUsuario, esMobile]);
+
 
   const handleLogout = () => {
     localStorage.clear();
@@ -66,7 +85,7 @@ const Topbar = () => {
             whiteSpace: 'nowrap',
           }}
         >
-          Hola, {nombreUsuario} |{' '}
+          Hola, {nombreAMostrar} |{' '}
           <span
             onClick={handleLogout}
             style={{ cursor: 'pointer', textDecoration: 'none', fontSize: 'inherit' }}

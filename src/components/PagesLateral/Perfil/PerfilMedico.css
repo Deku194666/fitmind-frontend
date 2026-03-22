@@ -1,0 +1,123 @@
+/* ========================= */
+/* CONTENEDOR PRINCIPAL */
+/* ========================= */
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.fxh-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+/* ========================= */
+/* TARJETA MÉDICA */
+/* ========================= */
+
+.fxh-card {
+  margin-top: 40px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #ffffff; /* fondo blanco */
+  border: 2px solid #000000; /* borde negro visible */
+}
+
+/* ========================= */
+/* FILAS DE DATOS */
+/* ========================= */
+
+.fxh-data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #cccccc;
+  gap: 20px;
+}
+
+.fxh-data-row:last-child {
+  border-bottom: none;
+}
+
+/* LABEL (IZQUIERDA) */
+.fxh-label {
+  font-weight: 700;
+  color: #000000;  /* 🔥 NEGRO */
+  font-size: 1rem;
+}
+
+/* VALUE (RESPUESTA DERECHA) */
+.fxh-value {
+  color: #000000;  /* 🔥 NEGRO */
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-word;
+}
+
+/* FECHA */
+.fxh-date {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.fxh-section {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+
+.fxh-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.fxh-badge.yes {
+  background-color: #ffdddd;
+  color: #b30000;
+}
+
+.fxh-badge.no {
+  background-color: #ddffdd;
+  color: #006600;
+}
+
+.fxh-edit-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #2980b9;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.fxh-edit-btn:hover {
+  background-color: #1f6391;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .fxh-data-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fxh-value {
+    text-align: left;
+    max-width: 100%;
+    margin-top: 6px;
+  }
+}

@@ -1,0 +1,81 @@
+/* src/components/FastingCalendar.css */
+
+.fasting-calendar-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.calendar-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-selector input[type="date"] {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.registros-list {
+  margin-top: 1rem;
+}
+
+.registros-list > div {
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registros-list > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.registros-list p,
+.registros-list span,
+.registros-list h3 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.registros-list strong {
+  font-weight: 600;
+}
+
+.fasting-calendar-container h3,
+.fasting-calendar-container h2 {
+  color: #2980b9;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.fasting-calendar-container button {
+  background-color: #2980b9;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.fasting-calendar-container button:hover {
+  background-color: #1c5980;
+}
+
+.fasting-calendar-container .mensaje {
+  color: red;
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}

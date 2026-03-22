@@ -3,6 +3,13 @@ import './Hidratacion.css';
 import axios from 'axios';
 
 const Hidratacion = () => {
+
+    // 🔥 SCROLL ARRIBA
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+
   const [ml, setMl] = useState(0);
   const [vasos, setVasos] = useState(0);
   const [inputMl, setInputMl] = useState('');
@@ -10,6 +17,16 @@ const Hidratacion = () => {
   const [isPosting, setIsPosting] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [meta, setMeta] = useState(2000);
+
+useEffect(() => {
+  const guardado = localStorage.getItem("meta_hidratacion");
+  if (guardado) {
+    setMeta(Number(guardado));
+  }
+}, []);
+
+  const porcentaje = Math.min((ml / meta) * 100, 100);
 
   // -----------------------------------------
   // Obtener userId desde localStorage
@@ -220,7 +237,8 @@ const Hidratacion = () => {
         {loading && <p className="loading">Cargando datos...</p>}
         {error && <p className="error-message">{error}</p>}
 
-        <h3 className="p3">Total ingerido: {ml} ml ({vasos} vasos)</h3>
+        <h3 className="p3"> Total ingerido: {ml} ml ({vasos} vasos) </h3>
+        <h4 className="meta"> 🎯 Meta diaria: {meta} ml   </h4>
 
         <div className="buttons-container">
           <button className="vaso" onClick={agregarVaso} disabled={isPosting || loading}>

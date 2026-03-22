@@ -1,0 +1,61 @@
+
+
+
+.settings-macros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* 🔥 CARD */
+.settings-card {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 🔥 INPUT */
+.settings-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin: 0.7rem 0;
+  font-size: 1rem;
+}
+
+/* 🔥 MENSAJE */
+.settings-message {
+  margin-top: 1rem;
+  color: #2ecc71;
+}
+
+/* =========================
+   📱 MOBILE
+========================= */
+@media (max-width: 600px) {
+
+  .settings-container {
+    padding: 0 1rem;
+  }
+
+  .settings-input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+/* =========================
+   📲 TABLET
+========================= */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .settings-container {
+    max-width: 90%;
+  }
+
+}

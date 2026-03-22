@@ -1,0 +1,89 @@
+.mis-habitos-container {
+  padding: 3rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.mis-habitos-title {
+
+  font-size: 3rem;
+  font-weight: 600;
+  color: #3498db;
+  text-align: center;
+}
+
+.panel-dia {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #f8f9fa;
+}
+
+.progreso-container {
+  margin: 2rem 0;
+}
+
+.progreso-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.barra-externa {
+  width: 100%;
+  height: 14px;
+  background: #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.barra-interna {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  transition: width 0.3s ease;
+}
+
+.habito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 12px;
+}
+
+.habito-item.completo {
+  background: #e8f5e9;
+}
+
+.habito-controles {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.boton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.boton-mas {
+  background: #3498db;
+  color: white;
+}
+
+.boton-menos {
+  background: #e74c3c;
+  color: white;
+}
+
+.boton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

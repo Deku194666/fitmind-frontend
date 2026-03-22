@@ -1,0 +1,47 @@
+
+
+
+.calories-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calories-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.calories-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calories-card h2,
+.calories-card h3 {
+  margin-bottom: 1rem;
+}
+
+.calories-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.calories-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.calories-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.calories-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

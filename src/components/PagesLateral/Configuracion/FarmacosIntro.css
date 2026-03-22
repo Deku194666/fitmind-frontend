@@ -1,0 +1,47 @@
+
+
+
+.farmacos-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.farmacos-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.farmacos-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.farmacos-card h2,
+.farmacos-card h3 {
+  margin-bottom: 1rem;
+}
+
+.farmacos-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.farmacos-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.farmacos-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.farmacos-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

@@ -6,6 +6,9 @@ import HistorialCorrer from './CV/HistorialCorrer';
 
 
 const CV = () => {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   const beneficios = [
     "Mejora la salud del corazón y los vasos sanguíneos",

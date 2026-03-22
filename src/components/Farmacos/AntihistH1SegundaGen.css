@@ -1,0 +1,102 @@
+/* AntihistH1SegundaGen.css */
+
+.h1gen2-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.h1gen2-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9; /* mismo color que la primera generación */
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.h1gen2-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9; /* mismo color */
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.h1gen2-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.h1gen2-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.h1gen2-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.h1gen2-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.h1gen2-table th,
+.h1gen2-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.h1gen2-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .h1gen2-title {
+    font-size: 2.6rem;
+  }
+
+  .h1gen2-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .h1gen2-text,
+  .h1gen2-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .h1gen2-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .h1gen2-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .h1gen2-text,
+  .h1gen2-list {
+    font-size: 1.6rem;
+  }
+
+  .h1gen2-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

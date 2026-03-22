@@ -1,135 +1,146 @@
-
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './TendinopatiaMMDedos.css';
 
 function TendinopatiaMMDedos() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className='p13'>Lesiones Tendinosas de Muñeca, Mano y Dedos</p>
+    <div className="fxh-detail50">
 
-      <p className='p14'>📌 Introducción</p>
-      <p className='p150'>
-        Las lesiones tendinosas en la muñeca, mano y dedos incluyen tendinitis por sobreuso, atrapamientos tendinosos y roturas. Son frecuentes en personas que realizan movimientos repetitivos, como trabajadores manuales, músicos y deportistas. Algunas de estas patologías son agudas, mientras que otras son crónicas o degenerativas.
+      <p className="fxh-title">Lesiones Tendinosas de Muñeca, Mano y Dedos</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+      <p className="fxh-text">
+        Las lesiones tendinosas en la muñeca, mano y dedos incluyen tendinitis por sobreuso, 
+        atrapamientos tendinosos y roturas. Son frecuentes en personas que realizan movimientos 
+        repetitivos, como trabajadores manuales, músicos y deportistas.
       </p>
 
-      <p className='p14'>Anatomía Clave 🦴</p>
-      <ul className='p150'>
+      <p className="fxh-subtitle">Anatomía Clave 🦴</p>
+      <ul className="fxh-list">
         <li><strong>Tendones extensores</strong>: recorren el dorso de la mano y extienden dedos y muñeca.</li>
-        <li><strong>Tendones flexores</strong>: se ubican en la cara palmar; permiten la flexión de dedos y muñeca.</li>
-        <li><strong>Retináculos</strong>: estructuras que fijan los tendones y evitan el desplazamiento.</li>
-        <li><strong>Poleas digitales</strong>: especialmente la A1, importantes en el dedo en gatillo.</li>
+        <li><strong>Tendones flexores</strong>: ubicados en la cara palmar; permiten la flexión.</li>
+        <li><strong>Retináculos</strong>: fijan los tendones y evitan desplazamientos.</li>
+        <li><strong>Poleas digitales</strong>: especialmente la A1, clave en dedo en gatillo.</li>
       </ul>
 
-      <p className='p14'>Tendinopatías Comunes ⚠️</p>
-      <ul className='p150'>
-        <li><strong>Tenosinovitis de De Quervain</strong>: inflamación de los tendones del primer compartimento dorsal (abductor largo del pulgar y extensor corto). Dolor radial al mover el pulgar.</li>
-        <li><strong>Dedo en gatillo</strong>: engrosamiento del tendón flexor o polea A1, que causa bloqueo o chasquido al flexionar/extender el dedo.</li>
-        <li><strong>Tendinitis extensora o flexora</strong>: dolor difuso en la muñeca o mano por sobrecarga.</li>
-        <li><strong>Enfermedad de Dupuytren</strong> (no es tendinosa, pero importante en el diagnóstico diferencial): fibrosis palmar progresiva, no inflamatoria.</li>
+      <p className="fxh-subtitle">Tendinopatías Comunes ⚠️</p>
+      <ul className="fxh-list">
+        <li><strong>Tenosinovitis de De Quervain</strong>: dolor radial al mover el pulgar.</li>
+        <li><strong>Dedo en gatillo</strong>: bloqueo o chasquido al flexionar/extender.</li>
+        <li><strong>Tendinitis extensora o flexora</strong>: dolor por sobrecarga.</li>
+        <li><strong>Enfermedad de Dupuytren</strong>: fibrosis palmar progresiva (diagnóstico diferencial).</li>
       </ul>
 
-      <p className='p14'>Roturas Tendinosas 🩸</p>
-      <ul className='p150'>
-        <li><strong>Rotura de tendones extensores</strong>: puede ser traumática o espontánea (artritis reumatoide); pérdida de extensión de dedos.</li>
-        <li><strong>Rotura de tendones flexores</strong>: típica en cortes profundos o lesiones por tracción forzada; requiere reparación quirúrgica urgente.</li>
-        <li><strong>Mallet finger</strong>: rotura del tendón extensor distal del dedo, con caída de la falange distal.</li>
-        <li><strong>Boutonnière</strong>: lesión del tendón central extensor con flexión de la interfalángica proximal y extensión distal.</li>
+      <p className="fxh-subtitle">Roturas Tendinosas 🩸</p>
+      <ul className="fxh-list">
+        <li><strong>Rotura de extensores</strong>: pérdida de extensión digital.</li>
+        <li><strong>Rotura de flexores</strong>: frecuente en cortes profundos.</li>
+        <li><strong>Mallet finger</strong>: caída de la falange distal.</li>
+        <li><strong>Boutonnière</strong>: flexión proximal con extensión distal.</li>
       </ul>
 
-      <p className='p14'>Diagnóstico 🩺</p>
-      <p className='p16'>1. Examen Físico</p>
-      <ul className='p150'>
-        <li><strong>Test de Finkelstein</strong>: dolor con desviación cubital activa de muñeca con pulgar cerrado (De Quervain).</li>
-        <li><strong>Palpación dolorosa</strong> en trayectos tendinosos y engrosamientos en dedo en gatillo.</li>
-        <li><strong>Bloqueo articular o pérdida de movilidad</strong>: puede sugerir rotura.</li>
+      <p className="fxh-subtitle">Diagnóstico 🩺</p>
+
+      <p className="fxh-subsubtitle">1. Examen Físico</p>
+      <ul className="fxh-list">
+        <li><strong>Test de Finkelstein</strong>: dolor en De Quervain.</li>
+        <li><strong>Palpación dolorosa</strong> en trayectos tendinosos.</li>
+        <li><strong>Bloqueo o pérdida de movilidad</strong>: sugiere rotura.</li>
       </ul>
 
-      <p className='p16'>2. Estudios de Imagen</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Prueba</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Utilidad</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Indicaciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Ecografía</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Evalúa engrosamiento, líquido, roturas parciales</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Primera elección</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}><Link to="/examenes/rmn">RMN</Link></td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Visualiza estructuras profundas, roturas completas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Casos crónicos o quirúrgicos</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subsubtitle">2. Estudios de Imagen</p>
 
-      <p className='p14'>Tratamiento Conservador 🏥</p>
-      <ul className='p150'>
-        <li><strong>Reposo</strong> y <strong>férulas</strong> para inmovilización temporal</li>
-        <li><strong>AINES</strong> orales o tópicos</li>
-        <li><strong>Ejercicios suaves</strong> de movilidad</li>
-        <li><strong>Infiltración con corticoides</strong> en De Quervain o dedo en gatillo</li>
-        <li><strong>Reeducación postural y ergonómica</strong></li>
-        <li><strong>Terapia ocupacional</strong> si hay compromiso funcional</li>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Prueba</th>
+              <th>Utilidad</th>
+              <th>Indicaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ecografía</td>
+              <td>Evalúa engrosamiento y roturas parciales</td>
+              <td>Primera elección</td>
+            </tr>
+            <tr>
+              <td><Link to="/examenes/rmn">RMN</Link></td>
+              <td>Visualiza roturas completas</td>
+              <td>Casos crónicos o quirúrgicos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="fxh-subtitle">Tratamiento Conservador 🏥</p>
+      <ul className="fxh-list">
+        <li><strong>Reposo</strong> y férulas temporales</li>
+        <li><strong>AINES</strong></li>
+        <li><strong>Movilidad suave</strong></li>
+        <li><strong>Infiltraciones</strong> en casos seleccionados</li>
+        <li><strong>Terapia ocupacional</strong></li>
       </ul>
 
-      <p className='p14'>Tratamiento Quirúrgico 🔪</p>
-      <ul className='p150'>
-        <li><strong>Liberación quirúrgica</strong> de la polea A1 en dedo en gatillo</li>
-        <li><strong>Tenólisis o reparación tendinosa</strong> en roturas</li>
-        <li><strong>Descompresión de compartimentos</strong> en De Quervain resistente</li>
-        <li><strong>Cirugía reconstructiva</strong> en lesiones crónicas o múltiples</li>
+      <p className="fxh-subtitle">Tratamiento Quirúrgico 🔪</p>
+      <ul className="fxh-list">
+        <li><strong>Liberación A1</strong> en dedo en gatillo</li>
+        <li><strong>Reparación tendinosa</strong></li>
+        <li><strong>Descompresión</strong> en De Quervain resistente</li>
+        <li><strong>Cirugía reconstructiva</strong></li>
       </ul>
 
-      <p className='p14'>Rehabilitación 🤲</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Fase</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Objetivos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Duración</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>1 (0–2 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Disminuir dolor e inflamación</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>1–2 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>2 (2–6 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Recuperar movilidad y fuerza básica</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>4 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>3 (6–12 sem)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fortalecimiento, destreza y retorno a funciones finas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>6 semanas</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">Rehabilitación 🤲</p>
 
-      <p className='p14'>Prevención 🛡️</p>
-      <ul className='p150'>
-        <li>Evitar uso excesivo y movimientos repetitivos sin pausas</li>
-        <li>Fortalecer musculatura intrínseca de mano y antebrazo</li>
-        <li>Realizar pausas activas si se trabaja en escritorio o con herramientas</li>
-        <li>Usar soporte ergonómico si es necesario</li>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Objetivos</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 (0–2 sem)</td>
+              <td>Disminuir dolor</td>
+              <td>1–2 semanas</td>
+            </tr>
+            <tr>
+              <td>2 (2–6 sem)</td>
+              <td>Recuperar movilidad</td>
+              <td>4 semanas</td>
+            </tr>
+            <tr>
+              <td>3 (6–12 sem)</td>
+              <td>Fortalecimiento y destreza fina</td>
+              <td>6 semanas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="fxh-subtitle">Prevención 🛡️</p>
+      <ul className="fxh-list">
+        <li>Evitar movimientos repetitivos sin pausa</li>
+        <li>Fortalecer musculatura intrínseca</li>
+        <li>Pausas activas laborales</li>
+        <li>Soporte ergonómico adecuado</li>
       </ul>
 
-      <p className='p14'>Conclusión</p>
-      <p className='p150'>
-        Las lesiones tendinosas de muñeca, mano y dedos requieren una evaluación clínica cuidadosa para diferenciar entre tendinitis, atrapamientos o roturas. La mayoría responden bien al tratamiento conservador, aunque algunas requieren cirugía. Una rehabilitación adecuada y prevención activa son claves para evitar la recurrencia.
+      <p className="fxh-subtitle">Conclusión</p>
+      <p className="fxh-text">
+        La mayoría de las lesiones tendinosas de muñeca y mano responden bien al manejo conservador. 
+        Una evaluación adecuada y rehabilitación guiada reducen significativamente el riesgo de recurrencia.
       </p>
+
     </div>
   );
 }

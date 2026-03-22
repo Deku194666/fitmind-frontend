@@ -1,0 +1,122 @@
+
+
+/* Proteinuria.css */
+
+.fxh-detail315{
+  max-width:1400px;
+  margin:0 auto;
+}
+
+/* TITULOS */
+
+.fxh-title{
+  font-size:3.4rem;
+  font-weight:700;
+  color:#2980b9;
+  margin:2rem 0 0 2rem;
+}
+
+.fxh-subtitle{
+  font-size:2.8rem;
+  font-weight:700;
+  color:#2980b9;
+  margin:3rem 0 0 4rem;
+}
+
+.fxh-subsubtitle{
+  font-size:2.3rem;
+  font-weight:700;
+  color:#2980b9;
+  margin:1.5rem 0;
+}
+
+/* TEXTO */
+
+.fxh-text{
+  font-size:2rem;
+  line-height:1.8;
+  text-align:justify;
+  margin:1rem 3rem 3rem 3rem;
+}
+
+/* LISTAS */
+
+.fxh-list{
+  font-size:1.9rem;
+  line-height:1.8;
+  margin:1rem 3rem 3rem 3rem;
+}
+
+/* TABLAS */
+
+.fxh-table-wrapper{
+  overflow-x:auto;
+  margin:2rem 3rem 4rem 3rem;
+}
+
+.fxh-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.fxh-table th,
+.fxh-table td{
+  border:1px solid #ddd;
+  padding:12px;
+}
+
+.fxh-table th{
+  background:#f2f2f2;
+  font-weight:600;
+}
+
+/* FLEX */
+
+.fxh-flex{
+  display:flex;
+  justify-content:space-between;
+  gap:2rem;
+  flex-wrap:wrap;
+  margin:2rem 3rem 4rem 3rem;
+}
+
+.fxh-half{
+  width:48%;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width:1024px){
+
+  .fxh-title{
+    font-size:2.6rem;
+  }
+
+  .fxh-subtitle{
+    font-size:2.2rem;
+    margin-left:0;
+    text-align:center;
+  }
+
+  .fxh-text,
+  .fxh-list{
+    font-size:1.6rem;
+  }
+
+}
+
+@media screen and (max-width:768px){
+
+  .fxh-title{
+    text-align:center;
+  }
+
+  .fxh-subtitle{
+    margin:0 1rem;
+  }
+
+  .fxh-half{
+    width:100%;
+  }
+
+}

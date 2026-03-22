@@ -1,0 +1,47 @@
+
+
+
+.macros-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.macros-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.macros-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.macros-card h2,
+.macros-card h3 {
+  margin-bottom: 1rem;
+}
+
+.macros-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.macros-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.macros-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.macros-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

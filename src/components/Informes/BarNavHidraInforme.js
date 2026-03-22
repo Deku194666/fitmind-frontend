@@ -10,7 +10,7 @@ const BarNavHidraInforme = () => {
   return ( 
   
   <div className="secondary-bar">
-    <Link to="/registrohidratacion" className='bar-button' > Registro Datos Hidratación  </Link>            
+    <Link to="/registrohidratacion2" className='bar-button' > Registro Datos Hidratación  </Link>            
    
   </div>
 

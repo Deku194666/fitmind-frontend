@@ -1,0 +1,188 @@
+.registro-container {
+  padding: 20px;
+}
+
+/* TITULOS */
+.titulo22 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.intro {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* =========================
+   CARDS (DESKTOP DEFAULT)
+========================= */
+.resumen22 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.metric-card {
+  flex: 1;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+}
+
+.metric-card .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtitulo {
+  font-size: 14px;
+  color: #777;
+}
+
+.valor {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* =========================
+   GRAFICAS
+========================= */
+.graficas {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
+/* MENSAJES */
+.mensaje {
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+}
+
+/* =========================
+   📱 TABLETS (<= 1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  .registro-container {
+    padding: 15px;
+  }
+
+  .titulo22 {
+    font-size: 22px;
+  }
+
+  .resumen22 {
+    gap: 15px;
+  }
+
+  .metric-card {
+    min-width: 45%;
+    padding: 15px;
+  }
+
+  .valor {
+    font-size: 20px;
+  }
+
+  .chart-card {
+    padding: 15px;
+  }
+}
+
+/* =========================
+   📱 MÓVILES (<= 768px)
+========================= */
+@media (max-width: 768px) {
+
+  .registro-container {
+    padding: 12px;
+  }
+
+  .titulo22 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .intro {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .resumen22 {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .metric-card {
+    width: 100%;
+    min-width: unset;
+    justify-content: flex-start;
+  }
+
+  .valor {
+    font-size: 18px;
+  }
+
+  .subtitulo {
+    font-size: 13px;
+  }
+
+  .chart-card {
+    padding: 12px;
+  }
+}
+
+/* =========================
+   📱 MÓVILES PEQUEÑOS (<= 480px)
+========================= */
+@media (max-width: 480px) {
+
+  .titulo22 {
+    font-size: 18px;
+  }
+
+  .intro {
+    font-size: 13px;
+  }
+
+  .metric-card {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .valor {
+    font-size: 16px;
+  }
+
+  .subtitulo {
+    font-size: 12px;
+  }
+
+  .chart-card {
+    padding: 10px;
+  }
+}

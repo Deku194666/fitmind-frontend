@@ -1,33 +1,34 @@
-
-
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import './Antiepilepticos.css';
 
-function  Antiepilepticos() {
+function Antiepilepticos() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">Fármacos Antiepilépticos</p>
+    <div className="fxh-detail89">
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p150">
-        Los <strong>Antiepilépticos</strong>, también conocidos como anticonvulsivantes, se utilizan principalmente para prevenir 
-        crisis epilépticas, pero también tienen aplicaciones en el tratamiento del dolor neuropático, trastornos psiquiátricos, y
-         algunas disfunciones musculoesqueléticas relacionadas con hiperexcitabilidad nerviosa.
+      <p className="fxh-title">Fármacos Antiepilépticos</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+      <p className="fxh-text">
+        Los <strong>Antiepilépticos</strong>, también conocidos como anticonvulsivantes,
+        se utilizan principalmente para prevenir crisis epilépticas, pero también tienen
+        aplicaciones en el tratamiento del dolor neuropático, trastornos psiquiátricos
+        y algunas disfunciones musculoesqueléticas relacionadas con hiperexcitabilidad nerviosa.
       </p>
 
-      <p className="p14">🧪 Mecanismo de Acción</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">🧪 Mecanismo de Acción</p>
+      <ul className="fxh-list">
         <li>Inhibición de canales de sodio o calcio en neuronas hiperexcitables.</li>
-        <li>Aumento de la actividad GABAérgica (inhibidora) a nivel del sistema nervioso central.</li>
-        <li>Disminución de la liberación de neurotransmisores excitatorios (como el glutamato).</li>
+        <li>Aumento de la actividad GABAérgica (inhibidora) en el sistema nervioso central.</li>
+        <li>Disminución de la liberación de neurotransmisores excitatorios como el glutamato.</li>
       </ul>
 
-      <p className="p14">📋 Indicaciones Principales</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">📋 Indicaciones Principales</p>
+      <ul className="fxh-list">
         <li>Epilepsia generalizada o focal</li>
         <li>Neuralgia del trigémino</li>
         <li>Dolor neuropático crónico</li>
@@ -35,46 +36,49 @@ function  Antiepilepticos() {
         <li>Prevención de convulsiones postraumáticas o por tumor cerebral</li>
       </ul>
 
-      <p className="p14">💊 Ejemplos Comunes</p>
-      <table style={{ width: '90%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Fármaco</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Dosis habitual</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Uso común</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Carbamazepina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>400–1200 mg/día</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Epilepsia, neuralgia del trigémino</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Ácido valproico</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>500–2000 mg/día</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Epilepsia, trastorno bipolar</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Lamotrigina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>50–400 mg/día</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Epilepsia, bipolaridad</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Levetiracetam</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>500–3000 mg/día</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Epilepsia generalizada</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Topiramato</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>50–400 mg/día</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Epilepsia, migraña</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">💊 Ejemplos Comunes</p>
 
-      <p className="p14">⚠️ Efectos Adversos</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Fármaco</th>
+              <th>Dosis habitual</th>
+              <th>Uso común</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Carbamazepina</td>
+              <td>400–1200 mg/día</td>
+              <td>Epilepsia, neuralgia del trigémino</td>
+            </tr>
+            <tr>
+              <td>Ácido valproico</td>
+              <td>500–2000 mg/día</td>
+              <td>Epilepsia, trastorno bipolar</td>
+            </tr>
+            <tr>
+              <td>Lamotrigina</td>
+              <td>50–400 mg/día</td>
+              <td>Epilepsia, bipolaridad</td>
+            </tr>
+            <tr>
+              <td>Levetiracetam</td>
+              <td>500–3000 mg/día</td>
+              <td>Epilepsia generalizada</td>
+            </tr>
+            <tr>
+              <td>Topiramato</td>
+              <td>50–400 mg/día</td>
+              <td>Epilepsia, migraña</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="fxh-subtitle">⚠️ Efectos Adversos</p>
+      <ul className="fxh-list">
         <li>Somnolencia, vértigo, diplopía</li>
         <li>Aumento de peso (valproato), pérdida de peso (topiramato)</li>
         <li>Hepatotoxicidad (valproato)</li>
@@ -82,30 +86,31 @@ function  Antiepilepticos() {
         <li>Erupciones cutáneas graves (lamotrigina)</li>
       </ul>
 
-      <p className="p14">🔄 Contraindicaciones</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">🔄 Contraindicaciones</p>
+      <ul className="fxh-list">
         <li>Embarazo (valproato, topiramato)</li>
         <li>Hepatopatía activa (valproato)</li>
         <li>Alergia previa al fármaco</li>
         <li>Trastornos psiquiátricos no controlados (levetiracetam, topiramato)</li>
       </ul>
 
-      <p className="p14">📉 Interacciones Relevantes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">📉 Interacciones Relevantes</p>
+      <ul className="fxh-list">
         <li>Carbamazepina induce el metabolismo hepático de múltiples fármacos</li>
-        <li>Lamotrigina y valproato: riesgo de toxicidad si se combinan sin ajuste</li>
+        <li>Lamotrigina + valproato: riesgo de toxicidad sin ajuste</li>
         <li>Valproato con anticoagulantes: riesgo de sangrado</li>
       </ul>
 
-      <p className="p14">📚 Recomendaciones Clínicas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Monitorear niveles plasmáticos en fármacos como valproato y carbamazepina</li>
+      <p className="fxh-subtitle">📚 Recomendaciones Clínicas</p>
+      <ul className="fxh-list">
+        <li>Monitorear niveles plasmáticos (valproato, carbamazepina)</li>
         <li>Iniciar con dosis bajas y ajustar progresivamente</li>
-        <li>Evitar la suspensión brusca del tratamiento</li>
-        <li>Educar al paciente sobre signos de toxicidad y efectos secundarios</li>
+        <li>Evitar suspensión brusca</li>
+        <li>Educar al paciente sobre signos de toxicidad</li>
       </ul>
+
     </div>
   );
 }
 
-export default  Antiepilepticos;
+export default Antiepilepticos;

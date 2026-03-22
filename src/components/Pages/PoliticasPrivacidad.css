@@ -1,0 +1,33 @@
+
+
+.privacy-page {
+  background-color: #ffffff;
+  color: #222;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+}
+
+.privacy-page h1.fxh-title {
+  color: #2980b9;
+  text-align: center;
+}
+
+.privacy-page h2.fxh-subtitle {
+  color: #2980b9;
+}
+
+.privacy-page p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.privacy-page .fxh-list li {
+  margin-bottom: 0.5rem;
+}
+
+.privacy-page .fxh-footer {
+  text-align: center;
+  color: #666;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}

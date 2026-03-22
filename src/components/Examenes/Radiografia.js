@@ -1,114 +1,132 @@
-
-
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Radiografia.css';
 
 function Radiografia() {
-    useEffect(() => {
-      window.scrollTo(0, 0); // Mueve el scroll al tope de la página al cargar
-    }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="ecnt-detail">
-      <p className='p13'> Radiografia (Rx) </p>
-      <img src="https://i.blogs.es/4e7a0c/xray/1366_2000.jpg" className="imagen-derecha" alt="Radiografía" />
-      <p className='p14'> 📌 Introducción</p>
-      <p className='p150'>  La <strong> Radiografía </strong>convencional es una de las técnicas de diagnóstico por imagen más antiguas y ampliamente utilizadas 
-        en medicina. Mediante el uso de rayos X, permite visualizar estructuras internas del cuerpo, especialmente huesos y algunos tejidos 
-        blandos, de forma rápida y no invasiva. Sigue siendo fundamental en el diagnóstico inicial de fracturas, infecciones 
-        pulmonares y muchas otras condiciones médicas. Al lado derecho se ve la primera <strong> Radiografía </strong>  tomada por Wihelm Roentgen a su esposa, en 1895.  </p>
-        
-      <p className='p14'>  📜 Historia de la Radiografía  </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> <strong> 1895: </strong>  Wilhelm Conrad Röntgen descubre los rayos X (Premio Nobel de Física en 1901). </li>
-        <li> <strong> 1896: </strong>  Primera radiografía médica (mano de la esposa de Röntgen). </li>
-        <li> <strong> Primera mitad del siglo XX: </strong>  Uso masivo en medicina y industria.  </li>
-        <li> <strong> 1950s-1980s: </strong> Desarrollo de técnicas de contraste (bario, yodo). </li>
-        <li> <strong> 1990s-presente: </strong> Transición a sistemas digitales (CR y DR).</li>
+    <div className="fxh-detail241">
+
+      <p className="fxh-title">Radiografía (RX)</p>
+
+      <div className="fxh-image-wrapper">
+        <img 
+        src="https://i.blogs.es/4e7a0c/xray/1366_2000.jpg"
+        alt="Radiografía"
+        className="fxh-image"
+        />
+      </div>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+
+      <p className="fxh-text">
+      La <strong>Radiografía</strong> convencional es una de las técnicas de diagnóstico por imagen más antiguas
+      y ampliamente utilizadas en medicina. Mediante el uso de rayos X permite visualizar estructuras internas
+      del cuerpo, especialmente huesos y algunos tejidos blandos, de forma rápida y no invasiva.
+      Sigue siendo fundamental en el diagnóstico inicial de fracturas, infecciones pulmonares y muchas otras
+      condiciones médicas.
+      </p>
+
+      <p className="fxh-text">
+      A la derecha se observa la primera <strong>radiografía</strong> tomada por Wilhelm Röntgen a la mano de su
+      esposa en 1895.
+      </p>
+
+      <p className="fxh-subsubtitle">📜 Historia de la Radiografía</p>
+
+      <ul className="fxh-list">
+        <li><strong>1895:</strong> Wilhelm Conrad Röntgen descubre los rayos X.</li>
+        <li><strong>1896:</strong> Primera radiografía médica.</li>
+        <li><strong>Siglo XX:</strong> Expansión del uso en medicina.</li>
+        <li><strong>1950-1980:</strong> Desarrollo de técnicas con contraste.</li>
+        <li><strong>1990-Presente:</strong> Transición a radiografía digital.</li>
       </ul>
 
+      <p className="fxh-subtitle">🔍 ¿Cómo Funciona?</p>
 
-  
-      <p className='p14'>  🔍 ¿Cómo Funciona? </p>
-      <p className='p150'> <strong> 1) Generación de rayos X: </strong>  Tubo de rayos X emite radiación ionizante. </p>
-      <p className='p150'> <strong>  2) Atravesamiento del cuerpo: </strong>  Los tejidos absorben radiación según su densidad. </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> <strong> Huesos (blanco):  </strong> Alta absorción.  </li>
-        <li> <strong> Tejidos blandos (gris): </strong>Media absorción.  </li>
-        <li> <strong> Aire (negro): </strong> Baja absorción. </li>
-      </ul>
-    <p className='p150'> <strong> 3) Captación de la imagen: </strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> <strong> Analógica:  </strong> Película radiográfica.  </li>
-        <li> <strong> Digital (CR/DR): </strong> Detectores electrónicos.  </li>
-      </ul>
-      
-      <p className='p14'>  🏥 Usos Principales </p>
-      <p className='p16'> 📌 1. Traumatología </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Fracturas óseas. </li>
-        <li> Luxaciones articulares. </li>
-        <li> Detección de cuerpos extraños. </li>
+      <p className="fxh-text"><strong>1) Generación de rayos X:</strong> un tubo produce radiación ionizante.</p>
+
+      <p className="fxh-text"><strong>2) Paso a través del cuerpo:</strong> los tejidos absorben radiación según su densidad.</p>
+
+      <ul className="fxh-list">
+        <li><strong>Hueso:</strong> alta absorción (blanco)</li>
+        <li><strong>Tejidos blandos:</strong> absorción intermedia (gris)</li>
+        <li><strong>Aire:</strong> baja absorción (negro)</li>
       </ul>
 
-      <p className='p16'> 📌 2. Neumología </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Neumonía. </li>
-        <li> Tuberculosis. </li>
-        <li> Neumotórax. </li>
+      <p className="fxh-text"><strong>3) Captura de la imagen:</strong></p>
+
+      <ul className="fxh-list">
+        <li><strong>Radiografía analógica:</strong> película.</li>
+        <li><strong>Radiografía digital:</strong> detectores electrónicos.</li>
       </ul>
 
-      <p className='p16'> 📌 3. Odontología </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Caries. </li>
-        <li> Infecciones dentales. </li>
-        <li> Planificación de implantes. </li>
+      <p className="fxh-subtitle">🏥 Usos Principales</p>
+
+      <p className="fxh-text"><strong>1. Traumatología</strong></p>
+      <ul className="fxh-list">
+        <li>Fracturas</li>
+        <li>Luxaciones</li>
+        <li>Cuerpos extraños</li>
       </ul>
 
-      <p className='p16'> 📌 4. Abdomen </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Cálculos renales. </li>
-        <li> Obstrucción intestinal. </li>
-        <li> Perforaciones (aire libre). </li>
+      <p className="fxh-text"><strong>2. Neumología</strong></p>
+      <ul className="fxh-list">
+        <li>Neumonía</li>
+        <li>Tuberculosis</li>
+        <li>Neumotórax</li>
       </ul>
 
-      <p className='p16'> 📌 5. Otras Aplicaciones  </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Mamografía (versión especializada para mama). </li>
-        <li> Estudios con contraste (tránsito intestinal, urografía). </li>
+      <p className="fxh-text"><strong>3. Odontología</strong></p>
+      <ul className="fxh-list">
+        <li>Caries</li>
+        <li>Infecciones dentales</li>
+        <li>Planificación de implantes</li>
       </ul>
 
-
-      <p className='p14'> ✅ Ventajas </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> 🌟 Rápida (segundos-minutos). </li>
-        <li> 🌟 Ampliamente disponible y costo-efectiva. </li> 
-        <li> 🌟 Óptima para estructuras óseas. </li> 
+      <p className="fxh-text"><strong>4. Abdomen</strong></p>
+      <ul className="fxh-list">
+        <li>Cálculos renales</li>
+        <li>Obstrucción intestinal</li>
+        <li>Perforaciones</li>
       </ul>
 
-      <p className='p14'> ❌ Desventajas </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> ⚠️ Radiación ionizante (aunque en dosis bajas). </li>
-        <li> ⚠️Limitada para tejidos blandos (mejor evaluados con <Link to="/examenes/rnm"> Resonancia Nuclear Magnetica </Link>/
-        <Link to="/examenes/tc"> Tomografia Computarizada </Link>). </li> 
-        <li> ⚠️ Superposición de estructuras (imágenes 2D). </li> 
+      <p className="fxh-subtitle">✅ Ventajas</p>
+
+      <ul className="fxh-list">
+        <li>Rápida (segundos-minutos)</li>
+        <li>Disponible y económica</li>
+        <li>Excelente para huesos</li>
       </ul>
 
-      <p className='p14'> Contraindicaciones </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> ❌ Embarazo (especialmente primer trimestre). </li>
-        <li> ❌ Uso repetido innecesario (riesgo acumulativo de radiación). </li>
+      <p className="fxh-subtitle">❌ Desventajas</p>
+
+      <ul className="fxh-list">
+        <li>Radiación ionizante</li>
+        <li>Limitada para tejidos blandos</li>
+        <li>Imagen bidimensional</li>
       </ul>
 
+      <p className="fxh-text">
+      Para estudios más detallados se utilizan técnicas como la
+      <Link to="/examenes/rnm"> Resonancia Nuclear Magnética </Link>
+      o la
+      <Link to="/examenes/tc"> Tomografía Computarizada </Link>.
+      </p>
 
-      <p className='p14'>  Conclusión  </p>
-      <p className='p150'> La <strong> Radiografía </strong> convencional sigue siendo pilar fundamental en el diagnóstico médico, especialmente en urgencias y
-        patología ósea. Aunque tecnologías como la <Link to="/examenes/tc"> Tomografia Computarizada </Link>  y <Link to="/examenes/rnm"> Resonancia Nuclear Magnetica </Link>ofrecen mayor detalle, su accesibilidad, velocidad y bajo costo la mantienen
-        como primer paso en la evaluación imagenológica. Los avances en radiografía digital han mejorado su resolución y reducido la dosis 
-        de radiación, asegurando su relevancia en la era moderna. Su uso juicioso, combinado con otras modalidades cuando sea necesario,
-        optimiza el diagnóstico y cuidado del paciente.</p>
+      <p className="fxh-subtitle">📌 Conclusión</p>
+
+      <p className="fxh-text">
+      La <strong>radiografía</strong> sigue siendo una herramienta fundamental en el diagnóstico médico,
+      especialmente en urgencias y traumatología. Aunque existen técnicas más avanzadas, su rapidez,
+      bajo costo y disponibilidad la mantienen como el primer estudio en muchos escenarios clínicos.
+      </p>
+
     </div>
-    
   );
 }
 

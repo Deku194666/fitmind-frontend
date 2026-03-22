@@ -1,0 +1,118 @@
+/* Contenedor principal */
+.comidas-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+/* Título principal */
+.title {
+    font-size: 3.6rem;
+    text-align: center;
+    color: #2980b9;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de cada receta */
+.receta-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Efecto hover */
+.receta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Nombre de la receta */
+.receta-card h3 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    color: #2980b9;
+}
+
+/* Imagen de la receta */
+.receta-card img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* Subtítulos (Ingredientes, Pasos, Por porción) */
+.pe1 {
+    font-size: 2rem;
+    color: #2980b9;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Listas */
+.receta-card ul,
+.receta-card ol {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Texto de descripción */
+.receta-card p {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* MEDIA QUERIES: Tablets y móviles */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .pe1 {
+        font-size: 1.8rem;
+    }
+
+    .receta-card h3 {
+        font-size: 2rem;
+    }
+
+    .receta-card p {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 2.4rem;
+    }
+
+    .pe1 {
+        font-size: 1.6rem;
+    }
+
+    .receta-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .receta-card p {
+        font-size: 1.2rem;
+    }
+
+    .receta-card {
+        padding: 15px;
+        margin: 20px 10px;
+    }
+}

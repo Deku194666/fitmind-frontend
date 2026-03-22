@@ -13,7 +13,7 @@ const NavBarAntihipertensivos = () => {
       <Link to="/farmacos/araii" className='bar-button' > ARA II  </Link>
       <Link to="/farmacos/diureticos" className='bar-button' > Diureticos </Link>
       <Link to="/farmacos/betabloqueadores" className='bar-button' > BetaBloqueadores </Link>
-      <Link to="/farmacos/bloqueadorescanalesca" className='bar-button' > Bloqueadres de los Canales de Ca+  </Link>
+      <Link to="/farmacos/bloqueadorescanalesca" className='bar-button' > Bloqueadores de los Canales de Ca+  </Link>
 
   
     </div>

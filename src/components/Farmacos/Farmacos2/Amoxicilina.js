@@ -1,101 +1,140 @@
-
-
 import React, { useEffect } from 'react';
+import './Amoxicilina.css';
+import { Link } from 'react-router-dom';
+
 
 function Amoxicilina() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">💊 Amoxicilina</p>
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p15">
-        La <strong>Amoxicilina</strong> es un antibiótico de amplio espectro perteneciente al grupo de las penicilinas semisintéticas. Es ampliamente utilizada para tratar diversas infecciones bacterianas gracias a su eficacia, seguridad y buena absorción oral.
+    <div className="fxh-detail276">
+
+      <p className="fxh-title">💊 Amoxicilina</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+
+      <p className="fxh-text">
+        La <strong>amoxicilina</strong> es un antibiótico perteneciente al
+        grupo de las <strong>penicilinas</strong>. Se utiliza para tratar
+        diversas infecciones causadas por bacterias.
       </p>
 
-      <p className="p14">🧪 Mecanismo de acción</p>
-      <p className="p15">
-        Inhibe la síntesis de la pared celular bacteriana al unirse a las proteínas fijadoras de penicilina (PBP), lo que provoca lisis y muerte de bacterias sensibles. Es bactericida y actúa principalmente sobre bacterias Gram positivas y algunas Gram negativas.
+      <p className="fxh-text">
+        Este medicamento actúa eliminando las bacterias responsables
+        de la infección y es uno de los antibióticos más utilizados
+        en medicina debido a su eficacia y seguridad.
       </p>
 
-      <p className="p14">📋 Indicaciones clínicas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Faringitis y amigdalitis bacteriana</li>
-        <li>Otitis media aguda</li>
-        <li>Sinusitis bacteriana</li>
-        <li>Infecciones del tracto respiratorio inferior (bronquitis, neumonía)</li>
-        <li>Infecciones urinarias no complicadas</li>
-        <li>Erradicación de <em>Helicobacter pylori</em> (en combinación)</li>
-        <li>Profilaxis de endocarditis en procedimientos dentales (en ciertos casos)</li>
+
+      <p className="fxh-subtitle">🩺 ¿Para qué se utiliza?</p>
+
+      <ul className="fxh-list">
+
+        <li>Infecciones respiratorias</li>
+        <li>Otitis (infección del oído)</li>
+        <li>Sinusitis</li>
+        <li>Infecciones urinarias</li>
+        <li>Infecciones de la piel</li>
+        <li>Infecciones dentales</li>
+
       </ul>
 
-      <p className="p14">💊 Dosis habitual</p>
-      <table style={{ width: '70%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Indicación</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Dosis adultos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Dosis pediátrica</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Infecciones leves a moderadas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>500 mg cada 8 h</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>20–40 mg/kg/día en 3 dosis</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Infecciones graves</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>875 mg cada 12 h o 500 mg cada 8 h</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>40–90 mg/kg/día en 2–3 dosis</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <p className="p14">📈 Farmacocinética</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li><strong>Absorción:</strong> Buena vía oral (95%)</li>
-        <li><strong>Pico plasmático:</strong> 1–2 horas</li>
-        <li><strong>Distribución:</strong> Amplia, incluida secreciones respiratorias y oído medio</li>
-        <li><strong>Vida media:</strong> 1–1.5 horas</li>
-        <li><strong>Eliminación:</strong> Renal, sin metabolización significativa</li>
+      <p className="fxh-subtitle">⚙️ ¿Cómo actúa?</p>
+
+      <p className="fxh-text">
+        La amoxicilina actúa interfiriendo en la <strong>formación de
+        la pared celular de las bacterias</strong>. Esto provoca la
+        destrucción de las bacterias y ayuda a eliminar la infección.
+      </p>
+
+
+      <p className="fxh-subtitle">📋 Formas de administración</p>
+
+      <ul className="fxh-list">
+
+        <li>Cápsulas</li>
+        <li>Tabletas</li>
+        <li>Suspensión oral</li>
+        <li>Jarabe</li>
+
       </ul>
 
-      <p className="p14">⚠️ Efectos adversos frecuentes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Diarrea o molestias gastrointestinales</li>
-        <li>Náuseas o vómitos</li>
-        <li>Erupciones cutáneas (exantema)</li>
-        <li>Reacciones alérgicas (rinitis, urticaria, anafilaxia en casos raros)</li>
-        <li>Candidiasis oral o vaginal (uso prolongado)</li>
+
+      <p className="fxh-subtitle">⚠️ Efectos secundarios</p>
+
+      <ul className="fxh-list">
+
+        <li>Náuseas</li>
+        <li>Diarrea</li>
+        <li>Dolor abdominal</li>
+        <li>Erupciones cutáneas</li>
+        <li>Reacciones alérgicas</li>
+
       </ul>
 
-      <p className="p14">🚫 Contraindicaciones</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Hipersensibilidad a penicilinas o betalactámicos</li>
-        <li>Historial de reacción alérgica grave a amoxicilina o ampicilina</li>
+
+      <p className="fxh-subtitle">💊 Dosis y uso</p>
+
+      <div className="fxh-table-wrapper">
+
+        <table className="fxh-table">
+
+          <thead>
+            <tr>
+              <th>Presentación</th>
+              <th>Uso común</th>
+              <th>Objetivo</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Cápsulas o tabletas</td>
+              <td>Según indicación médica</td>
+              <td>Tratar infecciones bacterianas</td>
+            </tr>
+
+            <tr>
+              <td>Suspensión oral</td>
+              <td>Uso frecuente en niños</td>
+              <td>Facilitar administración</td>
+            </tr>
+
+            <tr>
+              <td>Tratamiento completo</td>
+              <td>Duración indicada por el médico</td>
+              <td>Eliminar completamente la infección</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p className="fxh-subtitle">📌 Recomendaciones</p>
+
+      <ul className="fxh-list">
+
+        <li>Tomar el medicamento según indicación médica</li>
+        <li>No suspender el tratamiento antes de tiempo</li>
+        <li>No usar antibióticos sin prescripción</li>
+        <li>Informar al médico si existen alergias a penicilinas</li>
+        <li>Completar todo el tratamiento indicado</li>
+
       </ul>
 
-      <p className="p14">🔄 Interacciones relevantes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Alopurinol: aumenta riesgo de erupciones cutáneas</li>
-        <li>Anticonceptivos orales: posible disminución de eficacia</li>
-        <li>Anticoagulantes orales: aumento del INR en algunos casos</li>
-        <li>Metotrexato: aumento de toxicidad por disminución de eliminación</li>
-      </ul>
-
-      <p className="p14">📌 Observaciones prácticas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Puede administrarse con o sin alimentos</li>
-        <li>Buena opción en niños por su sabor y tolerancia</li>
-        <li>En infecciones resistentes, puede combinarse con ácido clavulánico</li>
-        <li>Vigilar signos de alergia durante primeros días de uso</li>
-      </ul>
     </div>
+
   );
+
 }
 
 export default Amoxicilina;

@@ -1,228 +1,210 @@
-
-
-import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import './TrasOtrasCondiciones.css';
 import NavBarTrasOtrasCond from './NavBarTrasOtrasCond';
 
 function TrasOtrasCondiciones() {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="ecnt-detail">
-        <NavBarTrasOtrasCond />
+    <div className="fxh-detail13">
+      <NavBarTrasOtrasCond />
 
-      <p className='p13'> Otras Condiciones Clínicas Relevantes </p>
-      <p className='p14'> 📌Introducción</p>
-      <p className='p150'> 
-        Existen diversas condiciones psicológicas que requieren abordajes específicos y basados en evidencia. Estas afectan significativamente la calidad de vida y el funcionamiento diario, pero con las herramientas adecuadas pueden manejarse efectivamente. Presentamos tres condiciones prevalentes con sus respectivas intervenciones.
-      </p>
-        
-      <p className='p16'> 📌Trastorno de Estrés Postraumático (TEPT)</p>
-      <p className='p150'>
-        El TEPT afecta aproximadamente al <strong>3.5% de la población adulta</strong> (OMS) y se caracteriza por síntomas intrusivos, evitación y alteraciones en la reactividad tras experimentar un evento traumático. El 30% de los casos desarrollan síntomas crónicos sin tratamiento adecuado.
+      <p className="fxh-title">Otras Condiciones Clínicas Relevantes</p>
+
+      <p className="fxh-subsubtitle">📌 Introducción</p>
+      <p className="fxh-text">
+        Existen diversas condiciones psicológicas que requieren abordajes específicos y basados en evidencia.
+        Estas afectan significativamente la calidad de vida y el funcionamiento diario,
+        pero con las herramientas adecuadas pueden manejarse efectivamente.
       </p>
 
-      <p className='p150'> <strong>EMDR Básico (Ejercicios Oculares):</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Protocolo simplificado:</strong>
-          <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
+      {/* ================= TEPT ================= */}
+
+      <p className="fxh-subtitle">📌 Trastorno de Estrés Postraumático (TEPT)</p>
+      <p className="fxh-text">
+        Afecta aproximadamente al <strong>3.5% de la población adulta</strong>.
+        Se caracteriza por síntomas intrusivos, evitación y alteraciones en la reactividad
+        tras experimentar un evento traumático.
+      </p>
+
+      <p className="fxh-text"><strong>EMDR Básico:</strong></p>
+      <ul className="fxh-list">
+        <li>
+          <strong>Protocolo simplificado:</strong>
+          <ul className="fxh-list-nested">
             <li>Identificar recuerdo traumático específico</li>
             <li>Movimientos oculares laterales (2-3 series de 30 segundos)</li>
-            <li>Reevaluación de la angustia subjetiva (escala 0-10)</li>
+            <li>Reevaluación de angustia (0-10)</li>
           </ul>
         </li>
-        <li><strong>Ejercicio práctico:</strong>
-          <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
-            <li>Seguir con los ojos un dedo o punto luminoso</li>
+        <li>
+          <strong>Ejercicio práctico:</strong>
+          <ul className="fxh-list-nested">
+            <li>Seguir un punto con la mirada</li>
             <li>20 movimientos por serie</li>
-            <li>3 series con pausas de 1 minuto</li>
+            <li>3 series con pausas</li>
           </ul>
         </li>
       </ul>
 
-      <p className='p150'> <strong>Narrativa Terapéutica:</strong> </p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Fase </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Técnica </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Objetivo </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 1. Estabilización </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Linea de vida temporal </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Contextualizar el trauma </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 2. Elaboración </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Reescritura con final alternativo </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Empoderamiento </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 3. Integración </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Carta al yo del pasado </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Cierre simbólico </td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-text"><strong>Narrativa Terapéutica:</strong></p>
 
-      <p className='p16'> 📌Trastorno Límite de Personalidad (TLP)</p>
-      <p className='p150'>
-        El TLP afecta al <strong>1.6% de la población</strong>, con mayor prevalencia en mujeres (3:1). Se caracteriza por inestabilidad emocional, relaciones intensas y conductas impulsivas. El 70% presentan conductas autolesivas a lo largo de su vida.
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Técnica</th>
+              <th>Objetivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Estabilización</td>
+              <td>Línea de vida</td>
+              <td>Contextualizar el trauma</td>
+            </tr>
+            <tr>
+              <td>Elaboración</td>
+              <td>Reescritura alternativa</td>
+              <td>Empoderamiento</td>
+            </tr>
+            <tr>
+              <td>Integración</td>
+              <td>Carta al yo pasado</td>
+              <td>Cierre simbólico</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {/* ================= TLP ================= */}
+
+      <p className="fxh-subtitle">📌 Trastorno Límite de Personalidad (TLP)</p>
+      <p className="fxh-text">
+        Afecta aproximadamente al <strong>1.6% de la población</strong>.
+        Se caracteriza por inestabilidad emocional,
+        relaciones intensas y conductas impulsivas.
       </p>
 
-      <p className='p150'> <strong>Regulación Emocional (DBT Simplificada):</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Técnica STOP:</strong>
-          <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
-            <li><strong>S</strong>top (detenerse)</li>
-            <li><strong>T</strong>ake a step back (dar un paso atrás)</li>
-            <li><strong>O</strong>bserve (observar)</li>
-            <li><strong>P</strong>roceed mindfully (proceder con atención)</li>
+      <p className="fxh-text"><strong>Regulación Emocional (DBT):</strong></p>
+      <ul className="fxh-list">
+        <li>
+          <strong>Técnica STOP:</strong>
+          <ul className="fxh-list-nested">
+            <li>S – Stop</li>
+            <li>T – Take a step back</li>
+            <li>O – Observe</li>
+            <li>P – Proceed mindfully</li>
           </ul>
         </li>
-        <li><strong>Ejercicio de tolerancia al malestar:</strong>
-          <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
-            <li>Sumergir cara en agua fría (activar reflejo de inmersión)</li>
-            <li>Respiración 4-7-8 (4 inhalar, 7 retener, 8 exhalar)</li>
-            <li>Distracción sensorial intensa (hielo, goma elástica)</li>
+        <li>
+          <strong>Tolerancia al malestar:</strong>
+          <ul className="fxh-list-nested">
+            <li>Agua fría</li>
+            <li>Respiración 4-7-8</li>
+            <li>Distracción sensorial intensa</li>
           </ul>
         </li>
       </ul>
 
-      <p className='p150'> <strong>Habilidades básicas DBT:</strong> </p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Módulo </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Habilidad clave </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Aplicación </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Mindfulness </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Observar sin juzgar </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 3 minutos diarios de escaneo corporal </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Efectividad interpersonal </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> DEAR MAN </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Comunicación asertiva estructurada </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Regulación emocional </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Opuestos a la emoción </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Actuar contrario al impulso emocional </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Módulo</th>
+              <th>Habilidad</th>
+              <th>Aplicación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mindfulness</td>
+              <td>Observar sin juzgar</td>
+              <td>Escaneo corporal diario</td>
+            </tr>
+            <tr>
+              <td>Efectividad interpersonal</td>
+              <td>DEAR MAN</td>
+              <td>Comunicación estructurada</td>
+            </tr>
+            <tr>
+              <td>Regulación emocional</td>
+              <td>Opuestos a la emoción</td>
+              <td>Actuar contrario al impulso</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p16'> 📌Insomnio Crónico</p>
-      <p className='p150'>
-        Afecta al <strong>10-15% de adultos</strong>, con mayor prevalencia en mayores de 65 años. Se define como dificultad para iniciar o mantener el sueño al menos 3 noches por semana durante 3 meses, causando deterioro diurno.
+      {/* ================= INSOMNIO ================= */}
+
+      <p className="fxh-subtitle">📌 Insomnio Crónico</p>
+      <p className="fxh-text">
+        Afecta al <strong>10-15% de adultos</strong>.
+        Se define como dificultad para iniciar o mantener el sueño
+        al menos 3 noches por semana durante 3 meses.
       </p>
 
-      <p className='p150'> <strong>Higiene del Sueño:</strong> </p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Rutina pre-sueño:</strong>
-          <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
-            <li>Hora fija para acostarse/levantarse (±30 min)</li>
-            <li>Actividad relajante 1 hora antes (lectura, música)</li>
-            <li>Evitar pantallas 2 horas antes (luz azul)</li>
+      <p className="fxh-text"><strong>Higiene del sueño:</strong></p>
+      <ul className="fxh-list">
+        <li>
+          <strong>Rutina pre-sueño:</strong>
+          <ul className="fxh-list-nested">
+            <li>Horario fijo</li>
+            <li>Actividad relajante</li>
+            <li>Evitar pantallas</li>
           </ul>
         </li>
-        <li><strong>Ambiente óptimo:</strong>
-          <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
-            <li>Temperatura 18-21°C</li>
-            <li>Oscuridad total (uso de antifaz si es necesario)</li>
-            <li>Ruido blanco o sonidos ambientales suaves</li>
+        <li>
+          <strong>Ambiente óptimo:</strong>
+          <ul className="fxh-list-nested">
+            <li>18-21°C</li>
+            <li>Oscuridad total</li>
+            <li>Ruido blanco</li>
           </ul>
         </li>
       </ul>
 
-      <p className='p150'> <strong>Sonidos Binaurales:</strong> </p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Frecuencia </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Efecto </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Duración recomendada </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 1-4 Hz (Delta) </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Sueño profundo </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 30 min antes de dormir </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 4-8 Hz (Theta) </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Relajación profunda </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 20-45 min diarios </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 8-13 Hz (Alpha) </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Transición vigilia-sueño </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> 15-30 min pre-sueño </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Frecuencia</th>
+              <th>Efecto</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1-4 Hz (Delta)</td>
+              <td>Sueño profundo</td>
+              <td>30 min antes</td>
+            </tr>
+            <tr>
+              <td>4-8 Hz (Theta)</td>
+              <td>Relajación profunda</td>
+              <td>20-45 min</td>
+            </tr>
+            <tr>
+              <td>8-13 Hz (Alpha)</td>
+              <td>Transición vigilia-sueño</td>
+              <td>15-30 min</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className='p14'> 📌 Intervenciones Clave</p>
-      <table style={{ width: '80%', borderCollapse: 'collapse', margin: '6rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Condición </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Terapia </th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}> Herramienta práctica </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> TEPT </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> EMDR, Terapia Narrativa </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Diario de procesamiento </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> TLP </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> DBT, Terapia de esquemas </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Tarjeta de crisis </td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Insomnio </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Terapia cognitivo-conductual </td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}> Restricción de sueño </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p className='p14'> 🌱 Estrategias de Autogestión</p>
-      <p className='p16'> 🟢 Para TEPT:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Anclaje sensorial:</strong> Objeto/textura para conectar con el presente</li>
-        <li><strong>Respiración cuadrada:</strong> 4-4-4-4 (inhalar, retener, exhalar, pausa)</li>
-      </ul>
-
-      <p className='p16'> 🟢 Para TLP:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Lista de distracción:</strong> 10 actividades alternativas a autolesión</li>
-        <li><strong>Escala emocional:</strong> Auto-monitoreo de intensidad (0-10)</li>
-      </ul>
-
-      <p className='p16'> 🟢 Para Insomnio:</p>
-      <ul className='p150' style={{ listStyleType: 'disc' }}>
-        <li><strong>Control de estímulos:</strong> Cama solo para dormir (no ver TV)</li>
-        <li><strong>Registro de sueño:</strong> Patrones y factores asociados</li>
-      </ul>
-
-      <p className='p14'> 📌Conclusión</p>
-      <p className='p150'>
-        Estas condiciones requieren <strong>abordajes específicos y personalizados</strong>. Las intervenciones presentadas tienen sólida evidencia científica y pueden adaptarse a cada caso particular. La consistencia en la práctica y la combinación de técnicas suelen ofrecer los mejores resultados. En casos severos, siempre se recomienda supervisión profesional.
+      <p className="fxh-subsubtitle">📌 Conclusión</p>
+      <p className="fxh-text">
+        Estas condiciones requieren abordajes específicos y personalizados.
+        La combinación de técnicas y constancia en la práctica
+        suele ofrecer mejores resultados.
       </p>
+
     </div>
   );
 }

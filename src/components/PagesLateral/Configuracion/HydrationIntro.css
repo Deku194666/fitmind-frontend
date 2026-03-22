@@ -1,0 +1,47 @@
+
+
+
+.hydration-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hydration-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.hydration-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hydration-card h2,
+.hydration-card h3 {
+  margin-bottom: 1rem;
+}
+
+.hydration-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.hydration-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hydration-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.hydration-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
