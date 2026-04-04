@@ -1,79 +1,89 @@
+.fxh-detail242{
+  max-width:1400px;
+  margin:0 auto;
+}
 
+.fxh-title{
+  font-size:3.5rem;
+  font-weight:700;
+  color:#2980b9;
+  margin-left:2rem;
+  margin-top:3rem;
+}
 
+.fxh-subtitle{
+  font-size:3rem;
+  font-weight:700;
+  color:#2980b9;
+  margin-left:4rem;
+  margin-top:3rem;
+}
 
+.fxh-subsubtitle{
+  font-size:2.6rem;
+  font-weight:700;
+  color:#2980b9;
+  margin-left:4rem;
+  margin-top:2rem;
+}
 
+.fxh-text{
+  font-size:2.1rem;
+  line-height:1.8;
+  text-align:justify;
+  margin:0 3rem 4rem 3rem;
+}
 
+.fxh-list{
+  font-size:2rem;
+  line-height:1.8;
+  margin:0 3rem 3rem 4rem;
+  list-style-type:disc;
+}
 
+.fxh-image-wrapper{
+  float:right;
+  margin:2rem 4rem;
+}
 
+.fxh-image{
+  width:420px;
+  border-radius:10px;
+}
 
+/* RESPONSIVE */
 
+@media screen and (max-width:1024px){
 
-.p13 {
+  .fxh-title{
+    font-size:2.6rem;
+    text-align:center;
+  }
 
-    font-size: 4rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
-    margin-right: 2rem;
+  .fxh-subtitle,
+  .fxh-subsubtitle{
+    font-size:2.2rem;
+    margin-left:0;
+    text-align:center;
+  }
+
+  .fxh-text,
+  .fxh-list{
+    font-size:1.6rem;
+  }
+
+  .fxh-image-wrapper{
+    float:none;
+    display:flex;
+    justify-content:center;
+  }
 
 }
 
-.p14 {
+@media screen and (max-width:768px){
 
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
+  .fxh-image{
+    width:100%;
+  }
 
-}
-
-.p15 {
-
-    font-size: 2rem;
-    text-align: left;
-    margin-left: 6rem;
-    max-width:  99rem;
-    margin-right: 4rem;
-    text-align: justify;
-
-
-}
-
-.p16 {
-
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
-
-}
-
-.p17 {
-
-    font-size: 2rem;
-    text-align: left;
-    margin-left: 6rem;
-    max-width:  99rem;
-    margin-right: 4rem;
-    text-align: justify;
-    list-style-type: disc;
-
-}
-
-.imagen-derecha {
-  float: right;
-  margin-left: 50px;
-  margin-bottom: 1rem;
-  margin-right: 6rem;
-  width: 27rem; /* Puedes ajustar el tamaño aquí */
-  height: 30rem;
-  border-radius: 10px; /* Opcional: bordes redondeados */
-  margin-top: 1rem;
-  padding-top: 1rem;
 }

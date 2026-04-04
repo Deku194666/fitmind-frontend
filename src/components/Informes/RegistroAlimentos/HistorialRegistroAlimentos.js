@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-
 const HistorialRegistroAlimentos = () => {
   throw new Error("💥 ESTE ES EL HISTORIAL DE ALIMENTOS");
   console.log("🔥 HistorialRegistroAlimentos MONTADO");

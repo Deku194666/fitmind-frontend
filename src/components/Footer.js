@@ -18,7 +18,7 @@ const Footer = () => {
         Contacto: <Link href="mailto:info@fitmindapp.com" className="footer-link" color='#2980b9'>info@fitmindapp.com</Link>
       </Typography>
       <Typography variant="body2" color="#2980b9" align="center" marginBottom={'1rem'}>
-        <Link href="/terminos" className="footer-link" color='#2980b9'>Términos de servicio</Link> | <Link href="/privacidad" className="footer-link" color='#2980b9' >Política de privacidad</Link>
+        <Link href="/terminosservicio" className="footer-link" color='#2980b9'>Términos de servicio</Link> | <Link href="/politicasprivacidad" className="footer-link" color='#2980b9' >Política de privacidad</Link>
       </Typography>
     </Box>
   );

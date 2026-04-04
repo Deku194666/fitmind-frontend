@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Sueno.css';
 
 const Sueno = () => {
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   const [datos, setDatos] = useState({
     fecha: '',
     horaDormir: '',

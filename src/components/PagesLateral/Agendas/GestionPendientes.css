@@ -1,0 +1,108 @@
+/* Contenedor principal */
+.containerr {
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-size: 2rem;
+  line-height: 1.7;
+  text-align: justify  !important ;
+  color: #444;
+}
+
+/* Layout */
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.col {
+  width: 100%;
+}
+
+.col-6 {
+  max-width: 600px;
+}
+
+.col-8 {
+  max-width: 800px;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-bottom: 1.5rem;
+}
+
+/* Lista */
+.list {
+  font-size: 1.9rem;
+  line-height: 1.8;
+  padding-left: 2rem;
+}
+
+.list li {
+  margin-bottom: 1.2rem;
+}
+
+.list li::marker {
+  color: #2980b9;
+  font-weight: 700;
+}
+
+/* Responsive Tablet */
+@media (max-width: 1024px) {
+  .title { font-size: 2.6rem; }
+  .subtitle { font-size: 2.2rem; }
+  .text, .list { font-size: 1.7rem; }
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .title { font-size: 2.6rem;  margin-bottom: 3rem; }
+  .subtitle { font-size: 2rem; }
+  .text, .list { 
+    font-size: 1.6rem; 
+    text-align: left;
+  }
+
+  .card {
+    padding: 0.5rem;
+  }
+}

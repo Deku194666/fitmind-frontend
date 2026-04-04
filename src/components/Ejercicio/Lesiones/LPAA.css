@@ -1,0 +1,114 @@
+/* LPAA.css */
+
+.fxlp-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxlp-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxlp-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxlp-subsubtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.fxlp-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.fxlp-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxlp-sublist {
+  font-size: 1.9rem;
+  line-height: 1.6;
+  margin-left: 2rem;
+  list-style-type: circle;
+}
+
+.fxlp-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.fxlp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxlp-table th,
+.fxlp-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxlp-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .fxlp-title {
+    font-size: 2.6rem;
+  }
+  .fxlp-subtitle,
+  .fxlp-subsubtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+  .fxlp-text,
+  .fxlp-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .fxlp-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .fxlp-subtitle,
+  .fxlp-subsubtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+  .fxlp-text,
+  .fxlp-list {
+    font-size: 1.6rem;
+  }
+  .fxlp-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

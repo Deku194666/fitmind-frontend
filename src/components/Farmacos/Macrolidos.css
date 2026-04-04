@@ -1,0 +1,102 @@
+
+
+/* Macrolidos.css */
+
+.ma-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ma-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.ma-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.ma-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.ma-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.ma-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.ma-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ma-table th,
+.ma-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.ma-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .ma-title {
+    font-size: 2.6rem;
+  }
+
+  .ma-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .ma-text,
+  .ma-list {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ma-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .ma-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .ma-text,
+  .ma-list {
+    font-size: 1.6rem;
+  }
+
+  .ma-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

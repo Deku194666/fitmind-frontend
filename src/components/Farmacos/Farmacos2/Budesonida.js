@@ -1,105 +1,143 @@
-
-
 import React, { useEffect } from 'react';
+import './Budesonida.css';
+import { Link } from 'react-router-dom';
+
 
 function Budesonida() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">💊 Budesonida</p>
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p15">
-        La <strong>Budesonida</strong> es un corticosteroide sintético con potente actividad antiinflamatoria local. Se utiliza principalmente por vía inhalatoria en el tratamiento del asma y la enfermedad pulmonar obstructiva crónica (EPOC), así como por vía oral o rectal en enfermedades inflamatorias intestinales como la enfermedad de Crohn o la colitis ulcerosa.
+    <div className="fxh-detail272">
+
+      <p className="fxh-title">💊 Budesonida</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+
+      <p className="fxh-text">
+        La <strong>budesonida</strong> es un medicamento que pertenece
+        al grupo de los <strong>corticosteroides</strong>. Se utiliza
+        principalmente para reducir la <strong>inflamación en las vías
+        respiratorias</strong> y mejorar la respiración.
       </p>
 
-      <p className="p14">🧪 Mecanismo de acción</p>
-      <p className="p15">
-        La Budesonida actúa sobre los receptores glucocorticoides, modulando la expresión génica y reduciendo la liberación de mediadores inflamatorios como prostaglandinas, leucotrienos e interleucinas. Esto disminuye la inflamación de las vías respiratorias y de la mucosa intestinal según la vía de administración.
+      <p className="fxh-text">
+        Este medicamento se usa con frecuencia en el tratamiento del
+        <strong>asma</strong> y de la <strong>enfermedad pulmonar
+        obstructiva crónica (EPOC)</strong>. A diferencia de los
+        broncodilatadores, la budesonida actúa disminuyendo la
+        inflamación de los bronquios.
       </p>
 
-      <p className="p14">📋 Indicaciones clínicas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Asma persistente</li>
+
+      <p className="fxh-subtitle">🩺 ¿Para qué se utiliza?</p>
+
+      <ul className="fxh-list">
+
+        <li>Tratamiento del asma</li>
         <li>Enfermedad pulmonar obstructiva crónica (EPOC)</li>
-        <li>Rinitis alérgica (vía nasal)</li>
-        <li>Enfermedad de Crohn (formas leves a moderadas)</li>
-        <li>Colitis ulcerosa (formas leves)</li>
-        <li>Esofagitis eosinofílica (uso fuera de ficha técnica)</li>
+        <li>Rinitis alérgica</li>
+        <li>Inflamación de las vías respiratorias</li>
+        <li>Prevención de crisis asmáticas</li>
+
       </ul>
 
-      <p className="p14">💊 Dosis habitual</p>
-      <table style={{ width: '70%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Vía</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Indicaciones</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Dosis</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhalatoria</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Asma / EPOC</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>200–800 mcg al día en 2 dosis</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Oral (cápsulas de liberación entérica)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Enfermedad de Crohn</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>9 mg al día por 8 semanas</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Rectal (espuma o enema)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Colitis ulcerosa distal</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>2 mg al día</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <p className="p14">📈 Farmacocinética</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li><strong>Inicio de acción:</strong> 1–3 días (inhalado)</li>
-        <li><strong>Vida media:</strong> 2–3 h</li>
-        <li><strong>Metabolismo:</strong> Hepático extenso (CYP3A4)</li>
-        <li><strong>Excreción:</strong> Renal y fecal (metabolitos)</li>
-        <li><strong>Biodisponibilidad sistémica:</strong> menor a 10% inhalado, ~12% oral</li>
+      <p className="fxh-subtitle">⚙️ ¿Cómo actúa?</p>
+
+      <p className="fxh-text">
+        La budesonida actúa reduciendo la <strong>inflamación y la
+        hinchazón</strong> en las vías respiratorias. Esto permite
+        que los bronquios permanezcan más abiertos y facilita
+        el paso del aire hacia los pulmones.
+      </p>
+
+
+      <p className="fxh-subtitle">📋 Formas de administración</p>
+
+      <ul className="fxh-list">
+
+        <li>Inhalador</li>
+        <li>Nebulización</li>
+        <li>Spray nasal</li>
+        <li>Cápsulas inhaladas</li>
+
       </ul>
 
-      <p className="p14">⚠️ Efectos adversos frecuentes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Candidiasis oral (inhalada)</li>
-        <li>Disfonía o ronquera</li>
-        <li>Tos e irritación faríngea</li>
-        <li>Náuseas, dolor abdominal (oral)</li>
-        <li>Síntomas de supresión suprarrenal (a altas dosis o uso prolongado)</li>
+
+      <p className="fxh-subtitle">⚠️ Efectos secundarios</p>
+
+      <ul className="fxh-list">
+
+        <li>Irritación de garganta</li>
+        <li>Ronquera</li>
+        <li>Tos</li>
+        <li>Infecciones orales por hongos</li>
+        <li>Dolor de cabeza</li>
+
       </ul>
 
-      <p className="p14">🚫 Contraindicaciones</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Infecciones micóticas o virales activas no tratadas</li>
-        <li>Hipersensibilidad a budesonida o excipientes</li>
-        <li>Pacientes con tuberculosis activa sin tratamiento</li>
+
+      <p className="fxh-subtitle">💊 Dosis y uso</p>
+
+      <div className="fxh-table-wrapper">
+
+        <table className="fxh-table">
+
+          <thead>
+            <tr>
+              <th>Presentación</th>
+              <th>Uso común</th>
+              <th>Objetivo</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Inhalador</td>
+              <td>Uso diario según indicación médica</td>
+              <td>Controlar inflamación bronquial</td>
+            </tr>
+
+            <tr>
+              <td>Nebulización</td>
+              <td>Dosis prescrita por el médico</td>
+              <td>Mejorar respiración</td>
+            </tr>
+
+            <tr>
+              <td>Spray nasal</td>
+              <td>Aplicación nasal diaria</td>
+              <td>Tratar rinitis alérgica</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p className="fxh-subtitle">📌 Recomendaciones</p>
+
+      <ul className="fxh-list">
+
+        <li>Usar únicamente bajo indicación médica</li>
+        <li>No suspender el tratamiento sin consultar al médico</li>
+        <li>Enjuagar la boca después de usar inhalador</li>
+        <li>No exceder la dosis indicada</li>
+        <li>Realizar controles médicos periódicos</li>
+
       </ul>
 
-      <p className="p14">🔄 Interacciones relevantes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Inhibidores del CYP3A4 (ketoconazol, ritonavir): aumentan niveles de budesonida</li>
-        <li>Otros corticoides: riesgo de efectos aditivos o supresión suprarrenal</li>
-        <li>Alcohol o AINEs: mayor riesgo de efectos GI si se usa por vía oral</li>
-      </ul>
-
-      <p className="p14">📌 Observaciones prácticas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Enjuagar la boca tras cada inhalación para prevenir candidiasis</li>
-        <li>Controlar función suprarrenal si se usa a largo plazo</li>
-        <li>Uso preferente en formas leves a moderadas de enfermedad inflamatoria intestinal</li>
-        <li>Considerar alternativas si se requiere efecto sistémico potente</li>
-      </ul>
     </div>
+
   );
+
 }
 
 export default Budesonida;

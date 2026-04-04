@@ -7,6 +7,9 @@ import {
 } from 'recharts';
 
 const HistorialCorrer = () => {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   const [historial, setHistorial] = useState([]);
 
   useEffect(() => {

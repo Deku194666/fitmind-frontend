@@ -1,0 +1,102 @@
+/* LigDeltoideo.css */
+
+.fxld-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxld-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxld-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxld-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.fxld-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxld-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.fxld-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxld-table th,
+.fxld-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxld-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .fxld-title {
+    font-size: 2.6rem;
+  }
+
+  .fxld-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxld-text,
+  .fxld-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .fxld-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxld-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .fxld-text,
+  .fxld-list {
+    font-size: 1.6rem;
+  }
+
+  .fxld-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

@@ -1,162 +1,105 @@
-
-
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Asma.css';
+import './ACV.css';
 
 function ACV() {
-    useEffect(() => {
-      window.scrollTo(0, 0); // Mueve el scroll al tope de la página al cargar
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="ecnt-detail">
-      <p className='p13'>Accidente Cerebrovascular (ACV)</p>
-      <p className='p14'>Introducción</p>
-      <p className='p150'>  El  <strong> Accidente Cerebrovascular (ACV)</strong>  , también conocido como ictus, infarto cerebral o derrame cerebral, es una urgencia médica 
-        que ocurre cuando se interrumpe el flujo sanguíneo al cerebro🧠, lo que provoca daño en las células cerebrales. Dependiendo de la zona afectada, 
-        puede causar secuelas neurológicas temporales o permanentes e incluso la muerte. Es una de las principales causas de discapacidad y mortalidad en todo el mundo. </p>
-        
-      <p className='p14'>  Tipos de ACV🧠  </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li>Isquémico: causado por obstrucción arterial (trombosis, embolia).</li>
-        <li>Hemorrágico: debido a ruptura vascular (hemorragia intracerebral o subaracnoidea).</li>
-        <li>AIT (Ataque Isquémico Transitorio): “mini-ACV” que dura minutos u horas y se resuelve completamente. Es una señal de alerta.</li>
+    <div className="acv-container">
+
+      <p className="title-main">Accidente Cerebrovascular (ACV)</p>
+
+      <p className="title-section">📌 Introducción</p>
+      <p className="text-body">
+        El <strong>Accidente Cerebrovascular (ACV)</strong>, también llamado ictus o derrame cerebral,
+        es una urgencia médica causada por la interrupción del flujo sanguíneo cerebral,
+        lo que produce daño neurológico agudo y potencialmente permanente.
+      </p>
+
+      <p className="title-section">🧠 Tipos de ACV</p>
+      <ul className="text-body">
+        <li>Isquémico: obstrucción arterial (≈85%).</li>
+        <li>Hemorrágico: ruptura vascular.</li>
+        <li>AIT: ataque isquémico transitorio (señal de alerta).</li>
       </ul>
 
+      <p className="title-section">🧬 Fisiopatología</p>
+      <p className="text-body">
+        La interrupción del flujo sanguíneo provoca isquemia y necrosis del tejido cerebral,
+        generando déficits neurológicos focales.
+      </p>
 
-      <p className='p14'>  Fisiología y Fisiopatología 🧬   </p>
-      <p className='p150'>  El cerebro depende de un flujo constante de sangre para funcionar. Cuando este se interrumpe: </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> <strong> ACV isquémico </strong>  (≈85%): ocurre por una obstrucción arterial, generalmente por un trombo (formado en el lugar) o un émbolo (desplazado desde otro sitio). </li>
-        <li> <strong> ACV hemorrágico </strong>  (≈15%): se produce por la rotura de un vaso sanguíneo cerebral, lo que provoca sangrado e incremento de la presión intracraneal.</li>
-      </ul>
-      <p className='p150'> Ambos tipos provocan isquemia y necrosis del tejido cerebral, lo que conlleva síntomas neurológicos focales.   </p>
-
-      <p className='p14'>  Factores de Riesgo </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> <Link to="/ecnt/hipertension">Hipertensión Arterial </Link>  (el principal).  </li>
-        <li> Fibrilación auricular u otras cardiopatías. </li>
-        <li> <Link to="/ecnt/diabetes">Diabetes Mellitus.</Link> </li>
-        <li> <Link to="/ecnt/dislipidemia"> Dislipidemia. </Link> </li>
-        <li> Tabaquismo🚬. </li>
-        <li> <Link to="/ecnt/obesidad">Obesidad</Link> y sedentarismo. </li>
-        <li> Consumo excesivo de alcohol🍷. </li>
-        <li> Edad avanzada y antecedentes familiares. </li>
-      </ul>
-      
-      <p className='p14'>  Síntomas del ACV </p>
-      <p className='p150'> Los signos de un <strong> ACV </strong> suelen aparecer de forma súbita. Algunos de los más comunes incluyen:   </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> 📌 Debilidad o parálisis facial o de extremidades (especialmente un lado del cuerpo)   </li>
-        <li> 📌 Dificultad para hablar o entender. </li>
-        <li> 📌 Pérdida súbita de la visión (parcial o total). </li>
-        <li> 📌 Mareo, pérdida del equilibrio o coordinación. </li>
-        <li> 📌 Consumo excesivo de alcohol. </li>
-        <li> 📌 Edad avanzada y antecedentes familiares. </li>
+      <p className="title-section">⚠️ Factores de riesgo</p>
+      <ul className="text-body">
+        <li> - <Link to="/ecnt/hipertension">Hipertensión arterial</Link>.</li>
+        <li> - <Link to="/ecnt/sintomas/fibrilacionauricular">Fibrilación auricular</Link>.</li>
+        <li> - <Link to="/ecnt/diabetes">Diabetes Mellitus</Link>.</li>
+        <li> - <Link to="/ecnt/dislipidemia">Dislipidemia</Link>.</li>
+        <li> - Tabaquismo.</li>
+        <li> - <Link to="/ecnt/obesidad">Obesidad</Link> y sedentarismo.</li>
       </ul>
 
-
-       <p className='p14'> 🩺Diagnóstico </p>
-      <p className='p16'>  1) Evaluación Inmediata (Primeros Minutos)  </p>
-      <p className='p16'> 📌 Recordar la regla FAST (en inglés): </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> 🚨 Face: asimetría facial.   </li>
-        <li> 🚨 Arms: debilidad en un brazo. </li>
-        <li> 🚨 Speech: dificultad para hablar. </li>
-        <li> 🚨 Time: actuar rápidamente y llamar a emergencias. </li>
-      </ul>
-      <p className='p16'>  2. Estudios de Imagen (Hospitalarios)  </p>
-
-<table style={{ width: '60%', borderCollapse: 'collapse', textAlign: 'left', marginTop: '4rem', marginLeft: '6rem' }}>
-  <thead>
-    <tr style={{ backgroundColor: '#f2f2f2' }}>
-      <th style={{ border: '1px solid #ddd', padding: '8px' }}> Prueba </th>
-      <th style={{ border: '1px solid #ddd', padding: '8px' }}> Detecta </th>
-      <th style={{ border: '1px solid #ddd', padding: '8px' }}> Ventaja </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> <Link to="/examenes/tc"> Tomografia Computarizada (TC) </Link> Cerebral sin contraste		</td>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> - Sangrado agudo (ACV hemorrágico). - Isquemia temprana (signos sutiles).  </td>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> Rápida (minutos), disponible en urgencias. </td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> <Link to="/examenes/rnm"> Resonancia Nuclear Magnetica (RNM) </Link>  cerebral	 </td>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> 	- Infartos pequeños - Isquemia en fase aguda (difusión).	</td>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> Mayor precisión para ACV isquémico temprano.</td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}>Angiografía por TC/RM</td>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> 	- Arterias obstruidas (trombos) - Malformaciones vasculares.	 </td>
-      <td style={{ border: '1px solid #ddd', padding: '8px' }}> Identifica causa y guía tratamiento (ej.: trombectomía).</td>
-    </tr>
-  </tbody>
-</table>
-
- <p className='p16'>  3. Exámenes Complementarios </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li>  <strong> Analítica sanguínea: </strong> Glucosa (descarta hipoglucemia), plaquetas, coagulación.   </li>
-        <li>  <strong> <Link to="/examenes/ekg">  Electrocardiograma (EKG)</Link>:</strong> Detecta <Link to="/ecnt/arritmias"> arritmias </Link> (ej.: fibrilación auricular, causa común de <strong> ACV </strong>  embólico). </li>
-        <li>  <strong> <Link to="/examenes/ecg">  Ecocardiograma (ECG)</Link>: </strong> Si se sospecha émbolo cardíaco. </li>
+      <p className="title-section">🔍 Síntomas</p>
+      <ul className="text-body">
+        <li> - Debilidad facial o de extremidades</li>
+        <li> - Dificultad para hablar</li>
+        <li> - Pérdida súbita de visión</li>
+        <li> - Mareo o pérdida del equilibrio</li>
       </ul>
 
+      <p className="title-section">🩺 Diagnóstico</p>
+      <p className="text-body"><strong>Regla FAST:</strong> Face, Arms, Speech, Time.</p>
 
+      <table className="styled-table">
+        <thead>
+          <tr>
+            <th>Prueba</th>
+            <th>Detecta</th>
+            <th>Ventaja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><Link to="/examenes/tc">TC cerebral</Link></td>
+            <td>Sangrado / isquemia temprana</td>
+            <td>Rápida y accesible</td>
+          </tr>
+          <tr>
+            <td><Link to="/examenes/rnm">RMN cerebral</Link></td>
+            <td>Infartos pequeños</td>
+            <td>Alta precisión</td>
+          </tr>
+          <tr>
+            <td>Angiografía</td>
+            <td>Arterias obstruidas</td>
+            <td>Guía tratamiento</td>
+          </tr>
+        </tbody>
+      </table>
 
-  
-      <p className='p14'>  Tratamiento Médico  </p>
-      <p className='p16'> 🔴 ACV Isquémico:  </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Fibrinólisis (alteplasa): en pacientes elegibles, dentro de las primeras 4.5 horas del inicio.   </li>
-        <li> Trombectomía mecánica: en ciertos casos, si hay oclusión de grandes vasos.   </li>
-        <li> Control de la presión arterial, glicemia y oxigenación.  </li>
-        <li> Antiplaquetarios (aspirina) y anticoagulantes (en casos específicos).  </li>
-      </ul>
-      
-      <p className='p16'> 🔴 ACV Hemorrágico:   </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Control intensivo de la presión arterial.  </li>
-        <li> Cirugía (cuando hay hematomas grandes o hemorragia subaracnoidea). </li>
-        <li> Manejo de la hipertensión intracraneal. </li>
+      <p className="title-section">💊 Tratamiento</p>
+      <ul className="text-body">
+        <li> - Fibrinólisis y trombectomía (ACV isquémico)</li>
+        <li> - Control de presión intracraneal (hemorrágico)</li>
+        <li> - Antiagregantes y anticoagulación</li>
       </ul>
 
-      <p className='p16'>  🔴 Prevención secundaria:  </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Control de factores de riesgo (<Link to="/ecnt/hipertension">Hipertensión Arterial</Link>, <Link to="/ecnt/dislipidemia"> Dislipidemia</Link>, <Link to="/ecnt/diabetes">Diabetes Mellitus</Link>).   </li>
-        <li> Anticoagulación en pacientes con fibrilación auricular. </li>
-        <li> Antiagregantes plaquetarios de mantenimiento (aspirina, clopidogrel). </li>
-      </ul>
-   
-      <p className='p14'> Tratamiento No Farmacológico / Rehabilitación </p>
-      <p className='p150'> Rehabilitación neurológica temprana: fisioterapia, terapia ocupacional y del habla🏃‍♀️🤸🏋️‍♂️.   </p>
-      <p className='p150'> Apoyo psicológico: manejo de ansiedad,   <Link to="/bienestarmental/enfmentales/depresion" > Depresión   </Link> post-<strong> ACV</strong>.   </p>
-      <p className='p150'> Estilo de vida saludable:   </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Dieta baja en sodio, grasas saturadas y rica en frutas y verduras🥗. </li>
-        <li> Ejercicio regular adaptado. </li> 
-        <li> Cese del tabaco🚭 y reducción del alcohol🍷. </li> 
-      </ul>
+      <p className="title-section">🧘 Rehabilitación</p>
+      <p className="text-body">
+        Rehabilitación neurológica temprana, apoyo psicológico y cambios en el estilo de vida.
+      </p>
 
-      <p className='p14'>  Complicaciones </p>
-      <ul className='p150' style={{ listStyleType: 'disc'}} >
-        <li> Discapacidad motora o sensorial. </li>
-        <li> Trastornos del lenguaje (afasia). </li>
-        <li> Alteraciones cognitivas o emocionales.</li>
-        <li> Convulsiones post-<strong>ACV.</strong> </li>
-        <li> Riesgo de nuevos eventos vasculares. </li>
-        <li> Úlceras por presión, infecciones, trombosis venosa profunda. </li>
-      </ul>
-      <p className='p14'>  Conclusión  </p>
-      <p className='p150'> El <strong> ACV  </strong> es una condición crítica que requiere atención inmediata para minimizar daño cerebral y salvar vidas. 
-        La prevención mediante el control de factores de riesgo es fundamental. La rehabilitación integral y el soporte multidisciplinario 
-        permiten mejorar la calidad de vida de los sobrevivientes. La educación sobre los signos de alarma y la actuación rápida puede marcar 
-        la diferencia entre la vida y la muerte o la discapacidad permanente.  </p>
+      <p className="title-section">📌 Conclusión</p>
+      <p className="text-body">
+        El ACV es una emergencia médica tiempo-dependiente. La prevención, el reconocimiento
+        temprano y la rehabilitación integral son clave para reducir mortalidad y discapacidad.
+      </p>
+
     </div>
-    
   );
 }
 
 export default ACV;
-
-
-

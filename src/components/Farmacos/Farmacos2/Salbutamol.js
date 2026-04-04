@@ -1,97 +1,142 @@
-
-
 import React, { useEffect } from 'react';
+import './Salbutamol.css';
+import { Link } from 'react-router-dom';
+
 
 function Salbutamol() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">💊 Salbutamol</p>
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p15">
-        El <strong>Salbutamol</strong> (también conocido como albuterol en algunos países) es un agonista β<sub>2</sub>-adrenérgico de acción corta. Se utiliza principalmente como broncodilatador para el alivio rápido de síntomas respiratorios en enfermedades como el asma y la enfermedad pulmonar obstructiva crónica (EPOC).
+    <div className="fxh-detail271">
+
+      <p className="fxh-title">💊 Salbutamol</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+
+      <p className="fxh-text">
+        El <strong>salbutamol</strong> es un medicamento utilizado para
+        tratar y prevenir el <strong>espasmo de los bronquios</strong>,
+        una condición en la que las vías respiratorias se estrechan
+        dificultando la respiración.
       </p>
 
-      <p className="p14">🧪 Mecanismo de acción</p>
-      <p className="p15">
-        El Salbutamol se une a los receptores β<sub>2</sub>-adrenérgicos en el músculo liso bronquial, activando la adenilato ciclasa y aumentando los niveles de AMPc. Esto lleva a la relajación del músculo liso de las vías aéreas, produciendo broncodilatación rápida.
+      <p className="fxh-text">
+        Pertenece al grupo de los <strong>broncodilatadores</strong> y
+        actúa relajando los músculos de las vías respiratorias,
+        permitiendo que el aire fluya con mayor facilidad hacia
+        los pulmones.
       </p>
 
-      <p className="p14">📋 Indicaciones clínicas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Alivio de broncoespasmo en asma</li>
-        <li>Tratamiento del broncoespasmo en EPOC</li>
-        <li>Profilaxis del asma inducida por ejercicio</li>
-        <li>Tratamiento agudo de exacerbaciones asmáticas</li>
+
+      <p className="fxh-subtitle">🩺 ¿Para qué se utiliza?</p>
+
+      <ul className="fxh-list">
+
+        <li>Tratamiento del asma</li>
+        <li>Broncoespasmo</li>
+        <li>Enfermedad pulmonar obstructiva crónica (EPOC)</li>
+        <li>Broncoconstricción inducida por ejercicio</li>
+        <li>Dificultad respiratoria</li>
+
       </ul>
 
-      <p className="p14">💊 Dosis habitual</p>
-      <table style={{ width: '70%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Vía</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Indicaciones</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Dosis</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhalatoria (MDI o nebulizador)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Asma / EPOC</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>100–200 mcg cada 4–6 h según necesidad</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Oral (menos utilizado)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Asma bronquial</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>2–4 mg cada 8 h</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <p className="p14">📈 Farmacocinética</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li><strong>Inicio de acción:</strong> 5 minutos (inhalado)</li>
-        <li><strong>Duración:</strong> 4–6 horas</li>
-        <li><strong>Metabolismo:</strong> Hepático parcial</li>
-        <li><strong>Excreción:</strong> Renal (principalmente como metabolito inactivo)</li>
-        <li><strong>Biodisponibilidad:</strong> Alta por vía inhalatoria, variable por vía oral</li>
+      <p className="fxh-subtitle">⚙️ ¿Cómo actúa?</p>
+
+      <p className="fxh-text">
+        El salbutamol estimula los <strong>receptores beta-2 adrenérgicos</strong>
+        en los músculos de los bronquios, lo que provoca la
+        <strong>relajación de las vías respiratorias</strong> y facilita
+        el paso del aire hacia los pulmones.
+      </p>
+
+
+      <p className="fxh-subtitle">📋 Formas de administración</p>
+
+      <ul className="fxh-list">
+
+        <li>Inhalador</li>
+        <li>Nebulización</li>
+        <li>Jarabe</li>
+        <li>Tabletas</li>
+
       </ul>
 
-      <p className="p14">⚠️ Efectos adversos frecuentes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Temblor fino</li>
-        <li>Taquicardia</li>
-        <li>Nerviosismo</li>
+
+      <p className="fxh-subtitle">⚠️ Efectos secundarios</p>
+
+      <ul className="fxh-list">
+
+        <li>Temblor en las manos</li>
+        <li>Palpitaciones</li>
         <li>Dolor de cabeza</li>
-        <li>Hipopotasemia (en altas dosis)</li>
+        <li>Nerviosismo</li>
+        <li>Taquicardia</li>
+
       </ul>
 
-      <p className="p14">🚫 Contraindicaciones</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Hipersensibilidad al salbutamol o componentes de la fórmula</li>
-        <li>Uso cauteloso en pacientes con enfermedades cardiovasculares graves</li>
+
+      <p className="fxh-subtitle">💊 Dosis y uso</p>
+
+      <div className="fxh-table-wrapper">
+
+        <table className="fxh-table">
+
+          <thead>
+            <tr>
+              <th>Presentación</th>
+              <th>Uso común</th>
+              <th>Objetivo</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Inhalador</td>
+              <td>1–2 inhalaciones según indicación médica</td>
+              <td>Aliviar broncoespasmo</td>
+            </tr>
+
+            <tr>
+              <td>Nebulización</td>
+              <td>Dosis prescrita por el médico</td>
+              <td>Facilitar respiración</td>
+            </tr>
+
+            <tr>
+              <td>Jarabe o tabletas</td>
+              <td>Uso menos frecuente</td>
+              <td>Tratamiento sistémico</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p className="fxh-subtitle">📌 Recomendaciones</p>
+
+      <ul className="fxh-list">
+
+        <li>Usar solo bajo indicación médica</li>
+        <li>No exceder la dosis recomendada</li>
+        <li>Consultar al médico si los síntomas empeoran</li>
+        <li>Usar correctamente el inhalador</li>
+        <li>Mantener controles médicos periódicos</li>
+
       </ul>
 
-      <p className="p14">🔄 Interacciones relevantes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Betabloqueadores no selectivos (p. ej., propranolol): pueden antagonizar su efecto</li>
-        <li>Diuréticos y corticosteroides: mayor riesgo de hipopotasemia</li>
-        <li>ISRS o IMAO: riesgo teórico de efectos cardiovasculares</li>
-      </ul>
-
-      <p className="p14">📌 Observaciones prácticas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Uso bajo demanda, no como tratamiento de mantenimiento</li>
-        <li>Educar sobre técnica adecuada de inhalación</li>
-        <li>Evaluar uso excesivo (mayor a 2 veces por semana): puede indicar mal control del asma</li>
-        <li>Puede combinarse con corticosteroides inhalados para mayor control</li>
-      </ul>
     </div>
+
   );
+
 }
 
 export default Salbutamol;

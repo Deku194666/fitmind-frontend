@@ -10,7 +10,9 @@ const BarNavMusculacion = () => {
   return ( 
   
   <div className="secondary-bar">
-    <Link to="/registroejercicio/registromusculacion2" className='bar-button' > Registro Musculacion </Link>            
+    <Link to="/registroejercicio/registromusculacion2" className='bar-button' > Registro Musculación </Link> 
+    <Link to="/registroejercicio/historialmusculacion" className='bar-button' > Registro Ejercicios </Link>            
+           
    
   </div>
 

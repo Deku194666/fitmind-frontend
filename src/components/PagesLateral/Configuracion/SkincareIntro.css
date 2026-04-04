@@ -1,0 +1,47 @@
+
+
+
+.skincare-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skincare-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.skincare-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.skincare-card h2,
+.skincare-card h3 {
+  margin-bottom: 1rem;
+}
+
+.skincare-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.skincare-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skincare-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.skincare-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

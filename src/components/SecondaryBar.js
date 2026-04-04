@@ -9,11 +9,12 @@ const SecondaryBar = () => {
   return ( 
   
   <div className="secondary-bar">
-    <Link to="/ecnt" className='bar-button'>ECNT</Link>
-    <Link to="/informes" className='bar-button'>Informes</Link>
-    <Link to="/signosvitales" className='bar-button' > Monitoreo CSV  </Link>            
-    <Link  to="/premium"  className='bar-button'  > Premium  </Link>
+    <Link to="/registroalimentos" className="bar-button">Registro de Alimentos</Link>
+    <Link   className='bar-button'  to="/ejercicio"  >  Ejercicio </Link>
+    <Link to="/signosvitales" className='bar-button' > Tus Signos Vitales  </Link> 
+    <Link className='bar-button'   to="/hidratacion">Hidratación</Link>           
     <Link to="/calidadsueno" className="bar-button">Calidad del Sueño</Link>
+    <Link  to="/skincarepresentacion"  className='bar-button'  > Cuidados de la Piel  </Link>
 
   </div>
 

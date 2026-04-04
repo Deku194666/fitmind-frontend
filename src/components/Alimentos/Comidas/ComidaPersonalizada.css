@@ -1,0 +1,102 @@
+
+
+
+.ea-container {
+  max-width: 1400px;
+}
+
+/* Títulos */
+.title-main {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.title-section {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+}
+
+/* Texto */
+.text-body {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+
+/* Tablas */
+.table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.styled-table {
+  width: 60%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.styled-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+  .title-main {
+    font-size: 2.6rem;
+  }
+
+  .title-section {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .text-body {
+    font-size: 1.6rem;
+  }
+}
+
+/* Móviles */
+@media screen and (max-width: 768px) {
+  .title-main {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .title-section {
+    font-size: 2.3rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .text-body {
+    font-size: 1.6rem;
+  }
+
+  .table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .styled-table {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 5rem;
+  }
+}

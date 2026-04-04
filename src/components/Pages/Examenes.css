@@ -1,22 +1,109 @@
 
 
-.Parra1 {
-
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
-
+/* ==========================
+   Estilos generales (PC)
+========================== */
+.examenes-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    
 }
 
-.pha2 {
+.p130 { 
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2980b9;
+    margin-top: 3rem;
+    margin-left: 5rem;
+}
 
-    font-size: 2rem;
-    text-align: left;
-    margin-left: 6rem;
-    max-width:  99rem;
-    margin-bottom:  5rem;
+.p140 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-left: 5rem;
+    color:#2980b9
+}
 
+.p151 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    text-align: justify;
+    line-height: 1.8;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.examenes-container a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.examenes-container a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   Media Queries: Tablets y Móviles
+========================== */
+@media screen and (max-width: 1024px) {
+    .p130 {
+        font-size: 3.7rem;
+        margin-left: 3rem;
+
+
+        
+    }
+
+    .p140 {
+        font-size: 3rem;
+        margin-left: 4rem;
+        color: #2980b9;
+
+    }
+
+    .p151 {
+        font-size: 1.9rem;
+        margin-left: 2.4rem;
+        margin-right: 2.4rem;
+        text-align: justify;
+    }
+
+    .examenes-container {
+        padding: 0rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .p130 {
+        font-size: 3.5rem;
+    }
+
+    .p14 {
+        font-size: 1rem;
+    }
+
+    .p150 {
+        font-size: 3rem;
+    }
+
+    .examenes-container {
+        padding: 0rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .p130 {
+        font-size: 3.1rem;
+    }
+
+    .p140 {
+        font-size: 2.6rem;
+    }
+
+    .p151 {
+        font-size: 1.5rem;
+    }
 }

@@ -1,0 +1,102 @@
+
+
+/* PenicilInhibidorBeta.css */
+
+.pb-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pb-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.pb-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.pb-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.pb-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.pb-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.pb-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pb-table th,
+.pb-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.pb-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .pb-title {
+    font-size: 2.6rem;
+  }
+
+  .pb-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .pb-text,
+  .pb-list {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pb-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .pb-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .pb-text,
+  .pb-list {
+    font-size: 1.6rem;
+  }
+
+  .pb-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+}

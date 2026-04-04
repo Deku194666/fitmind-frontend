@@ -1,0 +1,143 @@
+
+
+/* Broncodilatadores.css */
+
+.bd-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bd-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.bd-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.bd-subsubtitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.bd-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.bd-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.bd-sublist {
+  font-size: 1.9rem;
+  line-height: 1.6;
+  margin-left: 2rem;
+  list-style-type: circle;
+}
+
+.bd-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.bd-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bd-table th,
+.bd-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.bd-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Flex layouts */
+.bd-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.bd-half {
+  width: 48%;
+}
+
+.bd-third {
+  width: 32%;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .bd-title {
+    font-size: 2.6rem;
+  }
+
+  .bd-subtitle,
+  .bd-subsubtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .bd-text,
+  .bd-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .bd-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .bd-subtitle,
+  .bd-subsubtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .bd-text,
+  .bd-list {
+    font-size: 1.6rem;
+  }
+
+  .bd-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .bd-half,
+  .bd-third {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}

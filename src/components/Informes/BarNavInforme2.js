@@ -8,6 +8,7 @@ const BavNavInforme2 = () => {
   return ( 
   
   <div className="secondary-bar">
+    <Link to="/calendarintro" className='bar-button' > Todos tus Registros </Link> 
     <Link to="/signosvitalesinforme" className='bar-button' > Signos Vitales  </Link>            
     <Link to="/suenoinforme" className="bar-button"> Sueño</Link>
     <Link   className='bar-button'  to="/ejercicioinforme"  >  Ejercicio </Link>

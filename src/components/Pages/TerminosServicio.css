@@ -1,0 +1,33 @@
+
+
+.terms-page {
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+}
+
+.terms-page h1.fxh-title {
+  color: #2980b9;
+  text-align: center;
+}
+
+.terms-page h2.fxh-subtitle {
+  color: #2980b9;
+}
+
+.terms-page p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.terms-page .fxh-list li {
+  margin-bottom: 0.5rem;
+}
+
+.terms-page .fxh-footer {
+  text-align: center;
+  color: #555;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}

@@ -1,104 +1,145 @@
-
-
 import React, { useEffect } from 'react';
+import './Ibuprofeno.css';
 
 function Ibuprofeno() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">💊 Ibuprofeno</p>
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p15">
-        El <strong>Ibuprofeno</strong> es un antiinflamatorio no esteroideo (AINE) ampliamente utilizado por sus propiedades <strong>analgésicas</strong>, <strong>antiinflamatorias</strong> y <strong>antipiréticas</strong>. Se indica en una gran variedad de patologías dolorosas agudas o crónicas, tanto musculoesqueléticas como febriles.
+    <div className="fxh-detail256">
+
+      <p className="fxh-title">💊 Ibuprofeno</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+
+      <p className="fxh-text">
+        El <strong>ibuprofeno</strong> es un medicamento perteneciente al grupo
+        de los <strong>antiinflamatorios no esteroideos (AINE)</strong>. Se
+        utiliza comúnmente para aliviar el <strong>dolor, la inflamación y la
+        fiebre</strong>.
       </p>
 
-      <p className="p14">🧪 Mecanismo de acción</p>
-      <p className="p15">
-        Inhibe de forma reversible la enzima <strong>ciclooxigenasa (COX-1 y COX-2)</strong>, reduciendo la síntesis de prostaglandinas, sustancias implicadas en la inflamación, dolor y fiebre. Al inhibir COX-1, puede afectar la protección gástrica y la función plaquetaria.
+      <p className="fxh-text">
+        Este medicamento actúa bloqueando la producción de ciertas sustancias
+        en el cuerpo llamadas <strong>prostaglandinas</strong>, que están
+        relacionadas con el dolor, la inflamación y la fiebre. Es uno de los
+        analgésicos más utilizados en el mundo.
       </p>
 
-      <p className="p14">📋 Indicaciones clínicas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Dolor musculoesquelético leve a moderado</li>
-        <li>Artritis reumatoide y artrosis</li>
-        <li>Dismenorrea</li>
+
+      <p className="fxh-subtitle">🧪 Usos médicos</p>
+
+      <ul className="fxh-list">
+
+        <li>Dolor de cabeza</li>
+        <li>Dolor muscular</li>
+        <li>Dolor dental</li>
+        <li>Dolor menstrual</li>
         <li>Fiebre</li>
-        <li>Dolor dental o postoperatorio</li>
-        <li>Cefaleas tensionales o migrañas leves</li>
+        <li>Inflamación</li>
+
       </ul>
 
-      <p className="p14">💊 Dosis habitual</p>
-      <table style={{ width: '70%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Vía</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Dosis</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Frecuencia</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Oral (adultos)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>200–400 mg</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Cada 6–8 h (máximo 1200–2400 mg/día)</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Oral (niños)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>5–10 mg/kg</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Cada 6–8 h (máximo 40 mg/kg/día)</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <p className="p14">📈 Farmacocinética</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li><strong>Inicio de acción:</strong> 30–60 minutos</li>
-        <li><strong>Vida media:</strong> 2–4 horas</li>
-        <li><strong>Metabolismo:</strong> Hepático (CYP2C9)</li>
-        <li><strong>Excreción:</strong> Renal</li>
+      <p className="fxh-subtitle">⚙️ Mecanismo de acción</p>
+
+      <p className="fxh-text">
+        El ibuprofeno actúa inhibiendo las enzimas
+        <strong> ciclooxigenasa (COX-1 y COX-2)</strong>, responsables de la
+        producción de prostaglandinas. Al disminuir estas sustancias, el
+        medicamento reduce el dolor, la inflamación y la fiebre.
+      </p>
+
+
+      <p className="fxh-subtitle">📋 Dosis comunes</p>
+
+      <ul className="fxh-list">
+
+        <li>Adultos: 200 mg a 400 mg cada 6 a 8 horas</li>
+        <li>Dosis máxima diaria recomendada: 1200 mg sin supervisión médica</li>
+        <li>Niños: dosis ajustada según peso corporal</li>
+
       </ul>
 
-      <p className="p14">⚠️ Efectos adversos frecuentes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Irritación gástrica, dispepsia</li>
-        <li>Dolor abdominal o náuseas</li>
-        <li>Úlceras o hemorragia digestiva (riesgo con uso prolongado)</li>
-        <li>Retención de líquidos o edema</li>
-        <li>Aumento de la presión arterial</li>
-        <li>Alteraciones renales con uso crónico o en pacientes vulnerables</li>
+
+      <p className="fxh-subtitle">⚠️ Efectos secundarios</p>
+
+      <ul className="fxh-list">
+
+        <li>Dolor o irritación estomacal</li>
+        <li>Náuseas</li>
+        <li>Mareos</li>
+        <li>Acidez estomacal</li>
+        <li>Reacciones alérgicas en casos raros</li>
+
       </ul>
 
-      <p className="p14">🚫 Contraindicaciones</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Hipersensibilidad a AINEs o antecedentes de asma inducida por AINEs</li>
-        <li>Úlcera péptica activa o hemorragia digestiva</li>
-        <li>Insuficiencia renal grave</li>
-        <li>Insuficiencia hepática o cardíaca grave</li>
-        <li>Tercer trimestre del embarazo</li>
+
+      <p className="fxh-subtitle">💊 Presentaciones</p>
+
+      <div className="fxh-table-wrapper">
+
+        <table className="fxh-table">
+
+          <thead>
+            <tr>
+              <th>Forma</th>
+              <th>Dosis común</th>
+              <th>Uso</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Tabletas</td>
+              <td>200 mg / 400 mg</td>
+              <td>Dolor y fiebre</td>
+            </tr>
+
+            <tr>
+              <td>Cápsulas</td>
+              <td>200 mg / 400 mg</td>
+              <td>Dolor e inflamación</td>
+            </tr>
+
+            <tr>
+              <td>Suspensión oral</td>
+              <td>100 mg/5 ml</td>
+              <td>Uso pediátrico</td>
+            </tr>
+
+            <tr>
+              <td>Gel tópico</td>
+              <td>Aplicación local</td>
+              <td>Dolor muscular o articular</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p className="fxh-subtitle">📌 Precauciones</p>
+
+      <ul className="fxh-list">
+
+        <li>No usar en personas con alergia a AINE</li>
+        <li>Usar con precaución en enfermedades gástricas</li>
+        <li>Evitar uso prolongado sin supervisión médica</li>
+        <li>Consultar al médico durante embarazo o lactancia</li>
+
       </ul>
 
-      <p className="p14">🔄 Interacciones relevantes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Anticoagulantes (ej. warfarina): mayor riesgo de sangrado</li>
-        <li>IECA o ARA II: aumento del riesgo de toxicidad renal</li>
-        <li>Diuréticos: posible disminución del efecto y mayor riesgo renal</li>
-        <li>Corticoides: aumento del riesgo gastrointestinal</li>
-        <li>Litio o metotrexato: aumento de sus niveles plasmáticos</li>
-      </ul>
-
-      <p className="p14">📌 Observaciones prácticas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Tomar con alimentos para reducir irritación gástrica</li>
-        <li>No se recomienda su uso crónico sin supervisión médica</li>
-        <li>Evitar en pacientes con riesgo cardiovascular elevado</li>
-        <li>Considerar alternativas más seguras en adultos mayores</li>
-      </ul>
     </div>
+
   );
+
 }
 
 export default Ibuprofeno;

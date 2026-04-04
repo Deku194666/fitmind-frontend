@@ -1,6 +1,7 @@
-
 import React, { useEffect } from 'react';
 import NavBarAnticoagulantes from './NavBarAnticoagulantes';
+import './AntiCoagulantes.css';
+import { Link } from 'react-router-dom';
 
 
 function AntiCoagulantes() {
@@ -9,81 +10,87 @@ function AntiCoagulantes() {
   }, []);
 
   return (
-    <div className="ecnt-detail">
-        
-        <NavBarAnticoagulantes/>
-      <p className="p13">Fármacos Anticoagulantes</p>
-      <p className="p14">📌 Introducción</p>
-      <p className="p150">
-        Los <strong>Anticoagulantes</strong> son fármacos que interfieren con la coagulación sanguínea, 
-        previniendo la formación o extensión de trombos. Son fundamentales en el tratamiento y prevención 
+    <div className="fxh-detail57">
+
+      <NavBarAnticoagulantes />
+
+      <p className="fxh-title">Fármacos Anticoagulantes</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+      <p className="fxh-text">
+        Los <strong>Anticoagulantes</strong> son fármacos que interfieren con la coagulación sanguínea,
+        previniendo la formación o extensión de trombos. Son fundamentales en el tratamiento y prevención
         de enfermedades tromboembólicas venosas y arteriales.
       </p>
 
-      <p className="p14">🔬 Clasificación de Anticoagulantes</p>
-      <table style={{ width: '85%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Tipo</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Ejemplos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Mecanismo de acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Antagonistas de la vitamina K</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Warfarina, Acenocumarol</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhiben la síntesis de factores II, VII, IX y X dependientes de vitamina K</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Heparinas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Heparina no fraccionada (HNF), Enoxaparina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Potencian la acción de la antitrombina III</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Anticoagulantes orales directos (DOACs)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Rivaroxabán, Apixabán, Dabigatrán</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhiben directamente el factor Xa o la trombina</td>
-          </tr>
-        </tbody>
-      </table>
+      <p className="fxh-subtitle">🔬 Clasificación de Anticoagulantes</p>
 
-      <p className="p14">💡 Indicaciones Terapéuticas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Prevención y tratamiento de Trombosis Venosa Profunda (TVP) y Embolia Pulmonar (EP).</li>
-        <li>Prevención de accidente cerebrovascular en fibrilación auricular.</li>
-        <li>Tratamiento y prevención secundaria del infarto agudo de miocardio.</li>
-        <li>Anticoagulación en prótesis valvulares mecánicas (warfarina).</li>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Ejemplos</th>
+              <th>Mecanismo de acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><Link to="/farmacos/antagonistasvitk" > Antagonistas de la Vitamina K  </Link></td>
+              <td>Warfarina, Acenocumarol</td>
+              <td>Inhiben la síntesis de factores II, VII, IX y X dependientes de vitamina K</td>
+            </tr>
+            <tr>
+              <td><Link to="/farmacos/heparinas"  > Heparinas  </Link></td>
+              <td>Heparina no fraccionada (HNF), Enoxaparina</td>
+              <td>Potencian la acción de la antitrombina III</td>
+            </tr>
+            <tr>
+              <td>  <Link to="/farmacos/anticoagulantesorales"  > Anticoagulantes orales directos (DOACs) </Link>  </td>  
+              <td>Rivaroxabán, Apixabán, Dabigatrán</td>
+              <td>Inhiben directamente el factor Xa o la trombina</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="fxh-subtitle">💡 Indicaciones Terapéuticas</p>
+      <ul className="fxh-list">
+        <li> <strong>-</strong> Prevención y tratamiento de Trombosis Venosa Profunda (TVP) y Embolia Pulmonar (EP).</li>
+        <li> <strong>-</strong> Prevención de accidente cerebrovascular en fibrilación auricular.</li>
+        <li> <strong>-</strong> Tratamiento y prevención secundaria del infarto agudo de miocardio.</li>
+        <li> <strong>-</strong> Anticoagulación en prótesis valvulares mecánicas (warfarina).</li>
       </ul>
 
-      <p className="p14">⚠️ Efectos Adversos Comunes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li><strong>Hemorragia:</strong> principal complicación de todos los anticoagulantes.</li>
-        <li><strong>Warfarina:</strong> requiere control de INR, muchas interacciones farmacológicas.</li>
-        <li><strong>Heparina:</strong> trombocitopenia inducida por heparina (TIH).</li>
-        <li><strong>DOACs:</strong> menor riesgo de sangrado intracraneal, pero aún puede causar hemorragias gastrointestinales.</li>
+      <p className="fxh-subtitle">⚠️ Efectos Adversos Comunes</p>
+      <ul className="fxh-list">
+        <li><strong> - Hemorragia:</strong> principal complicación de todos los anticoagulantes.</li>
+        <li><strong> - <Link to="/farmacos/farmacos2/warfarina"  > Warfarina  </Link> </strong> requiere control de INR.</li>
+        <li><strong> - Heparina:</strong> trombocitopenia inducida por heparina (TIH).</li>
+        <li><strong> - DOACs:</strong> menor riesgo de sangrado intracraneal, pero posible sangrado gastrointestinal.</li>
       </ul>
 
-      <p className="p14">🧠 Consideraciones Clínicas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <p className="fxh-subtitle">🧠 Consideraciones Clínicas</p>
+      <ul className="fxh-list">
         <li>Monitorizar INR regularmente en pacientes con warfarina.</li>
         <li>Ajustar dosis de DOACs en insuficiencia renal.</li>
         <li>Evitar uso concomitante con AINEs por riesgo de sangrado.</li>
-        <li>Disponibilidad de antídotos específicos (vitamina K para warfarina, idarucizumab para dabigatrán, andexanet alfa para factor Xa).</li>
+        <li>Disponibilidad de antídotos específicos (vitamina K, idarucizumab, andexanet alfa).</li>
       </ul>
 
-      <p className="p14">📦 Combinaciones Frecuentes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Aspirina + Anticoagulante (en síndrome coronario agudo con riesgo trombótico elevado).</li>
-        <li>Heparina + Warfarina (inicio conjunto hasta alcanzar INR terapéutico).</li>
-        <li>Evitar triple terapia (AAS + clopidogrel + anticoagulante) más allá de lo estrictamente necesario.</li>
+      <p className="fxh-subtitle">📦 Combinaciones Frecuentes</p>
+      <ul className="fxh-list">
+        <li>Aspirina + Anticoagulante (según riesgo trombótico).</li>
+        <li>Heparina + Warfarina hasta alcanzar INR terapéutico.</li>
+        <li>Evitar triple terapia prolongada.</li>
       </ul>
 
-      <p className="p14">📚 Conclusión</p>
-      <p className="p150">
-        Los <strong> Anticoagulantes </strong> son herramientas vitales en la prevención y tratamiento de eventos tromboembólicos. 
-        Su manejo requiere evaluación cuidadosa del riesgo-beneficio, monitorización clínica, y educación del paciente para minimizar complicaciones hemorrágicas.
+      <p className="fxh-subtitle">📚 Conclusión</p>
+      <p className="fxh-text">
+        Los <strong>Anticoagulantes</strong> son herramientas vitales en la prevención y tratamiento de eventos tromboembólicos.
+        Su manejo requiere evaluación cuidadosa del riesgo-beneficio, monitorización clínica y educación del paciente.
       </p>
+
     </div>
   );
 }

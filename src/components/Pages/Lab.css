@@ -1,0 +1,109 @@
+/* ==========================
+   Estilos generales (PC)
+========================== */
+.lab-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.p132 { 
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2980b9;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.p142 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.p152 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+ul.p150 {
+    padding-left: 2rem; /* espacio para bullets */
+}
+
+.lab-container a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.lab-container a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   Media Queries: Tablets y Móviles
+========================== */
+@media screen and (max-width: 1024px) {
+    .p132 {
+        font-size: 4rem;
+        color: #2980b9;
+        font-weight: 600;
+        margin-left: 2rem;
+
+        
+    }
+
+    .p142 {
+        font-size: 3rem;
+        color: #2980b9;
+        font-weight: 600;
+        margin-left: 3rem;
+    }
+
+    .p152 {
+        font-size: 1.8rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-align: justify;
+    }
+
+    .lab-container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .p13 {
+        font-size: 2rem;
+    }
+
+    .p14 {
+        font-size: 1.5rem;
+    }
+
+    .p150 {
+        font-size: 1.2rem;
+    }
+
+    .lab-container {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .p132 {
+        font-size: 3.1rem;
+    }
+
+    .p142 {
+        font-size: 2.6rem;
+    }
+
+    .p152 {
+        font-size: 1.5rem;
+    }
+}

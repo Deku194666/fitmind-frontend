@@ -1,234 +1,122 @@
-html, body, #root {
-  margin: 0;
-  padding: 0;
-  
- 
+/* CONTENEDOR GENERAL */
+.contenedor {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
+  font-family: Arial, sans-serif;
+  border: 5px solid red !important;
+
 }
 
+/* TITULO */
+.titulo {
+  text-align: center;
+  color: #2980b9;
+  margin-bottom: 25px;
+}
 
+/* LAYOUT */
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+}
 
-
-
-.formulario-sueno {
-
+/* CAJA FORM */
+.contenedor-formulario {
+  width: 100%;
   max-width: 500px;
-  margin: 20px auto;
-  background-color: #ffffff;
-  border: 2px solid #4a90e2;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  overflow: visible !important;    /* permite que el contenido crezca sin scroll interno */
-  height: auto; 
-
-
-    
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-
-
-
-/* Título */
-.titulo-sueno {
-  font-size: 3.5rem;
-  font-weight: 700;
-  text-align: center;
+/* SUBTITULO */
+.subtitulo {
   color: #2980b9;
+  margin-bottom: 15px;
 }
 
-/* Label de Fecha */
-.fecha {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
-  color: #2980b9;
-  margin-bottom: 10px;
-  margin-left: 3rem
-}
-
-/* Contenedor de Fecha */
-.fecha-container {
+/* FORM */
+.formulario {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 320px;
+  gap: 12px;
 }
 
-/* Input Fecha */
-.fecha-input {
-
-  padding: 0.5rem;
+/* INPUTS */
+.input,
+.textarea {
+  padding: 12px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  text-align: center;
-  width: 10rem !important; /* achica el campo */
-  margin-left: 4rem !important;
-  margin-bottom: 3rem !important;
-
-}
-
-/* Fila con Hora de Dormir y Hora de Despertar */
-.fila-centro {
-  display: flex;
-  flex-direction: column; /* 👈 cambia de fila a columna */
-  align-items: center;    /* centra horizontalmente los inputs */
-  gap: 20px;               /* espacio entre los dos */
+  font-size: 16px;
   width: 100%;
 }
 
-
-.fila-centro .input-centro {
-  width: 320px;
-}
-
-/* Inputs y Textareas */
-.input-centro {
+/* FILA HORAS */
+.fila {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 18rem !important;
-  margin-left: 4.8rem !important;
-  margin-bottom: 1rem !important;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-align: center;
-  color: #2980b9 !important;
-
+  gap: 10px;
 }
 
-.horadormir-input {
-
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  text-align: center;
-  width: 10rem !important; /* achica el campo */
-  margin-left: 4rem !important;
-  margin-bottom: 2rem !important;
-
+/* LABEL */
+.label {
+  font-weight: bold;
+  color: #2980b9;
 }
 
-
-.input-centro1 {
+/* CHECKS */
+.checks {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 16rem !important;
-  margin-left: 4.7rem !important;
-  margin-bottom: 2rem !important;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: center;
-  color: #2980b9 !important;
-  
+  gap: 20px;
 }
 
-
-.horadespertar-input {
-
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  text-align: center;
-  width: 10rem !important; /* achica el campo */
-  margin-left: 4rem !important;
-  margin-bottom: 2rem !important;
-
-}
-
-
-.despertarnocturno {
+.check-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  width: 16rem !important;
-  margin-left: 4.7rem !important;
-  margin-bottom: 2rem !important;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: center;
-  color: #2980b9 !important;
-  
+  background: #f5f7fa;
+  padding: 14px;
+  border-radius: 8px;
 }
 
-
-.despertaresnocturnos-input {
-
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  text-align: center;
-  width: 10rem !important; /* achica el campo */
-  margin-left: 4rem !important;
-  margin-bottom: 2rem !important;
-
+.check-item input {
+  width: 20px;
+  height: 20px;
 }
 
-.calidadsueno {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 16rem !important;
-  margin-left: 1rem !important;
-  margin-bottom: 2rem !important;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: center;
-  color: #2980b9 !important;
-  
-}
-
-
-.input-centro input,
-.input-centro textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-/* Checkboxes */
-.checkbox-centro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px 0;
-  width: 320px;
-  margin-left: 5rem !important;
-}
-
-/* Botón */
-.boton-centro {
-  width: 19rem !important; 
-  background-color: #2980b9;
-  color: white;
-  padding: 10px;
+/* BOTON */
+.boton {
+  padding: 12px;
   border: none;
   border-radius: 8px;
+  background: #2980b9;
+  color: white;
   font-weight: bold;
-  cursor: pointer;
-  margin-left: 5rem !important;
+  font-size: 16px;
 }
 
-.boton-centro:hover {
-  background-color: #2980b9;
+/* MENSAJE */
+.mensaje {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
 }
 
-/* Formulario centrado */
-.formulario-centro {
-  display: grid;
-  gap: 16px;
-  justify-items: center; /* centra todos los elementos en cada fila */
+/* 📱 TABLET */
+@media (min-width: 768px) {
+  .fila {
+    flex-direction: row;
+  }
 }
 
-
+/* 💻 DESKTOP */
+@media (min-width: 1024px) {
+  .contenedor-formulario {
+    padding: 25px;
+  }
+}

@@ -1,0 +1,112 @@
+.mis-habitos-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 🔥 CALENDARIO CONTROL */
+.calendar-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🔥 FORMULARIO ENCIMA */
+.nuevo-habito {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 10px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+
+.nuevo-habito input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.nuevo-habito button {
+  padding: 0.6rem 1rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* PROGRESO */
+.barra-externa {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.barra-interna {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 5px;
+}
+
+/* LISTA */
+.habito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  padding: 0.6rem;
+  border-radius: 6px;
+}
+
+.habito-item.completo {
+  background: #d4edda;
+}
+
+.habito-controles {
+  display: flex;
+  gap: 5px;
+}
+
+.boton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton-mas {
+  background: #4caf50;
+  color: white;
+}
+
+.boton-menos {
+  background: #f44336;
+  color: white;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 480px) {
+  .nuevo-habito {
+    flex-direction: column;
+  }
+
+  .habito-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

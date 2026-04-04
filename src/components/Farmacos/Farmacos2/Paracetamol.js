@@ -1,91 +1,146 @@
-
-
-
 import React, { useEffect } from 'react';
+import './Paracetamol.css';
 
 function Paracetamol() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <p className="p13">💊 Paracetamol (Acetaminofén)</p>
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p15">
-        El <strong>Paracetamol</strong>, también conocido como acetaminofén, es un fármaco analgésico y antipirético ampliamente utilizado para el alivio del dolor leve a moderado y la fiebre. Es una opción segura cuando se usa en dosis terapéuticas y no tiene efectos antiinflamatorios significativos.
+    <div className="fxh-detail257">
+
+      <p className="fxh-title">💊 Paracetamol</p>
+
+      <p className="fxh-subtitle">📌 Introducción</p>
+
+      <p className="fxh-text">
+        El <strong>paracetamol</strong>, también conocido como
+        <strong> acetaminofén</strong>, es un medicamento ampliamente utilizado
+        para aliviar el <strong>dolor leve a moderado</strong> y reducir la
+        <strong> fiebre</strong>. Es uno de los analgésicos más comunes y
+        generalmente se considera seguro cuando se utiliza en las dosis
+        recomendadas.
       </p>
 
-      <p className="p14">🧪 Mecanismo de acción</p>
-      <p className="p15">
-        Inhibe de forma reversible la síntesis de prostaglandinas en el sistema nervioso central, lo que disminuye la percepción del dolor y la respuesta febril. A diferencia de los AINEs, no inhibe significativamente la ciclooxigenasa en tejidos periféricos.
+      <p className="fxh-text">
+        A diferencia de otros analgésicos como los antiinflamatorios no
+        esteroideos (AINE), el paracetamol tiene un efecto antiinflamatorio
+        limitado y suele causar menos irritación gastrointestinal.
       </p>
 
-      <p className="p14">📋 Indicaciones clínicas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Dolor leve a moderado (cefalea, mialgias, artralgias, dolor dental, etc.)</li>
-        <li>Fiebre de origen diverso</li>
-        <li>Alternativa a AINEs cuando están contraindicados</li>
+
+      <p className="fxh-subtitle">🧪 Usos médicos</p>
+
+      <ul className="fxh-list">
+
+        <li>Dolor de cabeza</li>
+        <li>Dolor dental</li>
+        <li>Dolor muscular</li>
+        <li>Dolor menstrual</li>
+        <li>Fiebre</li>
+        <li>Dolor leve asociado a resfriados o gripe</li>
+
       </ul>
 
-      <p className="p14">💊 Dosis habitual</p>
-      <table style={{ width: '70%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Vía</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Adultos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Niños</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Oral / Rectal</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>500–1000 mg cada 6–8 h (máximo 4 g/día)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>10–15 mg/kg cada 6 h</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <p className="p14">📈 Farmacocinética</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li><strong>Inicio de acción:</strong> 30 minutos</li>
-        <li><strong>Pico de efecto:</strong> 1–2 horas</li>
-        <li><strong>Duración:</strong> 4–6 horas</li>
-        <li><strong>Metabolismo:</strong> Hepático (CYP450)</li>
-        <li><strong>Excreción:</strong> Renal</li>
+      <p className="fxh-subtitle">⚙️ Mecanismo de acción</p>
+
+      <p className="fxh-text">
+        El paracetamol actúa principalmente en el <strong>sistema nervioso
+        central</strong>, inhibiendo la producción de sustancias químicas
+        relacionadas con el dolor y la fiebre. De esta manera ayuda a
+        reducir la temperatura corporal y aliviar la sensación de dolor.
+      </p>
+
+
+      <p className="fxh-subtitle">📋 Dosis comunes</p>
+
+      <ul className="fxh-list">
+
+        <li>Adultos: 500 mg a 1000 mg cada 6 a 8 horas</li>
+        <li>Dosis máxima diaria: 4000 mg bajo supervisión médica</li>
+        <li>Niños: dosis ajustada según peso corporal</li>
+
       </ul>
 
-      <p className="p14">⚠️ Efectos adversos frecuentes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Generalmente bien tolerado en dosis terapéuticas</li>
-        <li>Hepatotoxicidad en sobredosis</li>
-        <li>Raras veces: erupciones cutáneas, reacciones alérgicas</li>
+
+      <p className="fxh-subtitle">⚠️ Efectos secundarios</p>
+
+      <ul className="fxh-list">
+
+        <li>Náuseas</li>
+        <li>Erupciones cutáneas</li>
+        <li>Reacciones alérgicas en casos raros</li>
+        <li>Daño hepático en caso de sobredosis</li>
+
       </ul>
 
-      <p className="p14">🚫 Contraindicaciones</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Hipersensibilidad al fármaco</li>
-        <li>Insuficiencia hepática grave</li>
-        <li>Uso crónico de alcohol (precaución)</li>
+
+      <p className="fxh-subtitle">💊 Presentaciones</p>
+
+      <div className="fxh-table-wrapper">
+
+        <table className="fxh-table">
+
+          <thead>
+            <tr>
+              <th>Forma</th>
+              <th>Dosis común</th>
+              <th>Uso</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Tabletas</td>
+              <td>500 mg / 650 mg</td>
+              <td>Dolor y fiebre</td>
+            </tr>
+
+            <tr>
+              <td>Cápsulas</td>
+              <td>500 mg</td>
+              <td>Dolor moderado</td>
+            </tr>
+
+            <tr>
+              <td>Jarabe o suspensión</td>
+              <td>120 mg/5 ml</td>
+              <td>Uso pediátrico</td>
+            </tr>
+
+            <tr>
+              <td>Supositorios</td>
+              <td>Dosis variable</td>
+              <td>Fiebre en niños</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p className="fxh-subtitle">📌 Precauciones</p>
+
+      <ul className="fxh-list">
+
+        <li>No exceder la dosis máxima recomendada</li>
+        <li>Evitar combinar con alcohol</li>
+        <li>Usar con precaución en enfermedades hepáticas</li>
+        <li>Consultar al médico en embarazo o lactancia</li>
+        <li>Revisar otros medicamentos que contengan paracetamol</li>
+
       </ul>
 
-      <p className="p14">🔄 Interacciones relevantes</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>Alcohol: aumenta el riesgo de hepatotoxicidad</li>
-        <li>Anticoagulantes orales: puede potenciar su efecto con uso prolongado</li>
-        <li>Inductores enzimáticos (como fenitoína o carbamazepina): aumentan toxicidad hepática</li>
-      </ul>
-
-      <p className="p14">📌 Observaciones prácticas</p>
-      <ul className="p17" style={{ listStyleType: 'disc' }}>
-        <li>De preferencia administrar con un intervalo mínimo de 4–6 horas</li>
-        <li>No exceder 4 g/día en adultos para evitar toxicidad hepática</li>
-        <li>Antídoto en sobredosis: N-acetilcisteína</li>
-        <li>Considerado seguro durante el embarazo en dosis adecuadas</li>
-      </ul>
     </div>
+
   );
+
 }
 
 export default Paracetamol;

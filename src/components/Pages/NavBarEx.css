@@ -1,13 +1,64 @@
-
-
-.navbar-ex-link1{
-    font-size: 1.2rem;
-    color: #2980b9;
-    font-weight: 700;
-    white-space: nowrap;
-    margin-left: 3rem;
-
+/* =========================
+   CONTENEDOR WRAPPER
+   ========================= */
+.navbar-wrapper {
+  width: 100%;
+  overflow-x: hidden; /* Scroll solo para móvil si es necesario */
 }
 
+/* =========================
+   BARRA DE NAVEGACIÓN (WEB) – Links en fila
+   ========================= */
+.secondary-bar1 {
+  display: flex;
+  flex-wrap: nowrap;             /* Nunca apilen en web */
+  align-items: center;
+  justify-content: flex-start;   /* Links alineados a la izquierda */
+  gap: 0.5rem;
+  padding: 10px 1rem;
+  background-color: lightcyan;
+  border-bottom: 1px solid #ccc;
+}
 
+.bar-button {
+  flex: 0 0 auto;                /* Mantiene tamaño natural de los links */
+  white-space: nowrap;            /* Texto en una línea */
+  text-decoration: none;
+  color: #2980b9;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #e0f7fa;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  text-shadow: none;
+  box-shadow: none;
+}
 
+.bar-button:hover {
+  color: #1f618d;
+  background-color: #b2ebf2;
+}
+
+/* =========================
+   MOBILE – Links en columna
+   ========================= */
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    overflow-x: hidden;           /* No scroll horizontal en columna */
+  }
+
+  .secondary-bar1 {
+    flex-direction: column;       /* Links uno debajo del otro */
+    align-items: stretch;         /* Cada link ocupa todo el ancho */
+    gap: 8px;
+    padding: 8px 0.5rem;
+  }
+
+  .bar-button {
+    width: 100%;                  /* Ocupa toda la fila en móvil */
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+}

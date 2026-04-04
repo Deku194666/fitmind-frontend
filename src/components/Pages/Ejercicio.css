@@ -1,26 +1,156 @@
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.ejercicio-container {
+  width: 100%;
+  padding: 1rem;
+  overflow-x: hidden;
+}
 
+/* =========================
+   TEXTOS
+========================= */
 .parraf1 {
-
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2980b9;
-    text-align: left;
-    margin-left: 6rem;
-    margin-top: 3rem;
-
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .parraf2 {
-
-    font-size: 2rem;
-    text-align: left;
-    margin-left: 6rem;
-    max-width:  99rem;
-
+  font-size: 1.6rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
 }
 
-.contenedor {
+/* =========================
+   GRID DE CARDS
+========================= */
+.cards-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
+}
+
+/* =========================
+   WRAPPER (CONTROL TOTAL)
+========================= */
+.ejercicio-card-wrapper {
+  width: 42rem; /* desktop */
+  max-width: 100%;
+}
+
+/* =========================
+   PAPER
+========================= */
+.ejercicio-card {
+  padding: 2rem;
+  border-radius: 0.8rem;
+}
+
+/* =========================
+   TIPOGRAFÍA
+========================= */
+.ejercicio-card h6 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ejercicio-card p {
+  font-size: 1.3rem;
+}
+
+/* =========================
+   CELULAR
+========================= */
+@media (max-width: 768px) {
+
+  .ejercicio-container .parraf1 {
+    font-size: 3rem;   /* 🔥 agranda aquí a tu gusto */
+    line-height: 1.2;
+  }
+
+  .ejercicio-container .parraf2 {
+    font-size: 1.9rem;   /* 🔥 agranda aquí a tu gusto */
+    line-height: 1.6;    /* mejora lectura en móvil */
+    text-align: justify;
+    width: 25rem;
+  }
+
+
+  .ejercicio-container 
+  .ejercicio-card 
+  .MuiTypography-h6 {
+    font-size: 1.85rem !important;  /* 🔥 agranda aquí */
+    text-align: center;
+    color:#2980b9;
+
+  }
+
+
+  .ejercicio-container 
+  .ejercicio-card 
+  .MuiTypography-root {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+    .ejercicio-container .ejercicio-card-wrapper {
+    padding: 0 1rem;
+  }
+
+  .ejercicio-container .ejercicio-card {
+    width: 100% !important;
+    padding: 1.2rem !important;
+    border-radius: 1rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ejercicio-card-wrapper {
+    width: 95%;
+  }
+
+  .ejercicio-card {
+    padding: 1.2rem;
+  }
+
+  .ejercicio-card h6 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .ejercicio-card p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   CELULAR PEQUEÑO
+========================= */
+@media (max-width: 480px) {
+
+  .ejercicio-card-wrapper {
+    width: 100%;
+  }
+
+  .ejercicio-card {
+    padding: 1rem;
+  }
+
+  .parraf1 {
+    font-size: 2rem;
+  }
+
+  .parraf2 {
+    font-size: 1.2rem;
+  }
 }

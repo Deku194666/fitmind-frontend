@@ -1,0 +1,46 @@
+
+
+.exercise-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exercise-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* 🔥 Cards */
+.exercise-card {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.exercise-card h2,
+.exercise-card h3 {
+  margin-bottom: 1rem;
+}
+
+.exercise-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* 🔥 Lista */
+.exercise-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exercise-card li {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔥 Botón */
+.exercise-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

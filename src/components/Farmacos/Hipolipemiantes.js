@@ -1,7 +1,6 @@
-
-
-import React, { useEffect } from 'react';
-import NavBarHipolipemiantes from './NavBarHipolipemiantes';
+import React, { useEffect } from "react";
+import NavBarHipolipemiantes from "./NavBarHipolipemiantes";
+import "./Hipolipemiantes.css";
 
 function Hipolipemiantes() {
   useEffect(() => {
@@ -9,91 +8,99 @@ function Hipolipemiantes() {
   }, []);
 
   return (
-    <div className="ecnt-detail">
-      <NavBarHipolipemiantes/>
+    <div className="fxh-detail59">
 
-      <p className="p13">Fármacos Hipolipemiantes</p>
+      <NavBarHipolipemiantes />
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p150">
-        Los <strong>Fármacos Hipolipemiantes</strong> son medicamentos utilizados para reducir los niveles de lípidos en sangre, 
+      <h1 className="fxh-title">
+        Fármacos Hipolipemiantes
+      </h1>
+
+      <h2 className="fxh-subtitle">📌 Introducción</h2>
+      <p className="fxh-text">
+        Los <strong>Fármacos Hipolipemiantes</strong> son medicamentos utilizados para reducir los niveles de lípidos en sangre,
         especialmente colesterol y triglicéridos. Su objetivo principal es prevenir enfermedades cardiovasculares ateroescleróticas.
       </p>
 
-      <p className="p14">🔬 Clasificación de Hipolipemiantes</p>
-      <table style={{ width: '85%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Clase</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Ejemplos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Mecanismo de acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Estatinas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Atorvastatina, Rosuvastatina</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhiben la HMG-CoA reductasa (síntesis de colesterol hepático)</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fibratos</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Fenofibrato, Gemfibrozilo</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Activan PPAR-α, reducen triglicéridos y aumentan HDL</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Ezetimiba</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Ezetimiba</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhibe la absorción intestinal de colesterol</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Resinas</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Colestiramina, Colesevelam</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Secuestran ácidos biliares, disminuyendo LDL</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Inhibidores PCSK9</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Alirocumab, Evolocumab</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Aumentan la disponibilidad del receptor de LDL hepático</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 className="fxh-subtitle">🔬 Clasificación de Hipolipemiantes</h2>
 
-      <p className="p14">💡 Indicaciones Terapéuticas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Clase</th>
+              <th>Ejemplos</th>
+              <th>Mecanismo de acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Estatinas</td>
+              <td>Atorvastatina, Rosuvastatina</td>
+              <td>Inhiben la HMG-CoA reductasa (síntesis hepática de colesterol)</td>
+            </tr>
+            <tr>
+              <td>Fibratos</td>
+              <td>Fenofibrato, Gemfibrozilo</td>
+              <td>Activan PPAR-α, reducen triglicéridos y aumentan HDL</td>
+            </tr>
+            <tr>
+              <td>Ezetimiba</td>
+              <td>Ezetimiba</td>
+              <td>Inhibe la absorción intestinal de colesterol</td>
+            </tr>
+            <tr>
+              <td>Resinas</td>
+              <td>Colestiramina, Colesevelam</td>
+              <td>Secuestran ácidos biliares, disminuyendo LDL</td>
+            </tr>
+            <tr>
+              <td>Inhibidores PCSK9</td>
+              <td>Alirocumab, Evolocumab</td>
+              <td>Aumentan la disponibilidad del receptor LDL hepático</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="fxh-subtitle">💡 Indicaciones Terapéuticas</h2>
+      <ul className="fxh-list">
         <li>Hipercolesterolemia primaria (familiar o adquirida).</li>
         <li>Hipertrigliceridemia.</li>
-        <li>Prevención primaria y secundaria de enfermedad cardiovascular ateroesclerótica.</li>
-        <li>Pacientes con diabetes tipo 2 con dislipidemia mixta.</li>
+        <li>Prevención primaria y secundaria de enfermedad cardiovascular.</li>
+        <li>Diabetes tipo 2 con dislipidemia mixta.</li>
       </ul>
 
-      <p className="p14">⚠️ Efectos Adversos Comunes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <h2 className="fxh-subtitle">⚠️ Efectos Adversos</h2>
+      <ul className="fxh-list">
         <li><strong>Estatinas:</strong> Mialgias, elevación de transaminasas, rabdomiólisis (raro).</li>
         <li><strong>Fibratos:</strong> Dolor abdominal, litiasis biliar, aumento de CPK.</li>
-        <li><strong>Ezetimiba:</strong> Bien tolerado; puede causar molestias gastrointestinales leves.</li>
+        <li><strong>Ezetimiba:</strong> Molestias gastrointestinales leves.</li>
         <li><strong>Resinas:</strong> Estreñimiento, distensión abdominal.</li>
-        <li><strong>PCSK9:</strong> Reacciones en el sitio de inyección, síntomas gripales.</li>
+        <li><strong>PCSK9:</strong> Reacciones en sitio de inyección.</li>
       </ul>
 
-      <p className="p14">🧠 Consideraciones Clínicas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Las estatinas son la base del tratamiento hipolipemiante.</li>
-        <li>Fibratos se reservan para triglicéridos muy elevados o riesgo de pancreatitis.</li>
-        <li>PCSK9 son útiles en pacientes con alto riesgo cardiovascular y LDL elevado pese a tratamiento estándar.</li>
-        <li>Monitorear enzimas hepáticas y CPK en pacientes con estatinas o fibratos.</li>
+      <h2 className="fxh-subtitle">🧠 Consideraciones Clínicas</h2>
+      <ul className="fxh-list">
+        <li>Las estatinas son la base del tratamiento.</li>
+        <li>Fibratos para triglicéridos muy elevados.</li>
+        <li>PCSK9 en pacientes de alto riesgo no controlado.</li>
+        <li>Monitorear enzimas hepáticas y CPK.</li>
       </ul>
 
-      <p className="p14">📦 Combinaciones Frecuentes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Estatina + ezetimiba (potenciación del efecto LDL-c).</li>
-        <li>Estatina + inhibidor PCSK9 en pacientes de alto riesgo no controlado.</li>
-        <li>Evitar estatina + fibrato en combinación habitual (riesgo de rabdomiólisis), salvo casos seleccionados y con monitoreo.</li>
+      <h2 className="fxh-subtitle">📦 Combinaciones Frecuentes</h2>
+      <ul className="fxh-list">
+        <li>Estatina + ezetimiba.</li>
+        <li>Estatina + inhibidor PCSK9.</li>
+        <li>Evitar combinación rutinaria estatina + fibrato sin monitoreo.</li>
       </ul>
 
-      <p className="p14">📚 Conclusión</p>
-      <p className="p150">
-        Los <strong>Fármacos Hipolipemiantes</strong> son fundamentales en la prevención de eventos cardiovasculares. Su selección debe adaptarse al perfil lipídico, riesgo individual y tolerancia, siendo las estatinas el eje terapéutico principal.
+      <h2 className="fxh-subtitle">📚 Conclusión</h2>
+      <p className="fxh-text">
+        Los <strong>Fármacos Hipolipemiantes</strong> son fundamentales en la prevención cardiovascular.
+        La selección debe adaptarse al perfil lipídico y riesgo individual, siendo las estatinas el eje terapéutico.
       </p>
+
     </div>
   );
 }

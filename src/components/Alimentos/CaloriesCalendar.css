@@ -1,0 +1,122 @@
+.calories-calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calories-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* 🔥 CARD */
+.calories-card {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 🔥 LABEL */
+.calories-label {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* 🔥 INPUT */
+.calories-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* 🔥 MENSAJE */
+.calories-message {
+  margin-top: 1rem;
+  color: #ff6b6b;
+}
+
+/* 🔥 RESULTADO */
+.calories-result {
+  text-align: center;
+}
+
+/* 🔥 NÚMERO GRANDE */
+.calories-number {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* 🔥 BLOQUE COMIDAS */
+.calories-meals {
+  margin-top: 2rem;
+}
+
+.meal-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  font-size: 1.2rem;
+}
+
+.meal-row span:last-child {
+  font-weight: bold;
+}
+
+
+/* =========================
+   📱 MOBILE (hasta 600px)
+========================= */
+@media (max-width: 600px) {
+
+  .calories-container {
+    padding: 0 1rem;
+  }
+
+  .calories-label {
+    font-size: 1rem;
+  }
+
+  .calories-input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .calories-number {
+    font-size: 2.2rem;
+  }
+
+  .meal-row {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .meal-row span:last-child {
+    align-self: flex-end;
+  }
+}
+
+
+/* =========================
+   📲 TABLET (601px - 1024px)
+========================= */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .calories-container {
+    max-width: 90%;
+  }
+
+  .calories-number {
+    font-size: 2.5rem;
+  }
+
+  .meal-row {
+    font-size: 1.1rem;
+  }
+
+}

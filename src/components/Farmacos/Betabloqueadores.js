@@ -1,92 +1,99 @@
+import React, { useEffect } from "react";
+import "./Betabloqueadores.css";
 
-
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
- 
 function Betabloqueadores() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="ecnt-detail">
- 
-      <p className="p13">Betabloqueadores</p>
+    <div className="fxh-detail64">
 
-      <p className="p14">📌 Introducción</p>
-      <p className="p150">
-        Los <strong>Betabloqueadores</strong> son medicamentos que actúan bloqueando los receptores β-adrenérgicos, principalmente los β1 del corazón.
-        Disminuyen la frecuencia cardíaca, el gasto cardíaco y la presión arterial, siendo útiles en el tratamiento de enfermedades cardiovasculares como
-        la <strong>Hipertensión Arterial </strong>, la <strong>Angina de Pecho</strong> y la <strong>Insuficiencia Cardíaca</strong>.
+      <h1 className="fxh-title">
+        Betabloqueadores
+      </h1>
+
+      <h2 className="fxh-subtitle">📌 Introducción</h2>
+      <p className="fxh-text">
+        Los <strong>Betabloqueadores</strong> actúan bloqueando los receptores β-adrenérgicos,
+        principalmente los β1 cardíacos. Disminuyen la frecuencia cardíaca,
+        el gasto cardíaco y la presión arterial, siendo útiles en el tratamiento de
+        <strong> Hipertensión Arterial</strong>,
+        <strong> Angina de Pecho</strong> y
+        <strong> Insuficiencia Cardíaca</strong>.
       </p>
 
-      <p className="p14">🔬 Clasificación de Betabloqueadores</p>
-      <table style={{ width: '85%', borderCollapse: 'collapse', margin: '2rem auto' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f2f2f2' }}>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Tipo</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Ejemplos</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Características</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Cardioselectivos (β1)</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Atenolol, Metoprolol, Bisoprolol</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Mayor afinidad por receptores β1, menor riesgo de broncoconstricción</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>No selectivos</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Propranolol, Nadolol</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Bloquean β1 y β2, contraindicado en asma</td>
-          </tr>
-          <tr>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Con actividad vasodilatadora</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Carvedilol, Nebivolol</td>
-            <td style={{ border: '1px solid #ddd', padding: '8px' }}>Bloquean también receptores α1 o inducen liberación de NO</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 className="fxh-subtitle">🔬 Clasificación de Betabloqueadores</h2>
+      <div className="fxh-table-wrapper">
+        <table className="fxh-table">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Ejemplos</th>
+              <th>Características</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cardioselectivos (β1)</td>
+              <td>Atenolol, Metoprolol, Bisoprolol</td>
+              <td>Mayor afinidad por β1, menor riesgo de broncoconstricción</td>
+            </tr>
+            <tr>
+              <td>No selectivos</td>
+              <td>Propranolol, Nadolol</td>
+              <td>Bloquean β1 y β2, contraindicado en asma</td>
+            </tr>
+            <tr>
+              <td>Con actividad vasodilatadora</td>
+              <td>Carvedilol, Nebivolol</td>
+              <td>Bloqueo α1 o liberación de NO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p className="p14">💡 Indicaciones Terapéuticas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Hipertensión arterial (especialmente con comorbilidad cardiovascular).</li>
-        <li>Insuficiencia cardíaca con fracción de eyección reducida (carvedilol, bisoprolol).</li>
-        <li>Angina de pecho y post-infarto agudo de miocardio.</li>
+      <h2 className="fxh-subtitle">💡 Indicaciones Terapéuticas</h2>
+      <ul className="fxh-list">
+        <li>Hipertensión arterial.</li>
+        <li>Insuficiencia cardíaca con fracción de eyección reducida.</li>
+        <li>Angina de pecho y post-infarto.</li>
         <li>Taquiarritmias supraventriculares.</li>
-        <li>Migraña (profilaxis, especialmente propranolol).</li>
+        <li>Migraña (profilaxis).</li>
         <li>Temblor esencial y ansiedad situacional.</li>
       </ul>
 
-      <p className="p14">⚠️ Efectos Adversos Comunes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
+      <h2 className="fxh-subtitle">⚠️ Efectos Adversos Comunes</h2>
+      <ul className="fxh-list">
         <li>Bradicardia, hipotensión.</li>
         <li>Fatiga, mareos.</li>
         <li>Disfunción sexual.</li>
-        <li>Broncoconstricción (en no selectivos).</li>
-        <li>Depresión y alteraciones del sueño (en algunos pacientes).</li>
+        <li>Broncoconstricción (no selectivos).</li>
+        <li>Alteraciones del sueño o depresión.</li>
       </ul>
 
-      <p className="p14">🧠 Consideraciones Clínicas</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li>Evitar en pacientes con asma o EPOC (preferir cardioselectivos si es necesario).</li>
-        <li>No suspender bruscamente, puede desencadenar efecto rebote (crisis hipertensiva o angina).</li>
-        <li>En insuficiencia cardíaca deben iniciarse a dosis bajas y titular lentamente.</li>
-        <li>No recomendados como monoterapia en pacientes mayores sin enfermedad cardiovascular.</li>
+      <h2 className="fxh-subtitle">🧠 Consideraciones Clínicas</h2>
+      <ul className="fxh-list">
+        <li>Evitar en asma o EPOC (preferir cardioselectivos).</li>
+        <li>No suspender bruscamente (riesgo de efecto rebote).</li>
+        <li>Iniciar a dosis bajas en insuficiencia cardíaca.</li>
+        <li>No recomendados como monoterapia en mayores sin comorbilidad cardiovascular.</li>
       </ul>
 
-      <p className="p14">📦 Combinaciones Frecuentes</p>
-      <ul className="p150" style={{ listStyleType: 'disc' }}>
-        <li><strong>Betabloqueadores</strong> + IECA o ARA II en insuficiencia cardíaca.</li>
-        <li><strong>Betabloqueadores</strong> + calcioantagonista no dihidropiridínico (verapamilo o diltiazem) en arritmias (con precaución).</li>
-        <li><strong>Betabloqueadores</strong> + diurético tiazídico en hipertensión.</li>
+      <h2 className="fxh-subtitle">📦 Combinaciones Frecuentes</h2>
+      <ul className="fxh-list">
+        <li>Betabloqueador + IECA o ARA II.</li>
+        <li>Betabloqueador + calcioantagonista no dihidropiridínico (con precaución).</li>
+        <li>Betabloqueador + diurético tiazídico.</li>
       </ul>
 
-      <p className="p14">📚 Conclusión</p>
-      <p className="p150">
-        Los <strong>Betabloqueadores</strong> son fármacos versátiles y eficaces en múltiples patologías cardiovasculares. Su uso debe adaptarse a cada paciente, 
-        evaluando beneficios clínicos y posibles contraindicaciones, especialmente en patologías respiratorias o trastornos del ritmo.
+      <h2 className="fxh-subtitle">📚 Conclusión</h2>
+      <p className="fxh-text">
+        Los <strong>Betabloqueadores</strong> son fármacos versátiles y eficaces en múltiples
+        patologías cardiovasculares. Su uso debe adaptarse a cada paciente,
+        evaluando beneficios y posibles contraindicaciones.
       </p>
+
     </div>
   );
 }

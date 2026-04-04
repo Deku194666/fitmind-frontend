@@ -1,0 +1,119 @@
+/* LesionLigRodilla.css */
+
+.fxlr-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fxlr-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.fxlr-subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2980b9;
+  margin-left: 4rem;
+  margin-top: 3rem;
+}
+
+.fxlr-text {
+  font-size: 2.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 3rem 3rem 3rem;
+}
+
+.fxlr-list {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0 3rem 3rem 3rem;
+  list-style-type: disc;
+}
+
+.fxlr-table-wrapper {
+  overflow-x: auto;
+  margin-left: 3rem;
+  margin-bottom: 6rem;
+}
+
+.fxlr-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fxlr-table th,
+.fxlr-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.fxlr-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Flex layouts */
+.fxlr-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 3rem 5rem 3rem;
+}
+
+.fxlr-half {
+  width: 48%;
+}
+
+/* Responsive Tablets */
+@media screen and (max-width: 1024px) {
+  .fxlr-title {
+    font-size: 2.6rem;
+  }
+
+  .fxlr-subtitle {
+    font-size: 2.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fxlr-text,
+  .fxlr-list {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive Móviles */
+@media screen and (max-width: 768px) {
+  .fxlr-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .fxlr-subtitle {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+  .fxlr-text,
+  .fxlr-list {
+    font-size: 1.6rem;
+  }
+
+  .fxlr-table-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .fxlr-half {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
